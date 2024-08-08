@@ -70,4 +70,13 @@ class PagesController extends AppController
             throw new NotFoundException();
         }
     }
+
+    public function adminDashboard()
+    {
+        // Fetch data from a model
+        $users = $this->Users->find('all');
+
+        // Pass data to the view
+        $this->set('users', $users);
+    }
 }

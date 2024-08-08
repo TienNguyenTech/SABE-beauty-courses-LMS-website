@@ -59,7 +59,7 @@
                href="<?= $this->Url->build(['plugin' => null, 'controller' => 'Pages', 'action' => 'display', 'home']) ?>">
                 <i class="fas fa-fw fa-home"></i>
                 <span>Customer Homepage</span></a>
-            <a class="nav-link" href="<?= $this->Url->build(['controller'=>'Pages','action'=>'display','home']) ?>">
+            <a class="nav-link" href="<?= $this->Url->build(['controller'=>'Pages','action'=>'adminDashboard']) ?>">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Admin Dashboard</span></a>
         </li>
@@ -126,7 +126,7 @@
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Username here</span>
                             <?=$this->Html->image('undraw_profile.svg',['class'=>'img-profile rounded-circle'])?>
                         </a>
                         <!-- Dropdown - User Information -->
@@ -157,7 +157,7 @@
         <footer class="sticky-footer bg-white">
             <div class="container my-auto">
                 <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; Your Website 2021</span>
+                    <span>Copyright &copy; South Adelaide Beauty and Education 2024</span>
                 </div>
             </div>
         </footer>
