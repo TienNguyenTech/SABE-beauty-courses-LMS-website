@@ -5,31 +5,15 @@
  * @var string[]|\Cake\Collection\CollectionInterface $bookings
  */
 ?>
-<div class="row">
-    <aside class="column">
-        <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $payment->payment_id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $payment->payment_id), 'class' => 'side-nav-item']
-            ) ?>
-            <?= $this->Html->link(__('List Payments'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-        </div>
-    </aside>
-    <div class="column column-80">
-        <div class="payments form content">
-            <?= $this->Form->create($payment) ?>
-            <fieldset>
-                <legend><?= __('Edit Payment') ?></legend>
-                <?php
-                    echo $this->Form->control('payment_amount');
-                    echo $this->Form->control('payment_datetime');
-                    echo $this->Form->control('booking_id', ['options' => $bookings]);
-                ?>
-            </fieldset>
-            <?= $this->Form->button(__('Submit')) ?>
-            <?= $this->Form->end() ?>
-        </div>
-    </div>
-</div>
+
+<h1 class="h3 mb-2 text-gray-800">Edit payment</h1>
+<?= $this->Form->create($payment) ?>
+<?php
+echo $this->Form->control('payment_amount');
+echo $this->Form->control('payment_datetime');
+echo $this->Form->control('booking_id', ['options' => $bookings]);
+?>
+
+<?= $this->Form->button(__('Submit'),['class'=>'btn btn-primary']) ?>
+<?= $this->Form->end() ?>
+
