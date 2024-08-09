@@ -119,6 +119,45 @@
                     <i class="fa fa-bars"></i>
                 </button>
 
+                <?php
+                // Determine if the current page is an index page or the admin_dashboard page
+                $isIndexPage = $this->getRequest()->getParam('action') === 'index';
+                $isAdminDashboardPage = $this->getRequest()->getParam('controller') === 'Pages' && $this->getRequest()->getParam('action') === 'display';
+
+                // Define the URL for the admin dashboard page
+                $adminDashboardUrl = $this->Url->build(['controller' => 'Pages', 'action' => 'admin_dashboard']);
+
+                // Render the back button based on the page type
+                if(!$isAdminDashboardPage) {
+                    if(!$isIndexPage) {
+                        // If it's not an index page, render the back button
+                        echo $this->Html->tag(
+                            'button',
+                            $this->Html->tag('i', '', ['class' => 'fas fa-arrow-left']) . ' Return',
+                            ['onclick' => 'goBack()', 'class' => 'btn btn-secondary']
+                        );
+                    } elseif($isIndexPage) {
+                        // If it's an index page, return to the admin dashboard
+                        echo $this->Html->tag(
+                            'button',
+                            $this->Html->tag('i', '', ['class' => 'fas fa-arrow-left']) . ' Return',
+                            ['onclick' => 'returnToAdminDashboard()', 'class' => 'btn btn-secondary']
+                        );
+                    }
+                }
+                ?>
+                <script>
+                    // Function to navigate back
+                    function goBack() {
+                        window.history.back();
+                    }
+
+                    // Function to navigate back to the admin dashboard
+                    function returnToAdminDashboard() {
+                        window.location.href = '<?php echo $adminDashboardUrl; ?>';
+                    }
+                </script>
+
                 <!-- Topbar Navbar -->
                 <ul class="navbar-nav ml-auto">
 
