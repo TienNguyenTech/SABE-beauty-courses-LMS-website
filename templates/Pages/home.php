@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title> Home One || mellis || mellis HTML 5 Template </title>
+    <title> Homepage || SABE  </title>
     <!-- favicons Icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="TEMPLATE_FILES_SURYA/assets/images/favicons/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="TEMPLATE_FILES_SURYA/assets/images/favicons/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="TEMPLATE_FILES_SURYA/assets/images/favicons/favicon-16x16.png" />
     <link rel="manifest" href="TEMPLATE_FILES_SURYA/assets/images/favicons/site.webmanifest" />
-    <meta name="description" content="mellis HTML 5 Template " />
+    <meta name="description" content="South Adelaide Beauty And Education " />
 
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -455,7 +455,7 @@
                         <div class="section-title text-left">
                             <span class="section-title__tagline">What else we do</span>
                             <h2 class="section-title__title">Get An Incredible Spa
-                                Experience with Mellis
+                                Experience with SABE
                                 Spa Center</h2>
                         </div>
                         <div class="video-one__video-link">
@@ -1217,7 +1217,7 @@
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="site-footer__bottom-inner">
-                            <p class="site-footer__bottom-text">© Copyright 2023 by <a href="#">mellis.com</a></p>
+                            <p class="site-footer__bottom-text">© Copyright 2023 by <a href="#">SABE.com</a></p>
                             <ul class="list-unstyled site-footer__bottom-menu">
                                 <li><a href="#">Help</a></li>
                                 <li><a href="#">Privacy Policy</a></li>
@@ -1251,7 +1251,7 @@
         <ul class="mobile-nav__contact list-unstyled">
             <li>
                 <i class="fa fa-envelope"></i>
-                <a href="mailto:needhelp@packageName__.com">needhelp@mellis.com</a>
+                <a href="mailto:needhelp@packageName__.com">needhelp@SABE.com</a>
             </li>
             <li>
                 <i class="fa fa-phone-alt"></i>
