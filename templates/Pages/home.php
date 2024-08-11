@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title> Home One || mellis || mellis HTML 5 Template </title>
     <!-- favicons Icons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png" />
-    <link rel="manifest" href="assets/images/favicons/site.webmanifest" />
+    <link rel="apple-touch-icon" sizes="180x180" href="TEMPLATE_FILES_SURYA/assets/images/favicons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="TEMPLATE_FILES_SURYA/assets/images/favicons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="TEMPLATE_FILES_SURYA/assets/images/favicons/favicon-16x16.png" />
+    <link rel="manifest" href="TEMPLATE_FILES_SURYA/assets/images/favicons/site.webmanifest" />
     <meta name="description" content="mellis HTML 5 Template " />
 
     <!-- fonts -->
@@ -25,31 +25,31 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="assets/vendors/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="assets/vendors/animate/animate.min.css" />
-    <link rel="stylesheet" href="assets/vendors/animate/custom-animate.css" />
-    <link rel="stylesheet" href="assets/vendors/fontawesome/css/all.min.css" />
-    <link rel="stylesheet" href="assets/vendors/jarallax/jarallax.css" />
-    <link rel="stylesheet" href="assets/vendors/jquery-magnific-popup/jquery.magnific-popup.css" />
-    <link rel="stylesheet" href="assets/vendors/nouislider/nouislider.min.css" />
-    <link rel="stylesheet" href="assets/vendors/nouislider/nouislider.pips.css" />
-    <link rel="stylesheet" href="assets/vendors/odometer/odometer.min.css" />
-    <link rel="stylesheet" href="assets/vendors/swiper/swiper.min.css" />
-    <link rel="stylesheet" href="assets/vendors/mellis-icons/style.css">
-    <link rel="stylesheet" href="assets/vendors/tiny-slider/tiny-slider.min.css" />
-    <link rel="stylesheet" href="assets/vendors/reey-font/stylesheet.css" />
-    <link rel="stylesheet" href="assets/vendors/owl-carousel/owl.carousel.min.css" />
-    <link rel="stylesheet" href="assets/vendors/owl-carousel/owl.theme.default.min.css" />
-    <link rel="stylesheet" href="assets/vendors/bxslider/jquery.bxslider.css" />
-    <link rel="stylesheet" href="assets/vendors/bootstrap-select/css/bootstrap-select.min.css" />
-    <link rel="stylesheet" href="assets/vendors/vegas/vegas.min.css" />
-    <link rel="stylesheet" href="assets/vendors/jquery-ui/jquery-ui.css" />
-    <link rel="stylesheet" href="assets/vendors/timepicker/timePicker.css" />
-    <link rel="stylesheet" href="assets/vendors/twenty-twenty/twentytwenty.css" />
+    <link rel="stylesheet" href="TEMPLATE_FILES_SURYA/assets/vendors/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="TEMPLATE_FILES_SURYA/assets/vendors/animate/animate.min.css" />
+    <link rel="stylesheet" href="TEMPLATE_FILES_SURYA/assets/vendors/animate/custom-animate.css" />
+    <link rel="stylesheet" href="TEMPLATE_FILES_SURYA/assets/vendors/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="TEMPLATE_FILES_SURYA/assets/vendors/jarallax/jarallax.css" />
+    <link rel="stylesheet" href="TEMPLATE_FILES_SURYA/assets/vendors/jquery-magnific-popup/jquery.magnific-popup.css" />
+    <link rel="stylesheet" href="TEMPLATE_FILES_SURYA/assets/vendors/nouislider/nouislider.min.css" />
+    <link rel="stylesheet" href="TEMPLATE_FILES_SURYA/assets/vendors/nouislider/nouislider.pips.css" />
+    <link rel="stylesheet" href="TEMPLATE_FILES_SURYA/assets/vendors/odometer/odometer.min.css" />
+    <link rel="stylesheet" href="TEMPLATE_FILES_SURYA/assets/vendors/swiper/swiper.min.css" />
+    <link rel="stylesheet" href="TEMPLATE_FILES_SURYA/assets/vendors/mellis-icons/style.css">
+    <link rel="stylesheet" href="TEMPLATE_FILES_SURYA/assets/vendors/tiny-slider/tiny-slider.min.css" />
+    <link rel="stylesheet" href="TEMPLATE_FILES_SURYA/assets/vendors/reey-font/stylesheet.css" />
+    <link rel="stylesheet" href="TEMPLATE_FILES_SURYA/assets/vendors/owl-carousel/owl.carousel.min.css" />
+    <link rel="stylesheet" href="TEMPLATE_FILES_SURYA/assets/vendors/owl-carousel/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="TEMPLATE_FILES_SURYA/assets/vendors/bxslider/jquery.bxslider.css" />
+    <link rel="stylesheet" href="TEMPLATE_FILES_SURYA/assets/vendors/bootstrap-select/css/bootstrap-select.min.css" />
+    <link rel="stylesheet" href="TEMPLATE_FILES_SURYA/assets/vendors/vegas/vegas.min.css" />
+    <link rel="stylesheet" href="TEMPLATE_FILES_SURYA/assets/vendors/jquery-ui/jquery-ui.css" />
+    <link rel="stylesheet" href="TEMPLATE_FILES_SURYA/assets/vendors/timepicker/timePicker.css" />
+    <link rel="stylesheet" href="TEMPLATE_FILES_SURYA/TEMPLATE_FILES_SURYA/assets/vendors/twenty-twenty/twentytwenty.css" />
 
     <!-- template styles -->
-    <link rel="stylesheet" href="assets/css/mellis.css" />
-    <link rel="stylesheet" href="assets/css/mellis-responsive.css" />
+    <link rel="stylesheet" href="TEMPLATE_FILES_SURYA/assets/css/mellis.css" />
+    <link rel="stylesheet" href="TEMPLATE_FILES_SURYA/assets/css/mellis-responsive.css" />
 </head>
 
 <body>
@@ -109,7 +109,7 @@
                 <div class="main-menu__wrapper-inner">
                     <div class="main-menu__left">
                         <div class="main-menu__logo">
-                            <a href="index.html"><img src="assets/images/resources/logo-1.png" alt=""></a>
+                            <a href="index.html"><img src="TEMPLATE_FILES_SURYA/assets/images/resources/logo-1.png" alt=""></a>
                         </div>
                     </div>
                     <div class="main-menu__main-menu-box">
@@ -207,7 +207,7 @@
 
                 <div class="swiper-slide">
                     <div class="image-layer"
-                         style="background-image: url(assets/images/backgrounds/main-slider-1-1.jpg);"></div>
+                         style="background-image: url(TEMPLATE_FILES_SURYA/assets/images/backgrounds/main-slider-1-1.jpg);"></div>
                     <!-- /.image-layer -->
 
                     <div class="container">
@@ -215,7 +215,7 @@
                             <div class="col-xl-12">
                                 <div class="main-slider__content">
                                     <div class="main-slider__icon">
-                                        <img src="assets/images/icon/main-slider-icon-1.png" alt="">
+                                        <img src="TEMPLATE_FILES_SURYA/assets/images/icon/main-slider-icon-1.png" alt="">
                                     </div>
                                     <p class="main-slider__sub-title">ideal place to unwind</p>
                                     <h2 class="main-slider__title">Spa Beauty</h2>
@@ -230,7 +230,7 @@
 
                 <div class="swiper-slide">
                     <div class="image-layer"
-                         style="background-image: url(assets/images/backgrounds/main-slider-1-2.jpg);"></div>
+                         style="background-image: url(TEMPLATE_FILES_SURYA/assets/images/backgrounds/main-slider-1-2.jpg);"></div>
                     <!-- /.image-layer -->
 
                     <div class="container">
@@ -238,7 +238,7 @@
                             <div class="col-xl-12">
                                 <div class="main-slider__content">
                                     <div class="main-slider__icon">
-                                        <img src="assets/images/icon/main-slider-icon-1.png" alt="">
+                                        <img src="TEMPLATE_FILES_SURYA/assets/images/icon/main-slider-icon-1.png" alt="">
                                     </div>
                                     <p class="main-slider__sub-title">ideal place to unwind</p>
                                     <h2 class="main-slider__title">Spa Beauty</h2>
@@ -253,7 +253,7 @@
 
                 <div class="swiper-slide">
                     <div class="image-layer"
-                         style="background-image: url(assets/images/backgrounds/main-slider-1-3.jpg);"></div>
+                         style="background-image: url(TEMPLATE_FILES_SURYA/assets/images/backgrounds/main-slider-1-3.jpg);"></div>
                     <!-- /.image-layer -->
 
                     <div class="container">
@@ -261,7 +261,7 @@
                             <div class="col-xl-12">
                                 <div class="main-slider__content">
                                     <div class="main-slider__icon">
-                                        <img src="assets/images/icon/main-slider-icon-1.png" alt="">
+                                        <img src="TEMPLATE_FILES_SURYA/assets/images/icon/main-slider-icon-1.png" alt="">
                                     </div>
                                     <p class="main-slider__sub-title">ideal place to unwind</p>
                                     <h2 class="main-slider__title">Spa Beauty</h2>
@@ -294,9 +294,9 @@
                         <div class="welcome-one__img-box wow slideInLeft" data-wow-delay="100ms"
                              data-wow-duration="2500ms">
                             <div class="welcome-one__img">
-                                <img src="assets/images/resources/welcome-one-img-1.jpg" alt="">
+                                <img src="TEMPLATE_FILES_SURYA/assets/images/resources/welcome-one-img-1.jpg" alt="">
                                 <div class="welcome-one__shape-1 float-bob-y">
-                                    <img src="assets/images/shapes/welcome-one-shape-1.png" alt="">
+                                    <img src="TEMPLATE_FILES_SURYA/assets/images/shapes/welcome-one-shape-1.png" alt="">
                                 </div>
                             </div>
                         </div>
@@ -357,14 +357,14 @@
                     <div class="services-one__single">
                         <div class="services-one__single-inner">
                             <div class="services-one__shape-1">
-                                <img src="assets/images/shapes/services-one-shape-1.png" alt="">
+                                <img src="TEMPLATE_FILES_SURYA/assets/images/shapes/services-one-shape-1.png" alt="">
                             </div>
                             <div class="services-one__shape-2">
-                                <img src="assets/images/shapes/services-one-shape-2.png" alt="">
+                                <img src="TEMPLATE_FILES_SURYA/assets/images/shapes/services-one-shape-2.png" alt="">
                             </div>
                             <div class="services-one__img-box">
                                 <div class="services-one__img">
-                                    <img src="assets/images/services/services-1-1.jpg" alt="">
+                                    <img src="TEMPLATE_FILES_SURYA/assets/images/services/services-1-1.jpg" alt="">
                                 </div>
                                 <div class="services-one__icon">
                                     <span class="icon-facial-mask"></span>
@@ -386,14 +386,14 @@
                     <div class="services-one__single">
                         <div class="services-one__single-inner">
                             <div class="services-one__shape-1">
-                                <img src="assets/images/shapes/services-one-shape-1.png" alt="">
+                                <img src="TEMPLATE_FILES_SURYA/assets/images/shapes/services-one-shape-1.png" alt="">
                             </div>
                             <div class="services-one__shape-2">
-                                <img src="assets/images/shapes/services-one-shape-2.png" alt="">
+                                <img src="TEMPLATE_FILES_SURYA/assets/images/shapes/services-one-shape-2.png" alt="">
                             </div>
                             <div class="services-one__img-box">
                                 <div class="services-one__img">
-                                    <img src="assets/images/services/services-1-2.jpg" alt="">
+                                    <img src="TEMPLATE_FILES_SURYA/assets/images/services/services-1-2.jpg" alt="">
                                 </div>
                                 <div class="services-one__icon">
                                     <span class="icon-massage"></span>
@@ -415,14 +415,14 @@
                     <div class="services-one__single">
                         <div class="services-one__single-inner">
                             <div class="services-one__shape-1">
-                                <img src="assets/images/shapes/services-one-shape-1.png" alt="">
+                                <img src="TEMPLATE_FILES_SURYA/assets/images/shapes/services-one-shape-1.png" alt="">
                             </div>
                             <div class="services-one__shape-2">
-                                <img src="assets/images/shapes/services-one-shape-2.png" alt="">
+                                <img src="TEMPLATE_FILES_SURYA/assets/images/shapes/services-one-shape-2.png" alt="">
                             </div>
                             <div class="services-one__img-box">
                                 <div class="services-one__img">
-                                    <img src="assets/images/services/services-1-3.jpg" alt="">
+                                    <img src="TEMPLATE_FILES_SURYA/assets/images/services/services-1-3.jpg" alt="">
                                 </div>
                                 <div class="services-one__icon">
                                     <span class="icon-lotus"></span>
@@ -447,7 +447,7 @@
     <!--Video One Start-->
     <section class="video-one">
         <div class="video-one__bg jarallax" data-jarallax data-speed="0.2" data-imgPosition="50% 0%"
-             style="background-image: url(assets/images/backgrounds/video-one-bg.jpg);"></div>
+             style="background-image: url(TEMPLATE_FILES_SURYA/assets/images/backgrounds/video-one-bg.jpg);"></div>
         <div class="container">
             <div class="row">
                 <div class="col-xl-6 col-lg-6">
@@ -550,7 +550,7 @@
     <!--Counter One Start-->
     <section class="counter-one">
         <div class="counter-one__bg jarallax" data-jarallax data-speed="0.2" data-imgPosition="50% 0%"
-             style="background-image: url(assets/images/backgrounds/counter-one-bg.jpg);">
+             style="background-image: url(TEMPLATE_FILES_SURYA/assets/images/backgrounds/counter-one-bg.jpg);">
         </div>
         <div class="container">
             <div class="row">
@@ -634,7 +634,7 @@
                         <div class="process-one__single">
                             <div class="process-one__img-box">
                                 <div class="process-one__img">
-                                    <img src="assets/images/resources/process-1-1.jpg" alt="">
+                                    <img src="TEMPLATE_FILES_SURYA/assets/images/resources/process-1-1.jpg" alt="">
                                 </div>
                                 <div class="process-one__count"></div>
                             </div>
@@ -650,7 +650,7 @@
                         <div class="process-one__single">
                             <div class="process-one__img-box">
                                 <div class="process-one__img">
-                                    <img src="assets/images/resources/process-1-2.jpg" alt="">
+                                    <img src="TEMPLATE_FILES_SURYA/assets/images/resources/process-1-2.jpg" alt="">
                                 </div>
                                 <div class="process-one__count"></div>
                             </div>
@@ -666,7 +666,7 @@
                         <div class="process-one__single">
                             <div class="process-one__img-box">
                                 <div class="process-one__img">
-                                    <img src="assets/images/resources/process-1-3.jpg" alt="">
+                                    <img src="TEMPLATE_FILES_SURYA/assets/images/resources/process-1-3.jpg" alt="">
                                 </div>
                                 <div class="process-one__count"></div>
                             </div>
@@ -687,7 +687,7 @@
     <section class="testimonial-one">
         <div class="testimonial-one__bg-box">
             <div class="testimonial-one__bg"
-                 style="background-image: url(assets/images/backgrounds/testimonial-one-bg.jpg);"></div>
+                 style="background-image: url(TEMPLATE_FILES_SURYA/assets/images/backgrounds/testimonial-one-bg.jpg);"></div>
         </div>
         <div class="container">
             <div class="testimonial-one__top">
@@ -740,7 +740,7 @@
                     <div class="item">
                         <div class="testimonial-one__single">
                             <div class="testimonial-one__icon-quote">
-                                <img src="assets/images/icon/icon-quote.png" alt="">
+                                <img src="TEMPLATE_FILES_SURYA/assets/images/icon/icon-quote.png" alt="">
                             </div>
                             <div class="testimonial-one__single-inner">
                                 <div class="testimonial-one__rating">
@@ -754,7 +754,7 @@
                                     ipsum is simply free text used by copytyping.</p>
                                 <div class="testimonial-one__client-info">
                                     <div class="testimonial-one__client-img">
-                                        <img src="assets/images/testimonial/testimonial-1-1.jpg" alt="">
+                                        <img src="TEMPLATE_FILES_SURYA/assets/images/testimonial/testimonial-1-1.jpg" alt="">
                                     </div>
                                     <div class="testimonial-one__content">
                                         <h3 class="testimonial-one__client-name">Edna Marxten</h3>
@@ -769,7 +769,7 @@
                     <div class="item">
                         <div class="testimonial-one__single">
                             <div class="testimonial-one__icon-quote">
-                                <img src="assets/images/icon/icon-quote.png" alt="">
+                                <img src="TEMPLATE_FILES_SURYA/assets/images/icon/icon-quote.png" alt="">
                             </div>
                             <div class="testimonial-one__single-inner">
                                 <div class="testimonial-one__rating">
@@ -783,7 +783,7 @@
                                     ipsum is simply free text used by copytyping.</p>
                                 <div class="testimonial-one__client-info">
                                     <div class="testimonial-one__client-img">
-                                        <img src="assets/images/testimonial/testimonial-1-2.jpg" alt="">
+                                        <img src="TEMPLATE_FILES_SURYA/assets/images/testimonial/testimonial-1-2.jpg" alt="">
                                     </div>
                                     <div class="testimonial-one__content">
                                         <h3 class="testimonial-one__client-name">Mike Hardson</h3>
@@ -798,7 +798,7 @@
                     <div class="item">
                         <div class="testimonial-one__single">
                             <div class="testimonial-one__icon-quote">
-                                <img src="assets/images/icon/icon-quote.png" alt="">
+                                <img src="TEMPLATE_FILES_SURYA/assets/images/icon/icon-quote.png" alt="">
                             </div>
                             <div class="testimonial-one__single-inner">
                                 <div class="testimonial-one__rating">
@@ -812,7 +812,7 @@
                                     ipsum is simply free text used by copytyping.</p>
                                 <div class="testimonial-one__client-info">
                                     <div class="testimonial-one__client-img">
-                                        <img src="assets/images/testimonial/testimonial-1-3.jpg" alt="">
+                                        <img src="TEMPLATE_FILES_SURYA/assets/images/testimonial/testimonial-1-3.jpg" alt="">
                                     </div>
                                     <div class="testimonial-one__content">
                                         <h3 class="testimonial-one__client-name">Jessica Brown</h3>
@@ -840,7 +840,7 @@
                 <div class="col-xl-2 col-lg-4 col-md-6">
                     <div class="instagram__single">
                         <div class="instagram__img">
-                            <img src="assets/images/resources/instagram-1-1.jpg" alt="">
+                            <img src="TEMPLATE_FILES_SURYA/assets/images/resources/instagram-1-1.jpg" alt="">
                             <div class="instagram__img-icon">
                                 <a href="#"><span class="fab fa-instagram"></span></a>
                             </div>
@@ -852,7 +852,7 @@
                 <div class="col-xl-2 col-lg-4 col-md-6">
                     <div class="instagram__single">
                         <div class="instagram__img">
-                            <img src="assets/images/resources/instagram-1-2.jpg" alt="">
+                            <img src="TEMPLATE_FILES_SURYA/assets/images/resources/instagram-1-2.jpg" alt="">
                             <div class="instagram__img-icon">
                                 <a href="#"><span class="fab fa-instagram"></span></a>
                             </div>
@@ -864,7 +864,7 @@
                 <div class="col-xl-2 col-lg-4 col-md-6">
                     <div class="instagram__single">
                         <div class="instagram__img">
-                            <img src="assets/images/resources/instagram-1-3.jpg" alt="">
+                            <img src="TEMPLATE_FILES_SURYA/assets/images/resources/instagram-1-3.jpg" alt="">
                             <div class="instagram__img-icon">
                                 <a href="#"><span class="fab fa-instagram"></span></a>
                             </div>
@@ -876,7 +876,7 @@
                 <div class="col-xl-2 col-lg-4 col-md-6">
                     <div class="instagram__single">
                         <div class="instagram__img">
-                            <img src="assets/images/resources/instagram-1-4.jpg" alt="">
+                            <img src="TEMPLATE_FILES_SURYA/assets/images/resources/instagram-1-4.jpg" alt="">
                             <div class="instagram__img-icon">
                                 <a href="#"><span class="fab fa-instagram"></span></a>
                             </div>
@@ -888,7 +888,7 @@
                 <div class="col-xl-2 col-lg-4 col-md-6">
                     <div class="instagram__single">
                         <div class="instagram__img">
-                            <img src="assets/images/resources/instagram-1-5.jpg" alt="">
+                            <img src="TEMPLATE_FILES_SURYA/assets/images/resources/instagram-1-5.jpg" alt="">
                             <div class="instagram__img-icon">
                                 <a href="#"><span class="fab fa-instagram"></span></a>
                             </div>
@@ -900,7 +900,7 @@
                 <div class="col-xl-2 col-lg-4 col-md-6">
                     <div class="instagram__single">
                         <div class="instagram__img">
-                            <img src="assets/images/resources/instagram-1-6.jpg" alt="">
+                            <img src="TEMPLATE_FILES_SURYA/assets/images/resources/instagram-1-6.jpg" alt="">
                             <div class="instagram__img-icon">
                                 <a href="#"><span class="fab fa-instagram"></span></a>
                             </div>
@@ -916,13 +916,13 @@
     <!--Spa Center Start-->
     <section class="spa-center">
         <div class="spa-center__bg jarallax" data-jarallax data-speed="0.2" data-imgPosition="50% 0%"
-             style="background-image: url(assets/images/backgrounds/spa-center-bg.jpg);">
+             style="background-image: url(TEMPLATE_FILES_SURYA/assets/images/backgrounds/spa-center-bg.jpg);">
         </div>
         <div class="spa-center__inner">
             <div class="container">
                 <div class="spa-center__content text-center">
                     <div class="spa-center__img">
-                        <img src="assets/images/resources/spa-center-img-1.png" alt="">
+                        <img src="TEMPLATE_FILES_SURYA/assets/images/resources/spa-center-img-1.png" alt="">
                     </div>
                     <h3 class="spa-center__title">Our Spa Center is the
                         <br> True Splendor</h3>
@@ -980,7 +980,7 @@
                 <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="100ms">
                     <div class="blog-one__single">
                         <div class="blog-one__img">
-                            <img src="assets/images/blog/blog-1-1.jpg" alt="">
+                            <img src="TEMPLATE_FILES_SURYA/assets/images/blog/blog-1-1.jpg" alt="">
                         </div>
                         <div class="blog-one__content">
                             <div class="blog-one__date">
@@ -1009,7 +1009,7 @@
                 <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms">
                     <div class="blog-one__single">
                         <div class="blog-one__img">
-                            <img src="assets/images/blog/blog-1-2.jpg" alt="">
+                            <img src="TEMPLATE_FILES_SURYA/assets/images/blog/blog-1-2.jpg" alt="">
                         </div>
                         <div class="blog-one__content">
                             <div class="blog-one__date">
@@ -1038,7 +1038,7 @@
                 <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="300ms">
                     <div class="blog-one__single">
                         <div class="blog-one__img">
-                            <img src="assets/images/blog/blog-1-3.jpg" alt="">
+                            <img src="TEMPLATE_FILES_SURYA/assets/images/blog/blog-1-3.jpg" alt="">
                         </div>
                         <div class="blog-one__content">
                             <div class="blog-one__date">
@@ -1071,7 +1071,7 @@
     <!--Brand One Start-->
     <section class="brand-one">
         <div class="brand-one__shape-1 float-bob-x">
-            <img src="assets/images/shapes/brand-one-shape-1.png" alt="">
+            <img src="TEMPLATE_FILES_SURYA/assets/images/shapes/brand-one-shape-1.png" alt="">
         </div>
         <div class="container">
             <div class="thm-swiper__slider swiper-container" data-swiper-options='{"spaceBetween": 100,
@@ -1110,34 +1110,34 @@
                 }}'>
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <img src="assets/images/brand/brand-1-1.png" alt="">
+                        <img src="TEMPLATE_FILES_SURYA/assets/images/brand/brand-1-1.png" alt="">
                     </div><!-- /.swiper-slide -->
                     <div class="swiper-slide">
-                        <img src="assets/images/brand/brand-1-2.png" alt="">
+                        <img src="TEMPLATE_FILES_SURYA/assets/images/brand/brand-1-2.png" alt="">
                     </div><!-- /.swiper-slide -->
                     <div class="swiper-slide">
-                        <img src="assets/images/brand/brand-1-3.png" alt="">
+                        <img src="TEMPLATE_FILES_SURYA/assets/images/brand/brand-1-3.png" alt="">
                     </div><!-- /.swiper-slide -->
                     <div class="swiper-slide">
-                        <img src="assets/images/brand/brand-1-4.png" alt="">
+                        <img src="TEMPLATE_FILES_SURYA/assets/images/brand/brand-1-4.png" alt="">
                     </div><!-- /.swiper-slide -->
                     <div class="swiper-slide">
-                        <img src="assets/images/brand/brand-1-5.png" alt="">
+                        <img src="TEMPLATE_FILES_SURYA/assets/images/brand/brand-1-5.png" alt="">
                     </div><!-- /.swiper-slide -->
                     <div class="swiper-slide">
-                        <img src="assets/images/brand/brand-1-1.png" alt="">
+                        <img src="TEMPLATE_FILES_SURYA/assets/images/brand/brand-1-1.png" alt="">
                     </div><!-- /.swiper-slide -->
                     <div class="swiper-slide">
-                        <img src="assets/images/brand/brand-1-2.png" alt="">
+                        <img src="TEMPLATE_FILES_SURYA/assets/images/brand/brand-1-2.png" alt="">
                     </div><!-- /.swiper-slide -->
                     <div class="swiper-slide">
-                        <img src="assets/images/brand/brand-1-3.png" alt="">
+                        <img src="TEMPLATE_FILES_SURYA/assets/images/brand/brand-1-3.png" alt="">
                     </div><!-- /.swiper-slide -->
                     <div class="swiper-slide">
-                        <img src="assets/images/brand/brand-1-4.png" alt="">
+                        <img src="TEMPLATE_FILES_SURYA/assets/images/brand/brand-1-4.png" alt="">
                     </div><!-- /.swiper-slide -->
                     <div class="swiper-slide">
-                        <img src="assets/images/brand/brand-1-5.png" alt="">
+                        <img src="TEMPLATE_FILES_SURYA/assets/images/brand/brand-1-5.png" alt="">
                     </div><!-- /.swiper-slide -->
                 </div>
             </div>
@@ -1148,10 +1148,10 @@
     <!--Site Footer Start-->
     <footer class="site-footer">
         <div class="site-footer__shape-1 float-bob-x">
-            <img src="assets/images/shapes/site-footer-shape-1.png" alt="">
+            <img src="TEMPLATE_FILES_SURYA/assets/images/shapes/site-footer-shape-1.png" alt="">
         </div>
         <div class="site-footer__shape-2 float-bob-y">
-            <img src="assets/images/shapes/site-footer-shape-2.png" alt="">
+            <img src="TEMPLATE_FILES_SURYA/assets/images/shapes/site-footer-shape-2.png" alt="">
         </div>
         <div class="container">
             <div class="site-footer__top">
@@ -1168,7 +1168,7 @@
                                     <div class="footer-widget__contact-form-input-box">
                                         <input type="email" placeholder="Email address" name="EMAIL">
                                         <button type="submit" class="footer-widget__newsletter-btn"><img
-                                                src="assets/images/icon/paper-plan-icon.png" alt=""></button>
+                                                src="TEMPLATE_FILES_SURYA/assets/images/icon/paper-plan-icon.png" alt=""></button>
                                     </div>
                                 </form>
                                 <div class="mc-form__response"></div>
@@ -1241,7 +1241,7 @@
         <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
 
         <div class="logo-box">
-            <a href="index.html" aria-label="logo image"><img src="assets/images/resources/logo-3.png" width="90"
+            <a href="index.html" aria-label="logo image"><img src="TEMPLATE_FILES_SURYA/assets/images/resources/logo-3.png" width="90"
                                                               alt="" /></a>
         </div>
         <!-- /.logo-box -->
@@ -1293,39 +1293,39 @@
 <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="fa fa-angle-up"></i></a>
 
 
-<script src="assets/vendors/jquery/jquery-3.6.0.min.js"></script>
-<script src="assets/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="assets/vendors/jarallax/jarallax.min.js"></script>
-<script src="assets/vendors/jquery-ajaxchimp/jquery.ajaxchimp.min.js"></script>
-<script src="assets/vendors/jquery-appear/jquery.appear.min.js"></script>
-<script src="assets/vendors/jquery-circle-progress/jquery.circle-progress.min.js"></script>
-<script src="assets/vendors/jquery-magnific-popup/jquery.magnific-popup.min.js"></script>
-<script src="assets/vendors/jquery-validate/jquery.validate.min.js"></script>
-<script src="assets/vendors/nouislider/nouislider.min.js"></script>
-<script src="assets/vendors/odometer/odometer.min.js"></script>
-<script src="assets/vendors/swiper/swiper.min.js"></script>
-<script src="assets/vendors/tiny-slider/tiny-slider.min.js"></script>
-<script src="assets/vendors/wnumb/wNumb.min.js"></script>
-<script src="assets/vendors/wow/wow.js"></script>
-<script src="assets/vendors/isotope/isotope.js"></script>
-<script src="assets/vendors/countdown/countdown.min.js"></script>
-<script src="assets/vendors/owl-carousel/owl.carousel.min.js"></script>
-<script src="assets/vendors/bxslider/jquery.bxslider.min.js"></script>
-<script src="assets/vendors/bootstrap-select/js/bootstrap-select.min.js"></script>
-<script src="assets/vendors/vegas/vegas.min.js"></script>
-<script src="assets/vendors/jquery-ui/jquery-ui.js"></script>
-<script src="assets/vendors/timepicker/timePicker.js"></script>
-<script src="assets/vendors/circleType/jquery.circleType.js"></script>
-<script src="assets/vendors/circleType/jquery.lettering.min.js"></script>
-<script src="assets/vendors/sidebar-content/jquery-sidebar-content.js"></script>
-<script src="assets/vendors/twenty-twenty/twentytwenty.js"></script>
-<script src="assets/vendors/twenty-twenty/jquery.event.move.js"></script>
+<script src="TEMPLATE_FILES_SURYA/assets/vendors/jquery/jquery-3.6.0.min.js"></script>
+<script src="TEMPLATE_FILES_SURYA/assets/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="TEMPLATE_FILES_SURYA/assets/vendors/jarallax/jarallax.min.js"></script>
+<script src="TEMPLATE_FILES_SURYA/assets/vendors/jquery-ajaxchimp/jquery.ajaxchimp.min.js"></script>
+<script src="TEMPLATE_FILES_SURYA/assets/vendors/jquery-appear/jquery.appear.min.js"></script>
+<script src="TEMPLATE_FILES_SURYA/assets/vendors/jquery-circle-progress/jquery.circle-progress.min.js"></script>
+<script src="TEMPLATE_FILES_SURYA/assets/vendors/jquery-magnific-popup/jquery.magnific-popup.min.js"></script>
+<script src="TEMPLATE_FILES_SURYA/assets/vendors/jquery-validate/jquery.validate.min.js"></script>
+<script src="TEMPLATE_FILES_SURYA/assets/vendors/nouislider/nouislider.min.js"></script>
+<script src="TEMPLATE_FILES_SURYA/assets/vendors/odometer/odometer.min.js"></script>
+<script src="TEMPLATE_FILES_SURYA/assets/vendors/swiper/swiper.min.js"></script>
+<script src="TEMPLATE_FILES_SURYA/assets/vendors/tiny-slider/tiny-slider.min.js"></script>
+<script src="TEMPLATE_FILES_SURYA/assets/vendors/wnumb/wNumb.min.js"></script>
+<script src="TEMPLATE_FILES_SURYA/assets/vendors/wow/wow.js"></script>
+<script src="TEMPLATE_FILES_SURYA/assets/vendors/isotope/isotope.js"></script>
+<script src="TEMPLATE_FILES_SURYA/assets/vendors/countdown/countdown.min.js"></script>
+<script src="TEMPLATE_FILES_SURYA/assets/vendors/owl-carousel/owl.carousel.min.js"></script>
+<script src="TEMPLATE_FILES_SURYA/assets/vendors/bxslider/jquery.bxslider.min.js"></script>
+<script src="TEMPLATE_FILES_SURYA/assets/vendors/bootstrap-select/js/bootstrap-select.min.js"></script>
+<script src="TEMPLATE_FILES_SURYA/assets/vendors/vegas/vegas.min.js"></script>
+<script src="TEMPLATE_FILES_SURYA/assets/vendors/jquery-ui/jquery-ui.js"></script>
+<script src="TEMPLATE_FILES_SURYA/assets/vendors/timepicker/timePicker.js"></script>
+<script src="TEMPLATE_FILES_SURYA/assets/vendors/circleType/jquery.circleType.js"></script>
+<script src="TEMPLATE_FILES_SURYA/assets/vendors/circleType/jquery.lettering.min.js"></script>
+<script src="TEMPLATE_FILES_SURYA/assets/vendors/sidebar-content/jquery-sidebar-content.js"></script>
+<script src="TEMPLATE_FILES_SURYA/assets/vendors/twenty-twenty/twentytwenty.js"></script>
+<script src="TEMPLATE_FILES_SURYA/assets/vendors/twenty-twenty/jquery.event.move.js"></script>
 
 
 
 
 <!-- template js -->
-<script src="assets/js//mellis.js"></script>
+<script src="TEMPLATE_FILES_SURYA/assets/js//mellis.js"></script>
 </body>
 
 </html>
