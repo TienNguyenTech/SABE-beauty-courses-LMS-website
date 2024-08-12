@@ -270,7 +270,7 @@
                     <div class="product-image">
                         <a href="single-product.html"><img src="assets/img/products/product-img-3.jpg" alt=""></a>
                     </div>
-                    <h3>Lemon</h3>
+                    <h3>Waxing Essentials</h3>
                     <p class="product-price"><span>Per Kg</span> 35$ </p>
                     <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
                 </div>
