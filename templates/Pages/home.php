@@ -199,8 +199,8 @@
                         <i class="fas fa-shipping-fast"></i>
                     </div>
                     <div class="content">
-                        <h3>Free Shipping</h3>
-                        <p>When order over $75</p>
+                        <h3>Expert Instructors</h3>
+                        <p>Learn from seasoned professionals in the industry. </p>
                     </div>
                 </div>
             </div>
@@ -210,8 +210,8 @@
                         <i class="fas fa-phone-volume"></i>
                     </div>
                     <div class="content">
-                        <h3>24/7 Support</h3>
-                        <p>Get support all day</p>
+                        <h3>Flexible Schedules</h3>
+                        <p>Day, evening, and weekend classes available.</p>
                     </div>
                 </div>
             </div>
@@ -221,8 +221,8 @@
                         <i class="fas fa-sync"></i>
                     </div>
                     <div class="content">
-                        <h3>Refund</h3>
-                        <p>Get refund within 3 days!</p>
+                        <h3>Comprehensive Curriculum</h3>
+                        <p>Covering all aspects of cosmetology, from basics to advanced techniques.</p>
                     </div>
                 </div>
             </div>
