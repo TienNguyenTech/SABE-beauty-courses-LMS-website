@@ -48,5 +48,6 @@ class AppView extends View
         'selectMultiple' => '<select name="{{name}}[]" multiple="multiple" class="form-control"{{attrs}}>{{content}}</select>',
     ];
         $this->Form->setTemplates($formTemplate);
+        $this->loadHelper('ContentBlocks.ContentBlock');
     }
 }
