@@ -32,6 +32,11 @@
     <link rel="stylesheet" href="assets/css/responsive.css">
 
 </head>
+<style>
+    body {
+        background-color: #ADBC9F; /* Light green background color for the entire page */
+    }
+</style>
 <body>
 
 <!--PreLoader-->
@@ -251,7 +256,7 @@
                         <a href="single-product.html"><img src="assets/img/products/product-img-1.jpg" alt=""></a>
                     </div>
                     <h3>Back to Basics: Facials</h3>
-                    <p class="product-price"><span>Learn the Fundamentals<br> of performing Facials</span> 85$ </p>
+                    <p class="product-price"><span>Learn the Fundamentals<br> of performing Facials</span> 199$ </p>
                     <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
                 </div>
             </div>
@@ -260,8 +265,8 @@
                     <div class="product-image">
                         <a href="single-product.html"><img src="assets/img/products/product-img-2.jpg" alt=""></a>
                     </div>
-                    <h3>Back to Basics: Lash and Brow </h3>
-                    <p class="product-price"><span>Master the techniques needed <br> to elevate your lash and brow artistry </span> 70$ </p>
+                    <h3>Back to Basics: Lash & Brow </h3>
+                    <p class="product-price"><span>Master the techniques needed <br> to elevate your lash and brow artistry </span> 199$ </p>
                     <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
                 </div>
             </div>
@@ -270,8 +275,8 @@
                     <div class="product-image">
                         <a href="single-product.html"><img src="assets/img/products/product-img-3.jpg" alt=""></a>
                     </div>
-                    <h3>Waxing Essentials</h3>
-                    <p class="product-price"><span>Per Kg</span> 35$ </p>
+                    <h3>Total Care: Waxing Essentials</h3>
+                    <p class="product-price"><span>Become a skilled waxing professional</span> 499$ </p>
                     <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
                 </div>
             </div>
@@ -280,19 +285,19 @@
         <!-- CSS -->
         <style>
             .product-image {
-                width: 100%; /* Ensures the container takes the full width of the column */
-                padding-top: 100%; /* Creates a square aspect ratio (height = width) */
-                position: relative; /* Allows absolute positioning of the image */
-                overflow: hidden; /* Ensures any overflow is hidden */
+                width: 100%;
+                padding-top: 100%;
+                position: relative;
+                overflow: hidden;
             }
 
             .product-image img {
-                position: absolute; /* Positions the image absolutely within the container */
+                position: absolute;
                 top: 0;
                 left: 0;
-                width: 100%; /* Makes the image fill the container */
-                height: 100%; /* Ensures the image covers the container */
-                object-fit: cover; /* Ensures the image covers the container without distortion */
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
             }
         </style>
 
