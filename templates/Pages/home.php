@@ -238,20 +238,20 @@
         <div class="row">
             <div class="col-lg-8 offset-lg-2 text-center">
                 <div class="section-title">
-                    <h3><span class="orange-text">Our</span> Products</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet beatae optio.</p>
+                    <h3><span class="orange-text">Our</span> Programs</h3>
+                    <p>Explore our diverse range of programs designed to elevate your skills and prepare you for a successful career in the beauty industry.</p>
                 </div>
             </div>
         </div>
-
+        <!-- HTML -->
         <div class="row">
             <div class="col-lg-4 col-md-6 text-center">
                 <div class="single-product-item">
                     <div class="product-image">
                         <a href="single-product.html"><img src="assets/img/products/product-img-1.jpg" alt=""></a>
                     </div>
-                    <h3>Strawberry</h3>
-                    <p class="product-price"><span>Per Kg</span> 85$ </p>
+                    <h3>Back to Basics: Facials</h3>
+                    <p class="product-price"><span>Learn the Fundamentals<br> of performing Facials</span> 85$ </p>
                     <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
                 </div>
             </div>
@@ -260,8 +260,8 @@
                     <div class="product-image">
                         <a href="single-product.html"><img src="assets/img/products/product-img-2.jpg" alt=""></a>
                     </div>
-                    <h3>Berry</h3>
-                    <p class="product-price"><span>Per Kg</span> 70$ </p>
+                    <h3>Back to Basics: Lash and Brow </h3>
+                    <p class="product-price"><span>Master the techniques needed <br> to elevate your lash and brow artistry </span> 70$ </p>
                     <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
                 </div>
             </div>
@@ -276,8 +276,26 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
+
+        <!-- CSS -->
+        <style>
+            .product-image {
+                width: 100%; /* Ensures the container takes the full width of the column */
+                padding-top: 100%; /* Creates a square aspect ratio (height = width) */
+                position: relative; /* Allows absolute positioning of the image */
+                overflow: hidden; /* Ensures any overflow is hidden */
+            }
+
+            .product-image img {
+                position: absolute; /* Positions the image absolutely within the container */
+                top: 0;
+                left: 0;
+                width: 100%; /* Makes the image fill the container */
+                height: 100%; /* Ensures the image covers the container */
+                object-fit: cover; /* Ensures the image covers the container without distortion */
+            }
+        </style>
+
 <!-- end product section -->
 
 <!-- cart banner section -->
