@@ -10,13 +10,6 @@ class HomePageSliderContentBlocksSeed extends AbstractSeed
         $data = [
             [
                 'parent' => 'homepage slider',
-                'label' => 'homepage-slider background 1',
-                'description' => 'The background shown in the home page slider 1.',
-                'slug' => 'home-slider-background-1',
-                'type' => 'image',
-            ],
-            [
-                'parent' => 'homepage slider',
                 'label' => 'homepage-slider text 1',
                 'description' => 'The text shown in the home page slider 1.',
                 'slug' => 'home-slider-text-1',
@@ -25,25 +18,11 @@ class HomePageSliderContentBlocksSeed extends AbstractSeed
             ],
             [
                 'parent' => 'homepage slider',
-                'label' => 'homepage-slider background 2',
-                'description' => 'The background shown in the home page slider 2.',
-                'slug' => 'home-slider-background-2',
-                'type' => 'image',
-            ],
-            [
-                'parent' => 'homepage slider',
                 'label' => 'homepage-slider text 2',
                 'description' => 'The text shown in the home page slider 2.',
                 'slug' => 'home-slider-text-2',
                 'type' => 'text',
                 'value' => 'Where Creativity Meets Skill',
-            ],
-            [
-                'parent' => 'homepage slider',
-                'label' => 'homepage-slider background 3',
-                'description' => 'The background shown in the home page slider 3.',
-                'slug' => 'home-slider-background-3',
-                'type' => 'image',
             ],
             [
                 'parent' => 'homepage slider',
