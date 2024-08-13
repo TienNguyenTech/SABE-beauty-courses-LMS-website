@@ -55,10 +55,6 @@ class EnquirysTable extends Table
      */
     public function validationDefault(Validator $validator): Validator
     {
-        $validator
-            ->integer('enquiry_id')
-            ->requirePresence('enquiry_id', 'create')
-            ->notEmptyString('enquiry_id');
 
         $validator
             ->scalar('enquiry_name')
