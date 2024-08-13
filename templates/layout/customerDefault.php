@@ -36,10 +36,14 @@
     <?= $this->Html->css('https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap', ['block' => true]) ?>
 
     <?= $this->Html->css('all.min') ?>
-    
+
     <?= $this->Html->css('owl.carousel') ?>
+
     <?= $this->Html->css('magnific-popup') ?>
+
     <?= $this->Html->css('animate') ?>
+
+
     <?= $this->Html->css('meanmenu.min') ?>
     <?= $this->Html->css('main') ?>
     <?= $this->Html->css('responsive') ?>
@@ -70,7 +74,67 @@
 </head>
 
 <body>
+    <style>
+        .main-menu-wrap {
+            display: flex;
+            justify-content: center;
+            /* Center all content in the flex container */
+            align-items: center;
+        }
 
+        .main-menu ul {
+            display: flex;
+            /* Use flexbox to arrange items horizontally */
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .main-menu ul li {
+            margin: 0 15px;
+            /* Add spacing between navigation items */
+        }
+
+        .main-menu ul li a {
+            text-decoration: none;
+            color: #333;
+            /* Update this color to match your design */
+            font-weight: bold;
+            /* Optional: Make the font bold */
+        }
+
+        .breadcrumb-section {
+            background-color: #f5f5f5;
+            /* Set a background color if needed */
+            padding: 50px 0;
+            /* Add some vertical padding for spacing */
+            text-align: center;
+            /* Center the text horizontally */
+        }
+
+        .breadcrumb-text {
+            border: none;
+            /* Remove any border around the text */
+            margin: 0 auto;
+            /* Center the text container if it has a set width */
+            color: #333;
+            /* Update the text color if needed */
+        }
+
+        .breadcrumb-text p {
+            font-size: 18px;
+            /* Adjust the font size for the subtitle */
+            margin: 0;
+            /* Remove any margin around the paragraph */
+        }
+
+        .breadcrumb-text h1 {
+            font-size: 36px;
+            /* Adjust the font size for the main title */
+            margin: 10px 0 0;
+            /* Add some margin for spacing */
+        }
+    </style>
     <!-- PreLoader -->
     <div class="loader">
         <div class="loader-inner">
@@ -101,29 +165,15 @@
                             <ul>
                                 <li class="current-list-item"><a href="#">Home</a>
                                 </li>
+                                <li><?= $this->Html->link("Courses", ['controller' => 'Courses', 'action' => 'viewc']) ?>
+                                </li>
+                                <li><?= $this->Html->link("Bookings", ['controller' => 'Courses', 'action' => 'viewc']) ?>
+                                </li>
+                                <li><?= $this->Html->link("Lisa's Beauty", ['controller' => 'Courses', 'action' => 'viewc']) ?>
+                                </li>
                                 <li><a href="about.html">About</a></li>
-                                <li><a href="#">Pages</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="404.html">404 page</a></li>
-                                        <li><a href="about.html">About</a></li>
-                                        <li><a href="cart.html">Cart</a></li>
-                                        <li><a href="checkout.html">Check Out</a></li>
-                                        <li><a href="contact.html">Contact</a></li>
-                                        <li><a href="news.html">News</a></li>
-                                        <li><a href="shop.html">Shop</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="news.html">News</a>
-                                </li>
                                 <li><a href="contact.html">Contact</a></li>
-                                <li><a href="shop.html">Shop</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="shop.html">Shop</a></li>
-                                        <li><a href="checkout.html">Check Out</a></li>
-                                        <li><a href="single-product.html">Single Product</a></li>
-                                        <li><a href="cart.html">Cart</a></li>
-                                    </ul>
-                                </li>
+
                                 <li>
                                     <div class="header-icons">
                                         <a class="shopping-cart" href="cart.html"><i
@@ -169,8 +219,8 @@
             <div class="row">
                 <div class="col-lg-8 offset-lg-2 text-center">
                     <div class="breadcrumb-text">
-                        <p>We sale fresh fruits</p>
-                        <h1>About Us</h1>
+                        <p>Pretty and Bright</p>
+                        <h1>Our Courses</h1>
                     </div>
                 </div>
             </div>
