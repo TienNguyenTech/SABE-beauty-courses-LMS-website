@@ -59,7 +59,7 @@
                href="<?= $this->Url->build(['plugin' => null, 'controller' => 'Pages', 'action' => 'display', 'home']) ?>">
                 <i class="fas fa-fw fa-home"></i>
                 <span>Customer Homepage</span></a>
-            <a class="nav-link" href="<?= $this->Url->build(['controller'=>'Pages','action'=>'adminDashboard']) ?>">
+            <a class="nav-link" href="<?= $this->Url->build(['plugin' => null,'controller'=>'Pages','action'=>'adminDashboard']) ?>">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Admin Dashboard</span></a>
         </li>
@@ -74,7 +74,7 @@
 
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
-            <a class="nav-link" href="">
+            <a class="nav-link" href="<?= $this->Url->build (['plugin' => null,'plugin' => 'ContentBlocks', 'controller' => 'ContentBlocks', 'action' => 'index']) ?>">
                 <i class="fas fa-fw fa-cog"></i>
                 <span>Modify Website</span></a>
             <a class="nav-link" href="<?= $this->Url->build(['plugin' => null, 'controller' => 'Bookings', 'action' => 'index']) ?>">
