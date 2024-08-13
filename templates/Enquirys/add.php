@@ -22,6 +22,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
 	<!-- fontawesome -->
 	<link rel="stylesheet" href="../assets/css/all.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/brands.min.css">
 	<!-- bootstrap -->
 	<link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
 	<!-- owl carousel -->
@@ -189,7 +190,9 @@
 					<div class="contact-form-wrap">
 						<div class="contact-form-box">
 							<h4><i class="fas fa-map"></i> Social Media</h4>
-							<p>34/8, East Hukupara <br> Gifirtok, Sadan. <br> Country Name</p>
+							<a href="http://www.tiktok.com/@adelaidebeauty_education"><p><i class="fa-brands fa-tiktok"></i>Tiktok</p></a>
+							<a href="http://instagram.com/adelaidebeautyandeducation"><p><i class="fa-brands fa-instagram"></i>Instagram</p></a>
+							<a href="http://www.facebook.com/adelaidebeautyandeducation"><p><i class="fa-brands fa-facebook"></i>Facebook</p></a>
 						</div>
 						<div class="contact-form-box">
 							<h4><i class="fas fa-address-book"></i> Contact</h4>
