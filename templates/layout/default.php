@@ -196,7 +196,7 @@
         <footer class="sticky-footer bg-white">
             <div class="container my-auto">
                 <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; South Adelaide Beauty and Education 2024</span>
+                    <span><?= $this->ContentBlock->text('copyright-message'); ?></span>
                 </div>
             </div>
         </footer>
