@@ -7,7 +7,7 @@
     <meta name="description" content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
 
     <!-- title -->
-    <title>SABE</title>
+    <title><?= $this->ContentBlock->text('website-title'); ?></title>
 
     <!-- favicon -->
     <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
@@ -56,7 +56,7 @@
                     <!-- logo -->
                     <div class="site-logo">
                         <a href="index.html">
-                            <img src="assets/img/logo.png" alt="">
+                            <?= $this->ContentBlock->image('logo'); ?>
                         </a>
                     </div>
                     <!-- logo -->
@@ -143,7 +143,7 @@
                 <div class="col-md-12 col-lg-7 offset-lg-1 offset-xl-0">
                     <div class="hero-text">
                         <div class="hero-text-tablecell">
-                            <h1>Shape Your Future in Beauty</h1>
+                            <h1><?= $this->ContentBlock->text('home-slider-text-1'); ?></h1>
                             <div class="hero-btns">
                                 <a href="shop.html" class="boxed-btn">Our Services</a>
                                 <a href="contact.html" class="bordered-btn">Contact Us</a>
@@ -161,7 +161,7 @@
                 <div class="col-lg-10 offset-lg-1 text-center">
                     <div class="hero-text">
                         <div class="hero-text-tablecell">
-                            <h1>Where Creativity Meets Skill</h1>
+                            <h1><?= $this->ContentBlock->text('home-slider-text-2'); ?></h1>
                             <div class="hero-btns">
                                 <a href="shop.html" class="boxed-btn">Visit Shop</a>
                                 <a href="contact.html" class="bordered-btn">Contact Us</a>
@@ -179,7 +179,7 @@
                 <div class="col-lg-10 offset-lg-1 text-right">
                     <div class="hero-text">
                         <div class="hero-text-tablecell">
-                            <h1>Hands-On Training, Real-World Experience</h1>
+                            <h1><?= $this->ContentBlock->text('home-slider-text-3'); ?></h1>
                             <div class="hero-btns">
                                 <a href="shop.html" class="boxed-btn">Visit Shop</a>
                                 <a href="contact.html" class="bordered-btn">Contact Us</a>
@@ -253,30 +253,30 @@
             <div class="col-lg-4 col-md-6 text-center">
                 <div class="single-product-item">
                     <div class="product-image">
-                        <a href="single-product.html"><img src="assets/img/products/product-img-1.jpg" alt=""></a>
+                        <a href="single-product.html"><?= $this->ContentBlock->image('home-program-image-1'); ?></a>
                     </div>
-                    <h3>Back to Basics: Facials</h3>
-                    <p class="product-price"><span>Learn the Fundamentals<br> of performing Facials</span> 199$ </p>
+                    <h3><?= $this->ContentBlock->text('home-program-title-1'); ?></h3>
+                    <p class="product-price"><span><?= $this->ContentBlock->text('home-program-description-1'); ?></span> <?= $this->ContentBlock->text('home-program-price-1'); ?> </p>
                     <!--<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>-->
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 text-center">
                 <div class="single-product-item">
                     <div class="product-image">
-                        <a href="single-product.html"><img src="assets/img/products/product-img-2.jpg" alt=""></a>
+                        <a href="single-product.html"><?= $this->ContentBlock->image('home-program-image-2'); ?></a>
                     </div>
-                    <h3>Back to Basics: Lash & Brow </h3>
-                    <p class="product-price"><span>Master the techniques needed <br> to elevate your lash and brow artistry </span> 199$ </p>
+                    <h3><?= $this->ContentBlock->text('home-program-title-2'); ?></h3>
+                    <p class="product-price"><span><?= $this->ContentBlock->text('home-program-description-2'); ?> </span> <?= $this->ContentBlock->text('home-program-price-2'); ?> </p>
                     <!--<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>-->
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0 text-center">
                 <div class="single-product-item">
                     <div class="product-image">
-                        <a href="single-product.html"><img src="assets/img/products/product-img-3.jpg" alt=""></a>
+                        <a href="single-product.html"><?= $this->ContentBlock->image('home-program-image-3'); ?></a>
                     </div>
-                    <h3>Total Care: Waxing Essentials</h3>
-                    <p class="product-price"><span>Precision and Expertise: Achieve Waxing excellence</span> 499$ </p>
+                    <h3><?= $this->ContentBlock->text('home-program-title-3'); ?></h3>
+                    <p class="product-price"><span><?= $this->ContentBlock->text('home-program-description-3'); ?></span> <?= $this->ContentBlock->text('home-program-price-3'); ?> </p>
                     <!--<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>-->
                 </div>
             </div>
