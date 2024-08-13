@@ -45,9 +45,16 @@ class PagesController extends AppController
      */
 
 
-    public function beforeFilter(\Cake\Event\EventInterface $event) {
+    public function beforeFilter(\Cake\Event\EventInterface $event)
+    {
         parent::beforeFilter($event);
         $this->viewBuilder()->disableAutoLayout();
+    }
+    public function bblf()
+    {
+        $this->viewBuilder()->setLayout('index');
+
+        $this->set('pageTitle', 'Beauty by Lisa Follet');
     }
     public function display(string ...$path): ?Response
     {
@@ -77,12 +84,5 @@ class PagesController extends AppController
         }
     }
 
-    public function adminDashboard()
-    {
-        // Fetch data from a model
-        $users = $this->Users->find('all');
-
-        // Pass data to the view
-        $this->set('users', $users);
-    }
+    
 }
