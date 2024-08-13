@@ -34,7 +34,7 @@
 </head>
 <style>
     body {
-        background-color: #ADBC9F; /* Light green background color for the entire page */
+        background-color: #74C69D; /* Light green background color for the entire page */
     }
 </style>
 <body>
@@ -257,7 +257,7 @@
                     </div>
                     <h3>Back to Basics: Facials</h3>
                     <p class="product-price"><span>Learn the Fundamentals<br> of performing Facials</span> 199$ </p>
-                    <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+                    <!--<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>-->
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 text-center">
@@ -267,7 +267,7 @@
                     </div>
                     <h3>Back to Basics: Lash & Brow </h3>
                     <p class="product-price"><span>Master the techniques needed <br> to elevate your lash and brow artistry </span> 199$ </p>
-                    <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+                    <!--<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>-->
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0 text-center">
@@ -276,8 +276,8 @@
                         <a href="single-product.html"><img src="assets/img/products/product-img-3.jpg" alt=""></a>
                     </div>
                     <h3>Total Care: Waxing Essentials</h3>
-                    <p class="product-price"><span>Become a skilled waxing professional</span> 499$ </p>
-                    <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+                    <p class="product-price"><span>Precision and Expertise: Achieve Waxing excellence</span> 499$ </p>
+                    <!--<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>-->
                 </div>
             </div>
         </div>
@@ -322,12 +322,12 @@
             </div>
             <!--Content Column-->
             <div class="content-column col-lg-6">
-                <h3><span class="orange-text">Personalised </span> Teaching offering</h3>
-                <h4>An experience as unique as every student</h4>
-                <div class="text">Experience a teahing program that is designed to enhance your natural strengths, whole improving any upon pre-existing skills and talents.</div>
+                <h3><span class="orange-text">Personalised </span> Courses</h3>
+                <h4>A teaching experience as unique as every student</h4>
+                <div class="text">Experience a training program that is designed to enhance your natural strengths, whole improving any upon pre-existing skills and talents.</div>
                 <!--Countdown Timer-->
-                <div class="time-counter"><div class="time-countdown clearfix" data-countdown="2020/2/01"><div class="counter-column"><div class="inner"><span class="count">00</span>Days</div></div> <div class="counter-column"><div class="inner"><span class="count">00</span>Hours</div></div>  <div class="counter-column"><div class="inner"><span class="count">00</span>Mins</div></div>  <div class="counter-column"><div class="inner"><span class="count">00</span>Secs</div></div></div></div>
-                <a href="cart.html" class="cart-btn mt-3"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+                <div class="time-counter"><div class="time-countdown clearfix" data-countdown="2024/9/01"><div class="counter-column"><div class="inner"><span class="count">00</span>Days</div></div> <div class="counter-column"><div class="inner"><span class="count">00</span>Hours</div></div>  <div class="counter-column"><div class="inner"><span class="count">00</span>Mins</div></div>  <div class="counter-column"><div class="inner"><span class="count">00</span>Secs</div></div></div></div>
+                <!--<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>-->
             </div>
         </div>
     </div>
