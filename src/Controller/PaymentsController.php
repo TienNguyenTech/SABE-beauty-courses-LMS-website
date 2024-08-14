@@ -136,8 +136,8 @@ class PaymentsController extends AppController
 
 
         $checkout_session = Session::create([
-            'success_url' => Router::fullBaseUrl() . Router::url(['/']),  // Redirect to your home page
-            'cancel_url' => 'https://www.google.com',  // Direct external URL without using Router::fullBaseUrl()
+            'success_url' => Router::fullBaseUrl(),
+            'cancel_url' => Router::fullBaseUrl(),
             'payment_method_types' => ['card'],
             'mode' => 'payment',
             'line_items' => $line_items,
