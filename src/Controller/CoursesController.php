@@ -9,7 +9,16 @@ namespace App\Controller;
  * @property \App\Model\Table\CoursesTable $Courses
  */
 class CoursesController extends AppController
-{
+{   
+    public function viewc() {
+        $this->viewBuilder()->setLayout('customerDefault');
+
+        $query = $this->Courses->find();
+        $courses = $this->paginate($query);
+
+        $this->set(compact('courses'));
+        $this->set('pageTitle', 'Courses');
+    }
     /**
      * Index method
      *
