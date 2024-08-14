@@ -4,15 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-<<<<<<< Updated upstream
-    "content-hash": "b4807e1db3bec33d8732f695c775d880",
-=======
-<<<<<<< HEAD
-    "content-hash": "0c842bf5ab5bc404dd376240d59205ec",
-=======
-    "content-hash": "b4807e1db3bec33d8732f695c775d880",
->>>>>>> 03c174eeab82151d41eea60286a101ca3e2fea0a
->>>>>>> Stashed changes
+    "content-hash": "07faac2b20d88de4010480c660ce32a8",
     "packages": [
         {
             "name": "cakephp/authentication",
