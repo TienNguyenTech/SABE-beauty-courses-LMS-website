@@ -147,6 +147,21 @@
             padding: 15px 0;
         }
 
+        .cart-btn {
+            display: inline-block;
+            background-color: #74C69D;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+
+        .cart-btn:hover {
+            background-color: #B7E4C7;
+        }
+
+
 
     </style>
     <!-- PreLoader -->
@@ -177,14 +192,15 @@
                         <!-- menu start -->
                         <nav class="main-menu">
                             <ul>
-                                <li class="current-list-item"><a href="#">Home</a>
-                                </li>
+
+                                <li><?= $this->Html->link("Home", "/") ?></li>
+
+
                                 <li><?= $this->Html->link("Courses", ['controller' => 'Courses', 'action' => 'viewc']) ?>
                                 </li>
-                                <li><?= $this->Html->link("Bookings", ['controller' => 'Courses', 'action' => 'viewc']) ?>
+                                <li><?= $this->Html->link("Bookings", ['controller' => 'Pages', 'action' => 'home']) ?>
                                 </li>
                                 <li><?= $this->Html->link("Beauty By Lisa", ['controller' => 'Lisa', 'action' => 'viewlisa']) ?></li>
-                                <li><a href="about.html">About</a></li>
                                 <li><a href="contact.html">Contact</a></li>
 
                                 <li>

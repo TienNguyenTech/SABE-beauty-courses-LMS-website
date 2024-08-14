@@ -59,10 +59,15 @@
                     <!-- menu start -->
                     <nav class="main-menu">
                         <ul>
-                            <li><a href="templates/Pages/about.html">About us</a></li>
-                            <li><a href="templates/Pages/about.html">Beauty By Lisa</a></li>
-                            <li><a href="templates/Courses/viewc.php">Courses</a></li>
+                            <li><?= $this->Html->link("Home", "/") ?></li>
 
+
+                            <li><?= $this->Html->link("Courses", ['controller' => 'Courses', 'action' => 'viewc']) ?>
+                            </li>
+                            <li><?= $this->Html->link("Bookings", ['controller' => 'Pages', 'action' => 'home']) ?>
+                            </li>
+                            <li><?= $this->Html->link("Beauty By Lisa", ['controller' => 'Lisa', 'action' => 'viewlisa']) ?></li>
+                            <li><a href="contact.html">Contact</a></li>
 
                           <!--  <li><a href="#">Pages</a>
                                 <ul class="sub-menu">
@@ -74,20 +79,6 @@
                                     <li><a href="shop.html">Shop</a></li>
                                 </ul>
                             </li> -->
-                            <li><a href="news.html">News</a>
-                                <ul class="sub-menu">
-                                    <li><a href="news.html">News</a></li>
-                                    <li><a href="single-news.html">Single News</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="contact.html">Contact us</a></li>
-                            <li><a href="shop.html">Shop</a>
-                                <ul class="sub-menu">
-                                    <li><a href="shop.html">Shop</a></li>
-                                    <li><a href="checkout.html">Check Out</a></li>
-                                    <li><a href="single-product.html">Single Product</a></li>
-
-                                </ul>
                             </li>
                             <li>
                                 <div class="header-icons">

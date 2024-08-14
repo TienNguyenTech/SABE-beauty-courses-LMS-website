@@ -3,7 +3,7 @@
 $products = [
     [
         'name' => 'Back to Basics: Facials',
-        'image' => 'assets/img/products/product-img-1.jpg',
+        'image' => 'products/product-img-1.jpg',
         'price' => '199$',
         'category' => 'Hybrid'
     ],
@@ -111,7 +111,7 @@ $products = [
 
         .cart-btn {
             display: inline-block;
-            background-color: #f8b400;
+            background-color: #74C69D;
             color: #fff;
             padding: 10px 20px;
             border-radius: 5px;
@@ -120,7 +120,7 @@ $products = [
         }
 
         .cart-btn:hover {
-            background-color: #f39c12;
+            background-color: #B7E4C7;
         }
 
         .pagination-wrap {
@@ -184,8 +184,7 @@ $products = [
                                 <img src="<?= $product['image'] ?>"alt="<?= $product['name'] ?>">
                             </div>
                             <h3><?= $product['name'] ?></h3>
-                            <p class="product-price"><span>Per Kg</span> <?= $product['price'] ?> </p>
-                            <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+                            <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i>Enroll Now </a>
                         </div>
                     </div>
                 <?php endforeach; ?>

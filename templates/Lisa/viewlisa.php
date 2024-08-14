@@ -46,7 +46,7 @@
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            background-color: #f8f9fa;
+            background-color: #081C15;
             padding: 20px;
         }
 
@@ -94,7 +94,7 @@
             font-size: 1.5rem;
             font-weight: 600;
             margin-bottom: 10px;
-            color: #F28123;
+            color: #1B4332;
         }
 
         .service ul {
@@ -110,8 +110,8 @@
 
         .btn {
             display: inline-block;
-            background-color: #F28123;
-            color: white;
+            background-color: #081C15;
+            color: #D8F3DC;
             padding: 10px 20px;
             border-radius: 5px;
             text-decoration: none;
@@ -120,7 +120,7 @@
         }
 
         .btn:hover {
-            background-color: #d96d1d;
+            background-color: #2D6A4F;
         }
     </style>
 </head>
@@ -129,8 +129,8 @@
     <div class="w-full">
         <div class="content-container">
             <div class="content-box">
-                <h1>Beauty by Lisa Follet</h1>
-                <p>Welcome to Beauty by Lisa Follet, a home-based beauty sanctuary in Hallett Cove! With 20 years of
+                <h1>Beauty by Lisa Follett</h1>
+                <p>Welcome to Beauty by Lisa Follett, a home-based beauty sanctuary in Hallett Cove! With 20 years of
                     industry experience across England and Australia, I am dedicated to bringing you the best in beauty
                     therapy. I am also an educator in beauty therapy and I combine my expertise and passion for the
                     beauty industry to create a comfortable and welcoming environment for all my clients. Explore our
@@ -188,7 +188,7 @@
                     </div>
                 </div>
                 <div class="mt-6">
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="btn">Book Now on Fresha</a>
+                    <a href="https://www.fresha.com/a/beauty-by-lisa-follett-hallett-cove-3-lepena-crescent-u54y2i7s" target="_blank" rel="noopener noreferrer" class="btn">Book Now on Fresha</a>
                 </div>
             </div>
         </div>
