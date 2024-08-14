@@ -165,20 +165,18 @@
 					    <?= $this->Form->create($enquiry) ?>
 						<form type="POST" id="fruitkha-contact" onSubmit="return valid_datas( this );">
 							<p>
-							    <?= $this->Form->control('enquiry_name') ?>
+							    <?= $this->Form->control('enquiry_name', ['placeholder' => 'Enter your name', 'label' => 'Full Name *']) ?>
 <!--								<input type="text" placeholder="Name" name="name" id="name">-->
-								<?= $this->Form->control('enquiry_email') ?>
+								<?= $this->Form->control('enquiry_email', ['placeholder' => 'Enter your email address', 'label' => 'Email Address *', 'type' => 'email']) ?>
 <!--								<input type="email" placeholder="Email" name="email" id="email">-->
 							</p>
 							<p>
-<!--								<input type="tel" placeholder="Phone" name="phone" id="phone">-->
-								<?= $this->Form->control('enquiry_phone') ?>
 <!--								<input type="text" placeholder="Subject" name="subject" id="subject">-->
-								<?= $this->Form->control('enquiry_subject') ?>
+								<?= $this->Form->control('enquiry_subject', ['placeholder' => 'Enter enquiry subject', 'label' => 'Subject *']) ?>
 							</p>
 							<p>
 <!--							    <textarea name="message" id="message" cols="30" rows="10" placeholder="Message"></textarea>-->
-                                <?= $this->Form->control('enquiry_message') ?>
+                                <?= $this->Form->control('enquiry_message', ['type' => 'textarea', 'placeholder' => 'Enter your message', 'label' => 'Message *']) ?>
 							</p>
 							<input type="hidden" name="token" value="FsWga4&@f6aw" />
 							<p><input type="submit" value="Submit"></p>
