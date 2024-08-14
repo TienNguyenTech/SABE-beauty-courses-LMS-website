@@ -68,6 +68,24 @@
                             </li>
                             <li><?= $this->Html->link("Beauty By Lisa", ['controller' => 'Lisa', 'action' => 'viewlisa']) ?></li>
                             <li><a href="contact.html">Contact</a></li>
+                            <li>
+                                <?php
+                                if ($this->Identity->isLoggedIn()) {
+
+                                    echo $this->Html->link(
+                                        'Log out',
+                                        ['controller' => 'Auth', 'action' => 'logout'],
+                                        ['class' => 'button button-outline']
+                                    );
+                                } else {
+                                    echo $this->Html->link(
+                                        'Log in',
+                                        ['controller' => 'Auth', 'action' => 'login'],
+                                        ['class' => 'button button-outline']
+                                    );
+                                }
+                                ?>
+                            </li>
 
                           <!--  <li><a href="#">Pages</a>
                                 <ul class="sub-menu">
@@ -79,13 +97,10 @@
                                     <li><a href="shop.html">Shop</a></li>
                                 </ul>
                             </li> -->
-                            </li>
-                            <li>
-                                <div class="header-icons">
-                                    <a class="login-button" href="login.html"><i class="fas fa-user"></i> Login</a>
-                                </div>
-                            </li>
-                        </ul>
+
+
+
+                       
                     </nav>
                     <a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
                     <div class="mobile-menu"></div>
