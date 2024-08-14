@@ -62,7 +62,7 @@ $products = [
 
     <style>
         .product-lists {
-    
+
             /* Space between product items */
             align-items: center;
             /* Center items vertically */
@@ -156,7 +156,7 @@ $products = [
     </style>
 
 <style>
-       
+
         .card-img-top {
             height: 200px;
             /* Consistent height for image frame */
@@ -231,22 +231,102 @@ $products = [
 
 <body>
 
-    <!-- products -->
-    <div class="product-section mt-150 mb-150">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="product-filters">
-                        <ul>
-                            <li class="active" data-filter="*">All</li>
-                            <li data-filter=".Workshop">Workshop</li>
-                            <li data-filter=".Hybrid">Hybrid</li>
-                            <li data-filter=".Online">Online</li>
-                        </ul>
+<div class="product-section mt-150 mb-150">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="product-filters">
+                    <ul>
+                        <li class="active" data-filter="*">All</li>
+                        <li data-filter=".Workshop">Workshop</li>
+                        <li data-filter=".Hybrid">Hybrid</li>
+                        <li data-filter=".Online">Online</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row product-lists">
+            <!-- Product 1 -->
+            <div class="col-lg-4 col-md-6 text-center Hybrid">
+                <div class="single-product-item">
+                    <div class="product-image">
+                        <a href="single-product.html">
+                            <img src="assets/img/products/product-img-1.jpg" alt="Back to Basics: Facials">
+                        </a>
                     </div>
+                    <h3>Back to Basics: Facials</h3>
+                    <p class="product-price"><span>No description available</span> 199$</p>
                 </div>
             </div>
 
+            <!-- Product 2 -->
+            <div class="col-lg-4 col-md-6 text-center Hybrid">
+                <div class="single-product-item">
+                    <div class="product-image">
+                        <a href="single-product.html">
+                            <img src="assets/img/products/product-img-2.jpg" alt="Back to Basics: Lash & Brow">
+                        </a>
+                    </div>
+                    <h3>Back to Basics: Lash & Brow</h3>
+                    <p class="product-price"><span>No description available</span> 199$</p>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="col-lg-4 col-md-6 text-center Workshop">
+                <div class="single-product-item">
+                    <div class="product-image">
+                        <a href="single-product.html">
+                            <img src="assets/img/products/product-img-3.jpg" alt="Total Care: Waxing">
+                        </a>
+                    </div>
+                    <h3>Total Care: Waxing</h3>
+                    <p class="product-price"><span>No description available</span> 499$</p>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="col-lg-4 col-md-6 text-center Online">
+                <div class="single-product-item">
+                    <div class="product-image">
+                        <a href="single-product.html">
+                            <img src="assets/img/products/product-img-4.jpg" alt="Total Care: Nails">
+                        </a>
+                    </div>
+                    <h3>Total Care: Nails</h3>
+                    <p class="product-price"><span>No description available</span> 399$</p>
+                </div>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="col-lg-4 col-md-6 text-center Online">
+                <div class="single-product-item">
+                    <div class="product-image">
+                        <a href="single-product.html">
+                            <img src="assets/img/products/product-img-5.jpg" alt="Back To Basics: Customer Connection">
+                        </a>
+                    </div>
+                    <h3>Back To Basics: Customer Connection</h3>
+                    <p class="product-price"><span>No description available</span> 199$</p>
+                </div>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="col-lg-4 col-md-6 text-center Hybrid">
+                <div class="single-product-item">
+                    <div class="product-image">
+                        <a href="single-product.html">
+                            <img src="assets/img/products/product-img-6.jpg" alt="Custom Training">
+                        </a>
+                    </div>
+                    <h3>Custom Training</h3>
+                    <p class="product-price"><span>No description available</span> 599$</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
             <div class="row product-lists">
 
