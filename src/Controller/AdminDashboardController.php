@@ -11,4 +11,8 @@ class AdminDashboardController extends AppController
         $this->viewBuilder()->setLayout('default');
     }
 
+    public function dashboard() {
+
+    }
+
 }
