@@ -37,6 +37,7 @@
 
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
+    <link rel="stylesheet" href="assets/css/main.css">
 </head>
 
 <body>
@@ -141,6 +142,12 @@
             margin: 0;
             /* Removes default margin */
         }
+        div.sticky-wrapper.is-sticky .top-header-area {
+            background-color: #1B4332;
+            padding: 15px 0;
+        }
+
+
     </style>
     <!-- PreLoader -->
     <div class="loader">
@@ -176,7 +183,7 @@
                                 </li>
                                 <li><?= $this->Html->link("Bookings", ['controller' => 'Courses', 'action' => 'viewc']) ?>
                                 </li>
-                                <li><?= $this->Html->link("Lisa's Beauty", ['controller' => 'Lisa', 'action' => 'viewlisa']) ?></li>
+                                <li><?= $this->Html->link("Beauty By Lisa", ['controller' => 'Lisa', 'action' => 'viewlisa']) ?></li>
                                 <li><a href="about.html">About</a></li>
                                 <li><a href="contact.html">Contact</a></li>
 
@@ -225,7 +232,7 @@
             <div class="row">
                 <div class="col-lg-8 offset-lg-2 text-center">
                     <div class="breadcrumb-text">
-                        <p>Pretty and Bright</p>
+                       <!-- <p>Pretty and Bright</p>-->
                         <h1>Our Courses</h1>
                     </div>
                 </div>
@@ -240,9 +247,9 @@
     <style>
         /* Footer Area Styles */
         .footer-area {
-            background-color: #333;
+            background-color: #1B4332;
             /* Dark background color */
-            color: #fff;
+            color: #B7E4C7;
             /* White text color */
             padding: 60px 0;
             /* Padding for top and bottom */
@@ -322,7 +329,7 @@
         }
 
         .footer-box a:hover {
-            color: #ffd700;
+            color: #B7E4C7;
             /* Link color on hover */
         }
 
@@ -347,7 +354,7 @@
         }
 
         .footer-box button {
-            background-color: #ffd700;
+            background-color: #95D5B2;
             /* Button background color */
             color: #333;
             /* Button text color */
@@ -364,13 +371,13 @@
         }
 
         .footer-box button:hover {
-            background-color: #ffcc00;
+            background-color: #D8F3DC;
             /* Button background color on hover */
         }
 
         /* Copyright Area Styles */
         .copyright {
-            background-color: #222;
+            background-color: #1B4332;
             /* Darker background color */
             color: #ccc;
             /* Lighter text color */
@@ -420,7 +427,7 @@
         }
 
         .social-icons ul li a:hover {
-            color: #ffd700;
+            color: #B7E4C7;
             /* Icon color on hover */
         }
     </style>

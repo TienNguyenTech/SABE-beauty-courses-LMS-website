@@ -59,19 +59,13 @@
                     <!-- menu start -->
                     <nav class="main-menu">
                         <ul>
-                            <li class="current-list-item"><a href="#">Home</a>
+                            <li><a href="templates/Pages/about.html">About us</a></li>
+                            <li><a href="templates/Pages/about.html">Beauty By Lisa</a></li>
+                            <li><a href="templates/Courses/viewc.php">Courses</a></li>
+
+
+                          <!--  <li><a href="#">Pages</a>
                                 <ul class="sub-menu">
-                                    <li><a href="index.html">Static Home</a></li>
-                                    <li><a href="index_2.html">Slider Home</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="templates/Pages/about.html">About</a></li>
-
-
-
-                            <li><a href="#">Pages</a>
-                                <ul class="sub-menu">
-                                    <li><a href="404.html">404 page</a></li>
                                     <li><a href="about.html">About</a></li>
                                     <li><a href="cart.html">Cart</a></li>
                                     <li><a href="checkout.html">Check Out</a></li>
@@ -79,20 +73,20 @@
                                     <li><a href="news.html">News</a></li>
                                     <li><a href="shop.html">Shop</a></li>
                                 </ul>
-                            </li>
+                            </li> -->
                             <li><a href="news.html">News</a>
                                 <ul class="sub-menu">
                                     <li><a href="news.html">News</a></li>
                                     <li><a href="single-news.html">Single News</a></li>
                                 </ul>
                             </li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="contact.html">Contact us</a></li>
                             <li><a href="shop.html">Shop</a>
                                 <ul class="sub-menu">
                                     <li><a href="shop.html">Shop</a></li>
                                     <li><a href="checkout.html">Check Out</a></li>
                                     <li><a href="single-product.html">Single Product</a></li>
-                                    <li><a href="cart.html">Cart</a></li>
+
                                 </ul>
                             </li>
                             <li>
