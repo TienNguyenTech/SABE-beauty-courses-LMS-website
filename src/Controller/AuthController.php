@@ -218,8 +218,8 @@ class AuthController extends AppController
         }
 
         if ($this->request->is('post') && !$result->isValid()) {
-            debug($this->request->getData()); // Check what data is being submitted
-            debug($result->getErrors()); // Check for any specific errors
+//            debug($this->request->getData()); // Check what data is being submitted
+//            debug($result->getErrors()); // Check for any specific errors
             $this->Flash->error('Email address and/or Password is incorrect. Please try again. ');
         }
     }
