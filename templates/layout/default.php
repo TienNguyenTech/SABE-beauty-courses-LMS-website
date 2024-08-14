@@ -125,11 +125,11 @@
                 if(!$isAdminDashboardPage) {
                     if(!$isIndexPage) {
                         // If it's not an index page, render the back button
-                        echo $this->Html->tag(
-                            'button',
-                            $this->Html->tag('i', '', ['class' => 'fas fa-arrow-left']) . ' Return',
-                            ['onclick' => 'goBack()', 'class' => 'btn btn-secondary']
-                        );
+//                        echo $this->Html->tag(
+//                            'button',
+//                            $this->Html->tag('i', '', ['class' => 'fas fa-arrow-left']) . ' Return',
+//                            ['onclick' => 'goBack()', 'class' => 'btn btn-secondary']
+//                        );
                     } elseif($isIndexPage) {
                         // If it's an index page, return to the admin dashboard
                         echo $this->Html->tag(
