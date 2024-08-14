@@ -10,6 +10,14 @@ namespace App\Controller;
  */
 class BookingsController extends AppController
 {
+
+    public function initialize(): void
+    {
+        parent::initialize();
+
+        // Controller-level function/action whitelist for authentication
+        $this->Authentication->allowUnauthenticated(['index', 'view']);
+    }
     /**
      * Index method
      *

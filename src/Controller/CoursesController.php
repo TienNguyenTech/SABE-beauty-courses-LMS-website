@@ -10,6 +10,14 @@ namespace App\Controller;
  */
 class CoursesController extends AppController
 {
+
+    public function initialize(): void
+    {
+        parent::initialize();
+
+        // Controller-level function/action whitelist for authentication
+        $this->Authentication->allowUnauthenticated(['index', 'view', 'viewc']);
+    }
     public function viewc()
     {
         $this->viewBuilder()->setLayout('customerDefault');
