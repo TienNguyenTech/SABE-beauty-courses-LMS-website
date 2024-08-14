@@ -252,7 +252,8 @@ $products = [
 
         <div class="row product-lists">
             <?php foreach ($courses as $course): ?>
-            <div class="col-lg-4 col-md-6 text-center Hybrid">
+            <div class="card <?= $course->course_category ?>">
+<!--            <div class="col-lg-4 col-md-6 text-center --><?php //= $course->course_category ?><!--">-->
                 <div class="single-product-item">
                     <div class="product-image">
                         <a href="single-product.html">
