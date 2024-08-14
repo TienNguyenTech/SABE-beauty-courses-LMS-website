@@ -261,10 +261,13 @@ $products = [
                         </a>
                     </div>
                     <div class="card-body">
+
                         <h5 class="card-title"><?= $course->course_name ?></h5>
                         <p class="card-text"><?= $course->course_description ?></p>
                         <p class="product-price"><?= $course->course_price ?></p>
-                        <a href="single-product.html" class="cart-btn">Enroll Now</a>
+                        <?= $this->Html->link("Enroll Now",['controller' => 'payments', 'action' => 'checkout', $course->course_id])?>
+
+
                     </div>
                 </div>
             </div>
