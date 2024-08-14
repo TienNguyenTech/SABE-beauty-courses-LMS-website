@@ -71,7 +71,11 @@
                             <li>
                                 <?php
                                 if ($this->Identity->isLoggedIn()) {
-
+                                    echo $this->Html->link(
+                                        'Dashboard',
+                                        ['controller' => 'AdminDashboard', 'action' => 'dashboard'],
+                                        ['class' => 'button button-outline']
+                                    );
                                     echo $this->Html->link(
                                         'Log out',
                                         ['controller' => 'Auth', 'action' => 'logout'],
