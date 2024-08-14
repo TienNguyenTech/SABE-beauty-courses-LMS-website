@@ -38,6 +38,7 @@ $products = [
         'category' => 'strawberry'
     ]
 ];
+
 ?>
 
 <!DOCTYPE html>
@@ -173,15 +174,15 @@ $products = [
             </div>
 
             <div class="row product-lists">
-                <?php foreach ($products as $product): ?>
-                    <div class="col-lg-4 col-md-6 text-center <?= $product['category'] ?>">
+                <?php foreach ($courses as $course): ?>
+                    <div class="col-lg-4 col-md-6 text-center <?= $course['category'] ?>">
                         <div class="single-product-item">
                             <div class="product-image">
-                                <a href="single-product.html"><img src="<?= $product['image'] ?>"
-                                        alt="<?= $product['name'] ?>"></a>
+                                <a href="single-product.html"><img src="<?= $course['image'] ?>"
+                                        alt="<?= $course['name'] ?>"></a>
                             </div>
-                            <h3><?= $product['name'] ?></h3>
-                            <p class="product-price"><span>Per Kg</span> <?= $product['price'] ?> </p>
+                            <h3><?= $course['name'] ?></h3>
+                            <p class="product-price"><span>AUD</span> <?= $course['price'] ?> </p>
                             <a href="cart.html" class="cart-btn"> Enroll Now</a>
                         </div>
                     </div>
