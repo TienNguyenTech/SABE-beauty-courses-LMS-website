@@ -10,9 +10,12 @@
 <?= $this->Form->create($course) ?>
 <?php
 echo $this->Form->control('course_name');
+echo $this->Form->select('course_category',['Hybrid' => 'Hybrid', 'Workshop' => 'Workshop', 'Online' => 'Online' ], ['label' => [
+        'text' => 'Name <span style="color: red;">*</span>',
+        'escape' => false
+]]);
 echo $this->Form->control('course_description');
 echo $this->Form->control('course_price');
-echo $this->Form->control('users._ids', ['options' => $users]);
 ?>
 
 <?= $this->Form->button(__('Submit'),['class'=>'btn btn-primary']) ?>

@@ -9,14 +9,12 @@
 <h1 class="h3 mb-2 text-gray-800">Add new user</h1>
 <?= $this->Form->create($user) ?>
 <?php
-echo $this->Form->control('user_firstname');
-echo $this->Form->control('user_surname');
-echo $this->Form->control('email');
-echo $this->Form->control('user_phone');
-echo $this->Form->control('user_type');
-echo $this->Form->control('password');
-echo $this->Form->control('bookings._ids', ['options' => $bookings]);
-echo $this->Form->control('courses._ids', ['options' => $courses]);
+echo $this->Form->control('user_firstname', ['label' => 'First Name *']);
+echo $this->Form->control('user_surname', ['label' => 'Surname *']);
+echo $this->Form->control('email', ['label' => 'Email Address *']);
+echo $this->Form->control('user_phone', ['label' => 'Phone Number']);
+echo $this->Form->select('user_type', ['admin' => 'admin']);
+echo $this->Form->control('password', ['label' => 'Password *']);
 ?>
 
 <?= $this->Form->button(__('Submit'),['class'=>'btn btn-primary']) ?>

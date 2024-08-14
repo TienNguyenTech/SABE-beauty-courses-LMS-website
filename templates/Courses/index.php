@@ -17,24 +17,23 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
                 <tr>
-                    <th><?= h('course_id') ?></th>
-                    <th><?= h('course_name') ?></th>
-                    <th><?= h('course_image') ?></th>
-                    <th><?= h('course_description') ?></th>
-                    <th><?= h('course_price') ?></th>
+                    <th><?= h('Course Name') ?></th>
+                    <th><?= h('Image') ?></th>
+                    <th><?= h('Category') ?></th>
+                    <th><?= h('Description') ?></th>
+                    <th><?= h('Price') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach ($courses as $course): ?>
                 <tr>
-                    <td><?= $this->Number->format($course->course_id) ?></td>
                     <td><?= h($course->course_name) ?></td>
-                    <td><?= $this->Html->image('course/' . $course->course_image, ['alt' => $course->course_name, 'style' => 'max-width: 100px;']) ?></td>
+                    <td><?= $this->Html->image('/' . $course->course_image, ['alt' => $course->course_name, 'style' => 'max-width: 100px;']) ?></td>
+                    <td><?= h($course->course_category) ?></td>
                     <td><?= h($course->course_description) ?></td>
-                    <td><?= $this->Number->format($course->course_price) ?></td>
+                    <td>$<?= $this->Number->format($course->course_price) ?></td>
                     <td class="actions">
-                        <?= $this->Html->link(__('View'), ['action' => 'view', $course->course_id]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $course->course_id]) ?>
                         <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $course->course_id], ['confirm' => __('Are you sure you want to delete # {0}?', $course->course_id)]) ?>
                     </td>

@@ -18,6 +18,11 @@ echo $this->Form->control('course_name', [
 
 echo $this->Form->file('course_image', ['label' => 'Image', 'type' => 'file', 'class' => 'form-control']);
 
+echo $this->Form->select('course_category',['Hybrid' => 'Hybrid', 'Workshop' => 'Workshop', 'Online' => 'Online' ], ['label' => [
+        'text' => 'Name <span style="color: red;">*</span>',
+        'escape' => false
+]]);
+
 echo $this->Form->control('course_description', [
     'label' => [
         'text' => 'Description <span style="color: red;">*</span>',
@@ -40,8 +45,6 @@ echo $this->Form->control('course_price', [
     'maxlength' => '2',
     'style' => 'margin-bottom: 10px'
 ]);
-
-echo $this->Form->control('users._ids', ['options' => $users]);
 ?>
 
 <?= $this->Form->button(__('Submit'),['class'=>'btn btn-primary']) ?>

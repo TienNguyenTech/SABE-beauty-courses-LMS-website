@@ -214,12 +214,12 @@ class AuthController extends AppController
 
         if ($result && $result->isValid()) {
             $this->Flash->success('Login successful.');
-            return $this->redirect($this->Authentication->getLoginRedirect() ?? ['controller' => 'Users', 'action' => 'index']);
+            return $this->redirect($this->Authentication->getLoginRedirect() ?? ['controller' => 'AdminDashboard', 'action' => 'dashboard']);
         }
 
         if ($this->request->is('post') && !$result->isValid()) {
-            debug($this->request->getData()); // Check what data is being submitted
-            debug($result->getErrors()); // Check for any specific errors
+//            debug($this->request->getData()); // Check what data is being submitted
+//            debug($result->getErrors()); // Check for any specific errors
             $this->Flash->error('Email address and/or Password is incorrect. Please try again. ');
         }
     }

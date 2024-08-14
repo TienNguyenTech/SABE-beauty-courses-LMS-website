@@ -78,7 +78,7 @@ $this->assign('title', 'Login');
                         ?>
                     </fieldset>
 
-                    <?= $this->Html->link('Forgotten your password?', ['controller' => 'Auth', 'action' => 'forgetPassword'], ['class' => 'button-clear']) ?>
+<!--                    --><?php //= $this->Html->link('Forgotten your password?', ['controller' => 'Auth', 'action' => 'forgetPassword'], ['class' => 'button-clear']) ?>
                     
                     <div class="input-wrapper">
                         <?= $this->Form->button('Login', ['class' => 'centered-button']) ?>

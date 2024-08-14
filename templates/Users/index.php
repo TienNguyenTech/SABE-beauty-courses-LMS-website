@@ -17,28 +17,23 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
                 <tr>
-                    <th><?= h('user_id') ?></th>
-                    <th><?= h('user_firstname') ?></th>
-                    <th><?= h('user_surname') ?></th>
-                    <th><?= h('email') ?></th>
-                    <th><?= h('user_phone') ?></th>
-                    <th><?= h('user_type') ?></th>
-                    <th><?= h('password') ?></th>
+                    <th><?= h('First name') ?></th>
+                    <th><?= h('Surname') ?></th>
+                    <th><?= h('Email') ?></th>
+                    <th><?= h('Phone number') ?></th>
+                    <th><?= h('User Type') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach ($users as $user): ?>
                 <tr>
-                    <td><?= $this->Number->format($user->user_id) ?></td>
                     <td><?= h($user->user_firstname) ?></td>
                     <td><?= h($user->user_surname) ?></td>
                     <td><?= h($user->email) ?></td>
                     <td><?= h($user->user_phone) ?></td>
                     <td><?= h($user->user_type) ?></td>
-                    <td><?= h($user->password) ?></td>
                     <td class="actions">
-                        <?= $this->Html->link(__('View'), ['action' => 'view', $user->user_id]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->user_id]) ?>
                         <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $user->user_id], ['confirm' => __('Are you sure you want to delete # {0}?', $user->user_id)]) ?>
                     </td>
