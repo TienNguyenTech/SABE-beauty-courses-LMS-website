@@ -75,6 +75,17 @@ class CoursesTable extends Table
             ->requirePresence('course_price', 'create')
             ->notEmptyString('course_price');
 
+        $validator
+            ->scalar('course_image')
+            ->maxLength('course_image', 200)
+            ->requirePresence('course_image', 'create');
+
+        $validator
+            ->scalar('course_category')
+            ->maxLength('course_category', 50)
+            ->requirePresence('course_category', 'create')
+            ->notEmptyString('course_category');
+
         return $validator;
     }
 }
