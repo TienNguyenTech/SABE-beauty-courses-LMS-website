@@ -45,17 +45,17 @@
 
     <!-- Functional Card 2 -->
     <div class="dashboard-card">
-        <h2>Bookings</h2>
-        <p>Manage all bookings here</p>
-        <a href="<?= $this->Url->build(['controller'=>'Bookings','action'=>'index']) ?>">Go to Bookings</a>
+        <h2>Courses</h2>
+        <p>Manage all courses here</p>
+        <a href="<?= $this->Url->build(['controller'=>'Courses','action'=>'index']) ?>">Go to Courses</a>
     </div>
 
     <!-- Empty Card -->
     <div class="dashboard-card">
-        <h2>Feature</h2>
-        <p>Description of the feature</p>
+        <h2>Enquiries</h2>
+        <p>View all enquiries here</p>
         <!-- Link to feature -->
-        <!-- <a href="<?= $this->Url->build(['controller'=>'FutureController','action'=>'futureAction']) ?>">Go to Future Feature</a> -->
+         <a href="<?= $this->Url->build(['controller'=>'Enquirys','action'=>'index']) ?>">Go to Enquiries</a>
     </div>
 
 </div>
