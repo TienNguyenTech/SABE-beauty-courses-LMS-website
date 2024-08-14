@@ -116,17 +116,32 @@ class PaymentsController extends AppController
     }
 
     public function checkout($course_id) {
-        $this->viewBuilder()->setLayout('customer');
+        $this->viewBuilder()->disableAutoLayout();
         Stripe::setApiKey('sk_test_51PnfYBHtFQ126a2JACHCRvlLDksG752hMQYdxCkoHDtqavhxcA5WHMmXqX7iVa0PgrrieQS0w5uGch0n0jLsD0ST00PMNE3Zwp');
 
         $course = $this->Courses->get($course_id);
 
+        $line_items = [
+            [
+                'price_data' => [
+                    'product_data' => [
+                        'name' => $course['course_name'],
+                    ],
+                    'currency' => 'AUD',
+                    'unit_amount' => $course['course_price'] * 100,  // Convert price to cents
+                ],
+                'quantity' => 1,
+            ],
+        ];
+
+
         $checkout_session = Session::create([
-            'success_url' => Router::fullBaseUrl() . Router::url(['Home", "/"']),
-            'cancel_url' => Router::fullBaseUrl() . Router::url(['www.google.com']),
+            'success_url' => Router::fullBaseUrl() . Router::url(['/']),  // Redirect to your home page
+            'cancel_url' => 'https://www.google.com',  // Direct external URL without using Router::fullBaseUrl()
             'payment_method_types' => ['card'],
             'mode' => 'payment',
-            'line_items' => ['price_data' => ['product_data' => ['name' => $course['course_name']], 'currency' => 'AUD', 'unit_amount' => $course['course_price'] * 100],"quantity" =>1]]);
+            'line_items' => $line_items,
+        ]);
 
         $this->set('sessionId', $checkout_session['id']);
     }
