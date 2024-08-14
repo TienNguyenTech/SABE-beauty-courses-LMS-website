@@ -20,10 +20,10 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
                     <th><?= h('user_id') ?></th>
                     <th><?= h('user_firstname') ?></th>
                     <th><?= h('user_surname') ?></th>
-                    <th><?= h('user_email') ?></th>
+                    <th><?= h('email') ?></th>
                     <th><?= h('user_phone') ?></th>
                     <th><?= h('user_type') ?></th>
-                    <th><?= h('user_password') ?></th>
+                    <th><?= h('password') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
@@ -33,10 +33,10 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
                     <td><?= $this->Number->format($user->user_id) ?></td>
                     <td><?= h($user->user_firstname) ?></td>
                     <td><?= h($user->user_surname) ?></td>
-                    <td><?= h($user->user_email) ?></td>
+                    <td><?= h($user->email) ?></td>
                     <td><?= h($user->user_phone) ?></td>
                     <td><?= h($user->user_type) ?></td>
-                    <td><?= h($user->user_password) ?></td>
+                    <td><?= h($user->password) ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $user->user_id]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->user_id]) ?>

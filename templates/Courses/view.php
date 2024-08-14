@@ -48,7 +48,7 @@
                                     <td><?= h($user->user_id) ?></td>
                                     <td><?= h($user->user_firstname) ?></td>
                                     <td><?= h($user->user_surname) ?></td>
-                                    <td><?= h($user->user_email) ?></td>
+                                    <td><?= h($user->email) ?></td>
                                     <td><?= h($user->user_phone) ?></td>
                                     <td><?= h($user->user_type) ?></td>
                                     <td class="actions">

@@ -44,6 +44,11 @@ class UsersTable extends Table
         $this->setDisplayField('user_firstname');
         $this->setPrimaryKey('user_id');
 
+//        // Adding the authenticate behaviour to check for missing columns in users table
+//        $this->addBehavior('CanAuthenticate');
+
+
+
         $this->belongsToMany('Bookings', [
             'foreignKey' => 'user_id',
             'targetForeignKey' => 'booking_id',
@@ -77,10 +82,10 @@ class UsersTable extends Table
             ->notEmptyString('user_surname');
 
         $validator
-            ->scalar('user_email')
-            ->maxLength('user_email', 100)
-            ->requirePresence('user_email', 'create')
-            ->notEmptyString('user_email');
+            ->scalar('email')
+            ->maxLength('email', 100)
+            ->requirePresence('email', 'create')
+            ->notEmptyString('email');
 
         $validator
             ->scalar('user_phone')
@@ -95,10 +100,10 @@ class UsersTable extends Table
             ->notEmptyString('user_type');
 
         $validator
-            ->scalar('user_password')
-            ->maxLength('user_password', 255)
-            ->requirePresence('user_password', 'create')
-            ->notEmptyString('user_password');
+            ->scalar('password')
+            ->maxLength('password', 255)
+            ->requirePresence('password', 'create')
+            ->notEmptyString('password');
 
         return $validator;
     }

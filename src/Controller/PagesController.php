@@ -31,6 +31,14 @@ use Cake\View\Exception\MissingTemplateException;
  */
 class PagesController extends AppController
 {
+
+    public function initialize(): void
+    {
+        parent::initialize();
+
+        // Controller-level function/action whitelist for authentication
+        $this->Authentication->allowUnauthenticated(['display']);
+    }
     /**
      * Displays a view
      *

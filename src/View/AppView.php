@@ -49,5 +49,8 @@ class AppView extends View
     ];
         $this->Form->setTemplates($formTemplate);
         $this->loadHelper('ContentBlocks.ContentBlock');
+        // Load View Helper of Authentication plugin
+        $this->addHelper('Authentication.Identity');
+//        $this->loadHelper('Authentication.Identity');
     }
 }
