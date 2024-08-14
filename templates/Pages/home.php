@@ -65,6 +65,7 @@
                             <li><?= $this->Html->link("Courses", ['controller' => 'Courses', 'action' => 'viewc']) ?>
                             </li>
 
+
                             <li><?= $this->Html->link("Beauty By Lisa", ['controller' => 'Lisa', 'action' => 'viewlisa']) ?></li>
                             <li><a href="contact.html">Contact</a></li>
                             <li>
@@ -99,7 +100,7 @@
 
 
 
-                       
+
                     </nav>
                     <a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
                     <div class="mobile-menu"></div>
