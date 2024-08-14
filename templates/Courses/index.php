@@ -19,6 +19,7 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
                 <tr>
                     <th><?= h('course_id') ?></th>
                     <th><?= h('course_name') ?></th>
+                    <th><?= h('course_image') ?></th>
                     <th><?= h('course_description') ?></th>
                     <th><?= h('course_price') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
@@ -29,6 +30,7 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
                 <tr>
                     <td><?= $this->Number->format($course->course_id) ?></td>
                     <td><?= h($course->course_name) ?></td>
+                    <td><?= $this->Html->image('course/' . $course->course_image, ['alt' => $course->course_name, 'style' => 'max-width: 100px;']) ?></td>
                     <td><?= h($course->course_description) ?></td>
                     <td><?= $this->Number->format($course->course_price) ?></td>
                     <td class="actions">

@@ -28,6 +28,7 @@ class Course extends Entity
      */
     protected array $_accessible = [
         'course_name' => true,
+        'course_image' => true,
         'course_description' => true,
         'course_price' => true,
         'users' => true,

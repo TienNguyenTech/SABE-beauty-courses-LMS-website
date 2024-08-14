@@ -9,8 +9,9 @@ namespace App\Controller;
  * @property \App\Model\Table\CoursesTable $Courses
  */
 class CoursesController extends AppController
-{   
-    public function viewc() {
+{
+    public function viewc()
+    {
         $this->viewBuilder()->setLayout('customerDefault');
 
         $query = $this->Courses->find();
@@ -54,17 +55,44 @@ class CoursesController extends AppController
     {
         $course = $this->Courses->newEmptyEntity();
         if ($this->request->is('post')) {
+            // Get the form data and patch the entity
             $course = $this->Courses->patchEntity($course, $this->request->getData());
+
+            // Get the uploaded files
+            $image = $this->request->getUploadedFiles();
+
+            // Check if 'course_image' key exists and is a valid UploadedFile object
+            if (isset($image['course_image']) && $image['course_image'] instanceof \Laminas\Diactoros\UploadedFile) {
+                $uploadedFile = $image['course_image'];
+
+                // Get the original filename
+                $filename = $uploadedFile->getClientFilename();
+
+                // Define the path to save the uploaded file
+                $targetPath = WWW_ROOT . 'img' . DS . 'course' . DS . $filename;
+
+                // Move the file to the target path
+                $uploadedFile->moveTo($targetPath);
+
+                // Set the course image property using the set method
+                $course->set('course_image', $filename);
+            } else {
+                $this->Flash->error(__('Invalid file upload.'));
+                return $this->redirect(['action' => 'add']);
+            }
+
+            // Save the course entity
             if ($this->Courses->save($course)) {
                 $this->Flash->success(__('The course has been saved.'));
-
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('The course could not be saved. Please, try again.'));
         }
-        $users = $this->Courses->Users->find('list', limit: 200)->all();
+
+        $users = $this->Courses->Users->find('list', ['limit' => 200])->all();
         $this->set(compact('course', 'users'));
     }
+
 
     /**
      * Edit method

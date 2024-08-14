@@ -61,32 +61,33 @@ $products = [
 
     <style>
         .product-lists {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            gap: 20px;
+    
             /* Space between product items */
             align-items: center;
             /* Center items vertically */
             margin-left: 10%;
+
         }
 
         .single-product-item {
             background-color: #fff;
-            border: 1px solid #ddd;
             border-radius: 8px;
             overflow: hidden;
-            transition: transform 0.2s, box-shadow 0.2s;
             margin: 30px;
             padding: 20px;
             text-align: center;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             -webkit-transition: 0.3s;
             -o-transition: 0.3s;
             transition: 0.3s;
 
-            width: 320px;
-            height: 400px;
+            width: 300px;
+            height: 470px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin-bottom: 25px;
+            position: relative;
         }
 
         .single-product-item:hover {
@@ -152,6 +153,79 @@ $products = [
             color: #fff;
         }
     </style>
+
+<style>
+       
+        .card-img-top {
+            height: 200px;
+            /* Consistent height for image frame */
+            object-fit: cover;
+            /* Ensure image fits within set height */
+        }
+
+        .card-body {
+            padding: 20px;
+            flex-grow: 1;
+            /* Allows flexibility for content */
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            /* Consistent font size for titles */
+        }
+
+        .card-text {
+            height: 100px;
+            /* Fixed height for description */
+            overflow: hidden;
+            /* Prevents content overflow */
+            display: -webkit-box;
+            /* Enables multi-line truncation */
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 5;
+            /* Limit to 5 lines */
+            text-overflow: ellipsis;
+            /* Shows ellipsis for truncated content */
+        }
+
+        .text-muted {
+            height: 20px;
+            /* Consistent height for the price section */
+        }
+
+        .card-footer {
+            padding: 10px;
+            /* Consistent padding */
+            display: flex;
+            justify-content: center;
+        }
+
+        .rectangle-image-wrapper {
+            width: 100%;
+            padding-top: 75%;
+            /* Maintains aspect ratio for images */
+            position: relative;
+        }
+
+        .rectangle-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+
+        .modalMenuItemPrice {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            font-size: 1.5rem;
+
+        }
+    </style>
+
 </head>
 
 <body>
@@ -174,20 +248,35 @@ $products = [
             </div>
 
             <div class="row product-lists">
-                <?php foreach ($courses as $course): ?>
-                    <div class="col-lg-4 col-md-6 text-center <?= $course['category'] ?>">
-                        <div class="single-product-item">
-                            <div class="product-image">
-                                <a href="single-product.html"><img src="<?= $course['image'] ?>"
-                                        alt="<?= $course['name'] ?>"></a>
+
+                    <?php foreach ($courses as $course): ?>
+                        <div class="col-lg-4 col-md-6 text-center <?= $course->course_category ?>">
+                            <div class="single-product-item" data-course="<?= $course->course_id ?>">
+                                <?= $this->Html->image('menu/' . $course->course_image, ['alt' => $course->course_name, 'class' => 'card-img-top']) ?>
+                                <div class="card-body">
+                                    <h5 class="card-title"><?= $course->course_name ?></h5>
+                                    <p class="card-text"><?= truncateDescription($course->course_description, 20) ?></p>
+                                    <p class="product-price"><?= $this->Number->currency($course->course_price) ?> </p>
+                                    <a href="cart.html" class="cart-btn">Enroll Now</a>
+                                </div>
                             </div>
-                            <h3><?= $course['name'] ?></h3>
-                            <p class="product-price"><span>AUD</span> <?= $course['price'] ?> </p>
-                            <a href="cart.html" class="cart-btn"> Enroll Now</a>
                         </div>
-                    </div>
-                <?php endforeach; ?>
+                    <?php endforeach; ?>
+
             </div>
+
+            <?php
+            function truncateDescription($description, $words)
+            {
+                $wordArray = explode(' ', $description);
+                if (count($wordArray) > $words) {
+                    $wordArray = array_slice($wordArray, 0, $words);
+                    return implode(' ', $wordArray) . '...';
+                }
+                return $description;
+            }
+            ?>
+
 
             <div class="row">
                 <div class="col-lg-12 text-center">
