@@ -851,145 +851,161 @@ a.mobile-show {
 # Footer Styles
 
 ----------------------------------------------------------------------------- */
+/* Existing Styles */
 .single-logo-item img {
-  max-width: 180px;
-  margin: 0 auto;
+    max-width: 180px;
+    margin: 0 auto;
 }
 
 .logo-carousel-section {
-  background-color: #74C69D;
-  padding: 50px 0;
+    background-color: #74C69D;
+    padding: 50px 0;
 }
 
 .footer-area {
-  background-color: #1B4332;
-  color: #74C69D;
-  padding: 150px 0;
+    width:100%; /* Changed from auto to 100% to span full width */
+    background-color: #1B4332;
+    color: #1B4332;
+    padding: 50px 0; /* Reduced padding for better fit, adjust as needed */
+    position: relative;
+    bottom: 0;
+}
+
+.footer-area .container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    box-sizing: border-box;
+    color: #1B4332;
 }
 
 h2.widget-title {
-  font-size: 24px;
-  font-weight: 500;
-  position: relative;
-  padding-bottom: 20px;
-  color: #74C69D;
+    font-size: 24px;
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 20px;
+    color: #74C69D;
 }
 
 h2.widget-title:after {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 20px;
-  height: 2px;
-  background-color:#2D6A4F;
-  content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 20px;
+    height: 2px;
+    background-color:#2D6A4F;
+    content: "";
 }
 
 .footer-box p {
-  color: #74C69D;
-  opacity: 0.7;
-  line-height: 1.8;
+    color: #74C69D;
+    opacity: 0.7;
+    line-height: 1.8;
+    width: 100%;
 }
 
 .footer-box ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 .footer-box ul li {
-  opacity: 0.7;
-  margin-bottom: 10px;
-  line-height: 1.8;
+    opacity: 0.7;
+    margin-bottom: 10px;
+    line-height: 1.8;
 }
 
 .footer-box ul li:last-child {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 .footer-box.subscribe form input[type=email] {
-  border: none;
-  background-color: #012738;
-  width: 78%;
-  padding: 15px;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-  color: #74C69D;
+    border: none;
+    background-color: #1B4332;
+    width: calc(100% - 100px); /* Adjust width to fit within the footer */
+    padding: 15px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    color: #74C69D;
 }
 
 .footer-box.subscribe form button {
-  width: 20%;
-  border: none;
-  background-color: #012738;
-  color:#2D6A4F;
-  padding: 14px 0;
-  border-top-right-radius: 3px;
-  border-bottom-right-radius: 3px;
-  cursor: pointer;
+    width: 100px; /* Fixed width for the button */
+    border: none;
+    background-color: #012738;
+    color: #2D6A4F;
+    padding: 14px 0;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    cursor: pointer;
 }
 
 .footer-box.subscribe form button:focus {
-  outline: none;
+    outline: none;
 }
 
 .copyright {
-  background-color: #1B4332;
-  border-top: 1px solid #232a35;
+    background-color: #1B4332;
+    border-top: 1px solid #232a35;
+    width: 100%; /* Ensure copyright area spans full width */
 }
 
 .copyright p {
-  margin: 0;
-  color: #74C69D;
-  opacity: 0.7;
-  padding: 16px 0;
-  font-size: 15px;
+    margin: 0;
+    color: #74C69D;
+    opacity: 0.7;
+    padding: 16px 0;
+    font-size: 15px;
+    text-align: center; /* Center text in the copyright section */
 }
 
 .copyright a {
-  color:#2D6A4F;
-  font-weight: 700;
+    color: #2D6A4F;
+    font-weight: 700;
 }
 
 .copyright a:hover {
-  color: #f59d53;
+    color: #f59d53;
 }
 
 .social-icons ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 .social-icons ul li {
-  display: inline-block;
+    display: inline-block;
 }
 
 .social-icons ul li a {
-  font-size: 16px;
-  color: #74C69D;
-  opacity: 0.7;
-  padding: 16px 10px;
-  display: block;
+    font-size: 16px;
+    color: #74C69D;
+    opacity: 0.7;
+    padding: 16px 10px;
+    display: block;
 }
 
 .footer-box ul li a {
-  color: #74C69D;
+    color: #1B4332;
 }
 
 .footer-box.pages ul li {
-  position: relative;
-  padding-left: 20px;
+    position: relative;
+    padding-left: 20px;
 }
 
 .footer-box.pages ul li:before {
-  position: absolute;
-  left: 0;
-  top: 0;
-  content: "\f105";
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-  color:#2D6A4F;
+    position: absolute;
+    left: 0;
+    top: 0;
+    content: "\f105";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: #1B4332;
 }
+
 
 /* -----------------------------------------------------------------------------
 
@@ -1176,8 +1192,8 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-  background-color: #1B4332;
-  color:#2D6A4F;
+  background-color: #95D5B2;
+  color:#B7E4C7;
 }
 
 div.owl-controls, .owl-controls div {

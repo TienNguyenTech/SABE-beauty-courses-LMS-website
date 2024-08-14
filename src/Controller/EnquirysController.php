@@ -48,7 +48,9 @@ class EnquirysController extends AppController
         if ($this->request->is('post')) {
             $enquiry = $this->Enquirys->patchEntity($enquiry, $this->request->getData());
             if ($this->Enquirys->save($enquiry)) {
-                return $this->redirect(['action' => 'add']);
+                $this->redirect(['action' => 'add']);
+
+                return $this->Flash->success('Enquiry has been sent', ['key' => 'positive', 'clear' => true]);
             }
             $this->Flash->error(__('The enquiry could not be saved. Please, try again.'));
         }
