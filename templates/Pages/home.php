@@ -72,7 +72,7 @@
                                 </li>
                                 <li><?= $this->Html->link("Courses", ['controller' => 'Courses', 'action' => 'viewc']) ?></li>
                                 <li><?= $this->Html->link("Bookings", ['controller' => 'Courses', 'action' => 'viewc']) ?></li>
-                                <li><?= $this->Html->link("Lisa's Beauty", ['controller' => 'Courses', 'action' => 'viewc']) ?></li>
+                                <li><?= $this->Html->link("Lisa's Beauty", ['controller' => 'Lisa', 'action' => 'viewlisa']) ?></li>
                                 <li><a href="about.html">About</a></li>
                                 <li><a href="contact.html">Contact</a></li>
                                
