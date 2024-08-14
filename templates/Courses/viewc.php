@@ -1,4 +1,8 @@
 <?php
+/**
+* @var \App\View\AppView $this
+ * @var iterable<\App\Model\Entity\Course> $courses
+ */
 // Sample product data. In a real application, this might come from a database.
 $products = [
     [
@@ -231,128 +235,47 @@ $products = [
 
 <body>
 
-    <!-- products -->
-    <!-- products -->
-    <div class="product-section mt-150 mb-150">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="product-filters">
-                        <ul>
-                            <li class="active" data-filter="*">All</li>
-                            <li data-filter=".Workshop">Workshop</li>
-                            <li data-filter=".Hybrid">Hybrid</li>
-                            <li data-filter=".Online">Online</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row product-lists">
-                <!-- Product 1 -->
-                <div class="col-lg-4 col-md-6 text-center Hybrid">
-                    <div class="single-product-item">
-                        <div class="product-image">
-                            <a href="single-product.html">
-                                <img src="assets/img/products/product-img-1.jpg" alt="Back to Basics: Facials" class="card-img-top">
-                            </a>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Back to Basics: Facials</h5>
-                            <p class="card-text">No description available</p>
-                            <p class="product-price">199$</p>
-                            <a href="single-product.html" class="cart-btn">Enroll Now</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product 2 -->
-                <div class="col-lg-4 col-md-6 text-center Hybrid">
-                    <div class="single-product-item">
-                        <div class="product-image">
-                            <a href="single-product.html">
-                                <img src="assets/img/products/product-img-2.jpg" alt="Back to Basics: Lash & Brow" class="card-img-top">
-                            </a>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Back to Basics: Lash & Brow</h5>
-                            <p class="card-text">No description available</p>
-                            <p class="product-price">199$</p>
-                            <a href="single-product.html" class="cart-btn">Enroll Now</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product 3 -->
-                <div class="col-lg-4 col-md-6 text-center Workshop">
-                    <div class="single-product-item">
-                        <div class="product-image">
-                            <a href="single-product.html">
-                                <img src="assets/img/products/product-img-3.jpg" alt="Total Care: Waxing" class="card-img-top">
-                            </a>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Total Care: Waxing</h5>
-                            <p class="card-text">No description available</p>
-                            <p class="product-price">499$</p>
-                            <a href="single-product.html" class="cart-btn">Enroll Now</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product 4 -->
-                <div class="col-lg-4 col-md-6 text-center Online">
-                    <div class="single-product-item">
-                        <div class="product-image">
-                            <a href="single-product.html">
-                                <img src="assets/img/products/product-img-4.jpg" alt="Total Care: Nails" class="card-img-top">
-                            </a>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Total Care: Nails</h5>
-                            <p class="card-text">No description available</p>
-                            <p class="product-price">399$</p>
-                            <a href="single-product.html" class="cart-btn">Enroll Now</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product 5 -->
-                <div class="col-lg-4 col-md-6 text-center Online">
-                    <div class="single-product-item">
-                        <div class="product-image">
-                            <a href="single-product.html">
-                                <img src="assets/img/products/product-img-5.jpg" alt="Back To Basics: Customer Connection" class="card-img-top">
-                            </a>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Back To Basics: Customer Connection</h5>
-                            <p class="card-text">No description available</p>
-                            <p class="product-price">199$</p>
-                            <a href="single-product.html" class="cart-btn">Enroll Now</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product 6 -->
-                <div class="col-lg-4 col-md-6 text-center Hybrid">
-                    <div class="single-product-item">
-                        <div class="product-image">
-                            <a href="single-product.html">
-                                <img src="assets/img/products/product-img-6.jpg" alt="Custom Training" class="card-img-top">
-                            </a>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Custom Training</h5>
-                            <p class="card-text">No description available</p>
-                            <p class="product-price">599$</p>
-                            <a href="single-product.html" class="cart-btn">Enroll Now</a>
-                        </div>
-                    </div>
+<div class="product-section mt-150 mb-150">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="product-filters">
+                    <ul>
+                        <li class="active" data-filter="*">All</li>
+                        <li data-filter=".Workshop">Workshop</li>
+                        <li data-filter=".Hybrid">Hybrid</li>
+                        <li data-filter=".Online">Online</li>
+                    </ul>
                 </div>
             </div>
         </div>
+
+        <div class="row product-lists">
+            <?php foreach ($courses as $course): ?>
+            <div class="card <?= $course->course_category ?>">
+<!--            <div class="col-lg-4 col-md-6 text-center --><?php //= $course->course_category ?><!--">-->
+                <div class="single-product-item">
+                    <div class="product-image">
+                        <a href="single-product.html">
+                            <img src="/<?= $course->course_image ?>" alt="Back to Basics: Facials" class="card-img-top">
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title"><?= $course->course_name ?></h5>
+                        <p class="card-text"><?= $course->course_description ?></p>
+                        <p class="product-price"><?= $course->course_price ?></p>
+                        <a href="single-product.html" class="cart-btn">Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <?php endforeach; ?>
+
+        </div>
     </div>
+</div>
+
+
 
 
     <?php
@@ -368,7 +291,7 @@ $products = [
             ?>
 
 
-            
+
     <!-- end products -->
 
 </body>

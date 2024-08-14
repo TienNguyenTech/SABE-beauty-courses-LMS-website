@@ -12,6 +12,8 @@ use Cake\ORM\Entity;
  * @property string $course_name
  * @property string $course_description
  * @property string $course_price
+ * @property string $course_image
+ * @property string $course_category
  *
  * @property \App\Model\Entity\User[] $users
  */
@@ -31,6 +33,7 @@ class Course extends Entity
         'course_image' => true,
         'course_description' => true,
         'course_price' => true,
+        'course_category' => true,
         'users' => true,
     ];
 }
