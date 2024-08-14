@@ -10,6 +10,14 @@ namespace App\Controller;
  */
 class EnquirysController extends AppController
 {
+    public function initialize(): void
+    {
+        parent::initialize();
+
+        // Controller-level function/action whitelist for authentication
+        $this->Authentication->allowUnauthenticated(['add']);
+    }
+
     /**
      * Index method
      *

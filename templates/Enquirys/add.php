@@ -87,10 +87,27 @@
                                   </li> -->
                                 </li>
                                 <li>
-                                    <div class="header-icons">
-                                        <a class="login-button" href="login.html"><i class="fas fa-user"></i> Login</a>
-                                    </div>
-                                </li>
+                                <?php
+                                if ($this->Identity->isLoggedIn()) {
+                                    echo $this->Html->link(
+                                        'Dashboard',
+                                        ['controller' => 'AdminDashboard', 'action' => 'dashboard'],
+                                        ['class' => 'button button-outline']
+                                    );
+                                    echo $this->Html->link(
+                                        'Log out',
+                                        ['controller' => 'Auth', 'action' => 'logout'],
+                                        ['class' => 'button button-outline']
+                                    );
+                                } else {
+                                    echo $this->Html->link(
+                                        'Log in',
+                                        ['controller' => 'Auth', 'action' => 'login'],
+                                        ['class' => 'button button-outline']
+                                    );
+                                }
+                                ?>
+                            </li>
                             </ul>
                         </nav>
                         <!-- menu end -->

@@ -83,6 +83,9 @@
             <a class="nav-link" href="<?= $this->Url->build(['plugin' => null, 'controller' => 'Users', 'action' => 'index']) ?>">
                 <i class="fas fa-fw fa-user"></i>
                 <span>Users</span></a>
+            <a class="nav-link" href="<?= $this->Url->build(['plugin' => null, 'controller' => 'Enquirys', 'action' => 'index']) ?>">
+                <i class="fas fa-fw fa-pen"></i>
+                <span>Enquiries</span></a>
         </li>
 
         <!-- Divider -->

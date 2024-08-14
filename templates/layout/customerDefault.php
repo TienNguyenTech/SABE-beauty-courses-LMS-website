@@ -203,24 +203,27 @@
 
                                 <ul class="header-nav">
                                     <li>
-                                        <div class="header-icons">
-                                            <?php
-                                            if ($this->Identity->isLoggedIn()) {
-
-                                                echo $this->Html->link(
-                                                    'Log out',
-                                                    ['controller' => 'Auth', 'action' => 'logout'],
-                                                    ['class' => 'button button-outline']
-                                                );
-                                            } else {
-                                                echo $this->Html->link(
-                                                    'Log in',
-                                                    ['controller' => 'Auth', 'action' => 'login'],
-                                                    ['class' => 'button button-outline']
-                                                );
-                                            }
-                                            ?>
-                                        </div>
+                                                                    <?php
+                                                                    if ($this->Identity->isLoggedIn()) {
+                                                                        echo $this->Html->link(
+                                                                            'Dashboard',
+                                                                            ['controller' => 'AdminDashboard', 'action' => 'dashboard'],
+                                                                            ['class' => 'button button-outline']
+                                                                        );
+                                                                        echo $this->Html->link(
+                                                                            'Log out',
+                                                                            ['controller' => 'Auth', 'action' => 'logout'],
+                                                                            ['class' => 'button button-outline']
+                                                                        );
+                                                                    } else {
+                                                                        echo $this->Html->link(
+                                                                            'Log in',
+                                                                            ['controller' => 'Auth', 'action' => 'login'],
+                                                                            ['class' => 'button button-outline']
+                                                                        );
+                                                                    }
+                                                                    ?>
+                                                                </li>
                                 </ul>
 
                             </ul>
