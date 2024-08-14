@@ -195,7 +195,7 @@
                         </div>
                         <div class="contact-form-box">
                             <h4><i class="fas fa-address-book"></i> Contact</h4>
-                            <p>Phone: 0000 000 000 <br> Email: beautybylisafollett@gmail.com</p>
+                            <p>Phone: <?= $this->ContentBlock->text('contact-phone') ?> <br> Email: <?= $this->ContentBlock->text('contact-email') ?></p>
                         </div>
                     </div>
                 </div>
