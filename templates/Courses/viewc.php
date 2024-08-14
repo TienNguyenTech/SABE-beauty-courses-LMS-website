@@ -2,49 +2,49 @@
 // Sample product data. In a real application, this might come from a database.
 $products = [
     [
-        'name' => 'Strawberry',
-        'image' => 'assets/img/products/product-img-1.jpg',
-        'price' => '85$',
-        'category' => 'strawberry'
+        'name' => 'Back to Basics: Facials',
+        'image' => 'products/product-img-1.jpg',
+        'price' => '199$',
+        'category' => 'Hybrid'
     ],
     [
-        'name' => 'Berry',
+        'name' => 'Back to Basics: Lash & Brow',
         'image' => 'assets/img/products/product-img-2.jpg',
-        'price' => '70$',
-        'category' => 'berry'
+        'price' => '199$',
+        'category' => 'Hybrid'
     ],
     [
-        'name' => 'Lemon',
+        'name' => 'Total Care: Waxing',
         'image' => 'assets/img/products/product-img-3.jpg',
-        'price' => '35$',
-        'category' => 'lemon'
+        'price' => '499$',
+        'category' => 'Workshop'
     ],
     [
-        'name' => 'Avocado',
+        'name' => 'Total Care: Nails',
         'image' => 'assets/img/products/product-img-4.jpg',
-        'price' => '50$',
-        'category' => ''
+        'price' => '399$',
+        'category' => 'Online'
     ],
     [
-        'name' => 'Green Apple',
+        'name' => 'Back To Basics: Customer Connection',
         'image' => 'assets/img/products/product-img-5.jpg',
-        'price' => '45$',
-        'category' => ''
+        'price' => '199$',
+        'category' => 'Online'
     ],
     [
-        'name' => 'Strawberry',
+        'name' => 'Custom Training',
         'image' => 'assets/img/products/product-img-6.jpg',
-        'price' => '80$',
-        'category' => 'strawberry'
+        'price' => '599$',
+        'category' => 'Hybrid'
     ]
 ];
-
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" href="webroot/assets/css/main.css">
     <!-- Google Fonts -->
     <?= $this->Html->css('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700', ['block' => true]) ?>
     <?= $this->Html->css('https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap', ['block' => true]) ?>
@@ -58,6 +58,7 @@ $products = [
     <!-- magnific popup --> <?= $this->Html->script('jquery.magnific-popup.min') ?> <!-- mean menu -->
     <?= $this->Html->script('jquery.meanmenu.min') ?> <!-- sticker js --> <?= $this->Html->script('sticker') ?>
     <!-- main js --> <?= $this->Html->script('main') ?> <?= $this->fetch('css') ?> <?= $this->fetch('script') ?>
+    <link rel="stylesheet" href="assets/css/main.css">
 
     <style>
         .product-lists {
@@ -110,7 +111,7 @@ $products = [
 
         .cart-btn {
             display: inline-block;
-            background-color: #f8b400;
+            background-color: #74C69D;
             color: #fff;
             padding: 10px 20px;
             border-radius: 5px;
@@ -119,7 +120,7 @@ $products = [
         }
 
         .cart-btn:hover {
-            background-color: #f39c12;
+            background-color: #B7E4C7;
         }
 
         .pagination-wrap {
@@ -148,7 +149,7 @@ $products = [
 
         .pagination-wrap a.active,
         .pagination-wrap a:hover {
-            background-color: #f8b400;
+            background-color: #95D5B2;
             color: #fff;
         }
     </style>
@@ -159,31 +160,31 @@ $products = [
     <!-- products -->
     <div class="product-section mt-150 mb-150">
         <div class="container">
-
             <div class="row">
                 <div class="col-md-12">
                     <div class="product-filters">
                         <ul>
                             <li class="active" data-filter="*">All</li>
-                            <li data-filter=".strawberry">Workshop</li>
-                            <li data-filter=".berry">Facial</li>
-                            <li data-filter=".lemon">Online</li>
+                            <li data-filter=".Workshop">Workshop</li>
+                            <li data-filter=".Hybrid">Hybrid</li>
+                            <li data-filter=".Online">Online</li>
                         </ul>
                     </div>
                 </div>
             </div>
 
+
             <div class="row product-lists">
-                <?php foreach ($courses as $course): ?>
-                    <div class="col-lg-4 col-md-6 text-center <?= $course['category'] ?>">
+                <?php foreach ($products as $product): ?>
+                    <div class="col-lg-4 col-md-6 text-center <?= $product['category'] ?>">
                         <div class="single-product-item">
                             <div class="product-image">
-                                <a href="single-product.html"><img src="<?= $course['image'] ?>"
-                                        alt="<?= $course['name'] ?>"></a>
+                              <!-- < <a href="single-product.html"><img src="<?= $product['image'] ?>"
+                                        alt="<?= $product['name'] ?>"></a>-->
+                                <img src="<?= $product['image'] ?>"alt="<?= $product['name'] ?>">
                             </div>
-                            <h3><?= $course['name'] ?></h3>
-                            <p class="product-price"><span>AUD</span> <?= $course['price'] ?> </p>
-                            <a href="cart.html" class="cart-btn"> Enroll Now</a>
+                            <h3><?= $product['name'] ?></h3>
+                            <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i>Enroll Now </a>
                         </div>
                     </div>
                 <?php endforeach; ?>
