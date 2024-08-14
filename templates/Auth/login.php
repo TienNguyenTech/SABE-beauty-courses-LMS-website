@@ -76,7 +76,6 @@ $this->assign('title', 'Login');
                             'required' => true,
                         ]);
                         ?>
-                        <?= $this->Html->link("New to SABE? Sign up here", ['controller' => 'Auth', 'action' => 'register'], ['class' => 'button-clear']) ?>
                     </fieldset>
 
                     <?= $this->Html->link('Forgotten your password?', ['controller' => 'Auth', 'action' => 'forgetPassword'], ['class' => 'button-clear']) ?>
