@@ -59,7 +59,7 @@
                href="<?= $this->Url->build(['plugin' => null, 'controller' => 'Pages', 'action' => 'display', 'home']) ?>">
                 <i class="fas fa-fw fa-home"></i>
                 <span>Customer Homepage</span></a>
-            <a class="nav-link" href="<?= $this->Url->build(['plugin' => null,'controller'=>'Pages','action'=>'adminDashboard']) ?>">
+            <a class="nav-link" href="<?= $this->Url->build(['plugin' => null,'controller'=>'AdminDashboard','action'=>'dashboard']) ?>">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Admin Dashboard</span></a>
         </li>
