@@ -214,7 +214,7 @@ class AuthController extends AppController
 
         if ($result && $result->isValid()) {
             $this->Flash->success('Login successful.');
-            return $this->redirect($this->Authentication->getLoginRedirect() ?? ['controller' => 'Users', 'action' => 'index']);
+            return $this->redirect($this->Authentication->getLoginRedirect() ?? ['controller' => 'AdminDashboard', 'action' => 'dashboard']);
         }
 
         if ($this->request->is('post') && !$result->isValid()) {
