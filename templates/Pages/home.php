@@ -9,7 +9,11 @@
         content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
 
     <!-- title -->
+<<<<<<< HEAD
     <title><?= $this->ContentBlock->text('website-title'); ?></title>
+=======
+    <title>SABE | South Adelaide Beauty and Education</title>
+>>>>>>> Homepage-Surya
 
     <!-- favicon -->
     <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
@@ -34,6 +38,7 @@
     <link rel="stylesheet" href="assets/css/responsive.css">
 
 </head>
+<<<<<<< HEAD
 <style>
     body {
         background-color: #74C69D;
@@ -41,6 +46,8 @@
     }
 </style>
 
+=======
+>>>>>>> Homepage-Surya
 <body>
 
     <!--PreLoader-->
@@ -65,6 +72,7 @@
                     </div>
                     <!-- logo -->
 
+<<<<<<< HEAD
                         <!-- menu start -->
                         <nav class="main-menu">
                             <ul>
@@ -89,6 +97,76 @@
                         <a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
                         <div class="mobile-menu"></div>
                         <!-- menu end -->
+=======
+                    <!-- menu start -->
+                    <nav class="main-menu">
+                        <ul>
+                            <li class="current-list-item"><a href="#">Home</a>
+                                <ul class="sub-menu">
+                                    <li><a href="index.html">Static Home</a></li>
+                                    <li><a href="index_2.html">Slider Home</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="templates/Pages/about.html">About</a></li>
+
+
+
+                            <li><a href="#">Pages</a>
+                                <ul class="sub-menu">
+                                    <li><a href="404.html">404 page</a></li>
+                                    <li><a href="about.html">About</a></li>
+                                    <li><a href="cart.html">Cart</a></li>
+                                    <li><a href="checkout.html">Check Out</a></li>
+                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="news.html">News</a></li>
+                                    <li><a href="shop.html">Shop</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="news.html">News</a>
+                                <ul class="sub-menu">
+                                    <li><a href="news.html">News</a></li>
+                                    <li><a href="single-news.html">Single News</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="shop.html">Shop</a>
+                                <ul class="sub-menu">
+                                    <li><a href="shop.html">Shop</a></li>
+                                    <li><a href="checkout.html">Check Out</a></li>
+                                    <li><a href="single-product.html">Single Product</a></li>
+                                    <li><a href="cart.html">Cart</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="header-icons">
+                                    <a class="shopping-cart" href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+                                    <a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
+                    <a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+                    <div class="mobile-menu"></div>
+                    <!-- menu end -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end header -->
+
+<!-- search area -->
+<div class="search-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <span class="close-btn"><i class="fas fa-window-close"></i></span>
+                <div class="search-bar">
+                    <div class="search-bar-tablecell">
+                        <h3>Search For:</h3>
+                        <input type="text" placeholder="Keywords">
+                        <button type="submit">Search <i class="fas fa-search"></i></button>
+>>>>>>> Homepage-Surya
                     </div>
                 </div>
             </div>
@@ -124,7 +202,11 @@
                 <div class="col-md-12 col-lg-7 offset-lg-1 offset-xl-0">
                     <div class="hero-text">
                         <div class="hero-text-tablecell">
+<<<<<<< HEAD
                             <h1><?= $this->ContentBlock->text('home-slider-text-1'); ?></h1>
+=======
+                            <h1>Shape Your Future In Beauty</h1>
+>>>>>>> Homepage-Surya
                             <div class="hero-btns">
                                 <a href="shop.html" class="boxed-btn">Our Services</a>
                                 <a href="contact.html" class="bordered-btn">Contact Us</a>
@@ -142,7 +224,12 @@
                 <div class="col-lg-10 offset-lg-1 text-center">
                     <div class="hero-text">
                         <div class="hero-text-tablecell">
+<<<<<<< HEAD
                             <h1><?= $this->ContentBlock->text('home-slider-text-2'); ?></h1>
+=======
+                            <h1>Where Creativity Meets Skill</h1>
+
+>>>>>>> Homepage-Surya
                             <div class="hero-btns">
                                 <a href="shop.html" class="boxed-btn">Visit Shop</a>
                                 <a href="contact.html" class="bordered-btn">Contact Us</a>
@@ -189,6 +276,7 @@
                             <p>Learn from seasoned professionals in the industry. </p>
                         </div>
                     </div>
+<<<<<<< HEAD
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
                     <div class="list-box d-flex align-items-center">
@@ -210,6 +298,33 @@
                             <h3>Comprehensive Curriculum</h3>
                             <p>Covering all aspects of cosmetology, from basics to advanced techniques.</p>
                         </div>
+=======
+                    <div class="content">
+                        <h3>International Expert Instructors</h3>
+                        <p>Learn from seasoned professionals in the industry</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                <div class="list-box d-flex align-items-center">
+                    <div class="list-icon">
+                        <i class="fas fa-phone-volume"></i>
+                    </div>
+                    <div class="content">
+                        <h3>Flexible Classes</h3>
+                        <p>Day, evening, and weekend classes available.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="list-box d-flex justify-content-start align-items-center">
+                    <div class="list-icon">
+                        <i class="fas fa-sync"></i>
+                    </div>
+                    <div class="content">
+                        <h3>Comprehensive Curriculum</h3>
+                        <p>Covering all aspects of cosmetology, from basics to advanced techniques.</p>
+>>>>>>> Homepage-Surya
                     </div>
                 </div>
             </div>
@@ -226,19 +341,27 @@
                 <div class="section-title">
                     <h3><span class="orange-text">Our</span> Programs</h3>
                     <p>Explore our diverse range of programs designed to elevate your skills and prepare you for a successful career in the beauty industry.</p>
+                    <h3><span class="orange-text">Featured</span> Courses</h3>
+                    <p>>Explore our diverse range of programs designed to elevate your skills and prepare you for a successful career in the beauty industry.</p>
                 </div>
             </div>
         </div>
         <!-- HTML -->
+
         <div class="row">
             <div class="col-lg-4 col-md-6 text-center">
                 <div class="single-product-item">
                     <div class="product-image">
                         <a href="single-product.html"><?= $this->ContentBlock->image('home-program-image-1'); ?></a>
                     </div>
+<<<<<<< HEAD
                     <h3><?= $this->ContentBlock->text('home-program-title-1'); ?></h3>
                     <p class="product-price"><span><?= $this->ContentBlock->text('home-program-description-1'); ?></span> <?= $this->ContentBlock->text('home-program-price-1'); ?> </p>
                     <!--<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>-->
+=======
+                    <h3>Back to Basics: Facials</h3>
+                    <p class="product-price"><span>Learn the Fundamentals<br> of performing Facials</span> 199$ </p>
+>>>>>>> Homepage-Surya
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 text-center">
@@ -246,9 +369,14 @@
                     <div class="product-image">
                         <a href="single-product.html"><?= $this->ContentBlock->image('home-program-image-2'); ?></a>
                     </div>
+<<<<<<< HEAD
                     <h3><?= $this->ContentBlock->text('home-program-title-2'); ?></h3>
                     <p class="product-price"><span><?= $this->ContentBlock->text('home-program-description-2'); ?> </span> <?= $this->ContentBlock->text('home-program-price-2'); ?> </p>
                     <!--<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>-->
+=======
+                    <h3>Back to Basics: Lash & Brow </h3>
+                    <p class="product-price"><span>Master the techniques needed <br> to elevate your lash and brow artistry </span> 199$ </p>
+>>>>>>> Homepage-Surya
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0 text-center">
@@ -256,6 +384,7 @@
                     <div class="product-image">
                         <a href="single-product.html"><?= $this->ContentBlock->image('home-program-image-3'); ?></a>
                     </div>
+<<<<<<< HEAD
                     <h3><?= $this->ContentBlock->text('home-program-title-3'); ?></h3>
                     <p class="product-price"><span><?= $this->ContentBlock->text('home-program-description-3'); ?></span> <?= $this->ContentBlock->text('home-program-price-3'); ?> </p>
                     <!--<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>-->
@@ -385,11 +514,67 @@
                                         </div>
                                     </div>
                                 </div>
+=======
+                    <h3>Total Care: Waxing Essentials</h3>
+                    <p class="product-price"><span>Take your Waxing skills to the next level <br> and impress your clients </span> 99$ </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end product section -->
+
+<!-- testimonial-section -->
+<div class="testimonail-section mt-150 mb-150">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1 text-center">
+                <div class="testimonial-sliders">
+                    <div class="single-testimonial-slider">
+                        <div class="client-avater">
+                            <img src="assets/img/avaters/avatar1.png" alt="">
+                        </div>
+                        <div class="client-meta">
+                            <h3>Saira Hakim <span>Course: Back to Basics (Facial)</span></h3>
+                            <p class="testimonial-body">
+                                "Attending SABE was a game-changer for my career. The hands-on training and the guidance from industry professionals helped me refine my skills and build a strong portfolio "
+                            </p>
+                            <div class="last-icon">
+                                <i class="fas fa-quote-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single-testimonial-slider">
+                        <div class="client-avater">
+                            <img src="assets/img/avaters/avatar2.png" alt="">
+                        </div>
+                        <div class="client-meta">
+                            <h3>Sarah Lee <span>Course: Personalised Training</span></h3>
+                            <p class="testimonial-body">
+                                "I can’t thank SABE enough for the transformative education I received. The school not only taught me the technical skills needed to excel in esthetics but also provided me with a deep understanding of client care"                            </p>
+                            <div class="last-icon">
+                                <i class="fas fa-quote-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single-testimonial-slider">
+                        <div class="client-avater">
+                            <img src="assets/img/avaters/avatar3.png" alt="">
+                        </div>
+                        <div class="client-meta">
+                            <h3>Laura Smith <span>Course: Total Care (Waxing)</span></h3>
+                            <p class="testimonial-body">
+                                "The comprehensive training at SABE gave me a strong foundation in all aspects of Waxing. From basic techniques to advanced procedures, the curriculum was well-rounded and thorough"
+                            </p>
+                            <div class="last-icon">
+                                <i class="fas fa-quote-right"></i>
+>>>>>>> Homepage-Surya
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+<<<<<<< HEAD
             <!-- end testimonail-section -->
 
             <!-- advertisement section -->
@@ -536,6 +721,13 @@
                 </div>
             </div>
             <!-- end logo carousel -->
+=======
+        </div>
+    </div>
+</div>
+<!-- end testimonial-section -->
+
+>>>>>>> Homepage-Surya
 
             <!-- footer -->
             <div class="footer-area">
