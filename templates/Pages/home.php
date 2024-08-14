@@ -65,8 +65,9 @@
                             <li><?= $this->Html->link("Courses", ['controller' => 'Courses', 'action' => 'viewc']) ?>
                             </li>
 
+
                             <li><?= $this->Html->link("Beauty By Lisa", ['controller' => 'Lisa', 'action' => 'viewlisa']) ?></li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><?= $this->Html->link("Contact Us", ['controller' => 'Enquirys', 'action' => 'add']) ?></li>
                             <li>
                                 <?php
                                 if ($this->Identity->isLoggedIn()) {
@@ -99,7 +100,7 @@
 
 
 
-                       
+
                     </nav>
                     <a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
                     <div class="mobile-menu"></div>
@@ -130,6 +131,42 @@
 </div>
 <!-- end search area -->
 
+<style>
+    .hero-btns {
+        display: flex;
+        justify-content: center; /* Centers the buttons horizontally */
+        gap: 10px; /* Adds space between the buttons */
+        margin: 20px 0; /* Optional: Adds vertical spacing around the button container */
+    }
+
+    .link-container {
+        margin: 0; /* Ensures no extra margin around each button */
+    }
+
+    .boxed-btn {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 1em;
+        font-weight: bold;
+        color: #fff;
+        border: 2px solid #007bff;
+        border-radius: 5px;
+        text-decoration: none;
+        text-align: center;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .boxed-btn:hover {
+        background-color: #0056b3;
+        color: #fff;
+    }
+
+    .boxed-btn:active {
+        background-color: #004085;
+    }
+
+</style>
+
 <!-- home page slider -->
 <div class="homepage-slider">
     <!-- single home slider -->
@@ -141,8 +178,13 @@
                         <div class="hero-text-tablecell">
                             <h1><?= $this->ContentBlock->text('home-slider-text-1'); ?></h1>
                             <div class="hero-btns">
-                                <a href="shop.html" class="boxed-btn">Our Services</a>
-                                <a href="contact.html" class="bordered-btn">Contact Us</a>
+                                <div class="link-container">
+                                    <?= $this->Html->link("Our Services", ['controller' => 'Courses', 'action' => 'viewc'], ['class' => 'boxed-btn']) ?>
+                                </div>
+                                <div class="link-container">
+                                    <?= $this->Html->link("Contact us", ['controller' => 'Enquirys', 'action' => 'add'], ['class' => 'boxed-btn']) ?>
+                                </div>
+
                             </div>
                         </div>
                     </div>

@@ -235,6 +235,78 @@ $products = [
 
 <body>
 
+
+
+<style>
+    /* Ensure that the card takes up full width and is properly styled */
+    .single-product-item {
+        border: 1px solid #ddd;
+        padding: 15px;
+        border-radius: 5px;
+        background-color: #fff;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        transition: transform 0.3s;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+    }
+
+    .single-product-item:hover {
+        transform: scale(1.05);
+    }
+
+    .product-image img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .card-body {
+        padding: 15px;
+    }
+
+    .card-title {
+        font-size: 1.25rem;
+        margin: 0;
+    }
+
+    .product-price {
+        font-size: 1.2em;
+        color: #333;
+        margin-top: 10px;
+    }
+
+    .card-text {
+        margin: 10px 0;
+    }
+
+    /* Button styling */
+    .btn-primary {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 1em;
+        font-weight: bold;
+        color: #fff;
+        background-color: #007bff;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        text-align: center;
+        transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        transform: translateY(-2px);
+    }
+
+    .btn-primary:active {
+        background-color: #004085;
+        transform: translateY(0);
+    }
+
+</style>
+
 <div class="product-section mt-150 mb-150">
     <div class="container">
         <div class="row">
@@ -252,26 +324,26 @@ $products = [
 
         <div class="row product-lists">
             <?php foreach ($courses as $course): ?>
-            <div class="card <?= $course->course_category ?>">
-<!--            <div class="col-lg-4 col-md-6 text-center --><?php //= $course->course_category ?><!--">-->
-                <div class="single-product-item">
-                    <div class="product-image">
-                        <a href="single-product.html">
-                            <img src="/<?= $course->course_image ?>" alt="Back to Basics: Facials" class="card-img-top">
-                        </a>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title"><?= $course->course_name ?></h5>
-                        <p class="card-text"><?= $course->course_description ?></p>
-                        <p class="product-price"><?= $course->course_price ?></p>
-                        <a href="single-product.html" class="cart-btn">Enroll Now</a>
+                <div class="col-lg-4 col-md-6 text-center <?= $course->course_category ?>">
+                    <div class="single-product-item">
+                        <div class="product-image">
+                            <a href="single-product.html">
+                                <img src="/<?= $course->course_image ?>" alt="<?= $course->course_name ?>" class="card-img-top">
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title"><?= $course->course_name ?></h5>
+                            <p class="card-text"><?= $course->course_description ?></p>
+                            <p class="product-price"><?= $course->course_price ?></p>
+                            <?= $this->Html->link("Enroll Now", ['controller' => 'payments', 'action' => 'checkout', $course->course_id], ['class' => 'btn btn-primary']) ?>
+                        </div>
                     </div>
                 </div>
-            </div>
-
             <?php endforeach; ?>
-
         </div>
+
+
+
     </div>
 </div>
 
