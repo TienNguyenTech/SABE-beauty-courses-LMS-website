@@ -69,32 +69,17 @@ class CoursesController extends AppController
             // Get the uploaded files
             $image = $this->request->getUploadedFiles();
 
-            // Check if 'course_image' key exists and is a valid UploadedFile object
-            if (isset($image['course_image']) && $image['course_image'] instanceof \Laminas\Diactoros\UploadedFile) {
-                $uploadedFile = $image['course_image'];
 
-                // Get the original filename
-                $filename = $uploadedFile->getClientFilename();
+            $course->course_image = 'assets/img/products/' . $image['course_image']->getClientFilename();
+            $image['course_image']->moveTo(WWW_ROOT . 'assets' . DS . 'img' . DS . 'products' . DS . $image['course_image']->getClientFilename());
 
-                // Define the path to save the uploaded file
-                $targetPath = WWW_ROOT . 'img' . DS . 'course' . DS . $filename;
-
-                // Move the file to the target path
-                $uploadedFile->moveTo($targetPath);
-
-                // Set the course image property using the set method
-                $course->set('course_image', $filename);
-            } else {
-                $this->Flash->error(__('Invalid file upload.'));
-                return $this->redirect(['action' => 'add']);
-            }
-
-            // Save the course entity
-            if ($this->Courses->save($course)) {
+            if($this->Courses->save($course)) {
                 $this->Flash->success(__('The course has been saved.'));
+
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The course could not be saved. Please, try again.'));
+
+            $this->Flash->error(__('The course could not be saved. Please try again.'));
         }
 
         $users = $this->Courses->Users->find('list', ['limit' => 200])->all();

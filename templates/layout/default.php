@@ -77,18 +77,9 @@
             <a class="nav-link" href="<?= $this->Url->build (['plugin' => null,'plugin' => 'ContentBlocks', 'controller' => 'ContentBlocks', 'action' => 'index']) ?>">
                 <i class="fas fa-fw fa-cog"></i>
                 <span>Modify Website</span></a>
-            <a class="nav-link" href="<?= $this->Url->build(['plugin' => null, 'controller' => 'Bookings', 'action' => 'index']) ?>">
-                <i class="fas fa-fw fa-calendar-alt"></i>
-                <span>Bookings</span></a>
             <a class="nav-link" href="<?= $this->Url->build(['plugin' => null, 'controller' => 'Courses', 'action' => 'index']) ?>">
                 <i class="fas fa-fw fa-book-open"></i>
                 <span>Courses</span></a>
-            <a class="nav-link" href="<?= $this->Url->build(['plugin' => null, 'controller' => 'Payments', 'action' => 'index']) ?>">
-                <i class="fas fa-fw fa-dollar-sign"></i>
-                <span>Payments</span></a>
-            <a class="nav-link" href="<?= $this->Url->build(['plugin' => null, 'controller' => 'Sessions', 'action' => 'index']) ?>">
-                <i class="fas fa-fw fa-pen"></i>
-                <span>Sessions</span></a>
             <a class="nav-link" href="<?= $this->Url->build(['plugin' => null, 'controller' => 'Users', 'action' => 'index']) ?>">
                 <i class="fas fa-fw fa-user"></i>
                 <span>Users</span></a>
