@@ -35,40 +35,6 @@
     <?= $this->Html->css('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700', ['block' => true]) ?>
     <?= $this->Html->css('https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap', ['block' => true]) ?>
 
-    <?= $this->Html->css('all.min') ?>
-
-    <?= $this->Html->css('owl.carousel') ?>
-
-    <?= $this->Html->css('magnific-popup') ?>
-
-    <?= $this->Html->css('animate') ?>
-
-
-    <?= $this->Html->css('meanmenu.min') ?>
-    <?= $this->Html->css('main') ?>
-    <?= $this->Html->css('responsive') ?>
-
-    <!-- jquery -->
-    <?= $this->Html->script('jquery-1.11.3.min') ?>
-    <!-- bootstrap -->
-    <?= $this->Html->script('bootstrap.min') ?>
-    <!-- count down -->
-    <?= $this->Html->script('jquery.countdown') ?>
-    <!-- isotope -->
-    <?= $this->Html->script('jquery.isotope-3.0.6.min') ?>
-    <!-- waypoints -->
-    <?= $this->Html->script('waypoints') ?>
-    <!-- owl carousel -->
-    <?= $this->Html->script('owl.carousel.min') ?>
-    <!-- magnific popup -->
-    <?= $this->Html->script('jquery.magnific-popup.min') ?>
-    <!-- mean menu -->
-    <?= $this->Html->script('jquery.meanmenu.min') ?>
-    <!-- sticker js -->
-    <?= $this->Html->script('sticker') ?>
-    <!-- main js -->
-    <?= $this->Html->script('main') ?>
-
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 </head>
@@ -90,9 +56,11 @@
             margin: 0;
         }
 
+
         .main-menu ul li {
-            margin: 0 15px;
-            /* Add spacing between navigation items */
+            margin: 0 5px;
+            /* Adjust this value to your desired spacing */
+            padding: 0;
         }
 
         .main-menu ul li a {
@@ -103,6 +71,13 @@
             /* Optional: Make the font bold */
         }
 
+        nav.main-menu ul li a {
+            color: #fff;
+            font-weight: 700;
+            display: block;
+            padding: 15px;
+        }
+
         .breadcrumb-section {
             background-color: #f5f5f5;
             /* Set a background color if needed */
@@ -110,6 +85,13 @@
             /* Add some vertical padding for spacing */
             text-align: center;
             /* Center the text horizontally */
+            padding: 150px 0;
+            background-size: cover;
+            background-position: center center;
+            position: relative;
+            z-index: 1;
+            background-attachment: fixed;
+            padding-top: 200px;
         }
 
         .breadcrumb-text {
@@ -133,6 +115,31 @@
             /* Adjust the font size for the main title */
             margin: 10px 0 0;
             /* Add some margin for spacing */
+        }
+
+        .site-logo {
+            margin-right: 150px;
+            /* Adjust this value to increase spacing */
+            float: left;
+            max-width: 150px;
+            padding: 6px 0;
+        }
+
+        .header-icons {
+            margin-left: 150px;
+            /* Adjust this value to increase spacing */
+        }
+
+
+        .header-icons a {
+            color: #fff;
+            display: inline-block;
+            padding: 10px;
+        }
+
+        body {
+            margin: 0;
+            /* Removes default margin */
         }
     </style>
     <!-- PreLoader -->
@@ -231,6 +238,193 @@
     <!-- Fetch content -->
     <?= $this->fetch('content') ?>
 
+    <style>
+        /* Footer Area Styles */
+        .footer-area {
+            background-color: #333;
+            /* Dark background color */
+            color: #fff;
+            /* White text color */
+            padding: 60px 0;
+            /* Padding for top and bottom */
+            font-family: 'Arial', sans-serif;
+            /* Font family */
+        }
+
+        .footer-area .container {
+            max-width: 1200px;
+            /* Max width of the container */
+            margin: 0 auto;
+            /* Center the container */
+            padding: 0 15px;
+            /* Padding for left and right */
+        }
+
+        .footer-row {
+            display: flex;
+            /* Use flexbox for horizontal layout */
+            justify-content: space-between;
+            /* Distribute space between items */
+            flex-wrap: wrap;
+            /* Allow wrapping on smaller screens */
+        }
+
+        .footer-box {
+            flex: 1;
+            /* Grow to fill space */
+            min-width: 200px;
+            /* Minimum width for each box */
+            margin-right: 30px;
+            /* Space between boxes */
+            box-sizing: border-box;
+            /* Include padding and border in the width */
+        }
+
+        .footer-box:last-child {
+            margin-right: 0;
+            /* Remove margin from the last box */
+        }
+
+        .footer-box .widget-title {
+            font-size: 18px;
+            /* Title font size */
+            font-weight: bold;
+            /* Title font weight */
+            margin-bottom: 20px;
+            /* Space below the title */
+        }
+
+        .footer-box p {
+            font-size: 14px;
+            /* Paragraph font size */
+            line-height: 1.6;
+            /* Line height for readability */
+        }
+
+        .footer-box ul {
+            list-style-type: none;
+            /* Remove bullet points */
+            padding: 0;
+            /* Remove padding */
+        }
+
+        .footer-box ul li {
+            margin-bottom: 10px;
+            /* Space below each list item */
+        }
+
+        .footer-box a {
+            color: #fff;
+            /* Link color */
+            text-decoration: none;
+            /* Remove underline */
+            transition: color 0.3s ease;
+            /* Transition for hover effect */
+        }
+
+        .footer-box a:hover {
+            color: #ffd700;
+            /* Link color on hover */
+        }
+
+        .footer-box form {
+            display: flex;
+            /* Flexbox for alignment */
+            align-items: center;
+            /* Center vertically */
+        }
+
+        .footer-box input[type="email"] {
+            padding: 10px;
+            /* Padding for input */
+            border: none;
+            /* Remove border */
+            border-radius: 5px;
+            /* Rounded corners */
+            margin-right: 10px;
+            /* Space between input and button */
+            flex-grow: 1;
+            /* Grow to fill space */
+        }
+
+        .footer-box button {
+            background-color: #ffd700;
+            /* Button background color */
+            color: #333;
+            /* Button text color */
+            padding: 10px 15px;
+            /* Button padding */
+            border: none;
+            /* Remove border */
+            border-radius: 5px;
+            /* Rounded corners */
+            cursor: pointer;
+            /* Pointer cursor */
+            transition: background-color 0.3s ease;
+            /* Transition for hover effect */
+        }
+
+        .footer-box button:hover {
+            background-color: #ffcc00;
+            /* Button background color on hover */
+        }
+
+        /* Copyright Area Styles */
+        .copyright {
+            background-color: #222;
+            /* Darker background color */
+            color: #ccc;
+            /* Lighter text color */
+            padding: 20px 0;
+            /* Padding for top and bottom */
+        }
+
+        .copyright .container {
+            max-width: 1200px;
+            /* Max width of the container */
+            margin: 0 auto;
+            /* Center the container */
+            padding: 0 15px;
+            /* Padding for left and right */
+        }
+
+        .copyright p {
+            margin: 0;
+            /* Remove default margin */
+            font-size: 14px;
+            /* Font size */
+        }
+
+        .social-icons ul {
+            list-style-type: none;
+            /* Remove bullet points */
+            padding: 0;
+            /* Remove padding */
+            display: flex;
+            /* Flexbox for alignment */
+            justify-content: flex-end;
+            /* Align to the right */
+        }
+
+        .social-icons ul li {
+            margin-left: 10px;
+            /* Space between social icons */
+        }
+
+        .social-icons ul li a {
+            color: #fff;
+            /* Icon color */
+            font-size: 16px;
+            /* Icon font size */
+            transition: color 0.3s ease;
+            /* Transition for hover effect */
+        }
+
+        .social-icons ul li a:hover {
+            color: #ffd700;
+            /* Icon color on hover */
+        }
+    </style>
     <!-- footer -->
     <div class="footer-area">
         <div class="container">
