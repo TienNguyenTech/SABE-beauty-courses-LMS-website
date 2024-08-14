@@ -58,7 +58,7 @@ $products = [
     <!-- magnific popup --> <?= $this->Html->script('jquery.magnific-popup.min') ?> <!-- mean menu -->
     <?= $this->Html->script('jquery.meanmenu.min') ?> <!-- sticker js --> <?= $this->Html->script('sticker') ?>
     <!-- main js --> <?= $this->Html->script('main') ?> <?= $this->fetch('css') ?> <?= $this->fetch('script') ?>
-    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
 
     <style>
         .product-lists {
@@ -254,12 +254,12 @@ $products = [
                     <div class="single-product-item">
                         <div class="product-image">
                             <a href="single-product.html">
-                                <img src="assets/img/products/product-img-1.jpg" alt="Back to Basics: Facials" class="card-img-top">
+                                <img src="product-img-1.jpg" alt="Back to Basics: Facials" class="card-img-top">
                             </a>
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">Back to Basics: Facials</h5>
-                            <p class="card-text">No description available</p>
+                            <p class="card-text">Learn the Fundamentals of the essential techniques for performing facials</p>
                             <p class="product-price">199$</p>
                             <a href="single-product.html" class="cart-btn">Enroll Now</a>
                         </div>
@@ -276,7 +276,7 @@ $products = [
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">Back to Basics: Lash & Brow</h5>
-                            <p class="card-text">No description available</p>
+                            <p class="card-text">Master the techniques needed to elevate your lash and brow artistry</p>
                             <p class="product-price">199$</p>
                             <a href="single-product.html" class="cart-btn">Enroll Now</a>
                         </div>
@@ -293,7 +293,7 @@ $products = [
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">Total Care: Waxing</h5>
-                            <p class="card-text">No description available</p>
+                            <p class="card-text">Precision and Expertise: Achieve Waxing excellence</p>
                             <p class="product-price">499$</p>
                             <a href="single-product.html" class="cart-btn">Enroll Now</a>
                         </div>
@@ -368,7 +368,7 @@ $products = [
             ?>
 
 
-            
+
     <!-- end products -->
 
 </body>

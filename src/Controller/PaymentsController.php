@@ -2,14 +2,28 @@
 declare(strict_types=1);
 
 namespace App\Controller;
+use Stripe\Stripe;
+use Stripe\Checkout\Session;
+use Cake\Routing\Router;
+use Cake\ORM\TableRegistry;
 
 /**
  * Payments Controller
  *
  * @property \App\Model\Table\PaymentsTable $Payments
+ * @property \App\Model\Table\CoursesTable $Courses
  */
 class PaymentsController extends AppController
 {
+    private \Cake\ORM\Table $Courses;
+        public function initialize(): void
+    {
+        parent::initialize();
+
+        $this->Authentication->allowUnauthenticated(['checkout']);
+        $this->Courses= TableRegistry::getTableLocator()->get('Courses');
+
+    }
     /**
      * Index method
      *
@@ -100,4 +114,23 @@ class PaymentsController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+    public function checkout($course_id) {
+        $this->viewBuilder()->setLayout('customer');
+        Stripe::setApiKey('sk_test_51PnfYBHtFQ126a2JACHCRvlLDksG752hMQYdxCkoHDtqavhxcA5WHMmXqX7iVa0PgrrieQS0w5uGch0n0jLsD0ST00PMNE3Zwp');
+
+        $course = $this->Courses->get($course_id);
+
+        $checkout_session = Session::create([
+            'success_url' => Router::fullBaseUrl() . Router::url(['Home", "/"']),
+            'cancel_url' => Router::fullBaseUrl() . Router::url(['www.google.com']),
+            'payment_method_types' => ['card'],
+            'mode' => 'payment',
+            'line_items' => ['price_data' => ['product_data' => ['name' => $course['course_name']], 'currency' => 'AUD', 'unit_amount' => $course['course_price'] * 100],"quantity" =>1]]);
+
+        $this->set('sessionId', $checkout_session['id']);
+    }
+
+
 }
+
