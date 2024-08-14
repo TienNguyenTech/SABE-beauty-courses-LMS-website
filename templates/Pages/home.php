@@ -64,8 +64,7 @@
 
                             <li><?= $this->Html->link("Courses", ['controller' => 'Courses', 'action' => 'viewc']) ?>
                             </li>
-                            <li><?= $this->Html->link("Bookings", ['controller' => 'Pages', 'action' => 'home']) ?>
-                            </li>
+
                             <li><?= $this->Html->link("Beauty By Lisa", ['controller' => 'Lisa', 'action' => 'viewlisa']) ?></li>
                             <li><a href="contact.html">Contact</a></li>
                             <li>

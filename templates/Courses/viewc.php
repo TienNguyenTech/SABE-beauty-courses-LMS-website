@@ -62,7 +62,7 @@ $products = [
 
     <style>
         .product-lists {
-    
+
             /* Space between product items */
             align-items: center;
             /* Center items vertically */
@@ -156,7 +156,7 @@ $products = [
     </style>
 
 <style>
-       
+
         .card-img-top {
             height: 200px;
             /* Consistent height for image frame */
@@ -232,6 +232,7 @@ $products = [
 <body>
 
     <!-- products -->
+    <!-- products -->
     <div class="product-section mt-150 mb-150">
         <div class="container">
             <div class="row">
@@ -247,26 +248,114 @@ $products = [
                 </div>
             </div>
 
-
             <div class="row product-lists">
-
-                    <?php foreach ($courses as $course): ?>
-                        <div class="col-lg-4 col-md-6 text-center <?= $course->course_category ?>">
-                            <div class="single-product-item" data-course="<?= $course->course_id ?>">
-                                <?= $this->Html->image('menu/' . $course->course_image, ['alt' => $course->course_name, 'class' => 'card-img-top']) ?>
-                                <div class="card-body">
-                                    <h5 class="card-title"><?= $course->course_name ?></h5>
-                                    <p class="card-text"><?= truncateDescription($course->course_description, 20) ?></p>
-                                    <p class="product-price"><?= $this->Number->currency($course->course_price) ?> </p>
-                                    <a href="cart.html" class="cart-btn">Enroll Now</a>
-                                </div>
-                            </div>
+                <!-- Product 1 -->
+                <div class="col-lg-4 col-md-6 text-center Hybrid">
+                    <div class="single-product-item">
+                        <div class="product-image">
+                            <a href="single-product.html">
+                                <img src="assets/img/products/product-img-1.jpg" alt="Back to Basics: Facials" class="card-img-top">
+                            </a>
                         </div>
-                    <?php endforeach; ?>
+                        <div class="card-body">
+                            <h5 class="card-title">Back to Basics: Facials</h5>
+                            <p class="card-text">No description available</p>
+                            <p class="product-price">199$</p>
+                            <a href="single-product.html" class="cart-btn">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
 
+                <!-- Product 2 -->
+                <div class="col-lg-4 col-md-6 text-center Hybrid">
+                    <div class="single-product-item">
+                        <div class="product-image">
+                            <a href="single-product.html">
+                                <img src="assets/img/products/product-img-2.jpg" alt="Back to Basics: Lash & Brow" class="card-img-top">
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Back to Basics: Lash & Brow</h5>
+                            <p class="card-text">No description available</p>
+                            <p class="product-price">199$</p>
+                            <a href="single-product.html" class="cart-btn">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="col-lg-4 col-md-6 text-center Workshop">
+                    <div class="single-product-item">
+                        <div class="product-image">
+                            <a href="single-product.html">
+                                <img src="assets/img/products/product-img-3.jpg" alt="Total Care: Waxing" class="card-img-top">
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Total Care: Waxing</h5>
+                            <p class="card-text">No description available</p>
+                            <p class="product-price">499$</p>
+                            <a href="single-product.html" class="cart-btn">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="col-lg-4 col-md-6 text-center Online">
+                    <div class="single-product-item">
+                        <div class="product-image">
+                            <a href="single-product.html">
+                                <img src="assets/img/products/product-img-4.jpg" alt="Total Care: Nails" class="card-img-top">
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Total Care: Nails</h5>
+                            <p class="card-text">No description available</p>
+                            <p class="product-price">399$</p>
+                            <a href="single-product.html" class="cart-btn">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="col-lg-4 col-md-6 text-center Online">
+                    <div class="single-product-item">
+                        <div class="product-image">
+                            <a href="single-product.html">
+                                <img src="assets/img/products/product-img-5.jpg" alt="Back To Basics: Customer Connection" class="card-img-top">
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Back To Basics: Customer Connection</h5>
+                            <p class="card-text">No description available</p>
+                            <p class="product-price">199$</p>
+                            <a href="single-product.html" class="cart-btn">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="col-lg-4 col-md-6 text-center Hybrid">
+                    <div class="single-product-item">
+                        <div class="product-image">
+                            <a href="single-product.html">
+                                <img src="assets/img/products/product-img-6.jpg" alt="Custom Training" class="card-img-top">
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Custom Training</h5>
+                            <p class="card-text">No description available</p>
+                            <p class="product-price">599$</p>
+                            <a href="single-product.html" class="cart-btn">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
+    </div>
 
-            <?php
+
+    <?php
             function truncateDescription($description, $words)
             {
                 $wordArray = explode(' ', $description);
@@ -279,21 +368,7 @@ $products = [
             ?>
 
 
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="pagination-wrap">
-                        <ul>
-                            <li><a href="#">Prev</a></li>
-                            <li><a href="#">1</a></li>
-                            <li><a class="active" href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">Next</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+            
     <!-- end products -->
 
 </body>
