@@ -141,6 +141,7 @@
             margin: 0;
             /* Removes default margin */
         }
+        
     </style>
     <!-- PreLoader -->
     <div class="loader">

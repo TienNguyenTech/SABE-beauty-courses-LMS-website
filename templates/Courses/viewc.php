@@ -182,7 +182,7 @@ $products = [
                             </div>
                             <h3><?= $product['name'] ?></h3>
                             <p class="product-price"><span>Per Kg</span> <?= $product['price'] ?> </p>
-                            <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+                            <a href="cart.html" class="cart-btn"> Enroll Now</a>
                         </div>
                     </div>
                 <?php endforeach; ?>
