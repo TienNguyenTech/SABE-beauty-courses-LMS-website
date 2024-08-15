@@ -214,8 +214,12 @@
                                 <h1><?= $this->ContentBlock->text('home-slider-text-2'); ?></h1>
 
                                 <div class="hero-btns">
-                                    <a href="shop.html" class="boxed-btn">Visit Shop</a>
-                                    <a href="contact.html" class="bordered-btn">Contact Us</a>
+                                    <div class="link-container">
+                                        <?= $this->Html->link("Our Services", ['controller' => 'Courses', 'action' => 'viewc'], ['class' => 'boxed-btn']) ?>
+                                    </div>
+                                    <div class="link-container">
+                                        <?= $this->Html->link("Contact us", ['controller' => 'Enquirys', 'action' => 'add'], ['class' => 'boxed-btn']) ?>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -232,8 +236,13 @@
                             <div class="hero-text-tablecell">
                                 <h1><?= $this->ContentBlock->text('home-slider-text-3'); ?></h1>
                                 <div class="hero-btns">
-                                    <a href="shop.html" class="boxed-btn">Visit Shop</a>
-                                    <a href="contact.html" class="bordered-btn">Contact Us</a>
+                                    <div class="link-container">
+                                        <?= $this->Html->link("Our Services", ['controller' => 'Courses', 'action' => 'viewc'], ['class' => 'boxed-btn']) ?>
+                                    </div>
+                                    <div class="link-container">
+                                        <?= $this->Html->link("Contact us", ['controller' => 'Enquirys', 'action' => 'add'], ['class' => 'boxed-btn']) ?>
+                                    </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -287,7 +296,7 @@
         </div>
     </div>
     <!-- end features list section -->
-    
+
     <!-- Style for Product Section -->
     <style>
         .card-equal-height {
