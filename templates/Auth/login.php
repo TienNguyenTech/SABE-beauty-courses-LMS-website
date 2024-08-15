@@ -76,6 +76,7 @@ $this->assign('title', 'Login');
                             'required' => true,
                         ]);
                         ?>
+                        
                     </fieldset>
 
 <!--                    --><?php //= $this->Html->link('Forgotten your password?', ['controller' => 'Auth', 'action' => 'forgetPassword'], ['class' => 'button-clear']) ?>
