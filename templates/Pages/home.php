@@ -162,7 +162,7 @@
             font-size: 1em;
             font-weight: bold;
             color: #fff;
-            border: 2px solid #007bff;
+            border: 2px solid #74C69D;
             border-radius: 5px;
             text-decoration: none;
             text-align: center;
@@ -170,12 +170,12 @@
         }
 
         .boxed-btn:hover {
-            background-color: #0056b3;
+            background-color: #74C69D;
             color: #fff;
         }
 
         .boxed-btn:active {
-            background-color: #004085;
+            background-color: #74C69D;
         }
     </style>
 
