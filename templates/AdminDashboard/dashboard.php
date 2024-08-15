@@ -1,5 +1,6 @@
 <?php $this->assign('title', 'Admin Dashboard'); ?>
 
+
 <style>
     .dashboard-container {
         display: flex;
