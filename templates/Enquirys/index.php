@@ -3,6 +3,9 @@
  * @var \App\View\AppView $this
  * @var iterable<\App\Model\Entity\Enquiry> $enquirys
  */
+echo $this->Html->css('/vendor/datatables/dataTables.bootstrap4.min.css', ['block' => true]);
+echo $this->Html->script('/vendor/datatables/jquery.dataTables.min.js', ['block' => true]);
+echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['block' => true]);
 ?>
 <div class="enquirys index content">
 <!--    --><?php //= $this->Html->link(__('New Enquiry'), ['action' => 'add'], ['class' => 'button float-right']) ?>
@@ -35,14 +38,9 @@
             </tbody>
         </table>
     </div>
-    <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-            <?= $this->Paginator->last(__('last') . ' >>') ?>
-        </ul>
-        <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?></p>
-    </div>
+    <script>
+        $(document).ready(function() {
+            $('#dataTable').DataTable();
+        });
+    </script>
 </div>
