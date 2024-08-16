@@ -13,7 +13,7 @@ echo $this->Form->control('user_firstname', ['label' => 'First Name *']);
 echo $this->Form->control('user_surname', ['label' => 'Surname *']);
 echo $this->Form->control('email', ['label' => 'Email Address *']);
 echo $this->Form->control('user_phone', ['label' => 'Phone Number']);
-echo $this->Form->select('user_type', ['admin' => 'admin']);
+echo $this->Form->control('user_type', ['options' => ['admin' => 'admin'], 'label' => 'User Type *']);
 echo $this->Form->control('password', ['label' => 'Password *']);
 ?>
 
