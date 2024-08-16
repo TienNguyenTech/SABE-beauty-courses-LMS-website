@@ -81,7 +81,10 @@ class PagesController extends AppController
             $subpage = $path[1];
         }
         $this->set(compact('page', 'subpage'));
-
+        // If the page is 'home', call the home method
+        if ($page === 'home') {
+            return $this->home();
+        }
         try {
             return $this->render(implode('/', $path));
         } catch (MissingTemplateException $exception) {
@@ -91,6 +94,12 @@ class PagesController extends AppController
             throw new NotFoundException();
         }
     }
-
+    public function home()
+    {
+        $coursesTable = $this->getTableLocator()->get('Courses'); // Load the Courses model
+        $courses = $coursesTable->find('all'); // Fetch all courses
+        $this->set('courses', $courses); // Pass courses data to the view
+        $this->viewBuilder()->setTemplate('home'); // Render the home view
+    }
 
 }

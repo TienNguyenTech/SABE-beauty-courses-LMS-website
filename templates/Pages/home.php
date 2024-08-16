@@ -287,7 +287,7 @@
         </div>
     </div>
     <!-- end features list section -->
-    
+
     <!-- Style for Product Section -->
     <style>
         .card-equal-height {
@@ -354,42 +354,23 @@
             </div>
 
             <div class="row d-flex justify-content-center">
-                <div class="col-lg-4 col-md-6 text-center">
-                    <div class="single-product-item card-equal-height">
-                        <div class="product-image">
-                            <?= $this->ContentBlock->image('home-program-image-1'); ?>
+                <?php $counter = 0; ?>
+                <?php foreach ($courses as $course): ?>
+                    <?php if ($counter == 6) break; ?>
+                    <div class="col-lg-4 col-md-6 text-center">
+                        <div class="single-product-item card-equal-height">
+                            <div class="product-image">
+                                <?= $this->Html->image('/' . $course->course_image) ?>
+                            </div>
+                            <h3 class="product-title"><?= h($course->course_name); ?></h3>
+                            <p class="product-price">
+                                <span><?= h(strlen($course->course_description) > 100 ? substr($course->course_description, 0, 100) . '...' : $course->course_description) ?></span>
+                                <?= h($course->course_price); ?>$
+                            </p>
                         </div>
-                        <h3 class="product-title"><?= $this->ContentBlock->text('home-program-title-1'); ?></h3>
-                        <p class="product-price">
-                            <span><?= $this->ContentBlock->text('home-program-description-1'); ?></span>
-                            <?= $this->ContentBlock->text('home-program-price-1'); ?>
-                        </p>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6 text-center">
-                    <div class="single-product-item card-equal-height">
-                        <div class="product-image">
-                            <?= $this->ContentBlock->image('home-program-image-2'); ?>
-                        </div>
-                        <h3 class="product-title"><?= $this->ContentBlock->text('home-program-title-2'); ?></h3>
-                        <p class="product-price">
-                            <span><?= $this->ContentBlock->text('home-program-description-2'); ?></span>
-                            <?= $this->ContentBlock->text('home-program-price-2'); ?>
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 text-center">
-                    <div class="single-product-item card-equal-height">
-                        <div class="product-image">
-                            <?= $this->ContentBlock->image('home-program-image-3'); ?>
-                        </div>
-                        <h3 class="product-title"><?= $this->ContentBlock->text('home-program-title-3'); ?></h3>
-                        <p class="product-price">
-                            <span><?= $this->ContentBlock->text('home-program-description-3'); ?></span>
-                            <?= $this->ContentBlock->text('home-program-price-3'); ?>
-                        </p>
-                    </div>
-                </div>
+                    <?php $counter++; ?>
+                <?php endforeach; ?>
             </div>
             <!-- End of Product Setion -->
 
