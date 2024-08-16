@@ -73,13 +73,25 @@ class UsersTable extends Table
             ->scalar('user_firstname')
             ->maxLength('user_firstname', 50)
             ->requirePresence('user_firstname', 'create')
-            ->notEmptyString('user_firstname');
+            ->notEmptyString('user_firstname')
+            ->add('user_firstname', 'custom', [
+                'rule' => function ($value, $context) {
+                    return (bool) preg_match('/^[a-zA-Z ]*$/', $value);
+                },
+                'message' => 'The first name can only contain letters and spaces.',
+            ]);
 
         $validator
             ->scalar('user_surname')
             ->maxLength('user_surname', 50)
             ->requirePresence('user_surname', 'create')
-            ->notEmptyString('user_surname');
+            ->notEmptyString('user_surname')
+            ->add('user_surname', 'custom', [
+                'rule' => function ($value, $context) {
+                    return (bool) preg_match('/^[a-zA-Z ]*$/', $value);
+                },
+                'message' => 'The surname can only contain letters and spaces.',
+            ]);
 
         $validator
             ->scalar('email')
@@ -89,8 +101,12 @@ class UsersTable extends Table
 
         $validator
             ->scalar('user_phone')
-            ->maxLength('user_phone', 10)
-            ->notEmptyString('user_phone');
+            ->maxLength('user_phone', 15)
+            ->notEmptyString('user_phone')
+            ->add('user_phone', 'numeric', [
+                'rule' => 'numeric',
+                'message' => 'The phone number can only contain digits.',
+            ]);
 
         $validator
             ->scalar('user_type')
