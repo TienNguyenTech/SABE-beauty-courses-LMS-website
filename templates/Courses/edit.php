@@ -14,7 +14,7 @@ echo $this->Form->select('course_category',['Hybrid' => 'Hybrid', 'Workshop' => 
         'text' => 'Name <span style="color: red;">*</span>',
         'escape' => false
 ]]);
-echo $this->Form->control('course_description');
+echo $this->Form->control('course_description', ['type' => 'textarea']);
 echo $this->Form->control('course_price');
 ?>
 
