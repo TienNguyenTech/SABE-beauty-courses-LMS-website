@@ -73,7 +73,8 @@ class CoursesTable extends Table
         $validator
             ->decimal('course_price')
             ->requirePresence('course_price', 'create')
-            ->notEmptyString('course_price');
+            ->notEmptyString('course_price')
+            ->greaterThanOrEqual('course_price', 0, 'The course price cannot be negative.');
 
         $validator
             ->scalar('course_image')
