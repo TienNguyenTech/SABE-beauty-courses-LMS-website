@@ -31,7 +31,9 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
                     <td><?= h($course->course_name) ?></td>
                     <td><?= $this->Html->image('/' . $course->course_image, ['alt' => $course->course_name, 'style' => 'max-width: 100px;']) ?></td>
                     <td><?= h($course->course_category) ?></td>
-                    <td><?= h($course->course_description) ?></td>
+                    <td style="width: 1000px; height: 100px; overflow: auto;">
+                        <?= h(strlen($course->course_description) > 400 ? substr($course->course_description, 0, 400) . '...' : $course->course_description) ?>
+                    </td>
                     <td>$<?= $this->Number->format($course->course_price) ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $course->course_id]) ?>
