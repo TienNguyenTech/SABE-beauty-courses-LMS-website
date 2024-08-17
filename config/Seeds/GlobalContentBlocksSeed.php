@@ -47,6 +47,38 @@ class GlobalContentBlocksSeed extends AbstractSeed
                 'type' => 'text',
                 'value' => 'beautybylisafollett@gmail.com',
             ],
+            [
+                'parent' => 'Website Essentials',
+                'label' => 'Location-Address',
+                'description' => 'The address for your place, shown on contact us page.',
+                'slug' => 'location-address',
+                'type' => 'text',
+                'value' => 'Lepena Cresent',
+            ],
+            [
+                'parent' => 'Website Essentials',
+                'label' => 'Location-Suburb',
+                'description' => 'The suburb for your place, shown on contact us page.',
+                'slug' => 'location-suburb',
+                'type' => 'text',
+                'value' => 'Hallet Cove',
+            ],
+            [
+                'parent' => 'Website Essentials',
+                'label' => 'Location-State',
+                'description' => 'The state for your place, shown on contact us page.',
+                'slug' => 'location-state',
+                'type' => 'text',
+                'value' => 'South Australia',
+            ],
+            [
+                'parent' => 'Website Essentials',
+                'label' => 'Location-postcode',
+                'description' => 'The postcode for your place, shown on contact us page.',
+                'slug' => 'location-postcode',
+                'type' => 'text',
+                'value' => '5138',
+            ],
         ];
 
         $table = $this->table('content_blocks');

@@ -197,7 +197,11 @@
                     </div>
                     <div class="contact-form-box">
                         <h4><i class="fas fa-address-book"></i> Contact</h4>
-                        <p>Phone: <?= $this->ContentBlock->text('contact-phone') ?> <br> Email: <?= $this->ContentBlock->text('contact-email') ?></p>
+                        <p>Phone: <?= $this->ContentBlock->text('contact-phone') ?>
+                            <br> Email: <?= $this->ContentBlock->text('contact-email') ?>
+                            <br><br> <?= $this->ContentBlock->text('location-address') ?>, <?= $this->ContentBlock->text('location-suburb') ?>
+                            <br> <?= $this->ContentBlock->text('location-state') ?>, <?= $this->ContentBlock->text('location-postcode') ?>
+                        </p>
                     </div>
                 </div>
             </div>
