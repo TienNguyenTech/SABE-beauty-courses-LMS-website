@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description"
         content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <!-- title -->
     <title><?= $this->ContentBlock->text('website-title'); ?></title>
@@ -163,6 +166,7 @@
             font-weight: bold;
             color: #fff;
             border: 2px solid #007bff;
+
             border-radius: 5px;
             text-decoration: none;
             text-align: center;
@@ -171,11 +175,13 @@
 
         .boxed-btn:hover {
             background-color: #0056b3;
+            background-color: #4a9b38;
             color: #fff;
         }
 
         .boxed-btn:active {
             background-color: #004085;
+            background-color: #4a9b38;
         }
     </style>
 
@@ -216,6 +222,12 @@
                                 <div class="hero-btns">
                                     <a href="shop.html" class="boxed-btn">Visit Shop</a>
                                     <a href="contact.html" class="bordered-btn">Contact Us</a>
+                                    <div class="link-container">
+                                        <?= $this->Html->link("Our Services", ['controller' => 'Courses', 'action' => 'viewc'], ['class' => 'boxed-btn']) ?>
+                                    </div>
+                                    <div class="link-container">
+                                        <?= $this->Html->link("Contact us", ['controller' => 'Enquirys', 'action' => 'add'], ['class' => 'boxed-btn']) ?>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -234,6 +246,13 @@
                                 <div class="hero-btns">
                                     <a href="shop.html" class="boxed-btn">Visit Shop</a>
                                     <a href="contact.html" class="bordered-btn">Contact Us</a>
+                                    <div class="link-container">
+                                        <?= $this->Html->link("Our Services", ['controller' => 'Courses', 'action' => 'viewc'], ['class' => 'boxed-btn']) ?>
+                                    </div>
+                                    <div class="link-container">
+                                        <?= $this->Html->link("Contact us", ['controller' => 'Enquirys', 'action' => 'add'], ['class' => 'boxed-btn']) ?>
+                                    </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -621,6 +640,9 @@
                     /* Icon color on hover */
                 }
             </style>
+
+            <!-- footer -->
+
             <!-- footer -->
             <div class="footer-area">
                 <div class="container">
@@ -630,6 +652,7 @@
                                 <h2 class="widget-title">About us</h2>
                                 <p>Welcome to South Adelaide Beauty & Education!
                                     We are so happy you found us, and we can’t wait to begin this journey with you. </p>
+                                <p>Ut enim ad minim veniam perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae.</p>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6">
@@ -638,10 +661,35 @@
                                 <ul>
                                     <li>Halett Cove, South Australia</li>
                                     <li>beautybylisafollett@gmail.com</li>
+                                    <li>34/8, East Hukupara, Gifirtok, Sadan.</li>
+                                    <li>support@fruitkha.com</li>
+                                    <li>+00 111 222 3333</li>
                                 </ul>
                             </div>
                         </div>
 
+                        <div class="col-lg-3 col-md-6">
+                            <div class="footer-box pages">
+                                <h2 class="widget-title">Pages</h2>
+                                <ul>
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="about.html">About</a></li>
+                                    <li><a href="services.html">Shop</a></li>
+                                    <li><a href="news.html">News</a></li>
+                                    <li><a href="contact.html">Contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="footer-box subscribe">
+                                <h2 class="widget-title">Subscribe</h2>
+                                <p>Subscribe to our mailing list to get the latest updates.</p>
+                                <form action="index.html">
+                                    <input type="email" placeholder="Email">
+                                    <button type="submit"><i class="fas fa-paper-plane"></i>Subscribe</button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- end footer -->
@@ -662,6 +710,26 @@
                                                 target="_blank"><i class="fab fa-instagram"></i></a></li>
                                     </ul>
                                 </div>
+            </div>
+        </div>
+            <!-- end footer -->
+
+            <!-- copyright -->
+            <div class="copyright">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12">
+                            <p>Copyrights &copy; 2019 - <a href="https://imransdesign.com/">Imran Hossain</a>,  All Rights Reserved.</p>
+                        </div>
+                        <div class="col-lg-6 text-right col-md-12">
+                            <div class="social-icons">
+                                <ul>
+                                    <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                                    <li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                                    <li><a href="#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -688,7 +756,34 @@
                 <script src="assets/js/sticker.js"></script>
                 <!-- main js -->
                 <script src="assets/js/main.js"></script>
+            </div>
+            <!-- end copyright -->
+
+            <!-- jquery -->
+            <script src="assets/js/jquery-1.11.3.min.js"></script>
+            <!-- bootstrap -->
+            <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+            <!-- count down -->
+            <script src="assets/js/jquery.countdown.js"></script>
+            <!-- isotope -->
+            <script src="assets/js/jquery.isotope-3.0.6.min.js"></script>
+            <!-- waypoints -->
+            <script src="assets/js/waypoints.js"></script>
+            <!-- owl carousel -->
+            <script src="assets/js/owl.carousel.min.js"></script>
+            <!-- magnific popup -->
+            <script src="assets/js/jquery.magnific-popup.min.js"></script>
+            <!-- mean menu -->
+            <script src="assets/js/jquery.meanmenu.min.js"></script>
+            <!-- sticker js -->
+            <script src="assets/js/sticker.js"></script>
+            <!-- main js -->
+            <script src="assets/js/main.js"></script>
 
 </body>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> Unified-UI/UX
 </html>

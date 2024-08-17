@@ -221,10 +221,52 @@ class AuthController extends AppController
 //            debug($this->request->getData()); // Check what data is being submitted
 //            debug($result->getErrors()); // Check for any specific errors
             $this->Flash->error('Email address and/or Password is incorrect. Please try again. ');
+        if ($this->request->is('post')) {
+            // reCAPTCHA verification
+            $recaptchaSecret = '6Lc7pCgqAAAAAGQom2tHow31Z-fEEPh5dU7q8S3J'; // Replace with your reCAPTCHA secret key
+            $recaptchaResponse = $this->request->getData('g-recaptcha-response');
+            $remoteIp = $this->request->clientIp();
+
+            $response = $this->verifyRecaptcha($recaptchaSecret, $recaptchaResponse, $remoteIp);
+
+            if (!$response->success) {
+                $this->Flash->error('Please verify that you are not a robot.');
+            } else {
+                // Proceed with login if reCAPTCHA is valid
+                if ($result && $result->isValid()) {
+                    $this->Flash->success('Login successful.');
+                    return $this->redirect($this->Authentication->getLoginRedirect() ?? ['controller' => 'AdminDashboard', 'action' => 'dashboard']);
+                } else {
+                    $this->Flash->error('Email address and/or Password is incorrect. Please try again.');
+                }
+            }
         }
     }
 
 
+
+
+    private function verifyRecaptcha($secret, $response, $remoteIp)
+    {
+        $url = 'https://www.google.com/recaptcha/api/siteverify';
+        $data = [
+            'secret'   => $secret,
+            'response' => $response,
+            'remoteip' => $remoteIp
+        ];
+
+        $options = [
+            'http' => [
+                'header'  => 'Content-type: application/x-www-form-urlencoded',
+                'method'  => 'POST',
+                'content' => http_build_query($data),
+            ],
+        ];
+
+        $context  = stream_context_create($options);
+        $result = file_get_contents($url, false, $context);
+        return json_decode($result);
+    }
     /**
      * Logout method
      *
