@@ -1,9 +1,8 @@
-<?php 
+<?php
 $error = $_SERVER["REDIRECT_STATUS"];
 $error_title = '';
 $error_message = '';
-if($error = 404)
-{
+if ($error = 404) {
     $error_title = '404 Page Not Found';
     $error_message = ' The requested page could not be found.';
 
@@ -64,10 +63,12 @@ if($error = 404)
                     <div class="main-menu-wrap">
                         <!-- logo -->
                         <div class="site-logo">
-                                <?= $this->Html->link(  
-                                $this->ContentBlock->image('logo'), ['controller' => 'Pages', 'action' => 'display', 'home'],
-                                ['escape' => false]) ?>
-                            
+                            <?= $this->Html->link(
+                                $this->ContentBlock->image('logo'),
+                                ['controller' => 'Pages', 'action' => 'display', 'home'],
+                                ['escape' => false]
+                            ) ?>
+
                         </div>
 
                         <!-- logo -->
@@ -300,7 +301,7 @@ if($error = 404)
         </div>
     </div>
     <!-- end features list section -->
-    
+
     <!-- Style for Product Section -->
     <style>
         .card-equal-height {
@@ -652,6 +653,12 @@ if($error = 404)
                     color: #B7E4C7;
                     /* Icon color on hover */
                 }
+
+                .footer-box p {
+                    color: #fff;
+                    opacity: 0.7;
+                    line-height: 1.8;
+                }
             </style>
             <!-- footer -->
             <div class="footer-area">
@@ -673,53 +680,76 @@ if($error = 404)
                                 </ul>
                             </div>
                         </div>
-
-                    </div>
-                </div>
-                <!-- end footer -->
-
-                <!-- copyright -->
-                <div class="copyright">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-12">
-                                <p>Copyrights &copy; 2024 South Adelaide Beauty & Education</p>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="footer-box pages">
+                                <h2 class="widget-title">Pages</h2>
+                                <ul>
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="about.html">About</a></li>
+                                    <li><a href="services.html">Shop</a></li>
+                                    <li><a href="news.html">News</a></li>
+                                    <li><a href="contact.html">Contact</a></li>
+                                </ul>
                             </div>
-                            <div class="col-lg-6 text-right col-md-12">
-                                <div class="social-icons">
-                                    <ul>
-                                        <li><a href="http://instagram.com/adelaidebeautyandeducation" target="_blank"><i
-                                                    class="fab fa-facebook-f"></i></a></li>
-                                        <li><a href="http://www.facebook.com/adelaidebeautyandeducation"
-                                                target="_blank"><i class="fab fa-instagram"></i></a></li>
-                                    </ul>
-                                </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="footer-box subscribe">
+                                <h2 class="widget-title">Subscribe</h2>
+                                <p>Subscribe to our mailing list to get the latest updates.</p>
+                                <form action="index.html">
+                                    <input type="email" placeholder="Email">
+                                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- end copyright -->
+            </div>
+            <!-- end footer -->
 
-                <!-- jquery -->
-                <script src="assets/js/jquery-1.11.3.min.js"></script>
-                <!-- bootstrap -->
-                <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-                <!-- count down -->
-                <script src="assets/js/jquery.countdown.js"></script>
-                <!-- isotope -->
-                <script src="assets/js/jquery.isotope-3.0.6.min.js"></script>
-                <!-- waypoints -->
-                <script src="assets/js/waypoints.js"></script>
-                <!-- owl carousel -->
-                <script src="assets/js/owl.carousel.min.js"></script>
-                <!-- magnific popup -->
-                <script src="assets/js/jquery.magnific-popup.min.js"></script>
-                <!-- mean menu -->
-                <script src="assets/js/jquery.meanmenu.min.js"></script>
-                <!-- sticker js -->
-                <script src="assets/js/sticker.js"></script>
-                <!-- main js -->
-                <script src="assets/js/main.js"></script>
+            <!-- copyright -->
+            <div class="copyright">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12">
+                            <p>Copyrights &copy; 2024 South Adelaide Beauty & Education</p>
+                        </div>
+                        <div class="col-lg-6 text-right col-md-12">
+                            <div class="social-icons">
+                                <ul>
+                                    <li><a href="http://instagram.com/adelaidebeautyandeducation" target="_blank"><i
+                                                class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="http://www.facebook.com/adelaidebeautyandeducation" target="_blank"><i
+                                                class="fab fa-instagram"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end copyright -->
+
+        <!-- jquery -->
+        <script src="assets/js/jquery-1.11.3.min.js"></script>
+        <!-- bootstrap -->
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <!-- count down -->
+        <script src="assets/js/jquery.countdown.js"></script>
+        <!-- isotope -->
+        <script src="assets/js/jquery.isotope-3.0.6.min.js"></script>
+        <!-- waypoints -->
+        <script src="assets/js/waypoints.js"></script>
+        <!-- owl carousel -->
+        <script src="assets/js/owl.carousel.min.js"></script>
+        <!-- magnific popup -->
+        <script src="assets/js/jquery.magnific-popup.min.js"></script>
+        <!-- mean menu -->
+        <script src="assets/js/jquery.meanmenu.min.js"></script>
+        <!-- sticker js -->
+        <script src="assets/js/sticker.js"></script>
+        <!-- main js -->
+        <script src="assets/js/main.js"></script>
 
 </body>
 
