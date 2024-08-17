@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description"
         content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <!-- title -->
     <title><?= $this->ContentBlock->text('website-title'); ?></title>
@@ -34,7 +37,6 @@
     <link rel="stylesheet" href="assets/css/responsive.css">
 
 </head>
-
 <body>
 
     <!--PreLoader-->
@@ -162,7 +164,7 @@
             font-size: 1em;
             font-weight: bold;
             color: #fff;
-            border: 2px solid #74C69D;
+
             border-radius: 5px;
             text-decoration: none;
             text-align: center;
@@ -170,12 +172,12 @@
         }
 
         .boxed-btn:hover {
-            background-color: #74C69D;
+            background-color: #4a9b38;
             color: #fff;
         }
 
         .boxed-btn:active {
-            background-color: #74C69D;
+            background-color: #4a9b38;
         }
     </style>
 
@@ -462,193 +464,9 @@
             </div>
             <!-- end testimonial-section -->
 
-            <style>
-                /* Footer Area Styles */
-                .footer-area {
-                    background-color: #1B4332;
-                    /* Dark background color */
-                    color: #B7E4C7;
-                    /* White text color */
-                    padding: 60px 0;
-                    /* Padding for top and bottom */
-                    font-family: 'Arial', sans-serif;
-                    /* Font family */
-                }
 
-                .footer-area .container {
-                    max-width: 1200px;
-                    /* Max width of the container */
-                    margin: 0 auto;
-                    /* Center the container */
-                    padding: 0 15px;
-                    /* Padding for left and right */
-                }
+            <!-- footer -->
 
-                .footer-row {
-                    display: flex;
-                    /* Use flexbox for horizontal layout */
-                    justify-content: space-between;
-                    /* Distribute space between items */
-                    flex-wrap: wrap;
-                    /* Allow wrapping on smaller screens */
-                }
-
-                .footer-box {
-                    flex: 1;
-                    /* Grow to fill space */
-                    min-width: 200px;
-                    /* Minimum width for each box */
-                    margin-right: 30px;
-                    /* Space between boxes */
-                    box-sizing: border-box;
-                    /* Include padding and border in the width */
-                }
-
-                .footer-box:last-child {
-                    margin-right: 0;
-                    /* Remove margin from the last box */
-                }
-
-                .footer-box .widget-title {
-                    font-size: 18px;
-                    /* Title font size */
-                    font-weight: bold;
-                    /* Title font weight */
-                    margin-bottom: 20px;
-                    /* Space below the title */
-                }
-
-                .footer-box p {
-                    font-size: 14px;
-                    /* Paragraph font size */
-                    line-height: 1.6;
-                    /* Line height for readability */
-                }
-
-                .footer-box ul {
-                    list-style-type: none;
-                    /* Remove bullet points */
-                    padding: 0;
-                    /* Remove padding */
-                }
-
-                .footer-box ul li {
-                    margin-bottom: 10px;
-                    /* Space below each list item */
-                }
-
-                .footer-box a {
-                    color: #fff;
-                    /* Link color */
-                    text-decoration: none;
-                    /* Remove underline */
-                    transition: color 0.3s ease;
-                    /* Transition for hover effect */
-                }
-
-                .footer-box a:hover {
-                    color: #B7E4C7;
-                    /* Link color on hover */
-                }
-
-                .footer-box form {
-                    display: flex;
-                    /* Flexbox for alignment */
-                    align-items: center;
-                    /* Center vertically */
-                }
-
-                .footer-box input[type="email"] {
-                    padding: 10px;
-                    /* Padding for input */
-                    border: none;
-                    /* Remove border */
-                    border-radius: 5px;
-                    /* Rounded corners */
-                    margin-right: 10px;
-                    /* Space between input and button */
-                    flex-grow: 1;
-                    /* Grow to fill space */
-                }
-
-                .footer-box button {
-                    background-color: #95D5B2;
-                    /* Button background color */
-                    color: #333;
-                    /* Button text color */
-                    padding: 10px 15px;
-                    /* Button padding */
-                    border: none;
-                    /* Remove border */
-                    border-radius: 5px;
-                    /* Rounded corners */
-                    cursor: pointer;
-                    /* Pointer cursor */
-                    transition: background-color 0.3s ease;
-                    /* Transition for hover effect */
-                }
-
-                .footer-box button:hover {
-                    background-color: #D8F3DC;
-                    /* Button background color on hover */
-                }
-
-                /* Copyright Area Styles */
-                .copyright {
-                    background-color: #1B4332;
-                    /* Darker background color */
-                    color: #ccc;
-                    /* Lighter text color */
-                    padding: 20px 0;
-                    /* Padding for top and bottom */
-                }
-
-                .copyright .container {
-                    max-width: 1200px;
-                    /* Max width of the container */
-                    margin: 0 auto;
-                    /* Center the container */
-                    padding: 0 15px;
-                    /* Padding for left and right */
-                }
-
-                .copyright p {
-                    margin: 0;
-                    /* Remove default margin */
-                    font-size: 14px;
-                    /* Font size */
-                }
-
-                .social-icons ul {
-                    list-style-type: none;
-                    /* Remove bullet points */
-                    padding: 0;
-                    /* Remove padding */
-                    display: flex;
-                    /* Flexbox for alignment */
-                    justify-content: flex-end;
-                    /* Align to the right */
-                }
-
-                .social-icons ul li {
-                    margin-left: 10px;
-                    /* Space between social icons */
-                }
-
-                .social-icons ul li a {
-                    color: #fff;
-                    /* Icon color */
-                    font-size: 16px;
-                    /* Icon font size */
-                    transition: color 0.3s ease;
-                    /* Transition for hover effect */
-                }
-
-                .social-icons ul li a:hover {
-                    color: #B7E4C7;
-                    /* Icon color on hover */
-                }
-            </style>
             <!-- footer -->
             <div class="footer-area">
                 <div class="container">
@@ -656,67 +474,92 @@
                         <div class="col-lg-3 col-md-6">
                             <div class="footer-box about-widget">
                                 <h2 class="widget-title">About us</h2>
-                                <p>Welcome to South Adelaide Beauty & Education!
-                                    We are so happy you found us, and we can’t wait to begin this journey with you. </p>
+                                <p>Ut enim ad minim veniam perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae.</p>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6">
                             <div class="footer-box get-in-touch">
                                 <h2 class="widget-title">Get in Touch</h2>
                                 <ul>
-                                    <li>Halett Cove, South Australia</li>
-                                    <li>beautybylisafollett@gmail.com</li>
+                                    <li>34/8, East Hukupara, Gifirtok, Sadan.</li>
+                                    <li>support@fruitkha.com</li>
+                                    <li>+00 111 222 3333</li>
                                 </ul>
                             </div>
                         </div>
-
-                    </div>
-                </div>
-                <!-- end footer -->
-
-                <!-- copyright -->
-                <div class="copyright">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-12">
-                                <p>Copyrights &copy; 2024 South Adelaide Beauty & Education</p>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="footer-box pages">
+                                <h2 class="widget-title">Pages</h2>
+                                <ul>
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="about.html">About</a></li>
+                                    <li><a href="services.html">Shop</a></li>
+                                    <li><a href="news.html">News</a></li>
+                                    <li><a href="contact.html">Contact</a></li>
+                                </ul>
                             </div>
-                            <div class="col-lg-6 text-right col-md-12">
-                                <div class="social-icons">
-                                    <ul>
-                                        <li><a href="http://instagram.com/adelaidebeautyandeducation" target="_blank"><i
-                                                    class="fab fa-facebook-f"></i></a></li>
-                                        <li><a href="http://www.facebook.com/adelaidebeautyandeducation"
-                                                target="_blank"><i class="fab fa-instagram"></i></a></li>
-                                    </ul>
-                                </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="footer-box subscribe">
+                                <h2 class="widget-title">Subscribe</h2>
+                                <p>Subscribe to our mailing list to get the latest updates.</p>
+                                <form action="index.html">
+                                    <input type="email" placeholder="Email">
+                                    <button type="submit"><i class="fas fa-paper-plane"></i>Subscribe</button>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- end copyright -->
+            </div>
+        </div>
+            <!-- end footer -->
 
-                <!-- jquery -->
-                <script src="assets/js/jquery-1.11.3.min.js"></script>
-                <!-- bootstrap -->
-                <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-                <!-- count down -->
-                <script src="assets/js/jquery.countdown.js"></script>
-                <!-- isotope -->
-                <script src="assets/js/jquery.isotope-3.0.6.min.js"></script>
-                <!-- waypoints -->
-                <script src="assets/js/waypoints.js"></script>
-                <!-- owl carousel -->
-                <script src="assets/js/owl.carousel.min.js"></script>
-                <!-- magnific popup -->
-                <script src="assets/js/jquery.magnific-popup.min.js"></script>
-                <!-- mean menu -->
-                <script src="assets/js/jquery.meanmenu.min.js"></script>
-                <!-- sticker js -->
-                <script src="assets/js/sticker.js"></script>
-                <!-- main js -->
-                <script src="assets/js/main.js"></script>
+            <!-- copyright -->
+            <div class="copyright">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12">
+                            <p>Copyrights &copy; 2019 - <a href="https://imransdesign.com/">Imran Hossain</a>,  All Rights Reserved.</p>
+                        </div>
+                        <div class="col-lg-6 text-right col-md-12">
+                            <div class="social-icons">
+                                <ul>
+                                    <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                                    <li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                                    <li><a href="#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end copyright -->
+
+            <!-- jquery -->
+            <script src="assets/js/jquery-1.11.3.min.js"></script>
+            <!-- bootstrap -->
+            <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+            <!-- count down -->
+            <script src="assets/js/jquery.countdown.js"></script>
+            <!-- isotope -->
+            <script src="assets/js/jquery.isotope-3.0.6.min.js"></script>
+            <!-- waypoints -->
+            <script src="assets/js/waypoints.js"></script>
+            <!-- owl carousel -->
+            <script src="assets/js/owl.carousel.min.js"></script>
+            <!-- magnific popup -->
+            <script src="assets/js/jquery.magnific-popup.min.js"></script>
+            <!-- mean menu -->
+            <script src="assets/js/jquery.meanmenu.min.js"></script>
+            <!-- sticker js -->
+            <script src="assets/js/sticker.js"></script>
+            <!-- main js -->
+            <script src="assets/js/main.js"></script>
 
 </body>
+
 
 </html>
