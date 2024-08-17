@@ -86,19 +86,38 @@ class UsersController extends AppController
      * Delete method
      *
      * @param string|null $id User id.
-     * @return \Cake\Http\Response|null Redirects to index.
+     * @return \Cake\Http\Response|null Redirects to index or admin.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function delete($id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
         $user = $this->Users->get($id);
-        if ($this->Users->delete($user)) {
-            $this->Flash->success(__('The user has been deleted.'));
+        if ($user->user_type === 'admin') {
+            // Count the number of admin users
+            $adminCount = $this->Users->find()->where(['user_type' => 'admin'])->count();
+            if ($adminCount === 1) {
+                // If there is only one admin user, don't allow deletion
+                $this->Flash->error(__('Currently, there is only one admin account. Deleting the admin account is not allowed.'));
+                return $this->redirect(['action' => 'index']);
+            }
+            // If admin count is more than 1 or user is not an admin, proceed with deletion
+            if ($this->Users->delete($user)) {
+                $this->Flash->success(__('The user has been deleted.'));
+            } else {
+                $this->Flash->error(__('The user could not be deleted. Please, try again.'));
+            }
+            return $this->redirect(['action' => 'index']);
+
         } else {
-            $this->Flash->error(__('The user could not be deleted. Please, try again.'));
+// For non-admin users (e.g., customers), proceed with deletion
+            if ($this->Users->delete($user)) {
+                $this->Flash->success(__('The user has been deleted.'));
+            } else {
+                $this->Flash->error(__('The user could not be deleted. Please, try again.'));
+            }
+            return $this->redirect(['action' => 'index']);
         }
 
-        return $this->redirect(['action' => 'index']);
     }
 }
