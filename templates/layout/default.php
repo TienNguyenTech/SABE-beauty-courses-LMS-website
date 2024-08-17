@@ -77,18 +77,18 @@
 
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
-            <a class="nav-link" href="<?= $this->Url->build (['plugin' => null,'plugin' => 'ContentBlocks', 'controller' => 'ContentBlocks', 'action' => 'index']) ?>">
-                <i class="fas fa-fw fa-cog"></i>
-                <span>Modify Website</span></a>
+            <a class="nav-link" href="<?= $this->Url->build(['plugin' => null, 'controller' => 'Enquirys', 'action' => 'index']) ?>">
+                <i class="fas fa-fw fa-pen"></i>
+                <span>Enquiries</span></a>
             <a class="nav-link" href="<?= $this->Url->build(['plugin' => null, 'controller' => 'Courses', 'action' => 'index']) ?>">
                 <i class="fas fa-fw fa-book-open"></i>
                 <span>Courses</span></a>
             <a class="nav-link" href="<?= $this->Url->build(['plugin' => null, 'controller' => 'Users', 'action' => 'index']) ?>">
                 <i class="fas fa-fw fa-user"></i>
                 <span>Users</span></a>
-            <a class="nav-link" href="<?= $this->Url->build(['plugin' => null, 'controller' => 'Enquirys', 'action' => 'index']) ?>">
-                <i class="fas fa-fw fa-pen"></i>
-                <span>Enquiries</span></a>
+            <a class="nav-link" href="<?= $this->Url->build (['plugin' => null,'plugin' => 'ContentBlocks', 'controller' => 'ContentBlocks', 'action' => 'index']) ?>">
+                <i class="fas fa-fw fa-cog"></i>
+                <span>Modify Website</span></a>
         </li>
 
         <!-- Divider -->
