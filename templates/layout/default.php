@@ -122,7 +122,7 @@
                 $isAdminDashboardPage = $this->getRequest()->getParam('controller') === 'Pages' && $this->getRequest()->getParam('action') === 'display';
 
                 // Define the URL for the admin dashboard page
-                $adminDashboardUrl = $this->Url->build(['plugin' => null,'controller' => 'Pages', 'action' => 'admin_dashboard']);
+                $adminDashboardUrl = $this->Url->build(['plugin' => null,'controller' => 'adminDashboard', 'action' => 'dashboard']);
 
                 // Render the back button based on the page type
                 if(!$isAdminDashboardPage) {
