@@ -66,7 +66,8 @@ if($error = 404)
                         <div class="site-logo">
                                 <?= $this->Html->link(  
                                 $this->ContentBlock->image('logo'), ['controller' => 'Pages', 'action' => 'display', 'home'],
-                                ['escape' => false]) ?>                         
+                                ['escape' => false]) ?>
+                            
                         </div>
 
                         <!-- logo -->
