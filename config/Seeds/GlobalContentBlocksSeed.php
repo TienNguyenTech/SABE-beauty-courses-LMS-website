@@ -29,7 +29,7 @@ class GlobalContentBlocksSeed extends AbstractSeed
                 'description' => 'Copyright information shown at the bottom of the home page.',
                 'slug' => 'copyright-message',
                 'type' => 'text',
-                'value' => 'Copyrights © 2024, South Adelaide Beauty and Education.',
+                'value' => '2024, South Adelaide Beauty and Education.',
             ],
             [
                 'parent' => 'Website Essentials',
