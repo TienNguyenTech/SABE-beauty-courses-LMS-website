@@ -54,6 +54,14 @@ class ErrorController extends AppController
     public function beforeRender(EventInterface $event)
     {
         parent::beforeRender($event);
+        // Execute method to lead to 404 and 500 pages
+        if ($this->request->getParam('statusCode') === 404) {
+            $this->viewBuilder()->setTemplate('error404');
+        } elseif ($this->request->getParam('statusCode') === 500) {
+            $this->viewBuilder()->setTemplate('error500');
+        } else {
+            $this->viewBuilder()->setTemplatePath('Error');
+        }
 
         $this->viewBuilder()->setTemplatePath('Error');
     }
