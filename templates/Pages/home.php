@@ -1,3 +1,14 @@
+<?php 
+$error = $_SERVER["REDIRECT_STATUS"];
+$error_title = '';
+$error_message = '';
+if($error = 404)
+{
+    $error_title = '404 Page Not Found';
+    $error_message = ' The requested page could not be found.';
+
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -53,10 +64,11 @@
                     <div class="main-menu-wrap">
                         <!-- logo -->
                         <div class="site-logo">
-                            <a href="index.html">
-                                <?= $this->ContentBlock->image('logo'); ?>
-                            </a>
+                                <?= $this->Html->link(  
+                                $this->ContentBlock->image('logo'), ['controller' => 'Pages', 'action' => 'display', 'home'],
+                                ['escape' => false]) ?>                         
                         </div>
+
                         <!-- logo -->
 
                         <!-- menu start -->
