@@ -212,15 +212,6 @@ class AuthController extends AppController
         $this->request->allowMethod(['get', 'post']);
         $result = $this->Authentication->getResult();
 
-        if ($result && $result->isValid()) {
-            $this->Flash->success('Login successful.');
-            return $this->redirect($this->Authentication->getLoginRedirect() ?? ['controller' => 'AdminDashboard', 'action' => 'dashboard']);
-        }
-
-        if ($this->request->is('post') && !$result->isValid()) {
-//            debug($this->request->getData()); // Check what data is being submitted
-//            debug($result->getErrors()); // Check for any specific errors
-            $this->Flash->error('Email address and/or Password is incorrect. Please try again. ');
         if ($this->request->is('post')) {
             // reCAPTCHA verification
             $recaptchaSecret = '6Lc7pCgqAAAAAGQom2tHow31Z-fEEPh5dU7q8S3J'; // Replace with your reCAPTCHA secret key
