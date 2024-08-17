@@ -38,10 +38,12 @@
 
 <div class="dashboard-container">
     <!-- Functional Card 1 -->
+
     <div class="dashboard-card">
-        <h2>Users</h2>
-        <p>Manage all users here</p>
-        <a href="<?= $this->Url->build(['controller'=>'Users','action'=>'index']) ?>">Go to Users</a>
+        <h2>Enquiries</h2>
+        <p>View all enquiries here</p>
+        <!-- Link to feature -->
+        <a href="<?= $this->Url->build(['controller'=>'Enquirys','action'=>'index']) ?>">Go to Enquiries</a>
     </div>
 
     <!-- Functional Card 2 -->
@@ -51,13 +53,16 @@
         <a href="<?= $this->Url->build(['controller'=>'Courses','action'=>'index']) ?>">Go to Courses</a>
     </div>
 
-    <!-- Empty Card -->
     <div class="dashboard-card">
-        <h2>Enquiries</h2>
-        <p>View all enquiries here</p>
-        <!-- Link to feature -->
-         <a href="<?= $this->Url->build(['controller'=>'Enquirys','action'=>'index']) ?>">Go to Enquiries</a>
+        <h2>Users</h2>
+        <p>Manage all users here</p>
+        <a href="<?= $this->Url->build(['controller'=>'Users','action'=>'index']) ?>">Go to Users</a>
     </div>
+
+
+
+    <!-- Empty Card -->
+
 
 </div>
 
