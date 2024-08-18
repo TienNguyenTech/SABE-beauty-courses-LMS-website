@@ -54,6 +54,13 @@ class ErrorController extends AppController
     public function beforeRender(EventInterface $event)
     {
         parent::beforeRender($event);
+        $statusCode = $this->request->getParam('statusCode');
+
+        if ($statusCode === 404) {
+            $this->viewBuilder()->setTemplate('error404page');
+        } elseif ($statusCode === 500) {
+            $this->viewBuilder()->setTemplate('error500page');
+        }
 
         $this->viewBuilder()->setTemplatePath('Error');
     }
@@ -66,5 +73,17 @@ class ErrorController extends AppController
      */
     public function afterFilter(EventInterface $event)
     {
+    }
+
+    public function error404page() {
+        $this->viewBuilder()->setLayout('empty');
+       
+        $this->set('pageTitle', '404 Page');
+    }
+    
+    public function error500page() {
+    
+
+        $this->set('pageTitle', '500 Page');
     }
 }

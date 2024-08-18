@@ -76,9 +76,6 @@ return function (RouteBuilder $routes): void {
          * routes you want in your application.
          */
 
-        $builder->connect('/404', ['controller' => 'ErrorsCustomer', 'action' => 'error404']);
-
-
         $builder->fallbacks();
     });
 
