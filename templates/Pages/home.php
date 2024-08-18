@@ -368,6 +368,7 @@
                 <?php $counter = 0; ?>
                 <?php foreach ($courses as $course): ?>
                     <?php if ($counter == 6) break; ?>
+                    <?php if ($course->course_featured): ?>
                     <div class="col-lg-4 col-md-6 text-center">
                         <div class="single-product-item card-equal-height">
                             <div class="product-image">
@@ -380,6 +381,7 @@
                             </p>
                         </div>
                     </div>
+                    <?php endif; ?>
                     <?php $counter++; ?>
                 <?php endforeach; ?>
             </div>
