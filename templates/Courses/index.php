@@ -22,6 +22,7 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
                     <th><?= h('Category') ?></th>
                     <th><?= h('Description') ?></th>
                     <th><?= h('Price') ?></th>
+                    <th><?= h('Featured') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
@@ -35,6 +36,7 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
                         <?= h(strlen($course->course_description) > 400 ? substr($course->course_description, 0, 400) . '...' : $course->course_description) ?>
                     </td>
                     <td>$<?= $this->Number->format($course->course_price) ?></td>
+                    <td><?= $course->course_featured ? 'Yes' : 'No' ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $course->course_id]) ?>
                         <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $course->course_id], ['confirm' => __('Are you sure you want to delete course# {0}?', $course->course_name)]) ?>

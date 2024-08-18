@@ -20,7 +20,7 @@ class PaymentsController extends AppController
     {
         parent::initialize();
 
-        $this->Authentication->allowUnauthenticated(['checkout']);
+        $this->Authentication->allowUnauthenticated(['checkout','success']);
         $this->Courses= TableRegistry::getTableLocator()->get('Courses');
 
     }
@@ -136,7 +136,7 @@ class PaymentsController extends AppController
 
 
         $checkout_session = Session::create([
-            'success_url' => Router::fullBaseUrl(),
+            'success_url' => Router::url(['controller' => 'Payments', 'action' => 'success'], true),
             'cancel_url' => Router::fullBaseUrl(),
             'payment_method_types' => ['card'],
             'mode' => 'payment',
@@ -146,6 +146,12 @@ class PaymentsController extends AppController
         $this->set('sessionId', $checkout_session['id']);
     }
 
+    public function success()
+    {
+        $this->viewBuilder()->disableAutoLayout();
+        // Optionally set any data or messages to pass to the view
+        $this->set('message', 'Thank you for your payment! You will receive your login credentials within 24 hours!');
+    }
 
 }
 

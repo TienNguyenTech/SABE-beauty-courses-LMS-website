@@ -383,6 +383,7 @@ if ($error = 404) {
                 <?php $counter = 0; ?>
                 <?php foreach ($courses as $course): ?>
                     <?php if ($counter == 6) break; ?>
+                    <?php if ($course->course_featured): ?>
                     <div class="col-lg-4 col-md-6 text-center">
                         <div class="single-product-item card-equal-height">
                             <div class="product-image">
@@ -395,6 +396,7 @@ if ($error = 404) {
                             </p>
                         </div>
                     </div>
+                    <?php endif; ?>
                     <?php $counter++; ?>
                 <?php endforeach; ?>
             </div>
@@ -757,8 +759,5 @@ if ($error = 404) {
 
 </body>
 
-<<<<<<< HEAD
-=======
 
->>>>>>> Unified-UI/UX
 </html>

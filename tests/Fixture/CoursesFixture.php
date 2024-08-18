@@ -23,6 +23,9 @@ class CoursesFixture extends TestFixture
                 'course_name' => 'Lorem ipsum dolor sit amet',
                 'course_description' => 'Lorem ipsum dolor sit amet',
                 'course_price' => 1.5,
+                'course_image' => 'Lorem ipsum dolor sit amet',
+                'course_category' => 'Lorem ipsum dolor sit amet',
+                'course_featured' => 1,
             ],
         ];
         parent::init();

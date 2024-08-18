@@ -87,6 +87,10 @@ class CoursesTable extends Table
             ->requirePresence('course_category', 'create')
             ->notEmptyString('course_category');
 
+        $validator
+            ->integer('course_featured')
+            ->notEmptyString('course_featured');
+
         return $validator;
     }
 }

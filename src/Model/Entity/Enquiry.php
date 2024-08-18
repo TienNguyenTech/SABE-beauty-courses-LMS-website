@@ -13,6 +13,7 @@ use Cake\ORM\Entity;
  * @property string $enquiry_email
  * @property string $enquiry_subject
  * @property string $enquiry_message
+ * @property int $enquiry_seen
  *
  * @property \App\Model\Entity\Enquiry[] $enquirys
  */
@@ -32,6 +33,7 @@ class Enquiry extends Entity
         'enquiry_email' => true,
         'enquiry_subject' => true,
         'enquiry_message' => true,
+        'enquiry_seen' => true,
         'enquirys' => true,
     ];
 }

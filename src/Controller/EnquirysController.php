@@ -106,4 +106,19 @@ class EnquirysController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+    public function toggle($id = null) {
+        $this->request->allowMethod(['get']);
+        $enquiry = $this->Enquirys->get($id);
+
+        $enquiry->enquiry_seen = $enquiry->enquiry_seen ? 0 : 1;
+
+        if ($this->Enquirys->save($enquiry)) {
+            $this->Flash->success(__('Enquiry status updated successfully.'));
+        } else {
+            $this->Flash->error(__('Failed to update enquiry status. Please try again.'));
+        }
+
+        $this->redirect(['action' => 'index']);
+    }
 }

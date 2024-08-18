@@ -80,6 +80,10 @@ class EnquirysTable extends Table
             ->requirePresence('enquiry_message', 'create')
             ->notEmptyString('enquiry_message');
 
+        $validator
+            ->integer('enquiry_seen')
+            ->notEmptyString('enquiry_seen');
+
         return $validator;
     }
 }
