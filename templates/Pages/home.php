@@ -542,8 +542,5 @@
 
 </body>
 
-<<<<<<< HEAD
-=======
 
->>>>>>> Unified-UI/UX
 </html>
