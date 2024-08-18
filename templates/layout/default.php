@@ -33,6 +33,7 @@
         .small-text {
             font-size: 0.8em; /* Adjust as needed */
         }
+      
     </style>
 </head>
 
