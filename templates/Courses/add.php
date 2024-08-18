@@ -45,6 +45,8 @@ echo $this->Form->control('course_price', [
     'maxlength' => '2',
     'style' => 'margin-bottom: 10px'
 ]);
+
+echo $this->Form->select('course_featured', ['1' => 'Yes', '0' => 'No'], ['label' => ['text' => 'Featured Course', 'escape' => false]]);
 ?>
 
 <?= $this->Form->button(__('Submit'),['class'=>'btn btn-primary']) ?>

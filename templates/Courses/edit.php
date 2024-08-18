@@ -16,6 +16,7 @@ echo $this->Form->select('course_category',['Hybrid' => 'Hybrid', 'Workshop' => 
 ]]);
 echo $this->Form->control('course_description', ['type' => 'textarea']);
 echo $this->Form->control('course_price');
+echo $this->Form->select('course_featured', ['1' => 'Yes', '0' => 'No'], ['label' => ['text' => 'Featured Course', 'escape' => false]]);
 ?>
 
 <?= $this->Form->button(__('Submit'),['class'=>'btn btn-primary']) ?>
