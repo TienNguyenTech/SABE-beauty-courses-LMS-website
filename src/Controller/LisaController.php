@@ -16,6 +16,7 @@ class LisaController extends AppController
     public function viewlisa() {
         $this->viewBuilder()->setLayout('customerDefault');
 
+
         $this->set('pageTitle', 'Beauty by Lisa Follet');
     }
 
