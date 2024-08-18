@@ -20,7 +20,7 @@ class PaymentsController extends AppController
     {
         parent::initialize();
 
-        $this->Authentication->allowUnauthenticated(['checkout']);
+        $this->Authentication->allowUnauthenticated(['checkout','success']);
         $this->Courses= TableRegistry::getTableLocator()->get('Courses');
 
     }
@@ -146,6 +146,11 @@ class PaymentsController extends AppController
         $this->set('sessionId', $checkout_session['id']);
     }
 
+    public function success()
+    {
+        // Optionally set any data or messages to pass to the view
+        $this->set('message', 'Thank you for your payment! You will receive your login credentials within 24 hours!');
+    }
 
 }
 
