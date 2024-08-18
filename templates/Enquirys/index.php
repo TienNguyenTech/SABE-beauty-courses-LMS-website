@@ -18,6 +18,7 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
                     <th><?= $this->Paginator->sort('enquiry_email', 'Email Address') ?></th>
                     <th><?= $this->Paginator->sort('enquiry_subject', 'Subject') ?></th>
                     <th><?= $this->Paginator->sort('enquiry_message', 'Message') ?></th>
+                    <th><?= $this->Paginator->sort('enquiry_seen', 'Read') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
@@ -28,10 +29,12 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
                     <td><?= h($enquiry->enquiry_email) ?></td>
                     <td><?= h($enquiry->enquiry_subject) ?></td>
                     <td><?= h($enquiry->enquiry_message) ?></td>
+                    <td><?= h($enquiry->enquiry_seen ? 'Read' : 'Unread') ?></td>
                     <td class="actions">
 <!--                        --><?php //= $this->Html->link(__('View'), ['action' => 'view', $enquiry->enquiry_id]) ?>
 <!--                        --><?php //= $this->Html->link(__('Edit'), ['action' => 'edit', $enquiry->enquiry_id]) ?>
                         <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $enquiry->enquiry_id], ['class' => 'btn btn-danger', 'confirm' => __('Are you sure you want to delete enquiry # {0}?', $enquiry->enquiry_name)]) ?>
+                        <?= $this->Html->link($enquiry->enquiry_seen ? 'Mark as Unread' : 'Mark as Read', ['action' => 'toggle', $enquiry->enquiry_id], ['class' => 'btn btn-primary']) ?>
                     </td>
                 </tr>
                 <?php endforeach; ?>
