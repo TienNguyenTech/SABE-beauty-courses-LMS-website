@@ -239,7 +239,7 @@
                         <div class="col-lg-3 col-md-6">
                             <div class="footer-box about-widget">
                                 <h2 class="widget-title">About us</h2>
-                                <p>Ut enim ad minim veniam perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae.</p>
+                                <p>We are a premier beauty school located in Adelaide, offering a range of beauty courses and professional training. We pride ourselves on our high standards and the quality of our education</p>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6">

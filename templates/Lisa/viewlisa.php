@@ -46,7 +46,7 @@
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            background-color: #081C15;
+            background-color: #4a9b38;
             padding: 20px;
         }
 
@@ -94,7 +94,7 @@
             font-size: 1.5rem;
             font-weight: 600;
             margin-bottom: 10px;
-            color: #1B4332;
+            color: #4a9b38;
         }
 
         .service ul {
@@ -110,8 +110,8 @@
 
         .btn {
             display: inline-block;
-            background-color: #081C15;
-            color: #D8F3DC;
+            background-color:#081c15;
+            color: #dbdbdb;
             padding: 10px 20px;
             border-radius: 5px;
             text-decoration: none;
@@ -122,9 +122,127 @@
         .btn:hover {
             background-color: #2D6A4F;
         }
+
+        .loader {
+            bottom: 0;
+            height: 100%;
+            left: 0;
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: 100%;
+            z-index: 1111;
+            background: #4b9b39;
+            overflow-x: hidden;
+        }
+
+        .loader-inner {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            height: 50px;
+            width: 50px;
+        }
+
+        .circle {
+            width: 8vmax;
+            height: 8vmax;
+            border-right: 4px solid #081C15;
+            border-radius: 50%;
+            -webkit-animation: spinRight 800ms linear infinite;
+            animation: spinRight 800ms linear infinite;
+        }
+
+        .circle:before {
+            content: '';
+            width: 6vmax;
+            height: 6vmax;
+            display: block;
+            position: absolute;
+            top: calc(50% - 3vmax);
+            left: calc(50% - 3vmax);
+            border-left: 3px solid #dbdbdb;
+            border-radius: 100%;
+            -webkit-animation: spinLeft 800ms linear infinite;
+            animation: spinLeft 800ms linear infinite;
+        }
+
+        .circle:after {
+            content: '';
+            width: 6vmax;
+            height: 6vmax;
+            display: block;
+            position: absolute;
+            top: calc(50% - 3vmax);
+            left: calc(50% - 3vmax);
+            border-left: 3px solid #4a9b38;
+            border-radius: 100%;
+            -webkit-animation: spinLeft  200ms linear infinite;
+            animation: spinLeft 800ms linear infinite;
+            width: 4vmax;
+            height: 4vmax;
+            top: calc(50% - 2vmax);
+            left: calc(50% - 2vmax);
+            border: 0;
+            border-right: 2px solid #081c15;
+            -webkit-animation: none;
+            animation: none;
+        }
+
+        @-webkit-keyframes spinLeft {
+            from {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            to {
+                -webkit-transform: rotate(720deg);
+                transform: rotate(720deg);
+            }
+        }
+
+        @keyframes spinLeft {
+            from {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            to {
+                -webkit-transform: rotate(720deg);
+                transform: rotate(720deg);
+            }
+        }
+
+        @-webkit-keyframes spinRight {
+            from {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+            to {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+        }
+
+        @keyframes spinRight {
+            from {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+            to {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+        }
     </style>
 </head>
-
+<div class="loader">
+    <div class="loader-inner">
+        <div class="circle"></div>
+    </div>
+</div>
 <body>
     <div class="w-full">
         <div class="content-container">
