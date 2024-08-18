@@ -136,7 +136,7 @@ class PaymentsController extends AppController
 
 
         $checkout_session = Session::create([
-            'success_url' => Router::fullBaseUrl(),
+            'success_url' => Router::url(['controller' => 'Payments', 'action' => 'success'], true),
             'cancel_url' => Router::fullBaseUrl(),
             'payment_method_types' => ['card'],
             'mode' => 'payment',
