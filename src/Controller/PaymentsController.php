@@ -148,6 +148,7 @@ class PaymentsController extends AppController
 
     public function success()
     {
+        $this->viewBuilder()->disableAutoLayout();
         // Optionally set any data or messages to pass to the view
         $this->set('message', 'Thank you for your payment! You will receive your login credentials within 24 hours!');
     }
