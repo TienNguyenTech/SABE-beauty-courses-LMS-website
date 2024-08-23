@@ -142,6 +142,7 @@
             margin: 0;
             /* Removes default margin */
         }
+
         div.sticky-wrapper.is-sticky .top-header-area {
             background-color: #1B4332;
             padding: 15px 0;
@@ -160,11 +161,6 @@
         .cart-btn:hover {
             background-color: #B7E4C7;
         }
-
-
-
-
-
     </style>
     <!-- PreLoader -->
     <div class="loader">
@@ -200,32 +196,34 @@
 
                                 <li><?= $this->Html->link("Courses", ['controller' => 'Courses', 'action' => 'viewc']) ?>
                                 </li>
-                                <li><?= $this->Html->link("Beauty By Lisa", ['controller' => 'Lisa', 'action' => 'viewlisa']) ?></li>
-                                <li><?= $this->Html->link("Contact Us", ['controller' => 'Enquirys', 'action' => 'add']) ?></li>
+                                <li><?= $this->Html->link("Beauty By Lisa", ['controller' => 'BeautyByLisa', 'action' => 'viewlisa']) ?>
+                                </li>
+                                <li><?= $this->Html->link("Contact Us", ['controller' => 'Enquirys', 'action' => 'add']) ?>
+                                </li>
 
                                 <ul class="header-nav">
                                     <li>
-                                                                    <?php
-                                                                    if ($this->Identity->isLoggedIn()) {
-                                                                        echo $this->Html->link(
-                                                                            'Dashboard',
-                                                                            ['controller' => 'AdminDashboard', 'action' => 'dashboard'],
-                                                                            ['class' => 'button button-outline']
-                                                                        );
-                                                                        echo $this->Html->link(
-                                                                            'Log out',
-                                                                            ['controller' => 'Auth', 'action' => 'logout'],
-                                                                            ['class' => 'button button-outline']
-                                                                        );
-                                                                    } else {
-                                                                        echo $this->Html->link(
-                                                                            'Log in',
-                                                                            ['controller' => 'Auth', 'action' => 'login'],
-                                                                            ['class' => 'button button-outline']
-                                                                        );
-                                                                    }
-                                                                    ?>
-                                                                </li>
+                                        <?php
+                                        if ($this->Identity->isLoggedIn()) {
+                                            echo $this->Html->link(
+                                                'Dashboard',
+                                                ['controller' => 'AdminDashboard', 'action' => 'dashboard'],
+                                                ['class' => 'button button-outline']
+                                            );
+                                            echo $this->Html->link(
+                                                'Log out',
+                                                ['controller' => 'Auth', 'action' => 'logout'],
+                                                ['class' => 'button button-outline']
+                                            );
+                                        } else {
+                                            echo $this->Html->link(
+                                                'Log in',
+                                                ['controller' => 'Auth', 'action' => 'login'],
+                                                ['class' => 'button button-outline']
+                                            );
+                                        }
+                                        ?>
+                                    </li>
                                 </ul>
 
                             </ul>
@@ -265,8 +263,8 @@
             <div class="row">
                 <div class="col-lg-8 offset-lg-2 text-center">
                     <div class="breadcrumb-text">
-                       <!-- <p>Pretty and Bright</p>-->
-                        <h1>Contact Us</h1>
+                        <!-- <p>Pretty and Bright</p>-->
+                        <h1>Our Courses</h1>
                     </div>
                 </div>
             </div>
@@ -472,7 +470,7 @@
                     <div class="footer-box about-widget">
                         <h2 class="widget-title">About us</h2>
                         <p>Welcome to South Adelaide Beauty & Education!
-                           We are so happy you found us, and we can’t wait to begin this journey with you. </p>
+                            We are so happy you found us, and we can’t wait to begin this journey with you. </p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
@@ -485,29 +483,31 @@
                     </div>
                 </div>
 
+            </div>
         </div>
-    </div>
-    <!-- end footer -->
+        <!-- end footer -->
 
-    <!-- copyright -->
-    <div class="copyright">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-12">
-                    <p>Copyrights &copy; 2024 South Adelaide Beauty & Education</p>
-                </div>
-                <div class="col-lg-6 text-right col-md-12">
-                    <div class="social-icons">
-                        <ul>
-                            <li><a href="http://instagram.com/adelaidebeautyandeducation" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="http://www.facebook.com/adelaidebeautyandeducation" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                        </ul>
+        <!-- copyright -->
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12">
+                        <p>Copyrights &copy; 2024 South Adelaide Beauty & Education</p>
+                    </div>
+                    <div class="col-lg-6 text-right col-md-12">
+                        <div class="social-icons">
+                            <ul>
+                                <li><a href="http://instagram.com/adelaidebeautyandeducation" target="_blank"><i
+                                            class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="http://www.facebook.com/adelaidebeautyandeducation" target="_blank"><i
+                                            class="fab fa-instagram"></i></a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- end copyright -->
+        <!-- end copyright -->
 
 
 </body>
