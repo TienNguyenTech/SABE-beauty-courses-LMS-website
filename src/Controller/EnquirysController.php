@@ -52,7 +52,7 @@ class EnquirysController extends AppController
     public function add()
     {
         $this->viewBuilder()->disableAutoLayout();
-        $this->viewBuilder()->setLayout('contactUsLayout');
+        //$this->viewBuilder()->setLayout('contactUsLayout');
         $enquiry = $this->Enquirys->newEmptyEntity();
         if ($this->request->is('post')) {
             $enquiry = $this->Enquirys->patchEntity($enquiry, $this->request->getData());
