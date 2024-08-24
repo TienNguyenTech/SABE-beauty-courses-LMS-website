@@ -33,11 +33,33 @@
         .small-text {
             font-size: 0.8em; /* Adjust as needed */
         }
-      
+
     </style>
 </head>
 
 <body id="page-top">
+
+<!-- pop up message for add,edit,delete actions -->
+<?php
+$flashMessage = $this->Flash->render();
+if ($flashMessage):
+    ?>
+    <div id="myModal" class="modal" style="display: block; position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.4); display: flex; align-items: center; justify-content: center;">
+        <div style="background-color: #fefefe; padding: 20px; border: 1px solid #888; width: 30%; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.5);">
+            <span style="color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer;" onclick="this.parentElement.parentElement.style.display='none'">&times;</span>
+            <p style="margin-top: 20px; font-size: 18px;"><?= $flashMessage ?></p>
+        </div>
+    </div>
+    <script>
+        // Get the modal
+        var modal = document.getElementById('myModal');
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+<?php endif; ?>
 
 <!-- Page Wrapper -->
 <div id="wrapper">
@@ -120,6 +142,7 @@
                 <?php
                 // Determine if the current page is an index page or the admin_dashboard page
                 $isIndexPage = $this->getRequest()->getParam('action') === 'index';
+                $isEditPage = $this->getRequest()->getParam('action') === 'edit';
                 $isAdminDashboardPage = $this->getRequest()->getParam('controller') === 'Pages' && $this->getRequest()->getParam('action') === 'display';
 
                 // Define the URL for the admin dashboard page
@@ -127,7 +150,7 @@
 
                 // Render the back button based on the page type
                 if(!$isAdminDashboardPage) {
-                    if(!$isIndexPage) {
+                    if(!$isIndexPage&& !$isEditPage) {
                         // If it's not an index page, render the back button
                         echo $this->Html->tag(
                             'button',
@@ -141,6 +164,13 @@
                             $this->Html->tag('i', '', ['class' => 'fas fa-arrow-left']) . ' Return',
                             ['onclick' => 'returnToAdminDashboard()', 'class' => 'btn btn-secondary']
                         );
+                    } elseif($isEditPage) {
+                        // If it's an index page, return to the admin dashboard
+                        echo $this->Html->tag(
+                            'button',
+                            $this->Html->tag('i', '', ['class' => 'fas fa-arrow-left']) . ' Return',
+                            ['onclick' => 'indexEditGoBack()', 'class' => 'btn btn-secondary']
+                        );
                     }
                 }
                 ?>
@@ -149,7 +179,9 @@
                     function goBack() {
                         window.history.back();
                     }
-
+                    function indexEditGoBack() {
+                        window.location.href = '<?php echo $this->Url->build(['action' => 'index']); ?>';
+                    }
                     // Function to navigate back to the admin dashboard
                     function returnToAdminDashboard() {
                         window.location.href = '<?php echo $adminDashboardUrl; ?>';
