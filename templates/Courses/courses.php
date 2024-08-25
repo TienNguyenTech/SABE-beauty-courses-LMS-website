@@ -3,45 +3,6 @@
 * @var \App\View\AppView $this
  * @var iterable<\App\Model\Entity\Course> $courses
  */
-// Sample product data. In a real application, this might come from a database.
-$products = [
-    [
-        'name' => 'Back to Basics: Facials',
-        'image' => 'products/product-img-1.jpg',
-        'price' => '199$',
-        'category' => 'Hybrid'
-    ],
-    [
-        'name' => 'Back to Basics: Lash & Brow',
-        'image' => 'assets/img/products/product-img-2.jpg',
-        'price' => '199$',
-        'category' => 'Hybrid'
-    ],
-    [
-        'name' => 'Total Care: Waxing',
-        'image' => 'assets/img/products/product-img-3.jpg',
-        'price' => '499$',
-        'category' => 'Workshop'
-    ],
-    [
-        'name' => 'Total Care: Nails',
-        'image' => 'assets/img/products/product-img-4.jpg',
-        'price' => '399$',
-        'category' => 'Online'
-    ],
-    [
-        'name' => 'Back To Basics: Customer Connection',
-        'image' => 'assets/img/products/product-img-5.jpg',
-        'price' => '199$',
-        'category' => 'Online'
-    ],
-    [
-        'name' => 'Custom Training',
-        'image' => 'assets/img/products/product-img-6.jpg',
-        'price' => '599$',
-        'category' => 'Hybrid'
-    ]
-];
 ?>
 
 <!DOCTYPE html>
@@ -52,38 +13,38 @@ $products = [
     <!-- Google Fonts -->
     <?= $this->Html->css('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700', ['block' => true]) ?>
     <?= $this->Html->css('https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap', ['block' => true]) ?>
-    <?= $this->Html->css('all.min') ?> 
+    <?= $this->Html->css('all.min') ?>
     <?= $this->Html->css('owl.carousel') ?>
-    <?= $this->Html->css('magnific-popup') ?> 
+    <?= $this->Html->css('magnific-popup') ?>
     <?= $this->Html->css('animate') ?>
-    <?= $this->Html->css('meanmenu.min') ?> 
-    <?= $this->Html->css('main') ?> 
+    <?= $this->Html->css('meanmenu.min') ?>
+    <?= $this->Html->css('main') ?>
     <?= $this->Html->css('responsive') ?>
 
-    <!-- jquery --> 
-    <?= $this->Html->script('jquery-1.11.3.min') ?> 
+    <!-- jquery -->
+    <?= $this->Html->script('jquery-1.11.3.min') ?>
     <!-- bootstrap -->
-    <?= $this->Html->script('bootstrap.min') ?> 
-    <!-- count down --> 
+    <?= $this->Html->script('bootstrap.min') ?>
+    <!-- count down -->
     <?= $this->Html->script('jquery.countdown') ?>
     <!-- isotope -->
-    <?= $this->Html->script('jquery.isotope-3.0.6.min') ?> 
+    <?= $this->Html->script('jquery.isotope-3.0.6.min') ?>
     <!-- waypoints -->
-    <?= $this->Html->script('waypoints') ?> 
-    <!-- owl carousel --> 
+    <?= $this->Html->script('waypoints') ?>
+    <!-- owl carousel -->
     <?= $this->Html->script('owl.carousel.min') ?>
-    <!-- magnific popup --> 
-    <?= $this->Html->script('jquery.magnific-popup.min') ?> 
+    <!-- magnific popup -->
+    <?= $this->Html->script('jquery.magnific-popup.min') ?>
     <!-- mean menu -->
-    <?= $this->Html->script('jquery.meanmenu.min') ?> 
-    <!-- sticker js --> 
+    <?= $this->Html->script('jquery.meanmenu.min') ?>
+    <!-- sticker js -->
      <?= $this->Html->script('sticker') ?>
-    <!-- main js --> 
-    <?= $this->Html->script('main') ?> 
-    
-    <?= $this->fetch('css') ?> 
+    <!-- main js -->
+    <?= $this->Html->script('main') ?>
+
+    <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
-    
+
     <link rel="stylesheet" href="assets/css/main.css">
 
     <style>

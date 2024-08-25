@@ -16,9 +16,9 @@ class CoursesController extends AppController
         parent::initialize();
 
         // Controller-level function/action whitelist for authentication
-        $this->Authentication->allowUnauthenticated(['index', 'view', 'viewc']);
+        $this->Authentication->allowUnauthenticated(['index', 'view', 'courses']);
     }
-    public function viewc()
+    public function courses()
     {
         $this->viewBuilder()->setLayout('customerDefault');
 
