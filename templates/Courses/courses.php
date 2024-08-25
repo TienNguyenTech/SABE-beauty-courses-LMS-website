@@ -290,6 +290,21 @@
 
 </style>
 
+<!-- breadcrumb-section -->
+    <div class="breadcrumb-section" style="background-image: url('../assets/img/hero-bg.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 text-center">
+                    <div class="breadcrumb-text">
+                       <!-- <p>Pretty and Bright</p>-->
+                        <h1>Courses</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end breadcrumb section -->
+
 <div class="product-section mt-150 mb-150">
     <div class="container">
         <div class="row">

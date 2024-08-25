@@ -20,7 +20,7 @@ class CoursesController extends AppController
     }
     public function courses()
     {
-        $this->viewBuilder()->setLayout('customerDefault');
+        $this->viewBuilder()->setLayout('customer');
 
         $query = $this->Courses->find();
         $courses = $this->paginate($query);

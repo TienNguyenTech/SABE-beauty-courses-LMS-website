@@ -14,7 +14,7 @@ class LisaController extends AppController
         $this->Authentication->allowUnauthenticated(['viewlisa']);
     }
     public function viewlisa() {
-        $this->viewBuilder()->setLayout('customerDefault');
+        $this->viewBuilder()->setLayout('customer');
 
 
         $this->set('pageTitle', 'Beauty by Lisa Follet');

@@ -18,28 +18,40 @@
 
     <!-- Favicon-->
     <link href="<?= $this->Url->build('/img/favicon.png') ?>" type="image/x-icon" rel="icon">
-    <!-- Including the shortcut icon ensures that all browsers, regardless of their version, will correctly find and use this favicon.  -->
-    <link href="<?= $this->Url->build('/img/favicon.png') ?>" type="image/x-icon" rel="shortcut icon">
-    <!-- google font -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
-    <!-- fontawesome -->
-    <link rel="stylesheet" href="../assets/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/brands.min.css">
-    <!-- bootstrap -->
-    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
-    <!-- owl carousel -->
-    <link rel="stylesheet" href="../assets/css/owl.carousel.css">
-    <!-- magnific popup -->
-    <link rel="stylesheet" href="../assets/css/magnific-popup.css">
-    <!-- animate css -->
-    <link rel="stylesheet" href="../assets/css/animate.css">
-    <!-- mean menu css -->
-    <link rel="stylesheet" href="../assets/css/meanmenu.min.css">
-    <!-- main style -->
-    <link rel="stylesheet" href="../assets/css/main.css">
-    <!-- responsive -->
-    <link rel="stylesheet" href="../assets/css/responsive.css">
+
+    <?= $this->Html->css('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700', ['block' => true]) ?>
+        <?= $this->Html->css('https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap', ['block' => true]) ?>
+        <?= $this->Html->css('all.min') ?>
+        <?= $this->Html->css('owl.carousel') ?>
+        <?= $this->Html->css('magnific-popup') ?>
+        <?= $this->Html->css('animate') ?>
+        <?= $this->Html->css('meanmenu.min') ?>
+        <?= $this->Html->css('main') ?>
+        <?= $this->Html->css('responsive') ?>
+
+        <!-- jquery -->
+        <?= $this->Html->script('jquery-1.11.3.min') ?>
+        <!-- bootstrap -->
+        <?= $this->Html->script('bootstrap.min') ?>
+        <!-- count down -->
+        <?= $this->Html->script('jquery.countdown') ?>
+        <!-- isotope -->
+        <?= $this->Html->script('jquery.isotope-3.0.6.min') ?>
+        <!-- waypoints -->
+        <?= $this->Html->script('waypoints') ?>
+        <!-- owl carousel -->
+        <?= $this->Html->script('owl.carousel.min') ?>
+        <!-- magnific popup -->
+        <?= $this->Html->script('jquery.magnific-popup.min') ?>
+        <!-- mean menu -->
+        <?= $this->Html->script('jquery.meanmenu.min') ?>
+        <!-- sticker js -->
+         <?= $this->Html->script('sticker') ?>
+        <!-- main js -->
+        <?= $this->Html->script('main') ?>
+
+        <?= $this->fetch('css') ?>
+        <?= $this->fetch('script') ?>
 
     <!-- reCAPTCHA script -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
@@ -60,86 +72,6 @@
 </head>
 
 <body>
-
-<!--PreLoader-->
-<!--    <div class="loader">-->
-<!--        <div class="loader-inner">-->
-<!--            <div class="circle"></div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--PreLoader Ends-->
-
-<!-- header -->
-<div class="top-header-area" id="sticker">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 col-sm-12 text-center">
-                <div class="main-menu-wrap">
-                    <!-- logo -->
-                    <div class="site-logo">
-                        <a href="index.html">
-                            <img src="assets/img/logo.png" alt="">
-                        </a>
-                    </div>
-                    <!-- logo -->
-
-                    <!-- menu start -->
-                    <nav class="main-menu">
-                        <ul>
-                            <li><?= $this->Html->link("Home", "/") ?></li>
-                            <li><?= $this->Html->link("Courses", ['controller' => 'Courses', 'action' => 'viewc']) ?></li>
-                            <li><?= $this->Html->link("Beauty By Lisa", ['controller' => 'Lisa', 'action' => 'viewlisa']) ?></li>
-                            <li><?= $this->Html->link("Contact Us", ['controller' => 'Enquirys', 'action' => 'add']) ?></li>
-                            <li>
-                                <?php
-                                if ($this->Identity->isLoggedIn()) {
-                                    echo $this->Html->link(
-                                        'Dashboard',
-                                        ['controller' => 'AdminDashboard', 'action' => 'dashboard'],
-                                        ['class' => 'button button-outline']
-                                    );
-                                    echo $this->Html->link(
-                                        'Log out',
-                                        ['controller' => 'Auth', 'action' => 'logout'],
-                                        ['class' => 'button button-outline']
-                                    );
-                                } else {
-                                    echo $this->Html->link(
-                                        'Log in',
-                                        ['controller' => 'Auth', 'action' => 'login'],
-                                        ['class' => 'button button-outline']
-                                    );
-                                }
-                                ?>
-                            </li>
-                        </ul>
-                    </nav>
-                    <!-- menu end -->
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- end header -->
-
-<!-- search area -->
-<div class="search-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <span class="close-btn"><i class="fas fa-window-close"></i></span>
-                <div class="search-bar">
-                    <div class="search-bar-tablecell">
-                        <h3>Search For:</h3>
-                        <input type="text" placeholder="Keywords">
-                        <button type="submit">Search <i class="fas fa-search"></i></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- end search area -->
 
 <!-- breadcrumb-section -->
 <div class="breadcrumb-section" style="background-image: url('../assets/img/hero-bg.jpg')">
@@ -210,48 +142,7 @@
 </div>
 <!-- end contact form -->
 
-<!-- footer -->
-<footer class="footer-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4 col-md-6">
-                <div class="footer-item about">
-                    <h3>About Us</h3>
-                    <p>We are a premier beauty school located in Adelaide, offering a range of beauty courses and professional training. We pride ourselves on our high standards and the quality of our education.</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="footer-item links">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><?= $this->Html->link("Home", "/") ?></li>
-                        <li><?= $this->Html->link("Courses", ['controller' => 'Courses', 'action' => 'viewc']) ?></li>
-                        <li><?= $this->Html->link("Beauty By Lisa", ['controller' => 'Lisa', 'action' => 'viewlisa']) ?></li>
-                        <li><?= $this->Html->link("Contact Us", ['controller' => 'Enquirys', 'action' => 'add']) ?></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-12">
-                <div class="footer-item social">
-                    <h3>Follow Us</h3>
-                    <a href="http://www.tiktok.com/@adelaidebeauty_education"><i class="fa-brands fa-tiktok"></i></a>
-                    <a href="http://instagram.com/adelaidebeautyandeducation"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="http://www.facebook.com/adelaidebeautyandeducation"><i class="fa-brands fa-facebook"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-<!-- end footer -->
-
 <!-- Script files -->
-<script src="../assets/js/jquery.min.js"></script>
-<script src="../assets/bootstrap/js/bootstrap.min.js"></script>
-<script src="../assets/js/owl.carousel.min.js"></script>
-<script src="../assets/js/jquery.magnific-popup.min.js"></script>
-<script src="../assets/js/jquery.meanmenu.min.js"></script>
-<script src="../assets/js/jquery.ajaxchimp.min.js"></script>
-<script src="../assets/js/main.js"></script>
 <script>
     function onRecaptchaSuccess() {
         document.getElementById('submit-button').classList.add('enabled');
