@@ -19,10 +19,13 @@ $this->assign('title', 'Login');
     <link href="<?= $this->Url->build('/img/favicon.png') ?>" type="image/x-icon" rel="icon">
     <!-- Including the shortcut icon ensures that all browsers, regardless of their version, will correctly find and use this favicon.  -->
     <link href="<?= $this->Url->build('/img/favicon.png') ?>" type="image/x-icon" rel="shortcut icon">
+
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 </head>
 
 <body>
-    
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -390,6 +393,8 @@ $this->assign('title', 'Login');
                     ]);
                     ?>
 
+                    <div class="g-recaptcha" data-sitekey="6Lc7pCgqAAAAAJkUyRxxVhuFmd9v-5Pk-vtPtsUf" data-callback="onRecaptchaSuccess"></div>
+
                 </fieldset>
                 <div class="input-wrapper">
                     <?= $this->Html->link('Forgot Password?', '#', ['class' => 'button-clear']) ?>
@@ -409,6 +414,49 @@ $this->assign('title', 'Login');
             </div>
         </div>
     </div>
+
+    <script>
+        // Variable to track captcha status
+        var captchaValidated = false; // false means not validated, true means validated
+
+        function onRecaptchaSuccess() {
+            captchaValidated = true;
+            updateButtonState();
+        }
+
+        function onRecaptchaError() {
+            captchaValidated = false;
+            updateButtonState();
+        }
+
+        function updateButtonState() {
+            var loginButton = document.getElementById('login-button');
+            var secondaryButton = document.getElementById('secondary-button');
+            if (captchaValidated) {
+                loginButton.classList.add('enabled');
+                loginButton.disabled = false;
+                secondaryButton.classList.add('enabled');
+                secondaryButton.disabled = false;
+            } else {
+                loginButton.classList.remove('enabled');
+                loginButton.disabled = true;
+                secondaryButton.classList.remove('enabled');
+                secondaryButton.disabled = true;
+            }
+        }
+
+        // Attach reCAPTCHA event handler
+        document.addEventListener('DOMContentLoaded', function () {
+            grecaptcha.ready(function () {
+                grecaptcha.render('g-recaptcha', {
+                    'sitekey': '6Lc7pCgqAAAAAJkUyRxxVhuFmd9v-5Pk-vtPtsUf',
+                    'callback': onRecaptchaSuccess,
+                    'expired-callback': onRecaptchaError
+                });
+            });
+        });
+    </script>
+
 </body>
 
 </html>
