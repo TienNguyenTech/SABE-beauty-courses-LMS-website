@@ -49,18 +49,33 @@ class EnquirysController extends AppController
      *
      * @return \Cake\Http\Response|null|void Redirects on successful add, renders view otherwise.
      */
+
     public function add()
     {
-        $this->viewBuilder()->disableAutoLayout();
+        $this->viewBuilder()->disableAutoLayout(); // Disable the default layout (no argument needed)
+        $this->viewBuilder()->setLayout('contactUsLayout'); // Set the custom layout
+
         $enquiry = $this->Enquirys->newEmptyEntity();
         if ($this->request->is('post')) {
             $enquiry = $this->Enquirys->patchEntity($enquiry, $this->request->getData());
             if ($this->Enquirys->save($enquiry)) {
                 $this->redirect(['action' => 'add']);
 
-                return $this->Flash->success('Enquiry has been sent', ['key' => 'positive', 'clear' => true]);
+                return $this->Flash->success(
+                    '<div style="background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; padding: 10px; border-radius: 4px; margin-bottom: 15px;">
+                        Enquiry has been sent
+                    </div>',
+                    ['key' => 'positive', 'escape' => false, 'clear' => true]
+                );
+
             }
-            $this->Flash->error(__('The enquiry could not be saved. Please, try again.'));
+            $this->Flash->error(
+                '<div style="background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; padding: 10px; border-radius: 4px; margin-bottom: 15px;">
+                    The enquiry could not be saved. Please, try again.
+                </div>',
+                ['escape' => false]
+            );
+
         }
         $this->set(compact('enquiry'));
     }
@@ -107,7 +122,8 @@ class EnquirysController extends AppController
         return $this->redirect(['action' => 'index']);
     }
 
-    public function toggle($id = null) {
+    public function toggle($id = null)
+    {
         $this->request->allowMethod(['get']);
         $enquiry = $this->Enquirys->get($id);
 

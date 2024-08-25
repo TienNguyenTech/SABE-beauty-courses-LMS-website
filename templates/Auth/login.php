@@ -509,7 +509,7 @@ $this->assign('title', 'Login');
                     <?= $this->Form->button('Login', ['class' => 'centered-button']) ?>
                     <?= $this->Form->end() ?>
                 </div>
-                <p class="other-login">Or Login With</p>
+                <!--<p class="other-login">Or Login With</p>
                 <div class="button-container">
                     <a href="#" class="social-button google">
                         <img src="../img/google-logo.png" alt="Google Logo"> Google
@@ -517,7 +517,7 @@ $this->assign('title', 'Login');
                     <a href="#" class="social-button facebook">
                         <img src="../img/facebook-logo.jpg" alt="Facebook Logo"> Facebook
                     </a>
-                </div>
+                </div>-->
             </div>
         </div>
     </div>
