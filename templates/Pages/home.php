@@ -81,7 +81,7 @@ if ($error = 404) {
                                 <li><?= $this->Html->link("Home", "/") ?></li>
 
 
-                                <li><?= $this->Html->link("Courses", ['controller' => 'Courses', 'action' => 'viewc']) ?>
+                                <li><?= $this->Html->link("Courses", ['controller' => 'Courses', 'action' => 'courses']) ?>
                                 </li>
 
 
