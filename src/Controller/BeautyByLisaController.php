@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-class BeautyByLisaController extends AppController
-{   
+class LisaController extends AppController
+{
 
     public function initialize(): void
     {
@@ -14,7 +14,7 @@ class BeautyByLisaController extends AppController
         $this->Authentication->allowUnauthenticated(['viewlisa']);
     }
     public function viewlisa() {
-        $this->viewBuilder()->setLayout('beautyByLisaLayout');
+        $this->viewBuilder()->setLayout('customer');
 
 
         $this->set('pageTitle', 'Beauty by Lisa Follet');

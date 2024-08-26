@@ -27,6 +27,14 @@
 
     <title><?= $this->fetch('title') ?></title>
 
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/js/owl.carousel.min.js"></script>
+    <script src="../assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="../assets/js/jquery.meanmenu.min.js"></script>
+    <script src="../assets/js/jquery.ajaxchimp.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+
     <!-- Favicon-->
     <link href="<?= $this->Url->build('/img/favicon.png') ?>" type="image/x-icon" rel="icon">
     <!-- Including the shortcut icon ensures that all browsers, regardless of their version, will correctly find and use this favicon.  -->
@@ -37,6 +45,8 @@
 
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
+
+    <script src="https://kit.fontawesome.com/5a7bde2211.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
 
@@ -259,21 +269,6 @@
     </div>
     <!-- end search area -->
 
-    <!-- breadcrumb-section -->
-    <div class="breadcrumb-section" style="background-image: url('../assets/img/hero-bg.jpg')">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2 text-center">
-                    <div class="breadcrumb-text">
-                       <!-- <p>Pretty and Bright</p>-->
-                        <h1>Our Courses</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- end breadcrumb section -->
-
     <!-- Fetch content -->
     <?= $this->fetch('content') ?>
 
@@ -439,9 +434,9 @@
             /* Remove bullet points */
             padding: 0;
             /* Remove padding */
-            display: flex;
-            /* Flexbox for alignment */
-            justify-content: flex-end;
+            /*display: flex;*/
+            /*!* Flexbox for alignment *!*/
+            /*justify-content: flex-end;*/
             /* Align to the right */
         }
 
@@ -484,7 +479,7 @@
                         </ul>
                     </div>
                 </div>
-
+            </div>
         </div>
     </div>
     <!-- end footer -->
@@ -493,14 +488,14 @@
     <div class="copyright">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-md-12">
+                <div class="col">
                     <p>Copyrights &copy; 2024 South Adelaide Beauty & Education</p>
                 </div>
-                <div class="col-lg-6 text-right col-md-12">
+                <div class="col" style="text-align: right">
                     <div class="social-icons">
                         <ul>
-                            <li><a href="http://instagram.com/adelaidebeautyandeducation" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="http://www.facebook.com/adelaidebeautyandeducation" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="http://instagram.com/adelaidebeautyandeducation" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="http://www.facebook.com/adelaidebeautyandeducation" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
                         </ul>
                     </div>
                 </div>

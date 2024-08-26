@@ -7,6 +7,7 @@
     <?= $this->Html->css('https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap', ['block' => true]) ?>
     <!-- Add your CSS files -->
     <?= $this->Html->css('all.min') ?>
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
     <?= $this->Html->css('owl.carousel') ?>
     <?= $this->Html->css('magnific-popup') ?>
     <?= $this->Html->css('animate') ?>
@@ -244,6 +245,21 @@
     </div>
 </div>
 <body>
+    <!-- breadcrumb-section -->
+        <div class="breadcrumb-section" style="background-image: url('../assets/img/hero-bg.jpg')">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2 text-center">
+                        <div class="breadcrumb-text">
+                           <!-- <p>Pretty and Bright</p>-->
+                            <h1>Beauty by Lisa Follett</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end breadcrumb section -->
+
     <div class="w-full">
         <div class="content-container">
             <div class="content-box">

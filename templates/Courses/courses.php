@@ -1,47 +1,8 @@
 <?php
 /**
- * @var \App\View\AppView $this
+* @var \App\View\AppView $this
  * @var iterable<\App\Model\Entity\Course> $courses
  */
-// Sample product data. In a real application, this might come from a database.
-$products = [
-    [
-        'name' => 'Back to Basics: Facials',
-        'image' => 'products/product-img-1.jpg',
-        'price' => '199$',
-        'category' => 'Hybrid'
-    ],
-    [
-        'name' => 'Back to Basics: Lash & Brow',
-        'image' => 'assets/img/products/product-img-2.jpg',
-        'price' => '199$',
-        'category' => 'Hybrid'
-    ],
-    [
-        'name' => 'Total Care: Waxing',
-        'image' => 'assets/img/products/product-img-3.jpg',
-        'price' => '499$',
-        'category' => 'Workshop'
-    ],
-    [
-        'name' => 'Total Care: Nails',
-        'image' => 'assets/img/products/product-img-4.jpg',
-        'price' => '399$',
-        'category' => 'Online'
-    ],
-    [
-        'name' => 'Back To Basics: Customer Connection',
-        'image' => 'assets/img/products/product-img-5.jpg',
-        'price' => '199$',
-        'category' => 'Online'
-    ],
-    [
-        'name' => 'Custom Training',
-        'image' => 'assets/img/products/product-img-6.jpg',
-        'price' => '599$',
-        'category' => 'Hybrid'
-    ]
-];
 ?>
 
 <!DOCTYPE html>
@@ -53,6 +14,7 @@ $products = [
     <?= $this->Html->css('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700', ['block' => true]) ?>
     <?= $this->Html->css('https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap', ['block' => true]) ?>
     <?= $this->Html->css('all.min') ?>
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
     <?= $this->Html->css('owl.carousel') ?>
     <?= $this->Html->css('magnific-popup') ?>
     <?= $this->Html->css('animate') ?>
@@ -77,7 +39,7 @@ $products = [
     <!-- mean menu -->
     <?= $this->Html->script('jquery.meanmenu.min') ?>
     <!-- sticker js -->
-    <?= $this->Html->script('sticker') ?>
+     <?= $this->Html->script('sticker') ?>
     <!-- main js -->
     <?= $this->Html->script('main') ?>
 
@@ -179,6 +141,9 @@ $products = [
             background-color: #95D5B2;
             color: #fff;
         }
+    </style>
+
+<style>
 
         .card-img-top {
             height: 200px;
@@ -256,130 +221,145 @@ $products = [
 
 
 
-    <style>
-        /* Ensure that the card takes up full width and is properly styled */
-        .single-product-item {
-            border: 1px solid #ddd;
-            padding: 15px;
-            border-radius: 5px;
-            background-color: #fff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 100%;
-        }
+<style>
+    /* Ensure that the card takes up full width and is properly styled */
+    .single-product-item {
+        border: 1px solid #ddd;
+        padding: 15px;
+        border-radius: 5px;
+        background-color: #fff;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        transition: transform 0.3s;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+    }
 
-        .single-product-item:hover {
-            transform: scale(1.05);
-        }
+    .single-product-item:hover {
+        transform: scale(1.05);
+    }
 
-        .product-image img {
-            max-width: 100%;
-            height: auto;
-        }
+    .product-image img {
+        max-width: 100%;
+        height: auto;
+    }
 
-        .card-body {
-            padding: 15px;
-        }
+    .card-body {
+        padding: 15px;
+    }
 
-        .card-title {
-            font-size: 1.25rem;
-            margin: 0;
-        }
+    .card-title {
+        font-size: 1.25rem;
+        margin: 0;
+    }
 
-        .product-price {
-            font-size: 1.2em;
-            color: #333;
-            margin-top: 10px;
-        }
+    .product-price {
+        font-size: 1.2em;
+        color: #333;
+        margin-top: 10px;
+    }
 
-        .card-text {
-            margin: 10px 0;
-        }
+    .card-text {
+        margin: 10px 0;
+    }
 
-        /* Button styling */
-        .btn-primary {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 1em;
-            font-weight: bold;
-            color: #fff;
-            background-color: #007bff;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            text-align: center;
-            transition: background-color 0.3s, transform 0.3s;
-        }
+    /* Button styling */
+    .btn-primary {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 1em;
+        font-weight: bold;
+        color: #fff;
+        background-color: #007bff;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        text-align: center;
+        transition: background-color 0.3s, transform 0.3s;
+    }
 
-        .btn-primary:hover {
-            background-color: #0056b3;
-            transform: translateY(-2px);
-        }
+    .btn-primary:hover {
+        background-color: #0056b3;
+        transform: translateY(-2px);
+    }
 
-        .btn-primary:active {
-            background-color: #004085;
-            transform: translateY(0);
-        }
-    </style>
+    .btn-primary:active {
+        background-color: #004085;
+        transform: translateY(0);
+    }
 
-    <div class="product-section mt-150 mb-150">
+</style>
+
+<!-- breadcrumb-section -->
+    <div class="breadcrumb-section" style="background-image: url('../assets/img/hero-bg.jpg')">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                    <div class="product-filters">
-                        <ul>
-                            <li class="active" data-filter="*">All</li>
-                            <li data-filter=".Workshop">Workshop</li>
-                            <li data-filter=".Hybrid">Hybrid</li>
-                            <li data-filter=".Online">Online</li>
-                        </ul>
+                <div class="col-lg-8 offset-lg-2 text-center">
+                    <div class="breadcrumb-text">
+                       <!-- <p>Pretty and Bright</p>-->
+                        <h1>Courses</h1>
                     </div>
                 </div>
             </div>
-
-            <div class="row product-lists">
-                <?php foreach ($courses as $course): ?>
-                    <div class="col-lg-4 col-md-6 text-center <?= $course->course_category ?>">
-                        <div class="single-product-item">
-                            <div class="product-image">
-                                <a href="single-product.html">
-                                    <img src="/<?= $course->course_image ?>" alt="<?= $course->course_name ?>"
-                                        class="card-img-top">
-                                </a>
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title"><?= $course->course_name ?></h5>
-                                <p class="card-text"><?= $course->course_description ?></p>
-                                <p class="product-price"><?= $course->course_price ?></p>
-                                <?= $this->Html->link("Enroll Now", ['controller' => 'payments', 'action' => 'checkout', $course->course_id], ['class' => 'btn btn-primary']) ?>
-                            </div>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
-            </div>
-
-
-
         </div>
     </div>
+    <!-- end breadcrumb section -->
+
+<div class="product-section mt-150 mb-150">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="product-filters">
+                    <ul>
+                        <li class="active" data-filter="*">All</li>
+                        <li data-filter=".Workshop">Workshop</li>
+                        <li data-filter=".Hybrid">Hybrid</li>
+                        <li data-filter=".Online">Online</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row product-lists">
+            <?php foreach ($courses as $course): ?>
+                <div class="col-lg-4 col-md-6 text-center <?= $course->course_category ?>">
+                    <div class="single-product-item">
+                        <div class="product-image">
+                            <a href="single-product.html">
+                                <img src="/<?= $course->course_image ?>" alt="<?= $course->course_name ?>" class="card-img-top">
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title"><?= $course->course_name ?></h5>
+                            <p class="card-text"><?= $course->course_description ?></p>
+                            <p class="product-price"><?= $course->course_price ?></p>
+                            <?= $this->Html->link("Enroll Now", ['controller' => 'payments', 'action' => 'checkout', $course->course_id], ['class' => 'btn btn-primary']) ?>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+
+
+
+    </div>
+</div>
 
 
 
 
     <?php
-    function truncateDescription($description, $words)
-    {
-        $wordArray = explode(' ', $description);
-        if (count($wordArray) > $words) {
-            $wordArray = array_slice($wordArray, 0, $words);
-            return implode(' ', $wordArray) . '...';
-        }
-        return $description;
-    }
-    ?>
+            function truncateDescription($description, $words)
+            {
+                $wordArray = explode(' ', $description);
+                if (count($wordArray) > $words) {
+                    $wordArray = array_slice($wordArray, 0, $words);
+                    return implode(' ', $wordArray) . '...';
+                }
+                return $description;
+            }
+            ?>
 
 
 
