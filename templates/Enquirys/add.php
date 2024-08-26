@@ -125,9 +125,8 @@
                 <div class="contact-form-wrap">
                     <div class="contact-form-box">
                         <h4><i class="fas fa-map"></i> Social Media</h4>
-                        <a href="http://www.tiktok.com/@adelaidebeauty_education"><p><i class="fa-brands fa-tiktok"></i>Tiktok</p></a>
-                        <a href="http://instagram.com/adelaidebeautyandeducation"><p><i class="fa-brands fa-instagram"></i>Instagram</p></a>
-                        <a href="http://www.facebook.com/adelaidebeautyandeducation"><p><i class="fa-brands fa-facebook"></i>Facebook</p></a>
+                        <a href="http://instagram.com/adelaidebeautyandeducation"><p><i class="fa-brands fa-instagram"></i> Instagram</p></a>
+                        <a href="http://www.facebook.com/adelaidebeautyandeducation"><p><i class="fa-brands fa-facebook"></i> Facebook</p></a>
                     </div>
                     <div class="contact-form-box">
                         <h4><i class="fas fa-address-book"></i> Contact</h4>
