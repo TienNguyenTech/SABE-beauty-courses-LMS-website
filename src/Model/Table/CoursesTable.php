@@ -80,7 +80,11 @@ class CoursesTable extends Table
         $validator
             ->scalar('course_image')
             ->maxLength('course_image', 200)
-            ->requirePresence('course_image', 'create');
+            ->requirePresence('course_image', 'create')
+            ->add('course_image', 'fileSize', [
+                'rule' => ['fileSize', '<=', '20MB'],
+                'message' => 'Image file size must be 20MB or less.',
+            ]);
 
         $validator
             ->scalar('course_category')

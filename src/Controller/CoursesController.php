@@ -69,17 +69,20 @@ class CoursesController extends AppController
             // Get the uploaded files
             $image = $this->request->getUploadedFiles();
 
+            // Check if the file size exceeds 10MB
+            if ($image['course_image']->getSize() > 20 * 1024 * 1024) {
+                $this->Flash->error(__('Image file size must be 10MB or less.'));
+            } else {
+                $course->course_image = 'assets/img/products/' . $image['course_image']->getClientFilename();
+                $image['course_image']->moveTo(WWW_ROOT . 'assets' . DS . 'img' . DS . 'products' . DS . $image['course_image']->getClientFilename());
 
-            $course->course_image = 'assets/img/products/' . $image['course_image']->getClientFilename();
-            $image['course_image']->moveTo(WWW_ROOT . 'assets' . DS . 'img' . DS . 'products' . DS . $image['course_image']->getClientFilename());
+                if($this->Courses->save($course)) {
+                    $this->Flash->success(__('The course has been saved.'));
+                    return $this->redirect(['action' => 'index']);
+                }
 
-            if($this->Courses->save($course)) {
-                $this->Flash->success(__('The course has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
+                $this->Flash->error(__('The course could not be saved. Please try again.'));
             }
-
-            $this->Flash->error(__('The course could not be saved. Please try again.'));
         }
 
         $users = $this->Courses->Users->find('list', ['limit' => 200])->all();
