@@ -87,7 +87,7 @@ if ($error = 404) {
                                 </li>
 
 
-                                <li><?= $this->Html->link("Beauty By Lisa", ['controller' => 'BeautyByLisa', 'action' => 'viewlisa']) ?>
+                                <li><?= $this->Html->link("Beauty By Lisa", ['controller' => 'BeautyByLisa', 'action' => 'services']) ?>
                                 </li>
                                 <li><?= $this->Html->link("Contact Us", ['controller' => 'Enquirys', 'action' => 'add']) ?>
                                 </li>
@@ -209,7 +209,7 @@ if ($error = 404) {
                                 <h1><?= $this->ContentBlock->text('home-slider-text-1'); ?></h1>
                                 <div class="hero-btns">
                                     <div class="link-container">
-                                        <?= $this->Html->link("Our Services", ['controller' => 'Courses', 'action' => 'viewc'], ['class' => 'boxed-btn']) ?>
+                                        <?= $this->Html->link("Our Courses", ['controller' => 'Courses', 'action' => 'courses'], ['class' => 'boxed-btn']) ?>
                                     </div>
                                     <div class="link-container">
                                         <?= $this->Html->link("Contact us", ['controller' => 'Enquirys', 'action' => 'add'], ['class' => 'boxed-btn']) ?>
@@ -233,7 +233,7 @@ if ($error = 404) {
 
                                 <div class="hero-btns">
                                     <div class="link-container">
-                                        <?= $this->Html->link("Our Services", ['controller' => 'Courses', 'action' => 'viewc'], ['class' => 'boxed-btn']) ?>
+                                        <?= $this->Html->link("Our Courses", ['controller' => 'Courses', 'action' => 'courses'], ['class' => 'boxed-btn']) ?>
                                     </div>
                                     <div class="link-container">
                                         <?= $this->Html->link("Contact us", ['controller' => 'Enquirys', 'action' => 'add'], ['class' => 'boxed-btn']) ?>
@@ -255,7 +255,7 @@ if ($error = 404) {
                                 <h1><?= $this->ContentBlock->text('home-slider-text-3'); ?></h1>
                                 <div class="hero-btns">
                                     <div class="link-container">
-                                        <?= $this->Html->link("Our Services", ['controller' => 'Courses', 'action' => 'viewc'], ['class' => 'boxed-btn']) ?>
+                                        <?= $this->Html->link("Our Courses", ['controller' => 'Courses', 'action' => 'courses'], ['class' => 'boxed-btn']) ?>
                                     </div>
                                     <div class="link-container">
                                         <?= $this->Html->link("Contact us", ['controller' => 'Enquirys', 'action' => 'add'], ['class' => 'boxed-btn']) ?>

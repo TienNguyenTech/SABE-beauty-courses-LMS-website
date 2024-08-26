@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-class LisaController extends AppController
+class BeautyByLisaController extends AppController
 {
 
     public function initialize(): void
@@ -11,13 +11,13 @@ class LisaController extends AppController
         parent::initialize();
 
         // Controller-level function/action whitelist for authentication
-        $this->Authentication->allowUnauthenticated(['viewlisa']);
+        $this->Authentication->allowUnauthenticated(['services']);
     }
-    public function viewlisa() {
+    public function services() {
         $this->viewBuilder()->setLayout('customer');
 
 
-        $this->set('pageTitle', 'Beauty by Lisa Follet');
+        $this->set('pageTitle', 'Beauty by Lisa Follett');
     }
 
 }
