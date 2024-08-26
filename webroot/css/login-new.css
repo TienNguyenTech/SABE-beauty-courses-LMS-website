@@ -334,3 +334,7 @@ body {
 .form-group input {
     margin-left: 75px; /* Adjust margins as needed */
 }
+
+.g-recaptcha{
+    margin-left: 135px;
+}
