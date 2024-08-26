@@ -14,6 +14,7 @@
     <?= $this->Html->css('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700', ['block' => true]) ?>
     <?= $this->Html->css('https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap', ['block' => true]) ?>
     <?= $this->Html->css('all.min') ?>
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
     <?= $this->Html->css('owl.carousel') ?>
     <?= $this->Html->css('magnific-popup') ?>
     <?= $this->Html->css('animate') ?>
