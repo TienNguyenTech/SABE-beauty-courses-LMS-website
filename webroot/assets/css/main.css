@@ -1019,30 +1019,6 @@ h2.widget-title:after {
     outline: none;
 }
 
-.copyright {
-    background-color: #4a9b38;
-    border-top: 1px solid #dbdbdb;
-    width: 100%; /* Ensure copyright area spans full width */
-}
-
-.copyright p {
-    margin: 0;
-    color: #081c15;
-    opacity: 0.7;
-    padding: 16px 0;
-    font-size: 15px;
-    text-align: center; /* Center text in the copyright section */
-}
-
-.copyright a {
-    color: #2D6A4F;
-    font-weight: 700;
-}
-
-.copyright a:hover {
-    color: #1B4332;
-}
-
 .social-icons ul {
     margin: 0;
     padding: 0;

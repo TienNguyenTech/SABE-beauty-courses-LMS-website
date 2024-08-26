@@ -42,9 +42,11 @@ if ($error = 404) {
     <!-- mean menu css -->
     <link rel="stylesheet" href="assets/css/meanmenu.min.css">
     <!-- main style -->
+    <?= $this->Html->css('main') ?>
     <link rel="stylesheet" href="assets/css/main.css">
     <!-- responsive -->
     <link rel="stylesheet" href="assets/css/responsive.css">
+
 
 </head>
 <body>
