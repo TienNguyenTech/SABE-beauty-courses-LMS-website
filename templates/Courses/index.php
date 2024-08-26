@@ -38,8 +38,8 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
                     <td>$<?= $this->Number->format($course->course_price) ?></td>
                     <td><?= $course->course_featured ? 'Yes' : 'No' ?></td>
                     <td class="actions">
-                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $course->course_id]) ?>
-                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $course->course_id], ['confirm' => __('Are you sure you want to delete course: {0}?', $course->course_name)]) ?>
+                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $course->course_id],['class' => 'btn btn-secondary', 'style' => 'margin-bottom: 10px;']) ?>
+                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $course->course_id], ['confirm' => __('Are you sure you want to delete course: {0}?', $course->course_name),'class' => 'btn btn-danger delete-menu-item-btn',]) ?>
                     </td>
                 </tr>
                 <?php endforeach; ?>
