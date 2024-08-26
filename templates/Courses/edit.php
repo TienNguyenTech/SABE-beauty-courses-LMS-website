@@ -21,6 +21,6 @@ echo h('Featured Course') . ' <span style="color: red;">*</span>';
 echo $this->Form->select('course_featured', ['1' => 'Yes', '0' => 'No'], ['label' => ['text' => 'Featured Course', 'escape' => false]]);
 ?>
 
-<?= $this->Form->button(__('Submit'),['class'=>'btn btn-primary']) ?>
+<?= $this->Form->button(__('Submit'),['class'=>'btn btn-primary','style' => 'margin-top: 10px;']) ?>
 <?= $this->Form->end() ?>
 
