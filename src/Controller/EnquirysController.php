@@ -137,4 +137,13 @@ class EnquirysController extends AppController
 
         $this->redirect(['action' => 'index']);
     }
+
+    public function viewMessage($id = null)
+    {
+        $enquiry = $this->Enquirys->get($id, [
+            'contain' => [],
+        ]);
+
+        $this->set(compact('enquiry'));
+    }
 }
