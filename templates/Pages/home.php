@@ -400,6 +400,7 @@ if ($error = 404) {
                     <?php $counter++; ?>
                 <?php endforeach; ?>
             </div>
+            </div>
             <!-- End of Product Setion -->
 
             <!-- testimonial-section -->
