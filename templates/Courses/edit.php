@@ -29,7 +29,7 @@ echo $this->Form->control('course_description', [
         ],
         'type' => 'textarea',
         'class' => 'form-control',
-        'maxlength' => '255'
+        //'maxlength' => '255'
     ]);
 echo $this->Form->control('course_price', [
         'label' => [
@@ -38,8 +38,8 @@ echo $this->Form->control('course_price', [
         ],
         'class' => 'form-control',
         'type' => 'number',
-        'min' => '2',
-        'max' => '500',
+//        'min' => '2',
+//        'max' => '500',
         'maxlength' => '2',
         'style' => 'margin-bottom: 10px'
     ]);
