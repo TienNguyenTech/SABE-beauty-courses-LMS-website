@@ -60,13 +60,23 @@ class EnquirysTable extends Table
             ->scalar('enquiry_name')
             ->maxLength('enquiry_name', 50)
             ->requirePresence('enquiry_name', 'create')
-            ->notEmptyString('enquiry_name');
+            ->notEmptyString('enquiry_name')
+            ->add('enquiry_name', 'custom', [
+            'rule' => function ($value, $context) {
+            return (bool) preg_match('/^[a-zA-Z ]*$/', $value);
+            },
+            'message' => 'The enquiry name can only contain letters and spaces.',
+            ]);
 
         $validator
             ->scalar('enquiry_email')
             ->maxLength('enquiry_email', 100)
             ->requirePresence('enquiry_email', 'create')
-            ->notEmptyString('enquiry_email');
+            ->notEmptyString('enquiry_email')
+            ->add('enquiry_email', 'validFormat', [
+            'rule' => 'email',
+            'message' => 'Please enter a valid email address.',
+            ]);
 
         $validator
             ->scalar('enquiry_subject')
