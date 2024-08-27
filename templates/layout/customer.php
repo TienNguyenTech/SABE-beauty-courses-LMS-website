@@ -192,11 +192,7 @@
                     <div class="main-menu-wrap">
                         <!-- logo -->
                         <div class="site-logo">
-                            <?= $this->Html->link(
-                                $this->Html->image('logo.png', ['alt' => 'Logo']),
-                                ['controller' => 'Pages', 'action' => 'display', 'home'],
-                                ['escape' => false]
-                            ) ?>
+                            <?= $this->ContentBlock->image('logo'); ?>
                         </div>
 
                         <!-- logo -->
@@ -489,7 +485,7 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <p>Copyrights &copy; 2024 South Adelaide Beauty & Education</p>
+                    <p>Copyrights &copy; <?= $this->ContentBlock->text('copyright-message'); ?></p>
                 </div>
                 <div class="col" style="text-align: right">
                     <div class="social-icons">
