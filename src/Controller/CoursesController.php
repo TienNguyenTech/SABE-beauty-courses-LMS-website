@@ -99,18 +99,42 @@ class CoursesController extends AppController
      */
     public function edit($id = null)
     {
-        $course = $this->Courses->get($id, contain: ['Users']);
-        if ($this->request->is(['patch', 'post', 'put'])) {
-            $course = $this->Courses->patchEntity($course, $this->request->getData());
-            if ($this->Courses->save($course)) {
-                $this->Flash->success(__('The course has been saved.'));
+        $course = $this->Courses->get($id);
+        if($this->request->is(['patch', 'post', 'put'])) {
 
-                return $this->redirect(['action' => 'index']);
+            $image = $this->request->getUploadedFiles();
+
+            $filename = $course['course_image'];
+            $newCourse = $this->request->getData();
+            $newCourse['course_image'] = $filename;
+
+            if($image['course_image']->getError() == \UPLOAD_ERR_NO_FILE) {
+                $course = $this->Courses->patchEntity($course, $newCourse);
+
+                if($this->Courses->save($course)) { 
+                    $this->Flash->success(__('The course has been updated'));
+                    return $this->redirect(['action'=> 'index']);
+                }
+
+                $this->Flash->error(__('The course could not be saved. Please try again.'));
+            } else if($image['course_image']->getSize() > 20 * 1024 * 1024) {
+                $this->Flash->error(__('Image file size must be 10MB or less.'));
+            } else {
+                $course = $this->Courses->patchEntity($course, $this->request->getData());
+
+                $course->course_image = 'assets/img/products/' . $image['course_image']->getClientFilename();
+                $image['course_image']->moveTo(WWW_ROOT . 'assets' . DS . 'img' . DS . 'products' . DS . $image['course_image']->getClientFilename());
+
+                if($this->Courses->save($course)) { 
+                    $this->Flash->success(__('The course has been updated'));
+                    return $this->redirect(['action'=> 'index']);
+                }
+
+                $this->Flash->error(__('The course could not be saved. Please try again.'));
             }
-            $this->Flash->error(__('The course could not be saved. Please, try again.'));
         }
-        $users = $this->Courses->Users->find('list', limit: 200)->all();
-        $this->set(compact('course', 'users'));
+
+        $this->set(compact('course'));
     }
 
     /**
