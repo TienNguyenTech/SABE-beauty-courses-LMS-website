@@ -72,7 +72,7 @@ if ($flashMessage):
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-user"></i>
             </div>
-            <div class="sidebar-brand-text mx-3 small-text">South Adelaide Beauty and Education</div>
+            <div class="sidebar-brand-text mx-3 small-text" style="padding-top: 10px">South Adelaide Beauty and Education</div>
         </a>
 
         <!-- Divider -->
