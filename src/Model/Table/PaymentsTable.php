@@ -71,6 +71,11 @@ class PaymentsTable extends Table
             ->integer('booking_id')
             ->notEmptyString('booking_id');
 
+        $validator
+            ->scalar('checkout_id')
+            ->maxLength('checkout_id', 256)
+            ->notEmptyString('checkout_id');
+
         return $validator;
     }
 

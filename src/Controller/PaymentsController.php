@@ -6,22 +6,27 @@ use Stripe\Stripe;
 use Stripe\Checkout\Session;
 use Cake\Routing\Router;
 use Cake\ORM\TableRegistry;
+use Stripe\StripeClient;
 
 /**
  * Payments Controller
  *
  * @property \App\Model\Table\PaymentsTable $Payments
  * @property \App\Model\Table\CoursesTable $Courses
+ * @property \App\Model\Table\BookingsTable $Bookings
  */
 class PaymentsController extends AppController
 {
     private \Cake\ORM\Table $Courses;
+    private \Cake\ORM\Table $Bookings;
+
         public function initialize(): void
     {
         parent::initialize();
 
         $this->Authentication->allowUnauthenticated(['checkout','success']);
         $this->Courses= TableRegistry::getTableLocator()->get('Courses');
+        $this->Bookings= TableRegistry::getTableLocator()->get('Bookings');
 
     }
     /**
@@ -134,23 +139,70 @@ class PaymentsController extends AppController
             ],
         ];
 
+        $booking = $this->Bookings->newEmptyEntity();
+
+        $booking = $this->Bookings->patchEntity($booking, [
+            'course_id' => $course_id,
+            'booking_type' => 'online'
+        ]);
+
+        $this->Bookings->save($booking);
+
+        $payment = $this->Payments->newEmptyEntity();
+
+        $payment = $this->Payments->patchEntity($payment, [
+            'payment_amount' => $this->Courses->get($course_id)['course_price'],
+            'payment_datetime' => new \DateTime(),
+            'booking_id' => $booking->booking_id
+        ]);
+
+        $this->Payments->save($payment);
 
         $checkout_session = Session::create([
-            'success_url' => Router::url(['controller' => 'Payments', 'action' => 'success'], true),
+            'success_url' => Router::url(['controller' => 'Payments', 'action' => 'success', $payment->payment_id], true),
             'cancel_url' => Router::fullBaseUrl(),
             'payment_method_types' => ['card'],
             'mode' => 'payment',
             'line_items' => $line_items,
+            'customer_creation' => 'always'
         ]);
+
+        $payment = $this->Payments->patchEntity($payment, [
+            'payment_amount' => $this->Courses->get($course_id)['course_price'],
+            'payment_datetime' => new \DateTime(),
+            'booking_id' => $booking->booking_id,
+            'checkout_id' => $checkout_session['id']
+        ]);
+
+        $this->Payments->save($payment);
 
         $this->set('sessionId', $checkout_session['id']);
     }
 
-    public function success()
+    public function success($paymentID='help')
     {
+        $payment = $this->Payments->get($paymentID);
+
+        $checkoutID = $payment->checkout_id;
+
+        Stripe::setApiKey('sk_test_51PnfYBHtFQ126a2JACHCRvlLDksG752hMQYdxCkoHDtqavhxcA5WHMmXqX7iVa0PgrrieQS0w5uGch0n0jLsD0ST00PMNE3Zwp');
+
+        $session = Session::retrieve($checkoutID);
+        $stripe = new \Stripe\StripeClient('sk_test_51PnfYBHtFQ126a2JACHCRvlLDksG752hMQYdxCkoHDtqavhxcA5WHMmXqX7iVa0PgrrieQS0w5uGch0n0jLsD0ST00PMNE3Zwp');
+        
+        $customer = $stripe->customers->retrieve($session->customer);
+
+        $email = $customer->email;
+
         $this->viewBuilder()->disableAutoLayout();
         // Optionally set any data or messages to pass to the view
         $this->set('message', 'Thank you for your payment! You will receive your login credentials within 24 hours!');
+
+        // $mailer = new Mailer('default');
+
+        // $mailer
+        //     ->setEmailFormat('html')
+        //     ->setTo()
     }
 
 }

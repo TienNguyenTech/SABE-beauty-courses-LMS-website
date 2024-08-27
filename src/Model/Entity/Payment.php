@@ -12,6 +12,7 @@ use Cake\ORM\Entity;
  * @property string $payment_amount
  * @property \Cake\I18n\DateTime $payment_datetime
  * @property int $booking_id
+ * @property string $checkout_id
  *
  * @property \App\Model\Entity\Booking $booking
  */
@@ -31,5 +32,6 @@ class Payment extends Entity
         'payment_datetime' => true,
         'booking_id' => true,
         'booking' => true,
+        'checkout_id' => true,
     ];
 }
