@@ -52,7 +52,7 @@
          <?= $this->Html->script('sticker') ?>
         <!-- main js -->
         <?= $this->Html->script('main') ?>
-
+    <?= $this->Html->css('sb-admin-2.min.css') ?>
         <?= $this->fetch('css') ?>
         <?= $this->fetch('script') ?>
 
