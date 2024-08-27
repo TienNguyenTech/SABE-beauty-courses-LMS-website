@@ -13,6 +13,12 @@ $slugify = function($text) {
 }
 
 ?>
+<style>
+    .contentBlocks h3 {
+        color: #1a4332;
+    }
+    
+</style>
 <div class="contentBlocks index content">
 
     <?php
