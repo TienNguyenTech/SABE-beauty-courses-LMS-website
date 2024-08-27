@@ -7,6 +7,7 @@ use Stripe\Checkout\Session;
 use Cake\Routing\Router;
 use Cake\ORM\TableRegistry;
 use Stripe\StripeClient;
+use Cake\Mailer\Mailer;
 
 /**
  * Payments Controller
@@ -181,6 +182,8 @@ class PaymentsController extends AppController
 
     public function success($paymentID='help')
     {
+        $this->viewBuilder()->disableAutoLayout();
+
         $payment = $this->Payments->get($paymentID);
 
         $checkoutID = $payment->checkout_id;
@@ -193,16 +196,45 @@ class PaymentsController extends AppController
         $customer = $stripe->customers->retrieve($session->customer);
 
         $email = $customer->email;
+        $name = $customer->name;
 
-        $this->viewBuilder()->disableAutoLayout();
-        // Optionally set any data or messages to pass to the view
-        $this->set('message', 'Thank you for your payment! You will receive your login credentials within 24 hours!');
+        $mailer = new Mailer('default');
 
-        // $mailer = new Mailer('default');
+        $mailer
+            ->setEmailFormat('html')
+            ->setTo($email)
+            ->setFrom('noreply@southadelaidebeautyandeducation.com.au')
+            ->setSubject('South Adelaide Beauty and Education: Payment Confirmation')
+            ->viewBuilder()
+            ->disableAutoLayout();
 
-        // $mailer
-        //     ->setEmailFormat('html')
-        //     ->setTo()
+        $mailer->setViewVars([
+            'name' => $name
+        ]);
+
+
+        try {
+            $email_result = $mailer->deliver();
+
+            if($email_result) {
+                $this->set('message', 'Thank you for your payment! You will receive your login credentials within 24 hours!');
+            } else {
+                $this->set('message', 'Payment confirmation failed to send, please ensure that you have entered the correct email address.');
+                $this->Bookings->delete($this->Bookings->get($payment->booking_id));
+                $this->Payments->delete($payment);
+
+                $this->redirect(['action' => 'fail']);
+            }
+        } catch (\Throwable $th) {
+            $this->Bookings->delete($this->Bookings->get($payment->booking_id));
+            $this->Payments->delete($payment);
+
+            $this->redirect(['action' => 'fail']);
+        }
+    }
+
+    public function fail() {
+        dd('FAIL');
     }
 
 }
