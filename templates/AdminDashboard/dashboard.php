@@ -29,7 +29,7 @@
     .dashboard-card a {
         display: inline-block;
         margin-top: 10px;
-        color: #76c7b7;
+        color: #1a4332;
         text-decoration: none;
     }
 
