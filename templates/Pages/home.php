@@ -462,7 +462,7 @@ if ($error = 404) {
             </div>
             <!-- end testimonial-section -->
 
-            <style>
+            <!--<style>
                     /* Footer Area Styles */
                     .footer-area {
                         background-color: #1B4332;
@@ -648,9 +648,9 @@ if ($error = 404) {
                         color: #B7E4C7;
                         /* Icon color on hover */
                     }
-                </style>
+                </style> -->
                 <!-- footer -->
-                <div class="footer-area">
+                <!--<div class="footer-area">
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-3 col-md-6">
@@ -671,11 +671,11 @@ if ($error = 404) {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                 <!-- end footer -->
 
                 <!-- copyright -->
-                <div class="copyright">
+                <!--<div class="copyright">
                     <div class="container">
                         <div class="row">
                             <div class="col">
@@ -691,7 +691,7 @@ if ($error = 404) {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>-->
                 <!-- end copyright -->
 
         <!-- jquery -->
