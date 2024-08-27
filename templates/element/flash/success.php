@@ -8,6 +8,7 @@ if (!isset($params['escape']) || $params['escape'] !== false) {
     $message = h($message);
 }
 $controller = $this->request->getParam('controller');
-$style = ($controller === 'Enquirys') ? 'background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; padding: 10px; margin-bottom: 10px; border-radius: 5px;' : '';
+$action = $this->request->getParam('action');
+$style = ($controller === 'Enquirys' && $action === 'add') ? 'background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; padding: 10px; margin-bottom: 10px; border-radius: 5px;' : '';
 ?>
 <div style="<?= $style ?>" onclick="this.classList.add('hidden')"><?= $message ?></div>
