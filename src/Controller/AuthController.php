@@ -209,8 +209,9 @@ class AuthController extends AppController
 //    }
     public function login()
     {
+        $this->set('pageTitle', 'South Adelaie Beauty & Education | Login');
         $this->request->allowMethod(['get', 'post']);
-        $result = $this->Authentication->getResult();
+        $result = $this->Authentication->getResult(); 
 
         if ($this->request->is('post')) {
             // reCAPTCHA verification

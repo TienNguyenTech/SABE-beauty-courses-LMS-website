@@ -15,6 +15,7 @@ $this->assign('title', 'Login');
 <html>
 
 <head>
+    <title><?= $this->ContentBlock->text('website-title'); ?> | Login</title>
     <!-- Favicon-->
     <link href="<?= $this->Url->build('/img/favicon.png') ?>" type="image/x-icon" rel="icon">
     <!-- Including the shortcut icon ensures that all browsers, regardless of their version, will correctly find and use this favicon.  -->
