@@ -97,6 +97,9 @@
                 <div class="form-title">
                     <h2>Contact us</h2>
                     <p>Any questions regarding our courses or available services? Feel free to contact us for more information.</p>
+
+                    <!-- Flash Messages -->
+                    <?= $this->Flash->render() ?>
                 </div>
                 <?= $this->Flash->render('positive') ?>
                 <div id="form_status"></div>
