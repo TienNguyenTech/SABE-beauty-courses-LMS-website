@@ -17,7 +17,7 @@ class BeautyByLisaController extends AppController
         $this->viewBuilder()->setLayout('customer');
 
 
-        $this->set('pageTitle', 'Beauty by Lisa Follett');
+        $this->set('title', 'Beauty by Lisa Follett');
     }
 
 }

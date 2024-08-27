@@ -9,6 +9,7 @@
 <html lang="en">
 
 <head>
+    <title><?= $this->ContentBlock->text('website-title'); ?> | Courses</title>
     <link rel="stylesheet" href="webroot/assets/css/main.css">
     <!-- Google Fonts -->
     <?= $this->Html->css('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700', ['block' => true]) ?>
