@@ -17,7 +17,8 @@ if ($error = 404) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description"
         content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"
+        id="bootstrap-css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
@@ -49,7 +50,8 @@ if ($error = 404) {
 
 
 </head>
-<body>
+
+<div>
 
     <!--PreLoader-->
     <div class="loader">
@@ -256,7 +258,6 @@ if ($error = 404) {
                                     <div class="link-container">
                                         <?= $this->Html->link("Contact us", ['controller' => 'Enquirys', 'action' => 'add'], ['class' => 'boxed-btn']) ?>
                                     </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -264,6 +265,7 @@ if ($error = 404) {
                 </div>
             </div>
         </div>
+    </div>
     </div>
     <!-- end home page slider -->
 
@@ -380,78 +382,78 @@ if ($error = 404) {
             <div class="row d-flex justify-content-center">
                 <?php $counter = 0; ?>
                 <?php foreach ($courses as $course): ?>
-                    <?php if ($counter == 6) break; ?>
+                    <?php if ($counter == 6)
+                        break; ?>
                     <?php if ($course->course_featured): ?>
-                    <div class="col-lg-4 col-md-6 text-center">
-                        <div class="single-product-item card-equal-height">
-                            <div class="product-image">
-                                <?= $this->Html->image('/' . $course->course_image) ?>
+                        <div class="col-lg-4 col-md-6 text-center">
+                            <div class="single-product-item card-equal-height">
+                                <div class="product-image">
+                                    <?= $this->Html->image('/' . $course->course_image) ?>
+                                </div>
+                                <h3 class="product-title"><?= h($course->course_name); ?></h3>
+                                <p class="product-price">
+                                    <span><?= h(strlen($course->course_description) > 100 ? substr($course->course_description, 0, 100) . '...' : $course->course_description) ?></span>
+                                    <?= h($course->course_price); ?>$
+                                </p>
                             </div>
-                            <h3 class="product-title"><?= h($course->course_name); ?></h3>
-                            <p class="product-price">
-                                <span><?= h(strlen($course->course_description) > 100 ? substr($course->course_description, 0, 100) . '...' : $course->course_description) ?></span>
-                                <?= h($course->course_price); ?>$
-                            </p>
                         </div>
-                    </div>
                     <?php endif; ?>
                     <?php $counter++; ?>
                 <?php endforeach; ?>
             </div>
-            </div>
-            <!-- End of Product Setion -->
+        </div>
+        <!-- End of Product Setion -->
 
-            <!-- testimonial-section -->
-            <div class="testimonail-section mt-150 mb-150">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-10 offset-lg-1 text-center">
-                            <div class="testimonial-sliders">
-                                <div class="single-testimonial-slider">
-                                    <div class="client-avater">
-                                        <img src="assets/img/avaters/avatar1.png" alt="">
-                                    </div>
-                                    <div class="client-meta">
-                                        <h3>Saira Hakim <span>Course: Back to Basics (Facial)</span></h3>
-                                        <p class="testimonial-body">
-                                            "Attending SABE was a game-changer for my career. The hands-on training and
-                                            the guidance from industry professionals helped me refine my skills and
-                                            build a strong portfolio "
-                                        </p>
-                                        <div class="last-icon">
-                                            <i class="fas fa-quote-right"></i>
-                                        </div>
+        <!-- testimonial-section -->
+        <div class="testimonail-section mt-150 mb-150">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10 offset-lg-1 text-center">
+                        <div class="testimonial-sliders">
+                            <div class="single-testimonial-slider">
+                                <div class="client-avater">
+                                    <img src="assets/img/avaters/avatar1.png" alt="">
+                                </div>
+                                <div class="client-meta">
+                                    <h3>Saira Hakim <span>Course: Back to Basics (Facial)</span></h3>
+                                    <p class="testimonial-body">
+                                        "Attending SABE was a game-changer for my career. The hands-on training and
+                                        the guidance from industry professionals helped me refine my skills and
+                                        build a strong portfolio "
+                                    </p>
+                                    <div class="last-icon">
+                                        <i class="fas fa-quote-right"></i>
                                     </div>
                                 </div>
-                                <div class="single-testimonial-slider">
-                                    <div class="client-avater">
-                                        <img src="assets/img/avaters/avatar2.png" alt="">
-                                    </div>
-                                    <div class="client-meta">
-                                        <h3>Sarah Lee <span>Course: Personalised Training</span></h3>
-                                        <p class="testimonial-body">
-                                            "I can’t thank SABE enough for the transformative education I received. The
-                                            school not only taught me the technical skills needed to excel in esthetics
-                                            but also provided me with a deep understanding of client care" </p>
-                                        <div class="last-icon">
-                                            <i class="fas fa-quote-right"></i>
-                                        </div>
+                            </div>
+                            <div class="single-testimonial-slider">
+                                <div class="client-avater">
+                                    <img src="assets/img/avaters/avatar2.png" alt="">
+                                </div>
+                                <div class="client-meta">
+                                    <h3>Sarah Lee <span>Course: Personalised Training</span></h3>
+                                    <p class="testimonial-body">
+                                        "I can’t thank SABE enough for the transformative education I received. The
+                                        school not only taught me the technical skills needed to excel in esthetics
+                                        but also provided me with a deep understanding of client care" </p>
+                                    <div class="last-icon">
+                                        <i class="fas fa-quote-right"></i>
                                     </div>
                                 </div>
-                                <div class="single-testimonial-slider">
-                                    <div class="client-avater">
-                                        <img src="assets/img/avaters/avatar3.png" alt="">
-                                    </div>
-                                    <div class="client-meta">
-                                        <h3>Laura Smith <span>Course: Total Care (Waxing)</span></h3>
-                                        <p class="testimonial-body">
-                                            "The comprehensive training at SABE gave me a strong foundation in all
-                                            aspects of Waxing. From basic techniques to advanced procedures, the
-                                            curriculum was well-rounded and thorough"
-                                        </p>
-                                        <div class="last-icon">
-                                            <i class="fas fa-quote-right"></i>
-                                        </div>
+                            </div>
+                            <div class="single-testimonial-slider">
+                                <div class="client-avater">
+                                    <img src="assets/img/avaters/avatar3.png" alt="">
+                                </div>
+                                <div class="client-meta">
+                                    <h3>Laura Smith <span>Course: Total Care (Waxing)</span></h3>
+                                    <p class="testimonial-body">
+                                        "The comprehensive training at SABE gave me a strong foundation in all
+                                        aspects of Waxing. From basic techniques to advanced procedures, the
+                                        curriculum was well-rounded and thorough"
+                                    </p>
+                                    <div class="last-icon">
+                                        <i class="fas fa-quote-right"></i>
                                     </div>
                                 </div>
                             </div>
@@ -459,10 +461,11 @@ if ($error = 404) {
                     </div>
                 </div>
             </div>
-            </div>
-            <!-- end testimonial-section -->
+        </div>
+    </div>
+    <!-- end testimonial-section -->
 
-            <!--<style>
+    <!--<style>
                     /* Footer Area Styles */
                     .footer-area {
                         background-color: #1B4332;
@@ -649,8 +652,8 @@ if ($error = 404) {
                         /* Icon color on hover */
                     }
                 </style> -->
-                <!-- footer -->
-                <!--<div class="footer-area">
+    <!-- footer -->
+    <!--<div class="footer-area">
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-3 col-md-6">
@@ -672,10 +675,10 @@ if ($error = 404) {
                             </div>
                         </div>
                     </div>-->
-                <!-- end footer -->
+    <!-- end footer -->
 
-                <!-- copyright -->
-                <!--<div class="copyright">
+    <!-- copyright -->
+    <!--<div class="copyright">
                     <div class="container">
                         <div class="row">
                             <div class="col">
@@ -692,28 +695,249 @@ if ($error = 404) {
                         </div>
                     </div>
                 </div>-->
-                <!-- end copyright -->
+    <!-- end copyright -->
+                    </div>
+    <style>
+        .single-logo-item img {
+            max-width: 180px;
+            margin: 0 auto;
+        }
 
-        <!-- jquery -->
-        <script src="assets/js/jquery-1.11.3.min.js"></script>
-        <!-- bootstrap -->
-        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-        <!-- count down -->
-        <script src="assets/js/jquery.countdown.js"></script>
-        <!-- isotope -->
-        <script src="assets/js/jquery.isotope-3.0.6.min.js"></script>
-        <!-- waypoints -->
-        <script src="assets/js/waypoints.js"></script>
-        <!-- owl carousel -->
-        <script src="assets/js/owl.carousel.min.js"></script>
-        <!-- magnific popup -->
-        <script src="assets/js/jquery.magnific-popup.min.js"></script>
-        <!-- mean menu -->
-        <script src="assets/js/jquery.meanmenu.min.js"></script>
-        <!-- sticker js -->
-        <script src="assets/js/sticker.js"></script>
-        <!-- main js -->
-        <script src="assets/js/main.js"></script>
+        .logo-carousel-section {
+            background-color: #f5f5f5;
+            padding: 50px 0;
+        }
+
+        .footer-area {
+            background-color: #4a9b38;
+            color: #fff;
+            padding: 150px 0;
+        }
+
+        h2.widget-title {
+            font-size: 24px;
+            font-weight: 500;
+            position: relative;
+            padding-bottom: 20px;
+            color: #fff;
+        }
+
+        h2.widget-title:after {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 20px;
+            height: 2px;
+            background-color: #FF69B4;
+            content: "";
+        }
+
+        .footer-box p {
+            color: #fff;
+            opacity: 0.7;
+            line-height: 1.8;
+        }
+
+        .footer-box ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .footer-box ul li {
+            opacity: 0.7;
+            margin-bottom: 10px;
+            line-height: 1.8;
+        }
+
+        .footer-box ul li:last-child {
+            margin-bottom: 0;
+        }
+
+        .footer-box.subscribe form input[type=email] {
+            border: none;
+            background-color: #012738;
+            width: 78%;
+            padding: 15px;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            color: #fff;
+        }
+
+        .footer-box.subscribe form button {
+            width: 20%;
+            border: none;
+            background-color: #012738;
+            color: #FF69B4;
+            padding: 14px 0;
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+            cursor: pointer;
+        }
+
+        .footer-box.subscribe form button:focus {
+            outline: none;
+        }
+
+        .copyright {
+            background-color: #4a9b38;
+            border-top: 1px solid #232a35;
+        }
+
+        .copyright p {
+            margin: 0;
+            color: #fff;
+            opacity: 0.7;
+            padding: 16px 0;
+            font-size: 15px;
+        }
+
+        .copyright a {
+            color: #FF69B4;
+            font-weight: 700;
+        }
+
+        .copyright a:hover {
+            color: #f59d53;
+        }
+
+        .social-icons ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .social-icons ul li {
+            display: inline-block;
+        }
+
+        .social-icons ul li a {
+            font-size: 16px;
+            color: #fff;
+            opacity: 0.7;
+            padding: 16px 10px;
+            display: block;
+        }
+
+        .footer-box ul li a {
+            color: #fff;
+        }
+
+        .footer-box.pages ul li {
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .footer-box.pages ul li:before {
+            position: absolute;
+            left: 0;
+            top: 0;
+            content: "\f105";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            color: #FF69B4;
+        }
+    </style>
+    <!-- footer -->
+    <div class="footer-area">
+        <div class="container" style="text-align: left;">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-box about-widget">
+                        <h2 class="widget-title">About us</h2>
+                        <p>Ut enim ad minim veniam perspiciatis unde omnis iste natus error sit voluptatem
+                            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-box get-in-touch">
+                        <h2 class="widget-title">Get in Touch</h2>
+                        <ul>
+                            <li>34/8, East Hukupara, Gifirtok, Sadan.</li>
+                            <li>support@fruitkha.com</li>
+                            <li>+00 111 222 3333</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-box pages">
+                        <h2 class="widget-title">Pages</h2>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="services.html">Shop</a></li>
+                            <li><a href="news.html">News</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-box subscribe">
+                        <h2 class="widget-title">Subscribe</h2>
+                        <p>Subscribe to our mailing list to get the latest updates.</p>
+                        <form action="index.html">
+                            <input type="email" placeholder="Email">
+                            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end footer -->
+
+    <!-- copyright -->
+    <div class="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-12">
+                    <p>Copyrights &copy; 2019 - <a href="https://imransdesign.com/">Imran Hossain</a>, All Rights
+                        Reserved.</p>
+                </div>
+                <div class="col-lg-6 text-right col-md-12">
+                    <div class="social-icons">
+                        <ul>
+                            <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                            <li><a href="#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end copyright -->
+
+
+
+
+
+
+
+
+
+    <!-- jquery -->
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <!-- bootstrap -->
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <!-- count down -->
+    <script src="assets/js/jquery.countdown.js"></script>
+    <!-- isotope -->
+    <script src="assets/js/jquery.isotope-3.0.6.min.js"></script>
+    <!-- waypoints -->
+    <script src="assets/js/waypoints.js"></script>
+    <!-- owl carousel -->
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <!-- magnific popup -->
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <!-- mean menu -->
+    <script src="assets/js/jquery.meanmenu.min.js"></script>
+    <!-- sticker js -->
+    <script src="assets/js/sticker.js"></script>
+    <!-- main js -->
+    <script src="assets/js/main.js"></script>
 
 </body>
 
