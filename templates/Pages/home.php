@@ -67,7 +67,12 @@ if ($error = 404) {
                     <div class="main-menu-wrap">
                         <!-- logo -->
                         <div class="site-logo">
-                            <?= $this->ContentBlock->image('logo'); ?>
+                            <?= $this->Html->link(
+                                $this->ContentBlock->image('logo'),
+                                ['controller' => 'Pages', 'action' => 'display', 'home'],
+                                ['escape' => false]
+                            ) ?>
+
 
                         </div>
 
