@@ -910,7 +910,8 @@ if ($error = 404) {
                     <!--<p>Copyrights &copy; 2024 - <a href="https://imransdesign.com/"></a>, All Rights
                         Reserved.</p>-->
                     <p>Copyrights &copy; <span
-                            style="color: #4a9b38; font-weight: bold"><?= $this->ContentBlock->text('copyright-message'); ?></span> All
+                            style="color: #4a9b38; font-weight: bold"><?= $this->ContentBlock->text('copyright-message'); ?></span>
+                        All
                         Rights Reserved.</p>
 
 
@@ -930,6 +931,9 @@ if ($error = 404) {
         </div>
     </div>
     <!-- end copyright -->
+
+    <!-- IMPOTANT: THIS IS NEW LAYOUT FOR THE HOMEPAGE, WILL BE MOVED TO A SEPEREATE CSS IN THE END -->
+    <!-- IMPOTANT: THIS IS NEW LAYOUT FOR THE HOMEPAGE, WILL BE MOVED TO A SEPEREATE CSS IN THE END -->
     <style>
         .footer-area {
             background-color: #1a4332;
@@ -1092,6 +1096,76 @@ if ($error = 404) {
 
         a:hover {
             color: #4a9b38;
+        }
+
+        .loader {
+            bottom: 0;
+            height: 100%;
+            left: 0;
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: 100%;
+            z-index: 1111;
+            background: #fff;
+            overflow-x: hidden;
+        }
+
+        .loader-inner {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            height: 50px;
+            width: 50px;
+        }
+
+        .circle {
+            width: 8vmax;
+            height: 8vmax;
+            border-right: 4px solid #000;
+            border-radius: 50%;
+            -webkit-animation: spinRight 800ms linear infinite;
+            animation: spinRight 800ms linear infinite;
+        }
+
+        .circle:before {
+            content: '';
+            width: 6vmax;
+            height: 6vmax;
+            display: block;
+            position: absolute;
+            top: calc(50% - 3vmax);
+            left: calc(50% - 3vmax);
+            border-left: 3px solid #F28123;
+            border-radius: 100%;
+            -webkit-animation: spinLeft 800ms linear infinite;
+            animation: spinLeft 800ms linear infinite;
+        }
+
+        .circle:after {
+            content: '';
+            width: 6vmax;
+            height: 6vmax;
+            display: block;
+            position: absolute;
+            top: calc(50% - 3vmax);
+            left: calc(50% - 3vmax);
+            border-left: 3px solid #F28123;
+            border-radius: 100%;
+            -webkit-animation: spinLeft 800ms linear infinite;
+            animation: spinLeft 800ms linear infinite;
+            width: 4vmax;
+            height: 4vmax;
+            top: calc(50% - 2vmax);
+            left: calc(50% - 2vmax);
+            border: 0;
+            border-right: 2px solid #000;
+            -webkit-animation: none;
+            animation: none;
         }
     </style>
     <!-- jquery -->
