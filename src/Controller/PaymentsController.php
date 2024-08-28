@@ -189,7 +189,7 @@ class PaymentsController extends AppController
         try {
             $payment = $this->Payments->get($paymentID);
         } catch (\Exception $e) {
-            $this->redirect(['action' => 'fail']);
+            return $this->redirect(['action' => 'fail']);
         }
 
         $checkoutID = $payment->checkout_id;
