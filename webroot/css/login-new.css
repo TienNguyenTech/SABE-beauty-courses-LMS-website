@@ -341,5 +341,20 @@ body {
 
 .g-recaptcha{
     margin-left: 135px;
+  
 }
 
+.back-home-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.back-to-home {
+    color: #4a9b38;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.back-to-home:hover {
+    text-decoration: underline;
+}
