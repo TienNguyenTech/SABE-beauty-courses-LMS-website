@@ -378,6 +378,7 @@ if ($error = 404) {
                         <h3><span class="orange-text">Featured</span> Courses</h3>
                         <p>Explore our diverse range of programs designed to elevate your skills and prepare you for a
                             successful career in the beauty industry.</p>
+                        <p><small>Note: All prices are in AUD (Australian Dollars).</small></p>
                     </div>
                 </div>
             </div>
