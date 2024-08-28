@@ -206,7 +206,8 @@ class PaymentsController extends AppController
             ->setFrom('noreply@sabe.u24s1009.iedev.org')
             ->setSubject('South Adelaide Beauty and Education: Payment Confirmation')
             ->viewBuilder()
-            ->disableAutoLayout();
+            ->disableAutoLayout()
+            ->setTemplate('payment_confirmation');
 
         $mailer->setViewVars([
             'name' => $name
