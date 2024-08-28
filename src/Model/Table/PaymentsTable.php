@@ -76,6 +76,14 @@ class PaymentsTable extends Table
             ->maxLength('checkout_id', 256)
             ->notEmptyString('checkout_id');
 
+        $validator
+            ->scalar('payment_email')
+            ->maxLength('payment_email', 200)
+            ->notEmptyString('payment_email');
+
+        $validator
+            ->integer('payment_seen');
+
         return $validator;
     }
 
