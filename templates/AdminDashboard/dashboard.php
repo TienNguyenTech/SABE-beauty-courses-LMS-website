@@ -59,6 +59,12 @@
         <a href="<?= $this->Url->build(['controller'=>'Users','action'=>'index']) ?>">Go to Users</a>
     </div>
 
+    <div class="dashboard-card">
+        <h2>Payments</h2>
+        <p>Manage all payments here</p>
+        <a href="<?= $this->Url->build(['controller' => 'Payments', 'action' => 'index']) ?>">Go to Payments</a>
+    </div>
+
 
 
     <!-- Empty Card -->
