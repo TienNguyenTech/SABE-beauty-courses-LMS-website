@@ -217,8 +217,6 @@ class PaymentsController extends AppController
         try {
             $email_result = $mailer->deliver();
 
-            dd($email_result);
-
             if($email_result) {
                 $this->set('message', 'Thank you for your payment! You will receive your login credentials within 24 hours!');
             } else {
