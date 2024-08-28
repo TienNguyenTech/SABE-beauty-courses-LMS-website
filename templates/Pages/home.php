@@ -1140,7 +1140,7 @@ if ($error = 404) {
             position: absolute;
             top: calc(50% - 3vmax);
             left: calc(50% - 3vmax);
-            border-left: 3px solid #F28123;
+            border-left: 3px solid #4a9b38;
             border-radius: 100%;
             -webkit-animation: spinLeft 800ms linear infinite;
             animation: spinLeft 800ms linear infinite;
@@ -1154,7 +1154,7 @@ if ($error = 404) {
             position: absolute;
             top: calc(50% - 3vmax);
             left: calc(50% - 3vmax);
-            border-left: 3px solid #F28123;
+            border-left: 3px solid #4a9b38;
             border-radius: 100%;
             -webkit-animation: spinLeft 800ms linear infinite;
             animation: spinLeft 800ms linear infinite;
@@ -1163,7 +1163,7 @@ if ($error = 404) {
             top: calc(50% - 2vmax);
             left: calc(50% - 2vmax);
             border: 0;
-            border-right: 2px solid #000;
+            border-right: 2px solid #1a4332;
             -webkit-animation: none;
             animation: none;
         }
