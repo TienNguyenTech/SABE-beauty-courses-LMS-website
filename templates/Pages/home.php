@@ -931,6 +931,13 @@ if ($error = 404) {
                             <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
                             <li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
                             <li><a href="#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
+                            <div class="site-logo">
+                            <?= $this->Html->link(
+                                $this->ContentBlock->image('logo'),
+                                '/',
+                                ['escape' => false]
+                            ) ?>
+                        </div>
                         </ul>
                     </div>
                 </div>
