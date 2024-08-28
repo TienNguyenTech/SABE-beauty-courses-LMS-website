@@ -14,7 +14,7 @@ use Cake\ORM\Entity;
  * @property int $booking_id
  * @property string $checkout_id
  * @property string $payment_email
- * $property int $payment_seen
+ * @property int $payment_seen
  *
  * @property \App\Model\Entity\Booking $booking
  */
