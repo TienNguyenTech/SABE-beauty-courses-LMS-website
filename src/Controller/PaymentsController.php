@@ -225,10 +225,7 @@ class PaymentsController extends AppController
 
 
         try {
-            dd('hello');
             $email_result = $mailer->deliver();
-
-            dd($email_result);
 
             if($email_result) {
                 $this->set('message', 'Thank you for your payment! You will receive your login credentials within 24 hours!');
@@ -240,7 +237,7 @@ class PaymentsController extends AppController
                 return $this->redirect(['action' => 'fail']);
             }
         } catch (\Throwable $th) {
-            dd('how');
+            dd('Error');
             $this->Bookings->delete($this->Bookings->get($payment->booking_id));
             $this->Payments->delete($payment);
 
