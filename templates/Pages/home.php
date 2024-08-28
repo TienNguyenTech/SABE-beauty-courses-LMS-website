@@ -147,7 +147,7 @@ if ($error = 404) {
     <!-- end header -->
 
     <!-- search area -->
-    <div class="search-area">
+    <!--<div class="search-area">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -162,7 +162,7 @@ if ($error = 404) {
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- end search area -->
 
     <style>
