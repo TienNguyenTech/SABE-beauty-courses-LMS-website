@@ -16,7 +16,7 @@ class CoursesController extends AppController
         parent::initialize();
 
         // Controller-level function/action whitelist for authentication
-        $this->Authentication->allowUnauthenticated(['index', 'view', 'courses']);
+        $this->Authentication->allowUnauthenticated(['view', 'courses']);
     }
     public function courses()
     {
@@ -111,7 +111,7 @@ class CoursesController extends AppController
             if($image['course_image']->getError() == \UPLOAD_ERR_NO_FILE) {
                 $course = $this->Courses->patchEntity($course, $newCourse);
 
-                if($this->Courses->save($course)) { 
+                if($this->Courses->save($course)) {
                     $this->Flash->success(__('The course has been updated'));
                     return $this->redirect(['action'=> 'index']);
                 }
@@ -125,7 +125,7 @@ class CoursesController extends AppController
                 $course->course_image = 'assets/img/products/' . $image['course_image']->getClientFilename();
                 $image['course_image']->moveTo(WWW_ROOT . 'assets' . DS . 'img' . DS . 'products' . DS . $image['course_image']->getClientFilename());
 
-                if($this->Courses->save($course)) { 
+                if($this->Courses->save($course)) {
                     $this->Flash->success(__('The course has been updated'));
                     return $this->redirect(['action'=> 'index']);
                 }
