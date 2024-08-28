@@ -192,7 +192,7 @@ class PaymentsController extends AppController
 
         $session = Session::retrieve($checkoutID);
         $stripe = new \Stripe\StripeClient('sk_test_51PnfYBHtFQ126a2JACHCRvlLDksG752hMQYdxCkoHDtqavhxcA5WHMmXqX7iVa0PgrrieQS0w5uGch0n0jLsD0ST00PMNE3Zwp');
-        
+
         $customer = $stripe->customers->retrieve($session->customer);
 
         $email = $customer->email;
@@ -216,6 +216,8 @@ class PaymentsController extends AppController
         try {
             $email_result = $mailer->deliver();
 
+            dd($email_result);
+
             if($email_result) {
                 $this->set('message', 'Thank you for your payment! You will receive your login credentials within 24 hours!');
             } else {
@@ -226,6 +228,7 @@ class PaymentsController extends AppController
                 $this->redirect(['action' => 'fail']);
             }
         } catch (\Throwable $th) {
+            dd('how');
             $this->Bookings->delete($this->Bookings->get($payment->booking_id));
             $this->Payments->delete($payment);
 
