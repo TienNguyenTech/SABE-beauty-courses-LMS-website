@@ -230,19 +230,19 @@ class PaymentsController extends AppController
                 $this->Bookings->delete($this->Bookings->get($payment->booking_id));
                 $this->Payments->delete($payment);
 
-                $this->redirect(['action' => 'fail']);
+                return $this->redirect(['action' => 'fail']);
             }
         } catch (\Throwable $th) {
             dd('how');
             $this->Bookings->delete($this->Bookings->get($payment->booking_id));
             $this->Payments->delete($payment);
 
-            $this->redirect(['action' => 'fail']);
+            return $this->redirect(['action' => 'fail']);
         }
     }
 
     public function fail() {
-        dd('FAIL');
+        $this->viewBuilder()->disableAutoLayout();
     }
 
 }
