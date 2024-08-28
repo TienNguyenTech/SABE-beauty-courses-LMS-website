@@ -41,7 +41,9 @@ class PaymentsController extends AppController
             ->contain(['Bookings']);
         $payments = $this->paginate($query);
 
-        $this->set(compact('payments'));
+        $courses = $this->Courses->find()->toArray();
+
+        $this->set(compact('payments', 'courses'));
     }
 
     /**
@@ -237,7 +239,6 @@ class PaymentsController extends AppController
                 return $this->redirect(['action' => 'fail']);
             }
         } catch (\Throwable $th) {
-            dd('Error');
             $this->Bookings->delete($this->Bookings->get($payment->booking_id));
             $this->Payments->delete($payment);
 
@@ -247,6 +248,21 @@ class PaymentsController extends AppController
 
     public function fail() {
         $this->viewBuilder()->disableAutoLayout();
+    }
+
+    public function toggle($id = null) {
+        $this->request->allowMethod(['get']);
+        $payment = $this->Payments->get($id);
+
+        $payment->payment_seen = $payment->payment_seen ? 0 : 1;
+
+        if ($this->Payments->save($payment)) {
+            $this->Flash->success(__('Payment status updated successfully.'));
+        } else {
+            $this->Flash->error(__('Failed to update payment status. Please try again.'));
+        }
+
+        $this->redirect(['action' => 'index']);
     }
 
 }
