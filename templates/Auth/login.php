@@ -28,9 +28,9 @@ $this->assign('title', 'Login');
 
 <body>
     <div class="container">
-        <div class="left-side">
-            <img src="<?= $this->Url->image('../webroot/img/lisa-logo.png') ?>" alt="Lisa Logo" class="background-image">
-        </div>
+        <!--<div class="left-side">
+            <img src="//$this->Url->image('../webroot/img/lisa-logo.png') ?>" alt="Lisa Logo" class="background-image">
+        </div>-->
         <div class="right-side">
             <div class="users form content cardhidden">
                 <img src="<?= $this->Url->image('../webroot/img/login-logo-green.png') ?>" alt="SABE Logo" class="logo-image">
@@ -75,6 +75,7 @@ $this->assign('title', 'Login');
                     </a>
                 </div>-->
             </div>
+        </div>
         </div>
     </div>
 
