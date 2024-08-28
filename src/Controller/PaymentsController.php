@@ -184,7 +184,13 @@ class PaymentsController extends AppController
     {
         $this->viewBuilder()->disableAutoLayout();
 
-        $payment = $this->Payments->get($paymentID);
+        $payment = null;
+
+        try {
+            $payment = $this->Payments->get($paymentID);
+        } catch (\Exception $e) {
+            $this->redirect(['action' => 'fail']);
+        }
 
         $checkoutID = $payment->checkout_id;
 
