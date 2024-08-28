@@ -87,8 +87,10 @@ if ($error = 404) {
 
                                 <li><?= $this->Html->link("Beauty By Lisa", ['controller' => 'BeautyByLisa', 'action' => 'services']) ?>
                                 </li>
+
                                 <li><?= $this->Html->link("Contact Us", ['controller' => 'Enquirys', 'action' => 'add']) ?>
                                 </li>
+
                                 <li>
                                     <?php
                                     if ($this->Identity->isLoggedIn()) {
@@ -202,6 +204,10 @@ if ($error = 404) {
         .single-homepage-slider:after {
             background-color: transparent;
         }
+
+        .sticky-wrapper.is-sticky .top-header-area {
+            background-color: #1a4332;
+        }
     </style>
     <!-- home page slider -->
     <div class="homepage-slider">
@@ -215,10 +221,10 @@ if ($error = 404) {
                                 <h1><?= $this->ContentBlock->text('home-slider-text-1'); ?></h1>
                                 <div class="hero-btns">
                                     <div class="link-container">
-                                        <?= $this->Html->link("Our Courses", ['controller' => 'Courses', 'action' => 'courses'], ['class' => 'boxed-btn']) ?>
+                                        <?= $this->Html->link("Our Courses", ['controller' => 'Courses', 'action' => 'courses'], ['class' => 'bordered-btn']) ?>
                                     </div>
                                     <div class="link-container">
-                                        <?= $this->Html->link("Contact us", ['controller' => 'Enquirys', 'action' => 'add'], ['class' => 'boxed-btn']) ?>
+                                        <?= $this->Html->link("Contact us", ['controller' => 'Enquirys', 'action' => 'add'], ['class' => 'bordered-btn']) ?>
                                     </div>
 
                                 </div>
@@ -239,10 +245,10 @@ if ($error = 404) {
 
                                 <div class="hero-btns">
                                     <div class="link-container">
-                                        <?= $this->Html->link("Our Courses", ['controller' => 'Courses', 'action' => 'courses'], ['class' => 'boxed-btn']) ?>
+                                        <?= $this->Html->link("Our Courses", ['controller' => 'Courses', 'action' => 'courses'], ['class' => 'bordered-btn']) ?>
                                     </div>
                                     <div class="link-container">
-                                        <?= $this->Html->link("Contact us", ['controller' => 'Enquirys', 'action' => 'add'], ['class' => 'boxed-btn']) ?>
+                                        <?= $this->Html->link("Contact us", ['controller' => 'Enquirys', 'action' => 'add'], ['class' => 'bordered-btn']) ?>
                                     </div>
                                 </div>
                             </div>
@@ -261,10 +267,10 @@ if ($error = 404) {
                                 <h1><?= $this->ContentBlock->text('home-slider-text-3'); ?></h1>
                                 <div class="hero-btns">
                                     <div class="link-container">
-                                        <?= $this->Html->link("Our Courses", ['controller' => 'Courses', 'action' => 'courses'], ['class' => 'boxed-btn']) ?>
+                                        <?= $this->Html->link("Our Courses", ['controller' => 'Courses', 'action' => 'courses'], ['class' => 'bordered-btn']) ?>
                                     </div>
                                     <div class="link-container">
-                                        <?= $this->Html->link("Contact us", ['controller' => 'Enquirys', 'action' => 'add'], ['class' => 'boxed-btn']) ?>
+                                        <?= $this->Html->link("Contact us", ['controller' => 'Enquirys', 'action' => 'add'], ['class' => 'bordered-btn']) ?>
                                     </div>
                                 </div>
                             </div>
@@ -797,10 +803,11 @@ if ($error = 404) {
             opacity: 0.7;
             padding: 16px 0;
             font-size: 15px;
+            width: 120%;
         }
 
         .copyright a {
-            color: #FF69B4;
+            color: #4a9b38;
             font-weight: 700;
         }
 
@@ -852,17 +859,17 @@ if ($error = 404) {
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-box about-widget">
                         <h2 class="widget-title">About us</h2>
-                        <p>Ut enim ad minim veniam perspiciatis unde omnis iste natus error sit voluptatem
-                            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae.</p>
+                        <p>Welcome to South Adelaide Beauty & Education!
+                            We are so happy you found us, and we can’t wait to begin this journey with you.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-box get-in-touch">
                         <h2 class="widget-title">Get in Touch</h2>
                         <ul>
-                            <li>34/8, East Hukupara, Gifirtok, Sadan.</li>
-                            <li>support@fruitkha.com</li>
-                            <li>+00 111 222 3333</li>
+                            <li>13, Lepena Cres, Hallett Cove, South Australia.</li>
+                            <li>beautybylisafollett@gmail.com</li>
+                            <li>(+61) 415 288 907</li>
                         </ul>
                     </div>
                 </div>
@@ -870,11 +877,13 @@ if ($error = 404) {
                     <div class="footer-box pages">
                         <h2 class="widget-title">Pages</h2>
                         <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="services.html">Shop</a></li>
-                            <li><a href="news.html">News</a></li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><?= $this->Html->link("Home", "/") ?></li>
+                            <li><?= $this->Html->link("Beauty By Lisa", ['controller' => 'BeautyByLisa', 'action' => 'services']) ?>
+                            </li>
+                            <li><?= $this->Html->link("Courses", ['controller' => 'Courses', 'action' => 'courses']) ?>
+                            </li>
+                            <li><?= $this->Html->link("Contact Us", ['controller' => 'Enquirys', 'action' => 'add']) ?>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -898,8 +907,13 @@ if ($error = 404) {
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-12">
-                    <p>Copyrights &copy; 2019 - <a href="https://imransdesign.com/">Imran Hossain</a>, All Rights
-                        Reserved.</p>
+                    <!--<p>Copyrights &copy; 2024 - <a href="https://imransdesign.com/"></a>, All Rights
+                        Reserved.</p>-->
+                    <p>Copyrights &copy; <span
+                            style="color: #4a9b38; font-weight: bold"><?= $this->ContentBlock->text('copyright-message'); ?></span> All
+                        Rights Reserved.</p>
+
+
                 </div>
                 <div class="col-lg-6 text-right col-md-12">
                     <div class="social-icons">
@@ -916,7 +930,170 @@ if ($error = 404) {
         </div>
     </div>
     <!-- end copyright -->
+    <style>
+        .footer-area {
+            background-color: #1a4332;
+        }
 
+        .copyright {
+            background-color: #1a4332;
+        }
+
+        .list-section {
+            background-color: #f5f5f5;
+        }
+
+        .hero-text h1 {
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        /*.hero-text h1 {
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            border: 2px solid black;
+            padding: 5px;
+            display: inline-block;
+        }*/
+        nav.main-menu ul li a {
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            font-weight: 700;
+            display: block;
+            padding: 15px;
+        }
+
+        nav.main-menu ul li a:hover {
+            color: #4a9b38;
+        }
+
+        a.boxed-btn {
+            background-color: #4a9b38;
+        }
+
+        a.bordered-btn {
+            font-family: 'Poppins', sans-serif;
+            display: inline-block;
+            color: #fff;
+            background-color: #4a9b38;
+            border: 2px solid #4a9b38;
+            padding: 7px 20px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            /* Add shadow */
+            transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+        }
+
+        a.bordered-btn:hover {
+            background-color: #fff;
+            color: #4a9b38;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            /* Larger shadow on hover */
+        }
+
+        .list-box .list-icon i {
+            display: block;
+            font-size: 24px;
+            margin-right: 15px;
+            color: #4a9b38;
+            width: 65px;
+            height: 65px;
+            text-align: center;
+            line-height: 60px;
+            border: 2px #4a9b38 dotted;
+            border-radius: 999px;
+        }
+
+        h3 {
+            color: #1a4332;
+        }
+
+        p {
+            color: #1a4332;
+        }
+
+        p.testimonial-body {
+            font-size: 17px;
+            font-style: italic;
+            width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+            color: #999999;
+            margin-top: 20px;
+        }
+
+        .client-meta h3 span {
+            display: block;
+            font-size: 70%;
+            margin-top: 10px;
+            color: #1a4332;
+            font-weight: 600;
+            opacity: 0.5;
+        }
+
+        .orange-text {
+            color: #4a9b38;
+        }
+
+        h2.widget-title:after {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 20px;
+            height: 2px;
+            background-color: #4a9b38;
+            content: "";
+        }
+
+        .footer-box.pages ul li:before {
+            position: absolute;
+            left: 0;
+            top: 0;
+            content: "\f105";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            color: #4a9b38;
+        }
+
+        .footer-box.subscribe form button {
+            width: 20%;
+            border: none;
+            background-color: #;
+            color: #4a9b38;
+            padding: 14px 0;
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+            cursor: pointer;
+        }
+
+        .footer-box.subscribe form input[type=email] {
+            border: none;
+            background-color: #2b6b4a;
+            width: 78%;
+            padding: 15px;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            color: #fff;
+        }
+
+        .footer-box.subscribe form button {
+            width: 20%;
+            border: none;
+            background-color: #2b6b4a;
+            color: #4a9b38;
+            padding: 14px 0;
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+            cursor: pointer;
+        }
+
+        .footer-box.subscribe form button:focus {
+            outline: none;
+        }
+
+        a:hover {
+            color: #4a9b38;
+        }
+    </style>
     <!-- jquery -->
     <script src="assets/js/jquery-1.11.3.min.js"></script>
     <!-- bootstrap -->
