@@ -194,14 +194,22 @@ if ($error = 404) {
             background-color: #4a9b38;
         }
     </style>
+    <style>
+        .hero-text-tablecell h1 {
+            text-align: center;
+        }
 
+        .single-homepage-slider:after {
+            background-color: transparent;
+        }
+    </style>
     <!-- home page slider -->
     <div class="homepage-slider">
         <!-- single home slider -->
         <div class="single-homepage-slider homepage-bg-1">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12 col-lg-7 offset-lg-1 offset-xl-0">
+                    <div class="col-lg-10 offset-lg-1 text-center">
                         <div class="hero-text">
                             <div class="hero-text-tablecell">
                                 <h1><?= $this->ContentBlock->text('home-slider-text-1'); ?></h1>
@@ -247,7 +255,7 @@ if ($error = 404) {
         <div class="single-homepage-slider homepage-bg-3">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-10 offset-lg-1 text-right">
+                    <div class="col-lg-10 offset-lg-1 text-center">
                         <div class="hero-text">
                             <div class="hero-text-tablecell">
                                 <h1><?= $this->ContentBlock->text('home-slider-text-3'); ?></h1>
