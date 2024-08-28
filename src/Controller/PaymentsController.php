@@ -225,6 +225,7 @@ class PaymentsController extends AppController
 
 
         try {
+            dd('hello');
             $email_result = $mailer->deliver();
 
             dd($email_result);
