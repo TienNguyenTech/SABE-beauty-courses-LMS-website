@@ -203,7 +203,7 @@ class PaymentsController extends AppController
         $mailer
             ->setEmailFormat('html')
             ->setTo($email)
-            ->setFrom('noreply@southadelaidebeautyandeducation.com.au')
+            ->setFrom('noreply@sabe.u24s1009.iedev.org')
             ->setSubject('South Adelaide Beauty and Education: Payment Confirmation')
             ->viewBuilder()
             ->disableAutoLayout();
