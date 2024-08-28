@@ -204,6 +204,10 @@ class PaymentsController extends AppController
         $email = $customer->email;
         $name = $customer->name;
 
+        $payment->payment_email = $email;
+
+        $this->Payments->save($payment);
+
         $mailer = new Mailer('default');
 
         $mailer
