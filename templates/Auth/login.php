@@ -28,12 +28,14 @@ $this->assign('title', 'Login');
 
 <body>
     <div class="container">
-        <div class="left-side">
-            <img src="<?= $this->Url->image('../webroot/img/lisa-logo.png') ?>" alt="Lisa Logo" class="background-image">
-        </div>
+
+        <!--<div class="left-side">
+            <img src="//$this->Url->image('../webroot/img/lisa-logo.png') ?>" alt="Lisa Logo" class="background-image">
+        </div>-->
         <div class="right-side">
             <div class="users form content cardhidden">
-                <img src="<?= $this->Url->image('../webroot/img/login-logo-green.png') ?>" alt="SABE Logo" class="logo-image">
+                <img src="<?= $this->Url->image('../webroot/img/login-logo-green.png') ?>" alt="SABE Logo"
+                    class="logo-image">
 
                 <?= $this->Form->create() ?>
                 <fieldset>
@@ -56,13 +58,17 @@ $this->assign('title', 'Login');
                     ]);
                     ?>
 
-                    <div class="g-recaptcha" data-sitekey="6Lc7pCgqAAAAAJkUyRxxVhuFmd9v-5Pk-vtPtsUf" data-callback="onRecaptchaSuccess"></div>
+                    <div class="g-recaptcha" data-sitekey="6Lc7pCgqAAAAAJkUyRxxVhuFmd9v-5Pk-vtPtsUf"
+                        data-callback="onRecaptchaSuccess"></div>
 
                 </fieldset>
                 <div class="input-wrapper">
                     <?= $this->Html->link('Forgot Password?', '#', ['class' => 'button-clear']) ?>
                     <br>
                     <?= $this->Form->button('Login', ['class' => 'centered-button']) ?>
+                    <div class="back-home-link">
+                        <?= $this->Html->link('Back To Home', '/', ['class' => 'back-to-home']) ?>
+                    </div>
                     <?= $this->Form->end() ?>
                 </div>
                 <!--<p class="other-login">Or Login With</p>
@@ -76,6 +82,7 @@ $this->assign('title', 'Login');
                 </div>-->
             </div>
         </div>
+    </div>
     </div>
 
     <script>
