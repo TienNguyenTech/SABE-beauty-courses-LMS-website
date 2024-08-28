@@ -72,6 +72,8 @@ class CoursesController extends AppController
             // Check if the file size exceeds 10MB
             if ($image['course_image']->getSize() > 20 * 1024 * 1024) {
                 $this->Flash->error(__('Image file size must be 10MB or less.'));
+            } else if($image['course_image']->getClientMediaType() != 'image/jpeg' && $image['course_image']->getClientMediaType() != 'image/png') {
+                $this->Flash->error(__('The image must be either png or jpg format.'));
             } else {
                 $course->course_image = 'assets/img/products/' . $image['course_image']->getClientFilename();
                 $image['course_image']->moveTo(WWW_ROOT . 'assets' . DS . 'img' . DS . 'products' . DS . $image['course_image']->getClientFilename());
@@ -119,6 +121,8 @@ class CoursesController extends AppController
                 $this->Flash->error(__('The course could not be saved. Please try again.'));
             } else if($image['course_image']->getSize() > 20 * 1024 * 1024) {
                 $this->Flash->error(__('Image file size must be 10MB or less.'));
+            } else if($image['course_image']->getClientMediaType() != 'image/jpeg' && $image['course_image']->getClientMediaType() != 'image/png') {
+                $this->Flash->error(__('The image must be either png or jpg format.'));
             } else {
                 $course = $this->Courses->patchEntity($course, $this->request->getData());
 
