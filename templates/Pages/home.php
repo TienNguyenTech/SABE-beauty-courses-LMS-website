@@ -1197,6 +1197,7 @@ if ($error = 404) {
             color: #4a9b38;
             /* Optional: Darker shade on hover */
         }
+        
     </style>
     <!-- jquery -->
     <script src="assets/js/jquery-1.11.3.min.js"></script>
