@@ -911,9 +911,9 @@ if ($error = 404) {
                     <div class="footer-box get-in-touch">
                         <h2 class="widget-title">Get in Touch</h2>
                         <ul>
-                            <li>13, Lepena Cres, Hallett Cove, South Australia.</li>
-                            <li>beautybylisafollett@gmail.com</li>
-                            <li>(+61) 415 288 907</li>
+                            <li><?= $this->ContentBlock->text('location-address') ?>, <?= $this->ContentBlock->text('location-suburb') ?>, <br><?= $this->ContentBlock->text('location-state') ?>, <?= $this->ContentBlock->text('location-postcode') ?>.</li>
+                            <li><?= $this->ContentBlock->text('contact-email') ?></li>
+                            <li>(+61) <?= $this->ContentBlock->text('contact-phone') ?></li>
                         </ul>
                     </div>
                 </div>
