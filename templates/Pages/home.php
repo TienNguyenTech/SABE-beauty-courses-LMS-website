@@ -816,11 +816,11 @@ if ($error = 404) {
 
         .copyright a {
             color: #4a9b38;
-            font-weight: 700;
+            
         }
 
         .copyright a:hover {
-            color: #f59d53;
+            color: #4a9b38;
         }
 
         .social-icons ul {
