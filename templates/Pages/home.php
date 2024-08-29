@@ -47,6 +47,7 @@ if ($error = 404) {
     <link rel="stylesheet" href="assets/css/main.css">
     <!-- responsive -->
     <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 
 </head>
@@ -816,7 +817,7 @@ if ($error = 404) {
 
         .copyright a {
             color: #4a9b38;
-            
+
         }
 
         .copyright a:hover {
@@ -927,11 +928,14 @@ if ($error = 404) {
                 <div class="col-lg-6 text-right col-md-12">
                     <div class="social-icons">
                         <ul>
-                            <li><a href="https://www.facebook.com/adelaidebeautyandeducation" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="https://www.instagram.com/adelaidebeautyandeducation" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                            <li><a href="https://www.tiktok.com/@beautybylisafollett" target="_blank"><i class="fab fa-dribbble"></i></a></li>
+                            <li><a href="https://www.facebook.com/adelaidebeautyandeducation" target="_blank"><i
+                                        class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="https://www.instagram.com/adelaidebeautyandeducation" target="_blank"><i
+                                        class="fab fa-instagram"></i></a></li>
+                            <li><a href="https://www.tiktok.com/@beautybylisafollett" target="_blank"><i
+                                        class="fab fa-tiktok"></i></a></li>
                             <div class="site-logo">
-                        </div>
+                            </div>
                         </ul>
                     </div>
                 </div>
@@ -1187,6 +1191,11 @@ if ($error = 404) {
             border-right: 2px solid #1a4332;
             -webkit-animation: none;
             animation: none;
+        }
+
+        .social-icons ul li a:hover {
+            color: #4a9b38;
+            /* Optional: Darker shade on hover */
         }
     </style>
     <!-- jquery -->
