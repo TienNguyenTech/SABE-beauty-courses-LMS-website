@@ -146,6 +146,36 @@ if ($error = 404) {
         </div>
     </div>
     <!-- end header -->
+    <!-- The pop-up message with an arrow pointing to the target button -->
+    <?php
+    if ($this->Identity->isLoggedIn()) {
+        $userType = $this->Identity->get('user_type');
+        if ($userType === 'admin') {
+            // Display the popup for admin users
+            ?>
+            <div class="popup" id="popup">
+                <div class="arrow"></div> <!-- The arrow pointing to the button -->
+                <p>You have been logged in as an admin. Use the Dashboard to manage your business.</p>
+            </div>
+            <?php
+        }
+    } ?>
+
+    <script>
+        // Function to show the pop-up and hide it after 5 seconds
+        function showPopup() {
+            var popup = document.getElementById("popup");
+            popup.style.display = "block"; // Show the pop-up
+
+            // Hide the pop-up after 5 seconds
+            setTimeout(function () {
+                popup.style.display = "none";
+            }, 10000);
+        }
+
+        // Trigger the pop-up to show when the page loads
+        window.onload = showPopup; // You can change the trigger condition as needed
+    </script>
 
     <!-- search area -->
     <!--<div class="search-area">
@@ -1197,7 +1227,51 @@ if ($error = 404) {
             color: #4a9b38;
             /* Optional: Darker shade on hover */
         }
-        
+
+        /* Pop-up container positioned at the top-right corner under the navbar */
+        .popup {
+            display: none;
+            /* Hidden by default */
+            position: absolute;
+            top: 75px;
+            /* Just below the navbar */
+            right: 200px;
+            /* Positioned near the right edge */
+            width: 300px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 10px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            /* Ensure it's on top */
+            animation: slideDown 0.5s ease;
+            /* Animation for smooth entry */
+        }
+
+        /* Animation to slide the pop-up down */
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Style for the arrow pointing to the target button */
+        .arrow {
+            position: absolute;
+            top: -10px;
+            right: 120px;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 10px solid #f9f9f9;
+        }
     </style>
     <!-- jquery -->
     <script src="assets/js/jquery-1.11.3.min.js"></script>
