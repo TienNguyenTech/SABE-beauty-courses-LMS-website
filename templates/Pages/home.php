@@ -162,20 +162,25 @@ if ($error = 404) {
     } ?>
 
     <script>
-        // Function to show the pop-up and hide it after 5 seconds
+        // Function to show the pop-up and hide it after 10 seconds
         function showPopup() {
             var popup = document.getElementById("popup");
-            popup.style.display = "block"; // Show the pop-up
 
-            // Hide the pop-up after 5 seconds
+            // Wait 3 seconds before showing the pop-up
+            setTimeout(function () {
+                popup.style.display = "block"; // Show the pop-up
+            }, 800);
+
+            // Hide the pop-up after 10 seconds from the moment it appears
             setTimeout(function () {
                 popup.style.display = "none";
-            }, 10000);
+            }, 13000); // 3s delay + 10s display time = 13s total
         }
 
         // Trigger the pop-up to show when the page loads
-        window.onload = showPopup; // You can change the trigger condition as needed
+        window.onload = showPopup;
     </script>
+
 
     <!-- search area -->
     <!--<div class="search-area">
