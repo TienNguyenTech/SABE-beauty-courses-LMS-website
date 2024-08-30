@@ -20,6 +20,15 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
         text-overflow: ellipsis;
         white-space: nowrap;
     }
+    .table a {
+        color: black;
+    }
+    .actions {
+        color: black;
+    }
+    .enquirys h3 {
+        color: #1a4332;
+    }
 </style>
 <div class="enquirys index content">
 <!--    --><?php //= $this->Html->link(__('New Enquiry'), ['action' => 'add'], ['class' => 'button float-right']) ?>

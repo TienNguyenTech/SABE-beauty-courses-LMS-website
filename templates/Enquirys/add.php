@@ -71,6 +71,10 @@
         .submit-button.enabled {
             cursor: pointer; /* Change cursor when button is enabled */
         }
+
+        .g-recaptcha {
+            margin-bottom: 10px; /* Add 10px space below the reCAPTCHA widget */
+        }
     </style>
 </head>
 

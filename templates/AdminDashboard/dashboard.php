@@ -18,7 +18,7 @@
 
     .dashboard-card h2 {
         margin: 0;
-        color: #4e73df;
+        color: #1a4332;
         font-size: 1.5em;
     }
 
@@ -29,9 +29,10 @@
     .dashboard-card a {
         display: inline-block;
         margin-top: 10px;
-        color: #4e73df;
+        color: #1a4332;
         text-decoration: none;
     }
+
 </style>
 
 <h1 class="h3 mb-2 text-gray-800">Admin Dashboard</h1>

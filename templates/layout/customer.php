@@ -25,7 +25,7 @@
     <meta name="description"
         content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
 
-    
+
 
     <script src="../assets/js/jquery.min.js"></script>
     <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
@@ -192,7 +192,12 @@
                     <div class="main-menu-wrap">
                         <!-- logo -->
                         <div class="site-logo">
-                            <?= $this->ContentBlock->image('logo'); ?>
+                            <?= $this->Html->link(
+                                $this->ContentBlock->image('logo'),
+                                ['controller' => 'Pages', 'action' => 'display', 'home'],
+                                ['escape' => false]
+                            ) ?>
+
                         </div>
 
                         <!-- logo -->
@@ -221,7 +226,7 @@
                                                                         echo $this->Html->link(
                                                                             'Log out',
                                                                             ['controller' => 'Auth', 'action' => 'logout'],
-                                                                            ['class' => 'button button-outline']
+                                                                            ['class' => 'button button-outline','onclick' => 'return confirm("Are you sure you want to leave?");']
                                                                         );
                                                                     } else {
                                                                         echo $this->Html->link(
@@ -470,8 +475,9 @@
                     <div class="footer-box get-in-touch">
                         <h2 class="widget-title">Get in Touch</h2>
                         <ul>
-                            <li>Halett Cove, South Australia</li>
-                            <li>beautybylisafollett@gmail.com</li>
+                            <li><?= $this->ContentBlock->text('location-address') ?>, <?= $this->ContentBlock->text('location-suburb') ?>, <br><?= $this->ContentBlock->text('location-state') ?>, <?= $this->ContentBlock->text('location-postcode') ?>.</li>
+                            <li><?= $this->ContentBlock->text('contact-email') ?></li>
+                            <li>(+61) <?= $this->ContentBlock->text('contact-phone') ?></li>
                         </ul>
                     </div>
                 </div>
