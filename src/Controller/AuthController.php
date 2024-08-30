@@ -142,7 +142,7 @@ class AuthController extends AppController
 
         if ($this->request->is(['patch', 'post', 'put'])) {
             // Used a different validation set in Model/Table file to ensure both fields are filled
-            $user = $this->Users->patchEntity($user, $this->request->getData(), ['validate' => 'resetPassword']);
+            $user = $this->Users->patchEntity($user, $this->request->getData());
 
             // Also clear the nonce-related fields on successful password resets.
             // This ensures that the reset link can't be used a second time.
