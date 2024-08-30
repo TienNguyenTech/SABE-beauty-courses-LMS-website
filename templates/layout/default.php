@@ -53,12 +53,84 @@
                 <p style="margin-top: 20px; font-size: 18px;"><?= $flashMessage ?></p>
             </div>
         </div>
-        <script>
-            // Get the modal
-            var modal = document.getElementById('myModal');
-            window.onclick = function (event) {
-                if (event.target == modal) {
-                    modal.style.display = "none";
+
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link" href="<?= $this->Url->build(['plugin' => null, 'controller' => 'Enquirys', 'action' => 'index']) ?>">
+                <i class="fas fa-fw fa-pen"></i>
+                <span>Enquiries</span></a>
+            <a class="nav-link" href="<?= $this->Url->build(['plugin' => null, 'controller' => 'Courses', 'action' => 'index']) ?>">
+                <i class="fas fa-fw fa-book-open"></i>
+                <span>Courses</span></a>
+            <a class="nav-link" href="<?= $this->Url->build(['plugin' => null, 'controller' => 'Users', 'action' => 'index']) ?>">
+                <i class="fas fa-fw fa-user"></i>
+                <span>Users</span></a>
+            <a class="nav-link" href="<?= $this->Url->build(['plugin' => null, 'controller' => 'Payments', 'action' => 'index']) ?>">
+                <i class="fas fa-fw fa-dollar-sign"></i>
+                <span>Payments</span></a>
+            <a class="nav-link" href="<?= $this->Url->build (['plugin' => null,'plugin' => 'ContentBlocks', 'controller' => 'ContentBlocks', 'action' => 'index']) ?>">
+                <i class="fas fa-fw fa-cog"></i>
+                <span>Modify Website</span></a>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider d-none d-md-block">
+
+        <!-- Sidebar Toggler (Sidebar) -->
+        <div class="text-center d-none d-md-inline">
+            <button class="rounded-circle border-0" id="sidebarToggle"></button>
+        </div>
+
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <!-- Topbar -->
+            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                <!-- Sidebar Toggle (Topbar) -->
+                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                    <i class="fa fa-bars"></i>
+                </button>
+
+                <?php
+                // Determine if the current page is an index page or the admin_dashboard page
+                $isIndexPage = $this->getRequest()->getParam('action') === 'index';
+                $isEditPage = $this->getRequest()->getParam('action') === 'edit';
+                $isAdminDashboardPage = $this->getRequest()->getParam('controller') === 'Pages' && $this->getRequest()->getParam('action') === 'display';
+
+                // Define the URL for the admin dashboard page
+                $adminDashboardUrl = $this->Url->build(['plugin' => null,'controller' => 'adminDashboard', 'action' => 'dashboard']);
+
+                // Render the back button based on the page type
+                if(!$isAdminDashboardPage) {
+                    if(!$isIndexPage&& !$isEditPage) {
+                        // If it's not an index page, render the back button
+                        echo $this->Html->tag(
+                            'button',
+                            $this->Html->tag('i', '', ['class' => 'fas fa-arrow-left']) . ' Return',
+                            ['onclick' => 'goBack()', 'class' => 'btn btn-secondary']
+                        );
+                    } elseif($isIndexPage) {
+                        // If it's an index page, return to the admin dashboard
+                        echo $this->Html->tag(
+                            'button',
+                            $this->Html->tag('i', '', ['class' => 'fas fa-arrow-left']) . ' Return',
+                            ['onclick' => 'returnToAdminDashboard()', 'class' => 'btn btn-secondary']
+                        );
+                    } elseif($isEditPage) {
+                        // If it's an index page, return to the admin dashboard
+                        echo $this->Html->tag(
+                            'button',
+                            $this->Html->tag('i', '', ['class' => 'fas fa-arrow-left']) . ' Return',
+                            ['onclick' => 'indexEditGoBack()', 'class' => 'btn btn-secondary']
+                        );
+                    }
                 }
             }
         </script>
