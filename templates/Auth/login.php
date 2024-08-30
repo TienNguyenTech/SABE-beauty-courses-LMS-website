@@ -63,7 +63,7 @@ $this->assign('title', 'Login');
 
                 </fieldset>
                 <div class="input-wrapper">
-                    <?= $this->Html->link('Forgot Password?', '#', ['class' => 'button-clear']) ?>
+                    <?= $this->Html->link('Forgot Password?', ['action' => 'forgetPassword'], ['class' => 'button-clear']) ?>
                     <br>
                     <?= $this->Form->button('Login', ['class' => 'centered-button']) ?>
                     <div class="back-home-link">
