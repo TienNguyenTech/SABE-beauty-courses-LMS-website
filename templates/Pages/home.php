@@ -931,8 +931,8 @@ if ($error = 404) {
 
                     </div>
                 </div>
-                <div class="col-lg-6 text-right col-md-12">
-                    <div class="social-icons">
+                <div class="col-lg-3 col-md-6">
+                    <div class="social-icons footer-box subscribe">
                         <ul>
                             <li><a href="https://www.facebook.com/adelaidebeautyandeducation" target="_blank"><i
                                         class="fab fa-facebook-f"></i></a></li>
@@ -953,12 +953,15 @@ if ($error = 404) {
     <!-- copyright -->
     <div class="copyright">
         <div class="container">
-            <div class="footer-area">
-                <p>Copyrights &copy; <span
-                        style="color: #4a9b38; font-weight: bold;"><?= $this->ContentBlock->text('copyright-message'); ?></span>
-                    All Rights Reserved.</p>
-            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-12 centered-text">
+                    <p>Copyrights &copy; <span
+                            style="color: #4a9b38; font-weight: bold;"><?= $this->ContentBlock->text('copyright-message'); ?></span>
+                        All Rights Reserved.</p>
+                </div>
 
+
+            </div>
         </div>
     </div>
     <!-- end copyright -->
