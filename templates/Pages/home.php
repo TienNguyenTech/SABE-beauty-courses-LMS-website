@@ -901,13 +901,6 @@ if ($error = 404) {
         <div class="container" style="text-align: left;">
             <div class="row">
                 <div class="col-lg-3 col-md-6">
-                    <div class="footer-box about-widget">
-                        <h2 class="widget-title">About us</h2>
-                        <p>Welcome to South Adelaide Beauty & Education!
-                            We are so happy you found us, and we can’t wait to begin this journey with you.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
                     <div class="footer-box get-in-touch">
                         <h2 class="widget-title">Get in Touch</h2>
                         <ul>
@@ -933,32 +926,10 @@ if ($error = 404) {
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-box subscribe">
-                        <h2 class="widget-title">Subscribe</h2>
-                        <p>Subscribe to our mailing list to get the latest updates.</p>
-                        <form action="index.html">
-                            <input type="email" placeholder="Email">
-                            <button type="submit"><i class="fas fa-paper-plane"></i></button>
-                        </form>
+                        <h2 class="widget-title">Opening Hours</h2>
+                        <p>Monday to Friday: 9:30 - 20:00</p>
+
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- end footer -->
-
-    <!-- copyright -->
-    <div class="copyright">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-12">
-                    <!--<p>Copyrights &copy; 2024 - <a href="https://imransdesign.com/"></a>, All Rights
-                        Reserved.</p>-->
-                    <p>Copyrights &copy; <span
-                            style="color: #4a9b38; font-weight: bold"><?= $this->ContentBlock->text('copyright-message'); ?></span>
-                        All
-                        Rights Reserved.</p>
-
-
                 </div>
                 <div class="col-lg-6 text-right col-md-12">
                     <div class="social-icons">
@@ -975,6 +946,19 @@ if ($error = 404) {
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <!-- end footer -->
+
+    <!-- copyright -->
+    <div class="copyright">
+        <div class="container">
+            <div class="footer-area">
+                <p>Copyrights &copy; <span
+                        style="color: #4a9b38; font-weight: bold;"><?= $this->ContentBlock->text('copyright-message'); ?></span>
+                    All Rights Reserved.</p>
+            </div>
+
         </div>
     </div>
     <!-- end copyright -->
@@ -1276,6 +1260,16 @@ if ($error = 404) {
             border-left: 10px solid transparent;
             border-right: 10px solid transparent;
             border-bottom: 10px solid #f9f9f9;
+        }
+
+        .footer-area {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            /* Center the text within the element */
+            height: 100%;
+            /* Ensure the content takes the full height of the container */
         }
     </style>
     <!-- jquery -->
