@@ -36,7 +36,7 @@ $this->layout = 'empty';
 
                     <?= $this->Flash->render() ?>
 
-                    <p>Enter your email address registered with our system below to reset your password: </p>
+                    <p class="email-instruction">Enter your email address registered with our system below to reset your password:</p>
 
                     <?php
                     echo $this->Form->control('email', [
