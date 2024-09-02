@@ -62,16 +62,16 @@ $this->assign('title', 'Login');
                         data-callback="onRecaptchaSuccess"></div>
 
                 </fieldset>
-                <div class="input-wrapper">
-                    <?= $this->Html->link('Forgot Password?', ['action' => 'forgetPassword'], ['class' => 'button-clear']) ?>
-                    <br>
-                    <?= $this->Form->button('Login', ['class' => 'centered-button']) ?>
 
-                    <div class="back-home-link">
-                        <?= $this->Html->link('Back To Home', '/', ['class' => 'back-to-home']) ?>
-                    </div>
-                    <?= $this->Form->end() ?>
+                <?= $this->Html->link('Forgot Password?', ['action' => 'forgetPassword'], ['class' => 'button-clear']) ?>
+                <br>
+                <?= $this->Form->button('Login', ['class' => 'centered-button']) ?>
+                <?= $this->Form->end() ?>
+                <div class="back-home-link">
+                    <?= $this->Html->link('Back To Home', '/', ['class' => 'back-to-home']) ?>
                 </div>
+
+
                 <!--<p class="other-login">Or Login With</p>
                 <div class="button-container">
                     <a href="#" class="social-button google">
