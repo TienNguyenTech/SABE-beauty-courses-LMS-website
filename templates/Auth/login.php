@@ -66,6 +66,7 @@ $this->assign('title', 'Login');
                     <?= $this->Html->link('Forgot Password?', '#', ['class' => 'button-clear']) ?>
                     <br>
                     <?= $this->Form->button('Login', ['class' => 'centered-button']) ?>
+                    
                     <div class="back-home-link">
                         <?= $this->Html->link('Back To Home', '/', ['class' => 'back-to-home']) ?>
                     </div>
