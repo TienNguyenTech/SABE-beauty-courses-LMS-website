@@ -112,7 +112,7 @@ body {
 
 .centered-button:hover {
 
-    background-color: #4c51d1;
+    background-color: #1a4332;
 
 }
 
@@ -122,7 +122,7 @@ body {
 
     text-decoration: none;
 
-    color: #5F63FE;
+    color: #4a9b38;
 
     font-size: 14px;
 
@@ -357,4 +357,12 @@ body {
 
 .back-to-home:hover {
     text-decoration: underline;
+}
+
+/* In your CSS file (login-new.css) */
+.email-instruction {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center; /* Optional: Center the text */
+    padding-bottom: 10px;
 }
