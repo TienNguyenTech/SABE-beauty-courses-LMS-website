@@ -954,16 +954,15 @@ if ($error = 404) {
     <div class="copyright">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-md-12 centered-text">
+                <div class="col-lg-6 col-md-12 mx-auto text-center">
                     <p>Copyrights &copy; <span
                             style="color: #4a9b38; font-weight: bold;"><?= $this->ContentBlock->text('copyright-message'); ?></span>
                         All Rights Reserved.</p>
                 </div>
-
-
             </div>
         </div>
     </div>
+
     <!-- end copyright -->
 
     <!-- IMPOTANT: THIS IS NEW LAYOUT FOR THE HOMEPAGE, WILL BE MOVED TO A SEPEREATE CSS IN THE END -->
