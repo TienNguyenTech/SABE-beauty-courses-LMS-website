@@ -639,7 +639,7 @@ if ($error = 404) {
         }
 
         .social-icons ul li a {
-            font-size: 16px;
+            font-size: 30px;
             color: #fff;
             opacity: 0.7;
             padding: 16px 10px;
