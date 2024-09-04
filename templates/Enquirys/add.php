@@ -75,6 +75,9 @@
         .g-recaptcha {
             margin-bottom: 10px; /* Add 10px space below the reCAPTCHA widget */
         }
+        .breadcrumb-text {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
     </style>
 </head>
 
