@@ -691,8 +691,8 @@ if ($error = 404) {
                                         class="fab fa-facebook-f"></i></a></li>
                             <li><a href="https://www.instagram.com/adelaidebeautyandeducation" target="_blank"><i
                                         class="fab fa-instagram"></i></a></li>
-                            <li><a href="https://www.tiktok.com/@beautybylisafollett" target="_blank"><i
-                                        class="fab fa-tiktok"></i></a></li>
+                            <!--<li><a href="https://www.tiktok.com/@beautybylisafollett" target="_blank"><i
+                                        class="fab fa-tiktok"></i></a></li>-->
                             <div class="site-logo">
                             </div>
                         </ul>
@@ -713,7 +713,7 @@ if ($error = 404) {
                             <?= $this->ContentBlock->text('copyright-message'); ?>
                         </span> All Rights Reserved.
                     </p>
-                    <ul class="list-unstyled site-footer__bottom-menu"
+                    <!--<ul class="list-unstyled site-footer__bottom-menu"
                         style="display: flex; margin: 0; padding: 0; list-style: none;">
                         <li style="margin-right: 5px;">
                             <a href="#">Help</a>
@@ -721,7 +721,7 @@ if ($error = 404) {
                         <li>
                             <a href="#">Policy</a>
                         </li>
-                    </ul>
+                    </ul>-->
                 </div>
             </div>
         </div>
