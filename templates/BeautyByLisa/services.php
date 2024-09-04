@@ -331,6 +331,11 @@
             </div>
         </div>
     </div>
+    <style>
+          .breadcrumb-text {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+    </style>
 </body>
 
 </html>
