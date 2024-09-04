@@ -33,8 +33,6 @@ $this->assign('title', 'Reset Password');
 
                     <?= $this->Flash->render() ?>
 
-                    <p class="email-instruction">Reset your password</p>
-
                     <?php
                     echo $this->Form->control('password', [
                         'type' => 'password',
@@ -47,7 +45,7 @@ $this->assign('title', 'Reset Password');
                     echo $this->Form->control('password_confirm', [
                         'type' => 'password',
                         'required' => true,
-                        'label' => 'New password',
+                        'label' => 'Confirm new password',
                         'value' => '',
                         'style' => 'color: black; width: 350px; border-radius: 10px; font-size: 16px; cursor: pointer; margin-left: 115px;',
                     ]);
