@@ -51,7 +51,7 @@
 </head>
 
 <body>
-    
+
 
     <!--PreLoader-->
     <div class="loader">
@@ -121,7 +121,7 @@
 
                             </ul>
                         </nav>
-
+                        <div class="mobile-menu"></div>
                         <!-- menu end -->
                     </div>
                 </div>
@@ -134,7 +134,7 @@
     <!-- Fetch content -->
     <?= $this->fetch('content') ?>
 
-   
+
     <!-- footer -->
     <div class="footer-area">
         <div class="container" style="text-align: left;">
@@ -222,7 +222,7 @@
     <style>
         .main-menu-wrap {
             display: flex;
-            
+
         }
 
         .main-menu ul {
@@ -337,7 +337,7 @@
         .cart-btn:hover {
             background-color: #B7E4C7;
         }
-   
+
         /* Footer Area Styles */
         .footer-area {
             background-color: #1B4332;
@@ -523,7 +523,7 @@
             color: #B7E4C7;
             /* Icon color on hover */
         }
-    
+
         .single-logo-item img {
             max-width: 180px;
             margin: 0 auto;
@@ -664,7 +664,7 @@
             font-weight: 900;
             color: #FF69B4;
         }
-    
+
         .footer-area {
             background-color: #1a4332;
             padding: 150px 0px;
@@ -979,7 +979,7 @@
                 line-height: 2.25rem;
             }
         }
-        
+
         /* Loader */
         .loader {
             bottom: 0;
