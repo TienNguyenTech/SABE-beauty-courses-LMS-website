@@ -51,8 +51,8 @@
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            background-color: #4a9b38;
-            padding: 20px;
+            background-color: white;
+            padding: 40px;
         }
 
         .content-box {
