@@ -9,7 +9,7 @@ $this->layout = 'empty';
 <html>
 
 <head>
-    <title><?= $this->ContentBlock->text('website-title'); ?> | Login</title>
+    <title><?= $this->ContentBlock->text('website-title'); ?> | Forgot Password</title>
     <!-- Favicon-->
     <link href="<?= $this->Url->build('/img/favicon.png') ?>" type="image/x-icon" rel="icon">
     <!-- Including the shortcut icon ensures that all browsers, regardless of their version, will correctly find and use this favicon.  -->
@@ -53,7 +53,7 @@ $this->layout = 'empty';
                 <?= $this->Form->button('Send verification email', ['class' => 'centered-button']) ?>
                 <?= $this->Form->end() ?>
 
-                
+
                 <div class="back-home-link">
                     <?= $this->Html->link('Back to login', ['controller' => 'Auth', 'action' => 'login'], ['class' => 'back-to-home']) ?>
                 </div>
