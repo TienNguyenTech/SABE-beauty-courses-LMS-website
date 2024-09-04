@@ -241,7 +241,7 @@
 
                             </ul>
                         </nav>
-    
+
                         <!-- menu end -->
                     </div>
                 </div>
@@ -1072,6 +1072,20 @@
         .social-icons ul li a:hover {
             color: #4a9b38;
             /* Optional: Darker shade on hover */
+        }
+    </style>
+
+    <style>
+        .breadcrumb-section:after {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            content: "";
+            background-color: transparent;
+            z-index: -1;
+            opacity: 0.8;
         }
     </style>
 </body>
