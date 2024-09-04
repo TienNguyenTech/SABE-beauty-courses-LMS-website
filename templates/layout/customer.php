@@ -222,9 +222,7 @@
     <style>
         .main-menu-wrap {
             display: flex;
-            justify-content: center;
-            /* Center all content in the flex container */
-            align-items: center;
+            
         }
 
         .main-menu ul {
@@ -297,7 +295,7 @@
         }
 
         .site-logo {
-            margin-right: 150px;
+            margin-right: 450px;
             /* Adjust this value to increase spacing */
             float: left;
             max-width: 150px;
