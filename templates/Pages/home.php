@@ -110,7 +110,7 @@ if ($error = 404) {
                                         echo $this->Html->link(
                                             'Log out',
                                             ['controller' => 'Auth', 'action' => 'logout'],
-                                            ['class' => 'button button-outline','onclick' => 'return confirm("Are you sure you want to leave?");']
+                                            ['class' => 'button button-outline', 'onclick' => 'return confirm("Are you sure you want to leave?");']
                                         );
                                     } else {
                                         echo $this->Html->link(
@@ -673,7 +673,11 @@ if ($error = 404) {
                     <div class="footer-box get-in-touch">
                         <h2 class="widget-title">Get in Touch</h2>
                         <ul>
-                            <li><?= $this->ContentBlock->text('location-address') ?>, <?= $this->ContentBlock->text('location-suburb') ?>, <br><?= $this->ContentBlock->text('location-state') ?>, <?= $this->ContentBlock->text('location-postcode') ?>.</li>
+                            <li><?= $this->ContentBlock->text('location-address') ?>,
+                                <?= $this->ContentBlock->text('location-suburb') ?>,
+                                <br><?= $this->ContentBlock->text('location-state') ?>,
+                                <?= $this->ContentBlock->text('location-postcode') ?>.
+                            </li>
                             <li><?= $this->ContentBlock->text('contact-email') ?></li>
                             <li>(+61) <?= $this->ContentBlock->text('contact-phone') ?></li>
                         </ul>
@@ -723,7 +727,7 @@ if ($error = 404) {
     <div class="copyright">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-md-12 mx-auto text-center">
+                <div class="col-lg-6 col-md-12">
                     <p>Copyrights &copy; <span
                             style="color: #4a9b38; font-weight: bold;"><?= $this->ContentBlock->text('copyright-message'); ?></span>
                         All Rights Reserved.</p>
@@ -740,6 +744,10 @@ if ($error = 404) {
         .footer-area {
             background-color: #1a4332;
             padding: 150px 0px;
+        }
+
+        div.footer-area{
+            max-height: 400px;
         }
 
         .copyright {
