@@ -727,14 +727,26 @@ if ($error = 404) {
     <div class="copyright">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-md-12">
-                    <p>Copyrights &copy; <span
-                            style="color: #4a9b38; font-weight: bold;"><?= $this->ContentBlock->text('copyright-message'); ?></span>
-                        All Rights Reserved.</p>
+                <div class="col-lg-12" style="display: flex; justify-content: space-between; align-items: center;">
+                    <p style="margin: 0;">
+                        Copyrights &copy; <span style="color: #4a9b38; font-weight: bold;">
+                            <?= $this->ContentBlock->text('copyright-message'); ?>
+                        </span> All Rights Reserved.
+                    </p>
+                    <ul class="list-unstyled site-footer__bottom-menu"
+                        style="display: flex; margin: 0; padding: 0; list-style: none;">
+                        <li style="margin-right: 5px;">
+                            <a href="#">Help</a>
+                        </li>
+                        <li>
+                            <a href="#">Policy</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
+
 
     <!-- end copyright -->
 
@@ -746,7 +758,7 @@ if ($error = 404) {
             padding: 150px 0px;
         }
 
-        div.footer-area{
+        div.footer-area {
             max-height: 400px;
         }
 
@@ -1052,6 +1064,53 @@ if ($error = 404) {
             /* Center the text within the element */
             height: 100%;
             /* Ensure the content takes the full height of the container */
+        }
+
+        .list-unstyled {
+            padding-left: 0;
+        }
+
+        .site-footer__bottom-menu {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .site-footer__bottom-menu li {
+            position: relative;
+            display: block;
+        }
+
+        .site-footer__bottom-menu li:before {
+            content: "";
+            position: absolute;
+            top: 10px;
+            bottom: 10px;
+            right: -20px;
+            width: 1px;
+            background-color: white;
+            transform: rotate(15deg);
+        }
+
+        .site-footer__bottom-menu li:last-child:before {
+            display: none;
+        }
+
+        .site-footer__bottom-menu li+li {
+            margin-left: 40px;
+        }
+
+        .site-footer__bottom-menu li a {
+            position: relative;
+            display: inline-block;
+            font-size: 14px;
+            color: white;
+            -webkit-transition: all 500ms ease;
+            transition: all 500ms ease;
+        }
+
+        .site-footer__bottom-menu li a:hover {
+            color: #4a9b38;
         }
     </style>
     <!-- jquery -->
