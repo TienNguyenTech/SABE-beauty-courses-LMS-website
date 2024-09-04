@@ -172,13 +172,15 @@
             background-color: #B7E4C7;
         }
     </style>
-    <!-- PreLoader -->
+
+    <!--PreLoader-->
     <div class="loader">
+        <img src="<?= $this->Url->image('../webroot/img/login-logo-green.png') ?>" alt="SABE Logo" class="logo-image">
         <div class="loader-inner">
             <div class="circle"></div>
         </div>
     </div>
-    <!-- PreLoader Ends -->
+    <!--PreLoader Ends-->
 
     <!-- header -->
     <div class="top-header-area" id="sticker">
@@ -239,8 +241,7 @@
 
                             </ul>
                         </nav>
-                        <a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
-                        <div class="mobile-menu"></div>
+    
                         <!-- menu end -->
                     </div>
                 </div>
@@ -249,24 +250,6 @@
     </div>
     <!-- end header -->
 
-    <!-- search area -->
-    <div class="search-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <span class="close-btn"><i class="fas fa-window-close"></i></span>
-                    <div class="search-bar">
-                        <div class="search-bar-tablecell">
-                            <h3>Search For:</h3>
-                            <input type="text" placeholder="Keywords">
-                            <button type="submit">Search <i class="fas fa-search"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- end search area -->
 
     <!-- Fetch content -->
     <?= $this->fetch('content') ?>
@@ -853,94 +836,6 @@
             color: #4a9b38;
         }
 
-        .loader {
-            bottom: 0;
-            height: 100%;
-            left: 0;
-            position: fixed;
-            right: 0;
-            top: 0;
-            width: 100%;
-            z-index: 1111;
-            background: #fff;
-            overflow-x: hidden;
-        }
-
-        .logo-image {
-            position: absolute;
-            top: 20%;
-            /* Adjust to position the image above the spinner */
-            z-index: 1112;
-            /* Ensure the image is above the spinner */
-            max-width: 300px;
-            /* Adjust size as needed */
-            max-height: 200px;
-            /* Adjust size as needed */
-            margin-left: 650px;
-        }
-
-        .loader-inner {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            -webkit-transform: translate(-50%, -50%);
-            -ms-transform: translate(-50%, -50%);
-            -o-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-            height: 50px;
-            width: 50px;
-        }
-
-        .circle {
-            width: 8vmax;
-            height: 8vmax;
-            border-right: 4px solid #000;
-            border-radius: 50%;
-            -webkit-animation: spinRight 800ms linear infinite;
-            animation: spinRight 800ms linear infinite;
-        }
-
-        .circle:before {
-            content: '';
-            width: 6vmax;
-            height: 6vmax;
-            display: block;
-            position: absolute;
-            top: calc(50% - 3vmax);
-            left: calc(50% - 3vmax);
-            border-left: 3px solid #4a9b38;
-            border-radius: 100%;
-            -webkit-animation: spinLeft 800ms linear infinite;
-            animation: spinLeft 800ms linear infinite;
-        }
-
-        .circle:after {
-            content: '';
-            width: 6vmax;
-            height: 6vmax;
-            display: block;
-            position: absolute;
-            top: calc(50% - 3vmax);
-            left: calc(50% - 3vmax);
-            border-left: 3px solid #4a9b38;
-            border-radius: 100%;
-            -webkit-animation: spinLeft 800ms linear infinite;
-            animation: spinLeft 800ms linear infinite;
-            width: 4vmax;
-            height: 4vmax;
-            top: calc(50% - 2vmax);
-            left: calc(50% - 2vmax);
-            border: 0;
-            border-right: 2px solid #1a4332;
-            -webkit-animation: none;
-            animation: none;
-        }
-
-        .social-icons ul li a:hover {
-            color: #4a9b38;
-            /* Optional: Darker shade on hover */
-        }
-
         /* Pop-up container positioned at the top-right corner under the navbar */
         .popup {
             display: none;
@@ -1089,6 +984,96 @@
         }
     </style>
 
+    <style>
+        /* Loader */
+        .loader {
+            bottom: 0;
+            height: 100%;
+            left: 0;
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: 100%;
+            z-index: 1111;
+            background: white;
+            overflow-x: hidden;
+        }
+
+        .logo-image {
+            position: absolute;
+            top: 20%;
+            /* Adjust to position the image above the spinner */
+            z-index: 1112;
+            /* Ensure the image is above the spinner */
+            max-width: 300px;
+            /* Adjust size as needed */
+            max-height: 200px;
+            /* Adjust size as needed */
+            margin-left: 650px;
+        }
+
+        .loader-inner {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            height: 50px;
+            width: 50px;
+        }
+
+        .circle {
+            width: 8vmax;
+            height: 8vmax;
+            border-right: 4px solid #000;
+            border-radius: 50%;
+            -webkit-animation: spinRight 800ms linear infinite;
+            animation: spinRight 800ms linear infinite;
+        }
+
+        .circle:before {
+            content: '';
+            width: 6vmax;
+            height: 6vmax;
+            display: block;
+            position: absolute;
+            top: calc(50% - 3vmax);
+            left: calc(50% - 3vmax);
+            border-left: 3px solid #4a9b38;
+            border-radius: 100%;
+            -webkit-animation: spinLeft 800ms linear infinite;
+            animation: spinLeft 800ms linear infinite;
+        }
+
+        .circle:after {
+            content: '';
+            width: 6vmax;
+            height: 6vmax;
+            display: block;
+            position: absolute;
+            top: calc(50% - 3vmax);
+            left: calc(50% - 3vmax);
+            border-left: 3px solid #4a9b38;
+            border-radius: 100%;
+            -webkit-animation: spinLeft 800ms linear infinite;
+            animation: spinLeft 800ms linear infinite;
+            width: 4vmax;
+            height: 4vmax;
+            top: calc(50% - 2vmax);
+            left: calc(50% - 2vmax);
+            border: 0;
+            border-right: 2px solid #1a4332;
+            -webkit-animation: none;
+            animation: none;
+        }
+
+        .social-icons ul li a:hover {
+            color: #4a9b38;
+            /* Optional: Darker shade on hover */
+        }
+    </style>
 </body>
 
 </html>
