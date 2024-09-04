@@ -981,9 +981,7 @@
                 line-height: 2.25rem;
             }
         }
-    </style>
-
-    <style>
+        
         /* Loader */
         .loader {
             bottom: 0;
