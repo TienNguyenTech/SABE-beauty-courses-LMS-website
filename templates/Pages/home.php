@@ -61,7 +61,6 @@ if ($error = 404) {
             <div class="circle"></div>
         </div>
     </div>
-
     <!--PreLoader Ends-->
 
     <!-- header -->
@@ -110,7 +109,7 @@ if ($error = 404) {
                                         echo $this->Html->link(
                                             'Log out',
                                             ['controller' => 'Auth', 'action' => 'logout'],
-                                            ['class' => 'button button-outline','onclick' => 'return confirm("Are you sure you want to leave?");']
+                                            ['class' => 'button button-outline', 'onclick' => 'return confirm("Are you sure you want to leave?");']
                                         );
                                     } else {
                                         echo $this->Html->link(
@@ -181,25 +180,6 @@ if ($error = 404) {
         window.onload = showPopup;
     </script>
 
-
-    <!-- search area -->
-    <!--<div class="search-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <span class="close-btn"><i class="fas fa-window-close"></i></span>
-                    <div class="search-bar">
-                        <div class="search-bar-tablecell">
-                            <h3>Search For:</h3>
-                            <input type="text" placeholder="Keywords">
-                            <button type="submit">Search <i class="fas fa-search"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- end search area -->
 
     <style>
         .hero-btns {
@@ -523,237 +503,6 @@ if ($error = 404) {
     </div>
     <!-- end testimonial-section -->
 
-    <!--<style>
-                    /* Footer Area Styles */
-                    .footer-area {
-                        background-color: #1B4332;
-                        /* Dark background color */
-                        color: #B7E4C7;
-                        /* White text color */
-                        padding: 60px 0;
-                        /* Padding for top and bottom */
-                        font-family: 'Arial', sans-serif;
-                        /* Font family */
-                    }
-
-                    .footer-area .container {
-                        max-width: 1200px;
-                        /* Max width of the container */
-                        margin: 0 auto;
-                        /* Center the container */
-                        padding: 0 15px;
-                        /* Padding for left and right */
-                    }
-
-                    .footer-row {
-                        display: flex;
-                        /* Use flexbox for horizontal layout */
-                        justify-content: space-between;
-                        /* Distribute space between items */
-                        flex-wrap: wrap;
-                        /* Allow wrapping on smaller screens */
-                    }
-
-                    .footer-box {
-                        flex: 1;
-                        /* Grow to fill space */
-                        min-width: 200px;
-                        /* Minimum width for each box */
-                        margin-right: 30px;
-                        /* Space between boxes */
-                        box-sizing: border-box;
-                        /* Include padding and border in the width */
-                    }
-
-                    .footer-box:last-child {
-                        margin-right: 0;
-                        /* Remove margin from the last box */
-                    }
-
-                    .footer-box .widget-title {
-                        font-size: 18px;
-                        /* Title font size */
-                        font-weight: bold;
-                        /* Title font weight */
-                        margin-bottom: 20px;
-                        /* Space below the title */
-                    }
-
-                    .footer-box p {
-                        font-size: 14px;
-                        /* Paragraph font size */
-                        line-height: 1.6;
-                        /* Line height for readability */
-                    }
-
-                    .footer-box ul {
-                        list-style-type: none;
-                        /* Remove bullet points */
-                        padding: 0;
-                        /* Remove padding */
-                    }
-
-                    .footer-box ul li {
-                        margin-bottom: 10px;
-                        /* Space below each list item */
-                    }
-
-                    .footer-box a {
-                        color: #fff;
-                        /* Link color */
-                        text-decoration: none;
-                        /* Remove underline */
-                        transition: color 0.3s ease;
-                        /* Transition for hover effect */
-                    }
-
-                    .footer-box a:hover {
-                        color: #B7E4C7;
-                        /* Link color on hover */
-                    }
-
-                    .footer-box form {
-                        display: flex;
-                        /* Flexbox for alignment */
-                        align-items: center;
-                        /* Center vertically */
-                    }
-
-                    .footer-box input[type="email"] {
-                        padding: 10px;
-                        /* Padding for input */
-                        border: none;
-                        /* Remove border */
-                        border-radius: 5px;
-                        /* Rounded corners */
-                        margin-right: 10px;
-                        /* Space between input and button */
-                        flex-grow: 1;
-                        /* Grow to fill space */
-                    }
-
-                    .footer-box button {
-                        background-color: #95D5B2;
-                        /* Button background color */
-                        color: #333;
-                        /* Button text color */
-                        padding: 10px 15px;
-                        /* Button padding */
-                        border: none;
-                        /* Remove border */
-                        border-radius: 5px;
-                        /* Rounded corners */
-                        cursor: pointer;
-                        /* Pointer cursor */
-                        transition: background-color 0.3s ease;
-                        /* Transition for hover effect */
-                    }
-
-                    .footer-box button:hover {
-                        background-color: #D8F3DC;
-                        /* Button background color on hover */
-                    }
-
-                    /* Copyright Area Styles */
-                    .copyright {
-                        background-color: #1B4332;
-                        /* Darker background color */
-                        color: #ccc;
-                        /* Lighter text color */
-                        padding: 20px 0;
-                        /* Padding for top and bottom */
-                    }
-
-                    .copyright .container {
-                        max-width: 1200px;
-                        /* Max width of the container */
-                        margin: 0 auto;
-                        /* Center the container */
-                        padding: 0 15px;
-                        /* Padding for left and right */
-                    }
-
-                    .copyright p {
-                        margin: 0;
-                        /* Remove default margin */
-                        font-size: 14px;
-                        /* Font size */
-                    }
-
-                    .social-icons ul {
-                        list-style-type: none;
-                        /* Remove bullet points */
-                        padding: 0;
-                        /* Remove padding */
-                        /*display: flex;*/
-                        /*!* Flexbox for alignment *!*/
-                        /*justify-content: flex-end;*/
-                        /* Align to the right */
-                    }
-
-                    .social-icons ul li {
-                        margin-left: 10px;
-                        /* Space between social icons */
-                    }
-
-                    .social-icons ul li a {
-                        color: #fff;
-                        /* Icon color */
-                        font-size: 16px;
-                        /* Icon font size */
-                        transition: color 0.3s ease;
-                        /* Transition for hover effect */
-                    }
-
-                    .social-icons ul li a:hover {
-                        color: #B7E4C7;
-                        /* Icon color on hover */
-                    }
-                </style> -->
-    <!-- footer -->
-    <!--<div class="footer-area">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="footer-box about-widget">
-                                        <h2 class="widget-title">About us</h2>
-                                        <p>Welcome to South Adelaide Beauty & Education!
-                                           We are so happy you found us, and we can’t wait to begin this journey with you. </p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="footer-box get-in-touch">
-                                        <h2 class="widget-title">Get in Touch</h2>
-                                        <ul>
-                                            <li>Halett Cove, South Australia</li>
-                                            <li>beautybylisafollett@gmail.com</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>-->
-    <!-- end footer -->
-
-    <!-- copyright -->
-    <!--<div class="copyright">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <p>Copyrights &copy; <?= $this->ContentBlock->text('copyright-message'); ?></p>
-                            </div>
-                            <div class="col" style="text-align: right">
-                                <div class="social-icons">
-                                    <ul>
-                                        <li><a href="http://instagram.com/adelaidebeautyandeducation" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                                        <li><a href="http://www.facebook.com/adelaidebeautyandeducation" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>-->
-    <!-- end copyright -->
     <style>
         .single-logo-item img {
             max-width: 180px;
@@ -870,7 +619,7 @@ if ($error = 404) {
         }
 
         .social-icons ul li a {
-            font-size: 16px;
+            font-size: 30px;
             color: #fff;
             opacity: 0.7;
             padding: 16px 10px;
@@ -904,7 +653,11 @@ if ($error = 404) {
                     <div class="footer-box get-in-touch">
                         <h2 class="widget-title">Get in Touch</h2>
                         <ul>
-                            <li><?= $this->ContentBlock->text('location-address') ?>, <?= $this->ContentBlock->text('location-suburb') ?>, <br><?= $this->ContentBlock->text('location-state') ?>, <?= $this->ContentBlock->text('location-postcode') ?>.</li>
+                            <li><?= $this->ContentBlock->text('location-address') ?>,
+                                <?= $this->ContentBlock->text('location-suburb') ?>,
+                                <br><?= $this->ContentBlock->text('location-state') ?>,
+                                <?= $this->ContentBlock->text('location-postcode') ?>.
+                            </li>
                             <li><?= $this->ContentBlock->text('contact-email') ?></li>
                             <li>(+61) <?= $this->ContentBlock->text('contact-phone') ?></li>
                         </ul>
@@ -954,14 +707,26 @@ if ($error = 404) {
     <div class="copyright">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-md-12 mx-auto text-center">
-                    <p>Copyrights &copy; <span
-                            style="color: #4a9b38; font-weight: bold;"><?= $this->ContentBlock->text('copyright-message'); ?></span>
-                        All Rights Reserved.</p>
+                <div class="col-lg-12" style="display: flex; justify-content: space-between; align-items: center;">
+                    <p style="margin: 0;">
+                        Copyrights &copy; <span style="color: #4a9b38; font-weight: bold;">
+                            <?= $this->ContentBlock->text('copyright-message'); ?>
+                        </span> All Rights Reserved.
+                    </p>
+                    <ul class="list-unstyled site-footer__bottom-menu"
+                        style="display: flex; margin: 0; padding: 0; list-style: none;">
+                        <li style="margin-right: 5px;">
+                            <a href="#">Help</a>
+                        </li>
+                        <li>
+                            <a href="#">Policy</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
+
 
     <!-- end copyright -->
 
@@ -970,6 +735,11 @@ if ($error = 404) {
     <style>
         .footer-area {
             background-color: #1a4332;
+            padding: 150px 0px;
+        }
+
+        div.footer-area {
+            max-height: 400px;
         }
 
         .copyright {
@@ -1237,6 +1007,8 @@ if ($error = 404) {
             /* Ensure it's on top */
             animation: slideDown 0.5s ease;
             /* Animation for smooth entry */
+            opacity: 1;
+            border-radius: 10px;
         }
 
         /* Animation to slide the pop-up down */
@@ -1256,7 +1028,7 @@ if ($error = 404) {
         .arrow {
             position: absolute;
             top: -10px;
-            right: 120px;
+            right: 130px;
             width: 0;
             height: 0;
             border-left: 10px solid transparent;
@@ -1272,6 +1044,53 @@ if ($error = 404) {
             /* Center the text within the element */
             height: 100%;
             /* Ensure the content takes the full height of the container */
+        }
+
+        .list-unstyled {
+            padding-left: 0;
+        }
+
+        .site-footer__bottom-menu {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .site-footer__bottom-menu li {
+            position: relative;
+            display: block;
+        }
+
+        .site-footer__bottom-menu li:before {
+            content: "";
+            position: absolute;
+            top: 10px;
+            bottom: 10px;
+            right: -20px;
+            width: 1px;
+            background-color: white;
+            transform: rotate(15deg);
+        }
+
+        .site-footer__bottom-menu li:last-child:before {
+            display: none;
+        }
+
+        .site-footer__bottom-menu li+li {
+            margin-left: 40px;
+        }
+
+        .site-footer__bottom-menu li a {
+            position: relative;
+            display: inline-block;
+            font-size: 14px;
+            color: white;
+            -webkit-transition: all 500ms ease;
+            transition: all 500ms ease;
+        }
+
+        .site-footer__bottom-menu li a:hover {
+            color: #4a9b38;
         }
     </style>
     <!-- jquery -->

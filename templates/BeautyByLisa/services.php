@@ -51,8 +51,8 @@
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            background-color: #4a9b38;
-            padding: 20px;
+            background-color: white;
+            padding: 40px;
         }
 
         .content-box {
@@ -331,6 +331,11 @@
             </div>
         </div>
     </div>
+    <style>
+          .breadcrumb-text {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+    </style>
 </body>
 
 </html>
