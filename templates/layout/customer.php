@@ -51,6 +51,174 @@
 </head>
 
 <body>
+    
+
+    <!--PreLoader-->
+    <div class="loader">
+        <img src="<?= $this->Url->image('../webroot/img/login-logo-green.png') ?>" alt="SABE Logo" class="logo-image">
+        <div class="loader-inner">
+            <div class="circle"></div>
+        </div>
+    </div>
+    <!--PreLoader Ends-->
+
+    <!-- header -->
+    <div class="top-header-area" id="sticker">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-sm-12 text-center">
+                    <div class="main-menu-wrap">
+                        <!-- logo -->
+                        <div class="site-logo">
+                            <?= $this->Html->link(
+                                $this->ContentBlock->image('logo'),
+                                ['controller' => 'Pages', 'action' => 'display', 'home'],
+                                ['escape' => false]
+                            ) ?>
+
+                        </div>
+
+                        <!-- logo -->
+
+                        <!-- menu start -->
+                        <nav class="main-menu">
+                            <ul>
+
+                                <li><?= $this->Html->link("Home", "/") ?></li>
+
+
+                                <li><?= $this->Html->link("Courses", ['controller' => 'Courses', 'action' => 'courses']) ?>
+                                </li>
+                                <li><?= $this->Html->link("Beauty By Lisa", ['controller' => 'BeautyByLisa', 'action' => 'services']) ?>
+                                </li>
+                                <li><?= $this->Html->link("Contact Us", ['controller' => 'Enquirys', 'action' => 'add']) ?>
+                                </li>
+
+                                <ul class="header-nav">
+                                    <li>
+                                        <?php
+                                        if ($this->Identity->isLoggedIn()) {
+                                            echo $this->Html->link(
+                                                'Dashboard',
+                                                ['controller' => 'AdminDashboard', 'action' => 'dashboard'],
+                                                ['class' => 'button button-outline']
+                                            );
+                                            echo $this->Html->link(
+                                                'Log out',
+                                                ['controller' => 'Auth', 'action' => 'logout'],
+                                                ['class' => 'button button-outline', 'onclick' => 'return confirm("Are you sure you want to leave?");']
+                                            );
+                                        } else {
+                                            echo $this->Html->link(
+                                                'Log in',
+                                                ['controller' => 'Auth', 'action' => 'login'],
+                                                ['class' => 'button button-outline']
+                                            );
+                                        }
+                                        ?>
+                                    </li>
+                                </ul>
+
+                            </ul>
+                        </nav>
+
+                        <!-- menu end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end header -->
+
+
+    <!-- Fetch content -->
+    <?= $this->fetch('content') ?>
+
+   
+    <!-- footer -->
+    <div class="footer-area">
+        <div class="container" style="text-align: left;">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-box get-in-touch">
+                        <h2 class="widget-title">Get in Touch</h2>
+                        <ul>
+                            <li><?= $this->ContentBlock->text('location-address') ?>,
+                                <?= $this->ContentBlock->text('location-suburb') ?>,
+                                <br><?= $this->ContentBlock->text('location-state') ?>,
+                                <?= $this->ContentBlock->text('location-postcode') ?>.
+                            </li>
+                            <li><?= $this->ContentBlock->text('contact-email') ?></li>
+                            <li>(+61) <?= $this->ContentBlock->text('contact-phone') ?></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-box pages">
+                        <h2 class="widget-title">Pages</h2>
+                        <ul>
+                            <li><?= $this->Html->link("Home", "/") ?></li>
+                            <li><?= $this->Html->link("Beauty By Lisa", ['controller' => 'BeautyByLisa', 'action' => 'services']) ?>
+                            </li>
+                            <li><?= $this->Html->link("Courses", ['controller' => 'Courses', 'action' => 'courses']) ?>
+                            </li>
+                            <li><?= $this->Html->link("Contact Us", ['controller' => 'Enquirys', 'action' => 'add']) ?>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-box subscribe">
+                        <h2 class="widget-title">Opening Hours</h2>
+                        <p>Monday to Friday: 9:30 - 20:00</p>
+
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="social-icons footer-box subscribe">
+                        <ul>
+                            <li><a href="https://www.facebook.com/adelaidebeautyandeducation" target="_blank"><i
+                                        class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="https://www.instagram.com/adelaidebeautyandeducation" target="_blank"><i
+                                        class="fab fa-instagram"></i></a></li>
+                            <li><a href="https://www.tiktok.com/@beautybylisafollett" target="_blank"><i
+                                        class="fab fa-tiktok"></i></a></li>
+                            <div class="site-logo">
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end footer -->
+
+    <!-- copyright -->
+    <div class="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12" style="display: flex; justify-content: space-between; align-items: center;">
+                    <p style="margin: 0;">
+                        Copyrights &copy; <span style="color: #4a9b38; font-weight: bold;">
+                            <?= $this->ContentBlock->text('copyright-message'); ?>
+                        </span> All Rights Reserved.
+                    </p>
+                    <ul class="list-unstyled site-footer__bottom-menu"
+                        style="display: flex; margin: 0; padding: 0; list-style: none;">
+                        <li style="margin-right: 5px;">
+                            <a href="#">Help</a>
+                        </li>
+                        <li>
+                            <a href="#">Policy</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- end copyright -->
     <style>
         .main-menu-wrap {
             display: flex;
@@ -171,90 +339,7 @@
         .cart-btn:hover {
             background-color: #B7E4C7;
         }
-    </style>
-
-    <!--PreLoader-->
-    <div class="loader">
-        <img src="<?= $this->Url->image('../webroot/img/login-logo-green.png') ?>" alt="SABE Logo" class="logo-image">
-        <div class="loader-inner">
-            <div class="circle"></div>
-        </div>
-    </div>
-    <!--PreLoader Ends-->
-
-    <!-- header -->
-    <div class="top-header-area" id="sticker">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 col-sm-12 text-center">
-                    <div class="main-menu-wrap">
-                        <!-- logo -->
-                        <div class="site-logo">
-                            <?= $this->Html->link(
-                                $this->ContentBlock->image('logo'),
-                                ['controller' => 'Pages', 'action' => 'display', 'home'],
-                                ['escape' => false]
-                            ) ?>
-
-                        </div>
-
-                        <!-- logo -->
-
-                        <!-- menu start -->
-                        <nav class="main-menu">
-                            <ul>
-
-                                <li><?= $this->Html->link("Home", "/") ?></li>
-
-
-                                <li><?= $this->Html->link("Courses", ['controller' => 'Courses', 'action' => 'courses']) ?>
-                                </li>
-                                <li><?= $this->Html->link("Beauty By Lisa", ['controller' => 'BeautyByLisa', 'action' => 'services']) ?>
-                                </li>
-                                <li><?= $this->Html->link("Contact Us", ['controller' => 'Enquirys', 'action' => 'add']) ?>
-                                </li>
-
-                                <ul class="header-nav">
-                                    <li>
-                                        <?php
-                                        if ($this->Identity->isLoggedIn()) {
-                                            echo $this->Html->link(
-                                                'Dashboard',
-                                                ['controller' => 'AdminDashboard', 'action' => 'dashboard'],
-                                                ['class' => 'button button-outline']
-                                            );
-                                            echo $this->Html->link(
-                                                'Log out',
-                                                ['controller' => 'Auth', 'action' => 'logout'],
-                                                ['class' => 'button button-outline', 'onclick' => 'return confirm("Are you sure you want to leave?");']
-                                            );
-                                        } else {
-                                            echo $this->Html->link(
-                                                'Log in',
-                                                ['controller' => 'Auth', 'action' => 'login'],
-                                                ['class' => 'button button-outline']
-                                            );
-                                        }
-                                        ?>
-                                    </li>
-                                </ul>
-
-                            </ul>
-                        </nav>
-
-                        <!-- menu end -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- end header -->
-
-
-    <!-- Fetch content -->
-    <?= $this->fetch('content') ?>
-
-    <style>
+   
         /* Footer Area Styles */
         .footer-area {
             background-color: #1B4332;
@@ -440,92 +525,7 @@
             color: #B7E4C7;
             /* Icon color on hover */
         }
-    </style>
-    <!-- footer -->
-    <div class="footer-area">
-        <div class="container" style="text-align: left;">
-            <div class="row">
-                <div class="col-lg-3 col-md-6">
-                    <div class="footer-box get-in-touch">
-                        <h2 class="widget-title">Get in Touch</h2>
-                        <ul>
-                            <li><?= $this->ContentBlock->text('location-address') ?>,
-                                <?= $this->ContentBlock->text('location-suburb') ?>,
-                                <br><?= $this->ContentBlock->text('location-state') ?>,
-                                <?= $this->ContentBlock->text('location-postcode') ?>.
-                            </li>
-                            <li><?= $this->ContentBlock->text('contact-email') ?></li>
-                            <li>(+61) <?= $this->ContentBlock->text('contact-phone') ?></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="footer-box pages">
-                        <h2 class="widget-title">Pages</h2>
-                        <ul>
-                            <li><?= $this->Html->link("Home", "/") ?></li>
-                            <li><?= $this->Html->link("Beauty By Lisa", ['controller' => 'BeautyByLisa', 'action' => 'services']) ?>
-                            </li>
-                            <li><?= $this->Html->link("Courses", ['controller' => 'Courses', 'action' => 'courses']) ?>
-                            </li>
-                            <li><?= $this->Html->link("Contact Us", ['controller' => 'Enquirys', 'action' => 'add']) ?>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="footer-box subscribe">
-                        <h2 class="widget-title">Opening Hours</h2>
-                        <p>Monday to Friday: 9:30 - 20:00</p>
-
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="social-icons footer-box subscribe">
-                        <ul>
-                            <li><a href="https://www.facebook.com/adelaidebeautyandeducation" target="_blank"><i
-                                        class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="https://www.instagram.com/adelaidebeautyandeducation" target="_blank"><i
-                                        class="fab fa-instagram"></i></a></li>
-                            <li><a href="https://www.tiktok.com/@beautybylisafollett" target="_blank"><i
-                                        class="fab fa-tiktok"></i></a></li>
-                            <div class="site-logo">
-                            </div>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- end footer -->
-
-    <!-- copyright -->
-    <div class="copyright">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12" style="display: flex; justify-content: space-between; align-items: center;">
-                    <p style="margin: 0;">
-                        Copyrights &copy; <span style="color: #4a9b38; font-weight: bold;">
-                            <?= $this->ContentBlock->text('copyright-message'); ?>
-                        </span> All Rights Reserved.
-                    </p>
-                    <ul class="list-unstyled site-footer__bottom-menu"
-                        style="display: flex; margin: 0; padding: 0; list-style: none;">
-                        <li style="margin-right: 5px;">
-                            <a href="#">Help</a>
-                        </li>
-                        <li>
-                            <a href="#">Policy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- end copyright -->
-    <style>
+    
         .single-logo-item img {
             max-width: 180px;
             margin: 0 auto;
@@ -666,8 +666,7 @@
             font-weight: 900;
             color: #FF69B4;
         }
-    </style>
-    <style>
+    
         .footer-area {
             background-color: #1a4332;
             padding: 150px 0px;
@@ -1073,9 +1072,7 @@
             color: #4a9b38;
             /* Optional: Darker shade on hover */
         }
-    </style>
 
-    <style>
         .breadcrumb-section:after {
             position: absolute;
             left: 0;
