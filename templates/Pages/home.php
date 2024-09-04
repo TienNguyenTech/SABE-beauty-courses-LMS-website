@@ -523,237 +523,6 @@ if ($error = 404) {
     </div>
     <!-- end testimonial-section -->
 
-    <!--<style>
-                    /* Footer Area Styles */
-                    .footer-area {
-                        background-color: #1B4332;
-                        /* Dark background color */
-                        color: #B7E4C7;
-                        /* White text color */
-                        padding: 60px 0;
-                        /* Padding for top and bottom */
-                        font-family: 'Arial', sans-serif;
-                        /* Font family */
-                    }
-
-                    .footer-area .container {
-                        max-width: 1200px;
-                        /* Max width of the container */
-                        margin: 0 auto;
-                        /* Center the container */
-                        padding: 0 15px;
-                        /* Padding for left and right */
-                    }
-
-                    .footer-row {
-                        display: flex;
-                        /* Use flexbox for horizontal layout */
-                        justify-content: space-between;
-                        /* Distribute space between items */
-                        flex-wrap: wrap;
-                        /* Allow wrapping on smaller screens */
-                    }
-
-                    .footer-box {
-                        flex: 1;
-                        /* Grow to fill space */
-                        min-width: 200px;
-                        /* Minimum width for each box */
-                        margin-right: 30px;
-                        /* Space between boxes */
-                        box-sizing: border-box;
-                        /* Include padding and border in the width */
-                    }
-
-                    .footer-box:last-child {
-                        margin-right: 0;
-                        /* Remove margin from the last box */
-                    }
-
-                    .footer-box .widget-title {
-                        font-size: 18px;
-                        /* Title font size */
-                        font-weight: bold;
-                        /* Title font weight */
-                        margin-bottom: 20px;
-                        /* Space below the title */
-                    }
-
-                    .footer-box p {
-                        font-size: 14px;
-                        /* Paragraph font size */
-                        line-height: 1.6;
-                        /* Line height for readability */
-                    }
-
-                    .footer-box ul {
-                        list-style-type: none;
-                        /* Remove bullet points */
-                        padding: 0;
-                        /* Remove padding */
-                    }
-
-                    .footer-box ul li {
-                        margin-bottom: 10px;
-                        /* Space below each list item */
-                    }
-
-                    .footer-box a {
-                        color: #fff;
-                        /* Link color */
-                        text-decoration: none;
-                        /* Remove underline */
-                        transition: color 0.3s ease;
-                        /* Transition for hover effect */
-                    }
-
-                    .footer-box a:hover {
-                        color: #B7E4C7;
-                        /* Link color on hover */
-                    }
-
-                    .footer-box form {
-                        display: flex;
-                        /* Flexbox for alignment */
-                        align-items: center;
-                        /* Center vertically */
-                    }
-
-                    .footer-box input[type="email"] {
-                        padding: 10px;
-                        /* Padding for input */
-                        border: none;
-                        /* Remove border */
-                        border-radius: 5px;
-                        /* Rounded corners */
-                        margin-right: 10px;
-                        /* Space between input and button */
-                        flex-grow: 1;
-                        /* Grow to fill space */
-                    }
-
-                    .footer-box button {
-                        background-color: #95D5B2;
-                        /* Button background color */
-                        color: #333;
-                        /* Button text color */
-                        padding: 10px 15px;
-                        /* Button padding */
-                        border: none;
-                        /* Remove border */
-                        border-radius: 5px;
-                        /* Rounded corners */
-                        cursor: pointer;
-                        /* Pointer cursor */
-                        transition: background-color 0.3s ease;
-                        /* Transition for hover effect */
-                    }
-
-                    .footer-box button:hover {
-                        background-color: #D8F3DC;
-                        /* Button background color on hover */
-                    }
-
-                    /* Copyright Area Styles */
-                    .copyright {
-                        background-color: #1B4332;
-                        /* Darker background color */
-                        color: #ccc;
-                        /* Lighter text color */
-                        padding: 20px 0;
-                        /* Padding for top and bottom */
-                    }
-
-                    .copyright .container {
-                        max-width: 1200px;
-                        /* Max width of the container */
-                        margin: 0 auto;
-                        /* Center the container */
-                        padding: 0 15px;
-                        /* Padding for left and right */
-                    }
-
-                    .copyright p {
-                        margin: 0;
-                        /* Remove default margin */
-                        font-size: 14px;
-                        /* Font size */
-                    }
-
-                    .social-icons ul {
-                        list-style-type: none;
-                        /* Remove bullet points */
-                        padding: 0;
-                        /* Remove padding */
-                        /*display: flex;*/
-                        /*!* Flexbox for alignment *!*/
-                        /*justify-content: flex-end;*/
-                        /* Align to the right */
-                    }
-
-                    .social-icons ul li {
-                        margin-left: 10px;
-                        /* Space between social icons */
-                    }
-
-                    .social-icons ul li a {
-                        color: #fff;
-                        /* Icon color */
-                        font-size: 16px;
-                        /* Icon font size */
-                        transition: color 0.3s ease;
-                        /* Transition for hover effect */
-                    }
-
-                    .social-icons ul li a:hover {
-                        color: #B7E4C7;
-                        /* Icon color on hover */
-                    }
-                </style> -->
-    <!-- footer -->
-    <!--<div class="footer-area">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="footer-box about-widget">
-                                        <h2 class="widget-title">About us</h2>
-                                        <p>Welcome to South Adelaide Beauty & Education!
-                                           We are so happy you found us, and we can’t wait to begin this journey with you. </p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="footer-box get-in-touch">
-                                        <h2 class="widget-title">Get in Touch</h2>
-                                        <ul>
-                                            <li>Halett Cove, South Australia</li>
-                                            <li>beautybylisafollett@gmail.com</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>-->
-    <!-- end footer -->
-
-    <!-- copyright -->
-    <!--<div class="copyright">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <p>Copyrights &copy; <?= $this->ContentBlock->text('copyright-message'); ?></p>
-                            </div>
-                            <div class="col" style="text-align: right">
-                                <div class="social-icons">
-                                    <ul>
-                                        <li><a href="http://instagram.com/adelaidebeautyandeducation" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                                        <li><a href="http://www.facebook.com/adelaidebeautyandeducation" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>-->
-    <!-- end copyright -->
     <style>
         .single-logo-item img {
             max-width: 180px;
@@ -970,6 +739,7 @@ if ($error = 404) {
     <style>
         .footer-area {
             background-color: #1a4332;
+            padding: 150px 0px;
         }
 
         .copyright {
@@ -1237,6 +1007,8 @@ if ($error = 404) {
             /* Ensure it's on top */
             animation: slideDown 0.5s ease;
             /* Animation for smooth entry */
+            opacity: 1;
+            border-radius: 10px;
         }
 
         /* Animation to slide the pop-up down */
@@ -1256,7 +1028,7 @@ if ($error = 404) {
         .arrow {
             position: absolute;
             top: -10px;
-            right: 120px;
+            right: 130px;
             width: 0;
             height: 0;
             border-left: 10px solid transparent;
