@@ -51,6 +51,7 @@ class CoursesController extends AppController
     public function view($id = null)
     {
         $course = $this->Courses->get($id, contain: ['Users']);
+        $this->viewBuilder()->setLayout('customer');
         $this->set(compact('course'));
     }
 
