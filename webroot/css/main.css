@@ -1216,7 +1216,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-  background-color: #051922;
+  background-color: #1a4332;
   color: #4a9b38;
 }
 
@@ -1499,7 +1499,7 @@ body {
 
 input[type="submit"] {
   background-color: #4a9b38;
-  color: #051922;
+  color: #1a4332;
   font-weight: 700;
   text-transform: uppercase;
   font-size: 15px;
@@ -1558,7 +1558,7 @@ input[type="submit"] {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: #051922;
+  background-color: #1a4332;
   content: "";
   z-index: -1;
   opacity: 0.7;
@@ -1673,13 +1673,13 @@ div.owl-controls,
 }
 
 .single-latest-news h3 a {
-  color: #051922;
+  color: #1a4332;
 }
 
 p.blog-meta span {
   margin-right: 15px;
   opacity: 0.6;
-  color: #051922;
+  color: #1a4332;
   font-size: 0.85em;
 }
 
@@ -1763,7 +1763,7 @@ p.excerpt {
 .single-article-text p {
   font-size: 15px;
   line-height: 1.6;
-  color: #051922;
+  color: #1a4332;
 }
 
 .comments-list-wrap {
