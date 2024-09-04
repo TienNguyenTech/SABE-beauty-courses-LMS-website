@@ -66,6 +66,17 @@ class AuthController extends AppController
     public function forgetPassword()
     {
         if ($this->request->is('post')) {
+            $recaptchaSecret = '6Lc7pCgqAAAAAGQom2tHow31Z-fEEPh5dU7q8S3J'; // Replace with your reCAPTCHA secret key
+            $recaptchaResponse = $this->request->getData('g-recaptcha-response');
+            $remoteIp = $this->request->clientIp();
+
+            $response = $this->verifyRecaptcha($recaptchaSecret, $recaptchaResponse, $remoteIp);
+
+            // Return if user doesn't complete captcha
+            if(!$response->success) {
+                return $this->Flash->error('Please verify that you are not a robot');
+            }
+
             // Retrieve the user entity by provided email address
             $user = $this->Users->findByEmail($this->request->getData('email'))->first();
             if ($user) {
@@ -132,6 +143,17 @@ class AuthController extends AppController
      */
     public function resetPassword(?string $nonce = null)
     {
+        $recaptchaSecret = '6Lc7pCgqAAAAAGQom2tHow31Z-fEEPh5dU7q8S3J'; // Replace with your reCAPTCHA secret key
+        $recaptchaResponse = $this->request->getData('g-recaptcha-response');
+        $remoteIp = $this->request->clientIp();
+
+        $response = $this->verifyRecaptcha($recaptchaSecret, $recaptchaResponse, $remoteIp);
+
+        // Return if user doesn't complete captcha
+        if(!$response->success) {
+            return $this->Flash->error('Please verify that you are not a robot');
+        }
+
         $user = $this->Users->findByNonce($nonce)->first();
 
         // If nonce cannot find the user, or nonce is expired, prompt for re-reset password
