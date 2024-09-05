@@ -340,6 +340,7 @@
                             <h5 class="card-title"><?= $course->course_name ?></h5>
                             <p class="card-text"><?= $course->course_description ?></p>
                             <p class="product-price"><?= $course->course_price ?>$</p>
+                            <?= $this->Html->link('View More', ['action' => 'view', $course->course_id], ['class' => 'btn btn-primary']) ?>
                             <?= $this->Html->link("Enroll Now", ['controller' => 'payments', 'action' => 'checkout', $course->course_id], ['class' => 'btn btn-primary']) ?>
                         </div>
                     </div>
