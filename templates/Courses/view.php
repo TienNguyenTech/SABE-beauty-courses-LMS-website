@@ -15,7 +15,7 @@
     <?= $this->Html->css('https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap', ['block' => true]) ?>
     <!-- Add your CSS files -->
     <?= $this->Html->css('all.min') ?>
-    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?= $this->Url->assetUrl('assets/bootstrap/css/bootstrap.min.css') ?>">
     <?= $this->Html->css('owl.carousel') ?>
     <?= $this->Html->css('magnific-popup') ?>
     <?= $this->Html->css('animate') ?>
@@ -35,6 +35,7 @@
     <?= $this->Html->script('main') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
+</head>
 
 
 
@@ -258,12 +259,7 @@
             }
         }
     </style>
-</head>
-<div class="loader">
-    <div class="loader-inner">
-        <div class="circle"></div>
-    </div>
-</div>
+
 <body>
 <!-- breadcrumb-section -->
 <div class="breadcrumb-section breadcrumb-bg" style="background-image: url('../assets/img/hero-bg.jpg')">

@@ -29,7 +29,7 @@
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 
-    
+
 
     <style>
         /* Custom Styles */
