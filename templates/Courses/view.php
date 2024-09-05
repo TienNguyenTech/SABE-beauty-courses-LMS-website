@@ -258,6 +258,13 @@
                 transform: rotate(0deg);
             }
         }
+
+        .single-product-img img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto; /* Center horizontally */
+        }
     </style>
 
 <body>
@@ -276,17 +283,17 @@
 </div>
 <!-- end breadcrumb section -->
 
-
 <div class="w-full">
     <div class="content-container">
         <div class="content-box">
+            <?= $this->Html->link('<i class="fa-solid fa-chevron-left"></i> Back', ['controller' => 'Courses', 'action' => 'courses'], ['class' => 'btn btn-primary', 'escape' => false, 'style' => 'float: left;']) ?>
             <!-- single product -->
-            <div class="single-product mt-50 mb-100">
+            <div class="single-product mt-100 mb-100">
                 <div class="container">
-                    <div class="row">
+                    <div class="row align-items-center"> <!-- Added align-items-center to center vertically -->
                         <div class="col-md-5">
                             <div class="single-product-img">
-                                <?= $this->Html->image('/' . $course->course_image, ['alt' => $course->course_name, 'style' => 'max-width: 100%; height: auto;']) ?>
+                                <?= $this->Html->image('/' . $course->course_image, ['alt' => $course->course_name, 'class' => 'course-image']) ?>
                             </div>
                         </div>
                         <div class="col-md-7">
