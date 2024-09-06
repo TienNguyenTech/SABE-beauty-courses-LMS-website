@@ -349,6 +349,366 @@ if ($error = 404) {
     </div>
     <!-- end features list section -->
 
+    <!--Welcome One Start-->
+    <section class="welcome-one">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-6">
+                    <div class="welcome-one__left">
+                        <div class="welcome-one__img-box wow slideInLeft" data-wow-delay="100ms"
+                            data-wow-duration="2500ms">
+                            <div class="welcome-one__img">
+                            <?= $this->Html->image('meet-lisa.jpg', ['alt' => 'Meet Lisa']) ?>
+
+                                <div class="welcome-one__shape-1 float-bob-y">
+                                    <img src="assets/images/shapes/welcome-one-shape-1.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6">
+                    <div class="welcome-one__right" style="margin-top: 70px;">
+                        <div class="section-title text-left">
+                            <span class="section-title__tagline" style="color:#4a9b38;">Get to know us</span>
+                            <h2 class="section-title__title">Meet Lisa
+                                <br> The Founder
+                            </h2>
+                        </div>
+                        <p class="welcome-one__text">I'm Lisa, the CEO of South Adelaide Beauty and Education, I have
+                            over two decades of
+                            experience as a beauty therapist. I am armed with a current diploma in Beauty Therapy and
+                            a cert 4 in Training and Assessment with many years of teaching experience. I’m extremely
+                            passionate about delivering quality training that will enhance the overall standard of our
+                            beauty industry. 
+                            <br>
+                            <br>
+                            It might surprise you that the beauty industry remains largely unregulated, allowing
+                            individuals to claim the title of a beauty therapist after merely watching a YouTube video.
+                            At South Adelaide Beauty & Education, we're working to ensure that the therapists out
+                            there are of the highest quality.</p>
+
+                        <div class="welcome-one__btn-box">
+                            <a href="services.html" class="bordered-btn">Discover more</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Welcome One End-->
+
+    <style>
+        /*--------------------------------------------------------------
+# Welcome One
+--------------------------------------------------------------*/
+        .welcome-one {
+            position: relative;
+            display: block;
+            padding: 190px 0 190px;
+            z-index: 1;
+        }
+
+        .welcome-one__left {
+            position: relative;
+            display: block;
+            margin-right: 70px;
+        }
+
+        .welcome-one__img-box {
+            position: relative;
+            display: block;
+        }
+
+        .welcome-one__img {
+            position: relative;
+            display: block;
+            z-index: 1;
+        }
+
+        .welcome-one__img::before {
+            content: "";
+            position: absolute;
+            top: -70px;
+            right: -70px;
+            bottom: -70px;
+            left: 70px;
+            background-color: var(--mellis-extra);
+            z-index: -1;
+        }
+
+        .welcome-one__img img {
+            width: 100%;
+        }
+
+        .welcome-one__shape-1 {
+            position: absolute;
+            top: -57px;
+            left: -93px;
+            z-index: -1;
+        }
+
+        .welcome-one__shape-1 img {
+            width: auto;
+        }
+
+        .welcome-one__right {
+            position: relative;
+            display: block;
+            margin-left: 70px;
+        }
+
+        .welcome-one__right .section-title {
+            margin-bottom: 38px;
+        }
+
+        .welcome-one__points {
+            position: relative;
+            display: flex;
+            align-items: center;
+            margin-left: -8px;
+            margin-top: 43px;
+        }
+
+        .welcome-one__points li {
+            position: relative;
+            display: flex;
+        }
+
+        .welcome-one__points li+li {
+            margin-left: 31px;
+        }
+
+        .welcome-one__points li .icon {
+            position: relative;
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .welcome-one__points li .icon span {
+            position: relative;
+            display: inline-block;
+            font-size: 64px;
+            color: var(--mellis-base);
+            -webkit-transition: all 500ms linear;
+            transition: all 500ms linear;
+            -webkit-transition-delay: 0.1s;
+            transition-delay: 0.1s;
+        }
+
+        .welcome-one__points li:hover .icon span {
+            transform: scale(.9);
+        }
+
+        .welcome-one__points li .text {
+            position: relative;
+            display: block;
+        }
+
+        .welcome-one__points li .text h3 {
+            font-size: 18px;
+            margin-bottom: 4px;
+        }
+
+        .welcome-one__btn-box {
+            position: relative;
+            display: block;
+            margin-top: 41px;
+        }
+
+        /*--------------------------------------------------------------
+# services One
+--------------------------------------------------------------*/
+        .services-one {
+            position: relative;
+            display: block;
+            padding-bottom: 90px;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .services-one__single {
+            position: relative;
+            display: block;
+            background-color: rgb(255, 255, 255);
+            box-shadow: 0px 10px 60px 0px rgba(0, 0, 0, 0.07);
+            text-align: center;
+            border: 1px solid transparent;
+            margin-bottom: 30px;
+            -webkit-transition: all 500ms ease;
+            transition: all 500ms ease;
+        }
+
+        .services-one__single-inner {
+            position: relative;
+            display: block;
+            padding: 60px 60px 56px;
+            overflow: hidden;
+        }
+
+        .services-one__shape-1 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 1;
+            -webkit-transition: all 500ms ease;
+            transition: all 500ms ease;
+        }
+
+        .services-one__shape-1 img {
+            width: auto;
+        }
+
+        .services-one__single:hover .services-one__shape-1 {
+            opacity: 0;
+        }
+
+        .services-one__shape-2 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            -webkit-transition: all 500ms ease;
+            transition: all 500ms ease;
+        }
+
+        .services-one__shape-2 img {
+            width: auto;
+        }
+
+        .services-one__single:hover .services-one__shape-2 {
+            opacity: 1;
+        }
+
+        .services-one__single:hover {
+            border: 1px solid var(--mellis-base);
+        }
+
+        .services-one__img-box {
+            position: relative;
+            display: block;
+            width: 196px;
+            margin: 0 auto;
+        }
+
+        .services-one__img {
+            position: relative;
+            display: block;
+            overflow: hidden;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .services-one__img:before {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            content: "";
+            border-radius: 50%;
+            background-color: rgba(var(--mellis-black-rgb), .50);
+            transform: scale(0);
+            transition: all 500ms ease;
+            z-index: 1;
+        }
+
+        .services-one__single:hover .services-one__img:before {
+            transform: scale(1);
+        }
+
+        .services-one__img img {
+            width: 100%;
+            border-radius: 50%;
+            transition: all 500ms ease;
+        }
+
+        .services-one__single:hover .services-one__img img {
+            transform: scale(1.2)
+        }
+
+        .services-one__icon {
+            position: absolute;
+            bottom: -40px;
+            width: 91px;
+            left: 50%;
+            right: 0;
+            height: 91px;
+            background-color: var(--mellis-base);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+
+        .services-one__icon span {
+            position: relative;
+            display: inline-block;
+            font-size: 47px;
+            color: var(--mellis-white);
+            -webkit-transition: all 500ms linear;
+            transition: all 500ms linear;
+            -webkit-transition-delay: 0.1s;
+            transition-delay: 0.1s;
+        }
+
+        .services-one__single:hover .services-one__icon span {
+            transform: scale(.9);
+        }
+
+        .services-one__title {
+            font-size: 24px;
+            margin-bottom: 14px;
+            margin-top: 58px;
+        }
+
+        .services-one__title a {
+            color: var(--mellis-black);
+            -webkit-transition: all 500ms ease;
+            transition: all 500ms ease;
+        }
+
+        .services-one__title a:hover {
+            color: var(--mellis-base);
+        }
+
+        .services-one__btn-box {
+            position: relative;
+            display: block;
+            margin-top: 25px;
+            border-top: 1px solid var(--mellis-bdr-color);
+            padding-top: 26px;
+        }
+
+        .services-one__btn {
+            font-size: 12px;
+            font-weight: 600;
+            line-height: 12px;
+            text-transform: uppercase;
+            letter-spacing: var(--mellis-letter-spacing);
+            color: var(--mellis-black);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            -webkit-transition: all 500ms ease;
+            transition: all 500ms ease;
+        }
+
+        .services-one__btn:hover {
+            color: var(--mellis-base);
+        }
+
+        .services-one__btn i {
+            position: relative;
+            margin-left: 10px;
+            font-size: 16px;
+        }
+        
+    </style>
+
 
     <!-- Style for Product Section -->
     <style>
@@ -867,7 +1227,7 @@ if ($error = 404) {
             color: #4a9b38;
         }
 
-       
+
         a:hover {
             color: #4a9b38;
         }
