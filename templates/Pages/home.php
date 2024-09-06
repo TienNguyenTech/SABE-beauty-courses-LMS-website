@@ -427,12 +427,12 @@ if ($error = 404) {
                                 <div class="product-image">
                                     <?= $this->Html->image('/' . $course->course_image) ?>
                                 </div>
-                                <h3 class="product-title"><?= h($course->course_name); ?></h3>
+                                <h3><?= h($course->course_name); ?></h3>
                                 <p class="product-price">
                                     <span><?= h(strlen($course->course_description) > 100 ? substr($course->course_description, 0, 100) . '...' : $course->course_description) ?></span>
                                     <?= h($course->course_price); ?>$
                                 </p>
-                                <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+                                <a href="cart.html" class="cart-btn"><i class="fas fa-user-graduate"></i> Enroll Now</a>
                             </div>
                         </div>
                     <?php endif; ?>
@@ -1079,7 +1079,7 @@ if ($error = 404) {
         }
 
         a.cart-btn:hover {
-            background-color: #051922;
+            background-color: #1a4332;
             color: #4a9b38;
         }
 
@@ -1089,6 +1089,8 @@ if ($error = 404) {
             background-color: #4a9b38;
             color: #fff;
             padding: 10px 20px;
+            width: 150px;
+            margin-left: 100px;
         }
 
         a.cart-btn i {
