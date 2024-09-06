@@ -196,7 +196,7 @@
     <!-- copyright -->
     <div class="copyright">
         <div class="container">
-            <div class="row">
+            <div class="row" style="display: flex">
                 <div class="col-lg-12" style="display: flex; justify-content: space-between; align-items: center;">
                     <p style="margin: 0;">
                         Copyrights &copy; <span style="color: #4a9b38; font-weight: bold;">

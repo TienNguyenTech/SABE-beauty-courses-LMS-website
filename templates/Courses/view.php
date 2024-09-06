@@ -257,6 +257,12 @@
                 transform: rotate(0deg);
             }
         }
+
+        .row{
+            display: flex;
+        }
+
+        
     </style>
 </head>
 <div class="loader">

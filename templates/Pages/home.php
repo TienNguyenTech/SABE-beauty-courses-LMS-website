@@ -432,66 +432,72 @@ if ($error = 404) {
                                     <span><?= h(strlen($course->course_description) > 100 ? substr($course->course_description, 0, 100) . '...' : $course->course_description) ?></span>
                                     <?= h($course->course_price); ?>$
                                 </p>
+                                <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
                             </div>
                         </div>
                     <?php endif; ?>
                     <?php $counter++; ?>
                 <?php endforeach; ?>
             </div>
-        </div>
-        <!-- End of Product Setion -->
 
-        <!-- testimonial-section -->
-        <div class="testimonail-section mt-150 mb-150">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-10 offset-lg-1 text-center">
-                        <div class="testimonial-sliders">
-                            <div class="single-testimonial-slider">
-                                <div class="client-avater">
-                                    <img src="assets/img/avaters/avatar1.png" alt="">
-                                </div>
-                                <div class="client-meta">
-                                    <h3>Saira Hakim <span>Course: Back to Basics (Facial)</span></h3>
-                                    <p class="testimonial-body">
-                                        "Attending SABE was a game-changer for my career. The hands-on training and
-                                        the guidance from industry professionals helped me refine my skills and
-                                        build a strong portfolio "
-                                    </p>
-                                    <div class="last-icon">
-                                        <i class="fas fa-quote-right"></i>
-                                    </div>
+
+        </div>
+    </div>
+    </div>
+    <!-- end product section -->
+    </div>
+    <!-- End of Product Setion -->
+
+    <!-- testimonial-section -->
+    <div class="testimonail-section mt-150 mb-150">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1 text-center">
+                    <div class="testimonial-sliders">
+                        <div class="single-testimonial-slider">
+                            <div class="client-avater">
+                                <img src="assets/img/avaters/avatar1.png" alt="">
+                            </div>
+                            <div class="client-meta">
+                                <h3>Saira Hakim <span>Course: Back to Basics (Facial)</span></h3>
+                                <p class="testimonial-body">
+                                    "Attending SABE was a game-changer for my career. The hands-on training and
+                                    the guidance from industry professionals helped me refine my skills and
+                                    build a strong portfolio "
+                                </p>
+                                <div class="last-icon">
+                                    <i class="fas fa-quote-right"></i>
                                 </div>
                             </div>
-                            <div class="single-testimonial-slider">
-                                <div class="client-avater">
-                                    <img src="assets/img/avaters/avatar2.png" alt="">
-                                </div>
-                                <div class="client-meta">
-                                    <h3>Sarah Lee <span>Course: Personalised Training</span></h3>
-                                    <p class="testimonial-body">
-                                        "I can’t thank SABE enough for the transformative education I received. The
-                                        school not only taught me the technical skills needed to excel in esthetics
-                                        but also provided me with a deep understanding of client care" </p>
-                                    <div class="last-icon">
-                                        <i class="fas fa-quote-right"></i>
-                                    </div>
+                        </div>
+                        <div class="single-testimonial-slider">
+                            <div class="client-avater">
+                                <img src="assets/img/avaters/avatar2.png" alt="">
+                            </div>
+                            <div class="client-meta">
+                                <h3>Sarah Lee <span>Course: Personalised Training</span></h3>
+                                <p class="testimonial-body">
+                                    "I can’t thank SABE enough for the transformative education I received. The
+                                    school not only taught me the technical skills needed to excel in esthetics
+                                    but also provided me with a deep understanding of client care" </p>
+                                <div class="last-icon">
+                                    <i class="fas fa-quote-right"></i>
                                 </div>
                             </div>
-                            <div class="single-testimonial-slider">
-                                <div class="client-avater">
-                                    <img src="assets/img/avaters/avatar3.png" alt="">
-                                </div>
-                                <div class="client-meta">
-                                    <h3>Laura Smith <span>Course: Total Care (Waxing)</span></h3>
-                                    <p class="testimonial-body">
-                                        "The comprehensive training at SABE gave me a strong foundation in all
-                                        aspects of Waxing. From basic techniques to advanced procedures, the
-                                        curriculum was well-rounded and thorough"
-                                    </p>
-                                    <div class="last-icon">
-                                        <i class="fas fa-quote-right"></i>
-                                    </div>
+                        </div>
+                        <div class="single-testimonial-slider">
+                            <div class="client-avater">
+                                <img src="assets/img/avaters/avatar3.png" alt="">
+                            </div>
+                            <div class="client-meta">
+                                <h3>Laura Smith <span>Course: Total Care (Waxing)</span></h3>
+                                <p class="testimonial-body">
+                                    "The comprehensive training at SABE gave me a strong foundation in all
+                                    aspects of Waxing. From basic techniques to advanced procedures, the
+                                    curriculum was well-rounded and thorough"
+                                </p>
+                                <div class="last-icon">
+                                    <i class="fas fa-quote-right"></i>
                                 </div>
                             </div>
                         </div>
@@ -499,6 +505,7 @@ if ($error = 404) {
                 </div>
             </div>
         </div>
+    </div>
     </div>
     <!-- end testimonial-section -->
 
@@ -1090,6 +1097,37 @@ if ($error = 404) {
 
         .site-footer__bottom-menu li a:hover {
             color: #4a9b38;
+        }
+
+        .fa-angle-right:before {
+            color: #4a9b38;
+        }
+
+        .fa-angle-left:before {
+            color: #4a9b38;
+        }
+
+        a.cart-btn {
+            -webkit-transition: 0.3s;
+            -o-transition: 0.3s;
+            transition: 0.3s;
+        }
+
+        a.cart-btn:hover {
+            background-color: #051922;
+            color: #4a9b38;
+        }
+
+        a.cart-btn {
+            font-family: 'Poppins', sans-serif;
+            display: inline-block;
+            background-color: #4a9b38;
+            color: #fff;
+            padding: 10px 20px;
+        }
+
+        a.cart-btn i {
+            margin-right: 5px;
         }
     </style>
     <!-- jquery -->

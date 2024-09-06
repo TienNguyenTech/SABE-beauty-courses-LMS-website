@@ -1278,8 +1278,8 @@ div.owl-controls div.owl-nav div:hover {
   box-shadow: none;
 }
 
-a.cart-btn {
-  -webkit-transition: 0.3s;
+ {
+  -webkita.cart-btn-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
 }
