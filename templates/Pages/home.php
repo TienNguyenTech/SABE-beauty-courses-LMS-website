@@ -867,42 +867,7 @@ if ($error = 404) {
             color: #4a9b38;
         }
 
-        .footer-box.subscribe form button {
-            width: 20%;
-            border: none;
-            background-color: #;
-            color: #4a9b38;
-            padding: 14px 0;
-            border-top-right-radius: 3px;
-            border-bottom-right-radius: 3px;
-            cursor: pointer;
-        }
-
-        .footer-box.subscribe form input[type=email] {
-            border: none;
-            background-color: #2b6b4a;
-            width: 78%;
-            padding: 15px;
-            border-top-left-radius: 5px;
-            border-bottom-left-radius: 5px;
-            color: #fff;
-        }
-
-        .footer-box.subscribe form button {
-            width: 20%;
-            border: none;
-            background-color: #2b6b4a;
-            color: #4a9b38;
-            padding: 14px 0;
-            border-top-right-radius: 3px;
-            border-bottom-right-radius: 3px;
-            cursor: pointer;
-        }
-
-        .footer-box.subscribe form button:focus {
-            outline: none;
-        }
-
+       
         a:hover {
             color: #4a9b38;
         }
