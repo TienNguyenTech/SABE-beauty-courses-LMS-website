@@ -50,6 +50,7 @@ if ($error = 404) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 
+
 </head>
 
 <body>
@@ -358,7 +359,7 @@ if ($error = 404) {
                         <div class="welcome-one__img-box wow slideInLeft" data-wow-delay="100ms"
                             data-wow-duration="2500ms">
                             <div class="welcome-one__img">
-                            <?= $this->Html->image('meet-lisa.jpg', ['alt' => 'Meet Lisa']) ?>
+                                <?= $this->Html->image('meet-lisa.jpg', ['alt' => 'Meet Lisa']) ?>
 
                                 <div class="welcome-one__shape-1 float-bob-y">
                                     <img src="assets/images/shapes/welcome-one-shape-1.png" alt="">
@@ -380,13 +381,14 @@ if ($error = 404) {
                             experience as a beauty therapist. I am armed with a current diploma in Beauty Therapy and
                             a cert 4 in Training and Assessment with many years of teaching experience. I’m extremely
                             passionate about delivering quality training that will enhance the overall standard of our
-                            beauty industry. 
+                            beauty industry.
                             <br>
                             <br>
                             It might surprise you that the beauty industry remains largely unregulated, allowing
                             individuals to claim the title of a beauty therapist after merely watching a YouTube video.
                             At South Adelaide Beauty & Education, we're working to ensure that the therapists out
-                            there are of the highest quality.</p>
+                            there are of the highest quality.
+                        </p>
 
                         <div class="welcome-one__btn-box">
                             <a href="services.html" class="bordered-btn">Discover more</a>
@@ -706,7 +708,6 @@ if ($error = 404) {
             margin-left: 10px;
             font-size: 16px;
         }
-        
     </style>
 
 
@@ -868,6 +869,258 @@ if ($error = 404) {
     </div>
     </div>
     <!-- end testimonial-section -->
+
+
+    <div class="grid-portfolio" id="portfolio">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-6">
+                    <div class="portfolio-item">
+                        <div class="thumb">
+                            <a href="img/big_portfolio_item_4.png" data-lightbox="image-1">
+
+                                <div class="hover-effect">
+                                    <div class="hover-content">
+                                        <h1>Biodiesel <em>squid</em></h1>
+                                        <p>Awesome Subtittle Goes Here</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="image">
+                                <img src="img/portfolio_item_4.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="portfolio-item">
+                        <div class="thumb">
+                            <a href="img/big_portfolio_item_2.png" data-lightbox="image-1">
+                                <div class="hover-effect">
+                                    <div class="hover-content">
+                                        <h1>raclette <em>taxidermy</em></h1>
+                                        <p>Awesome Subtittle Goes Here</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="image">
+                                <img src="img/portfolio_item_2.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="portfolio-item">
+                        <div class="thumb">
+                            <a href="img/big_portfolio_item_3.png" data-lightbox="image-1">
+                                <div class="hover-effect">
+                                    <div class="hover-content">
+                                        <h1>humblebrag <em>brunch</em></h1>
+                                        <p>Awesome Subtittle Goes Here</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="image">
+                                <img src="img/portfolio_item_3.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="portfolio-item">
+                        <div class="thumb">
+                            <a href="img/big_portfolio_item_1.png" data-lightbox="image-1">
+                                <div class="hover-effect">
+                                    <div class="hover-content">
+                                        <h1>Succulents <em>chambray</em></h1>
+                                        <p>Awesome Subtittle Goes Here</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="image">
+                                <img src="img/portfolio_item_1.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="portfolio-item">
+                        <div class="thumb">
+                            <a href="img/big_portfolio_item_5.png" data-lightbox="image-1">
+                                <div class="hover-effect">
+                                    <div class="hover-content">
+                                        <h1>freegan <em>aesthetic</em></h1>
+                                        <p>Awesome Subtittle Goes Here</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="image">
+                                <img src="img/portfolio_item_5.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="portfolio-item">
+                        <div class="thumb">
+                            <a href="img/big_portfolio_item_6.png" data-lightbox="image-1">
+                                <div class="hover-effect">
+                                    <div class="hover-content">
+                                        <h1>taiyaki <em>vegan</em></h1>
+                                        <p>Awesome Subtittle Goes Here</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="image">
+                                <img src="img/portfolio_item_6.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="portfolio-item">
+                        <div class="thumb">
+                            <a href="img/big_portfolio_item_7.png" data-lightbox="image-1">
+                                <div class="hover-effect">
+                                    <div class="hover-content">
+                                        <h1>Thundercats <em>santo</em></h1>
+                                        <p>Awesome Subtittle Goes Here</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="image">
+                                <img src="img/portfolio_item_7.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="portfolio-item">
+                        <div class="thumb">
+                            <a href="img/big_portfolio_item_8.png" data-lightbox="image-1">
+                                <div class="hover-effect">
+                                    <div class="hover-content">
+                                        <h1>wayfarers <em>yuccie</em></h1>
+                                        <p>Awesome Subtittle Goes Here</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="image">
+                                <img src="img/portfolio_item_8.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="portfolio-item">
+                        <div class="thumb">
+                            <a href="img/big_portfolio_item_9.png" data-lightbox="image-1">
+                                <div class="hover-effect">
+                                    <div class="hover-content">
+                                        <h1>disrupt <em>street</em></h1>
+                                        <p>Awesome Subtittle Goes Here</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="image">
+                                <img src="img/portfolio_item_9.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="load-more-button">
+                        <a href="#">Load More</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <style>
+        .grid-portfolio {
+            padding: 65px 0px;
+            background-color: #232323;
+        }
+
+        .grid-portfolio .portfolio-item {
+            margin: 15px 0px;
+        }
+
+        .portfolio-item .hover-effect .hover-content {
+            position: absolute;
+            text-align: left;
+            width: 100%;
+            bottom: 5px;
+            left: 0;
+        }
+
+
+        .grid-portfolio .portfolio-item h1 {
+            position: relative;
+            font-size: 22px;
+            text-transform: uppercase;
+            color: #fff;
+            display: inline-block;
+            padding-left: 20px;
+            line-height: 15px;
+            transform: translateY(25px);
+            transition: .5s ease-in-out;
+            letter-spacing: 0.5px;
+        }
+
+        .grid-portfolio .portfolio-item em {
+            font-style: normal;
+            font-weight: 200;
+        }
+
+        .grid-portfolio .portfolio-item:hover h1 {
+            transform: translateY(0);
+        }
+
+        .grid-portfolio .portfolio-item p {
+            padding-left: 20px;
+            font-weight: 300 !important;
+            letter-spacing: 0.5px;
+            font-size: 14px;
+            color: #fff;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: .5s ease-in-out;
+            text-transform: uppercase;
+        }
+
+        .grid-portfolio .portfolio-item:hover p {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .grid-portfolio .load-more-button {
+            margin-top: 15px;
+        }
+
+        .grid-portfolio .load-more-button a {
+            width: 100%;
+            height: 80px;
+            display: inline-block;
+            text-align: center;
+            line-height: 80px;
+            font-size: 15px;
+            text-transform: uppercase;
+            text-decoration: none;
+            letter-spacing: 1px;
+            color: #fff;
+            background-color: #313131;
+            transition: all 0.5s;
+        }
+
+        .grid-portfolio .load-more-button a:hover {
+            color: rgba(250, 250, 250, 0.5);
+        }
+    </style>
 
     <style>
         .single-logo-item img {
