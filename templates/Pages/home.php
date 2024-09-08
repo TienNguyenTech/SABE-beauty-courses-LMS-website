@@ -869,8 +869,6 @@ if ($error = 404) {
     <!-- end testimonial-section -->
 
 
-
-
     <div id="instagram-gallery">
         <a href="https://www.instagram.com/p/example1" target="_blank">
             <img src="img/big_portfolio_item_2.png" alt="Instagram Image 1">
@@ -896,7 +894,7 @@ if ($error = 404) {
         <a href="https://www.instagram.com/p/example2" target="_blank">
             <img src="img/portfolio_item_1.png" alt="Instagram Image 2">
         </a>
-
+        <a href="services.html" class="bordered-btn">Discover more</a>
         <!-- Thêm nhiều hình ảnh khác -->
     </div>
 
@@ -1014,6 +1012,62 @@ if ($error = 404) {
             width: 100%;
             height: 100%;
             object-fit: cover;
+        }
+
+        /*This is the Instagram net*/
+        #instagram-section {
+            text-align: center;
+            /* Canh giữa tiêu đề và nút */
+            padding: 40px 20px;
+            /* Khoảng cách trên và dưới của section */
+        }
+
+        #instagram-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #333;
+            /* Thay đổi màu chữ tùy ý */
+        }
+
+        #instagram-gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            padding: 0 20px;
+            max-width: 1150px;
+            margin: 0 auto 30px auto;
+            /* Canh giữa lưới ảnh và tạo khoảng cách dưới */
+        }
+
+        #instagram-gallery a {
+            display: block;
+            aspect-ratio: 1/1;
+            overflow: hidden;
+        }
+
+        #instagram-gallery img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .bordered-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border: 2px solid #4a9b38;
+            /* Màu viền nút */
+            color: #4a9b38;
+            /* Màu chữ */
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .bordered-btn:hover {
+            background-color: #4a9b38;
+            /* Màu nền khi hover */
+            color: #fff;
+            /* Màu chữ khi hover */
         }
     </style>
 
