@@ -915,16 +915,222 @@ if ($error = 404) {
             /* Canh giữa lưới ảnh trong màn hình */
         }
 
-        #instagram-gallery a {
-            display: block;
-            aspect-ratio: 1/1;
-            overflow: hidden;
+        .grid-portfolio .portfolio-item {
+            margin: 15px 0px;
         }
 
-        #instagram-gallery img {
+        .portfolio-item .hover-effect .hover-content {
+            position: absolute;
+            text-align: left;
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            bottom: 5px;
+            left: 0;
+        }
+
+
+        .grid-portfolio .portfolio-item h1 {
+            position: relative;
+            font-size: 22px;
+            text-transform: uppercase;
+            color: #fff;
+            display: inline-block;
+            padding-left: 20px;
+            line-height: 15px;
+            transform: translateY(25px);
+            transition: .5s ease-in-out;
+            letter-spacing: 0.5px;
+        }
+
+        .grid-portfolio .portfolio-item em {
+            font-style: normal;
+            font-weight: 200;
+        }
+
+        .grid-portfolio .portfolio-item:hover h1 {
+            transform: translateY(0);
+        }
+
+        .grid-portfolio .portfolio-item p {
+            padding-left: 20px;
+            font-weight: 300 !important;
+            letter-spacing: 0.5px;
+            font-size: 14px;
+            color: #fff;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: .5s ease-in-out;
+            text-transform: uppercase;
+        }
+
+        .grid-portfolio .portfolio-item:hover p {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .grid-portfolio .load-more-button {
+            margin-top: 15px;
+        }
+
+        .grid-portfolio .load-more-button a {
+            width: 100%;
+            height: 80px;
+            display: inline-block;
+            text-align: center;
+            line-height: 80px;
+            font-size: 15px;
+            text-transform: uppercase;
+            text-decoration: none;
+            letter-spacing: 1px;
+            color: #fff;
+            background-color: #313131;
+            transition: all 0.5s;
+        }
+
+        .grid-portfolio .load-more-button a:hover {
+            color: rgba(250, 250, 250, 0.5);
+        }
+    </style>
+
+    <style>
+        .single-logo-item img {
+            max-width: 180px;
+            margin: 0 auto;
+        }
+
+        .logo-carousel-section {
+            background-color: #f5f5f5;
+            padding: 50px 0;
+        }
+
+        .footer-area {
+            background-color: #4a9b38;
+            color: #fff;
+            padding: 150px 0;
+        }
+
+        h2.widget-title {
+            font-size: 24px;
+            font-weight: 500;
+            position: relative;
+            padding-bottom: 20px;
+            color: #fff;
+        }
+
+        h2.widget-title:after {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 20px;
+            height: 2px;
+            background-color: #FF69B4;
+            content: "";
+        }
+
+        .footer-box p {
+            color: #fff;
+            opacity: 0.7;
+            line-height: 1.8;
+        }
+
+        .footer-box ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .footer-box ul li {
+            opacity: 0.7;
+            margin-bottom: 10px;
+            line-height: 1.8;
+        }
+
+        .footer-box ul li:last-child {
+            margin-bottom: 0;
+        }
+
+        .footer-box.subscribe form input[type=email] {
+            border: none;
+            background-color: #012738;
+            width: 78%;
+            padding: 15px;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            color: #fff;
+        }
+
+        .footer-box.subscribe form button {
+            width: 20%;
+            border: none;
+            background-color: #012738;
+            color: #FF69B4;
+            padding: 14px 0;
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+            cursor: pointer;
+        }
+
+        .footer-box.subscribe form button:focus {
+            outline: none;
+        }
+
+        .copyright {
+            background-color: #4a9b38;
+            border-top: 1px solid #232a35;
+        }
+
+        .copyright p {
+            margin: 0;
+            color: #fff;
+            opacity: 0.7;
+            padding: 16px 0;
+            font-size: 15px;
+            width: 120%;
+        }
+
+        .copyright a {
+            color: #4a9b38;
+
+        }
+
+        .copyright a:hover {
+            color: #4a9b38;
+        }
+
+        .social-icons ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .social-icons ul li {
+            display: inline-block;
+        }
+
+        .social-icons ul li a {
+            font-size: 30px;
+            color: #fff;
+            opacity: 0.7;
+            padding: 16px 10px;
+            display: block;
+        }
+
+        .footer-box ul li a {
+            color: #fff;
+        }
+
+        .footer-box.pages ul li {
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .footer-box.pages ul li:before {
+            position: absolute;
+            left: 0;
+            top: 0;
+            content: "\f105";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            color: #FF69B4;
         }
     </style>
     <!-- footer -->
