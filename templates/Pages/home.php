@@ -63,7 +63,7 @@ if ($error = 404) {
     <!--PreLoader Ends-->
 
     <!-- header -->
-    <div class="top-header-area" id="sticker">
+    <div class="top-header-area" id="sticker" style="background-color: #1a4332; opacity: '5%';">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-sm-12 text-center">
