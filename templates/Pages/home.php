@@ -869,34 +869,40 @@ if ($error = 404) {
     <!-- end testimonial-section -->
 
 
-    <div id="instagram-gallery">
-        <a href="https://www.instagram.com/p/example1" target="_blank">
-            <img src="img/big_portfolio_item_2.png" alt="Instagram Image 1">
-        </a>
-        <a href="https://www.instagram.com/p/example2" target="_blank">
-            <img src="img/big_portfolio_item_3.png" alt="Instagram Image 2">
-        </a>
-        <a href="https://www.instagram.com/p/example2" target="_blank">
-            <img src="img/big_portfolio_item_4.png" alt="Instagram Image 2">
-        </a>
-        <a href="https://www.instagram.com/p/example2" target="_blank">
-            <img src="img/big_portfolio_item_5.png" alt="Instagram Image 2">
-        </a>
-        <a href="https://www.instagram.com/p/example2" target="_blank">
-            <img src="img/big_portfolio_item_6.png" alt="Instagram Image 2">
-        </a>
-        <a href="https://www.instagram.com/p/example2" target="_blank">
-            <img src="img/big_portfolio_item_7.png" alt="Instagram Image 2">
-        </a>
-        <a href="https://www.instagram.com/p/example2" target="_blank">
-            <img src="img/big_portfolio_item_8.png" alt="Instagram Image 2">
-        </a>
-        <a href="https://www.instagram.com/p/example2" target="_blank">
-            <img src="img/portfolio_item_1.png" alt="Instagram Image 2">
-        </a>
-        <a href="services.html" class="bordered-btn">Discover more</a>
-        <!-- Thêm nhiều hình ảnh khác -->
-    </div>
+    <section id="instagram-section">
+        <h2>Instagram Gallery</h2> <!-- Title -->
+        <div id="instagram-gallery">
+            <!-- First row -->
+            <a href="https://www.instagram.com/reel/C_K1uS9sY86/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank1">
+                <img src="img/big_portfolio_item_2.png" alt="Instagram Image 1">
+            </a>
+            <a href="https://www.instagram.com/reel/C-4iR4ZsAEK/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank2">
+                <img src="img/big_portfolio_item_3.png" alt="Instagram Image 2">
+            </a>
+            <a href="https://www.instagram.com/p/C-ZSV9vTbTX/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank3">
+                <img src="img/big_portfolio_item_4.png" alt="Instagram Image 3">
+            </a>
+            <a href="https://www.instagram.com/reel/C-KlGv2MuQ7/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank4">
+                <img src="img/big_portfolio_item_5.png" alt="Instagram Image 4">
+            </a>
+            <!-- Second row -->
+            <a href="https://www.instagram.com/p/example5" target="_blank">
+                <img src="img/big_portfolio_item_6.png" alt="Instagram Image 5">
+            </a>
+            <a href="https://www.instagram.com/p/example6" target="_blank">
+                <img src="img/big_portfolio_item_7.png" alt="Instagram Image 6">
+            </a>
+            <a href="https://www.instagram.com/p/example7" target="_blank">
+                <img src="img/big_portfolio_item_8.png" alt="Instagram Image 7">
+            </a>
+            <a href="https://www.instagram.com/p/example8" target="_blank">
+                <img src="img/portfolio_item_1.png" alt="Instagram Image 8">
+            </a>
+        </div>
+        <a href="https://www.instagram.com/adelaidebeautyandeducation" class="bordered-btn">Discover more</a>
+        <!-- Button "Discover more" -->
+    </section>
+
 
     <style>
         #instagram-gallery {
@@ -1657,6 +1663,80 @@ if ($error = 404) {
 
         a.cart-btn i {
             margin-right: 5px;
+        }
+
+        #instagram-section {
+            text-align: center;
+            /* Canh giữa tiêu đề và nút */
+            padding: 40px 20px;
+            /* Khoảng cách trên và dưới của section */
+            background-color: #f9f9f9;
+            /* Màu nền của section */
+        }
+
+        #instagram-section h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #333;
+            /* Màu chữ */
+            text-transform: uppercase;
+            /* Chữ in hoa */
+            font-weight: 700;
+            /* Chữ đậm */
+            letter-spacing: 2px;
+            /* Khoảng cách giữa các chữ */
+        }
+
+        #instagram-gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            max-width: 1150px;
+            margin: 0 auto 40px auto;
+            /* Canh giữa lưới ảnh và tạo khoảng cách dưới */
+            padding: 0 20px;
+        }
+
+        #instagram-gallery a {
+            display: block;
+            aspect-ratio: 1/1;
+            overflow: hidden;
+        }
+
+        #instagram-gallery img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            /* Bo góc các hình ảnh */
+            transition: transform 0.3s ease;
+        }
+
+        #instagram-gallery img:hover {
+            transform: scale(1.05);
+            /* Phóng to hình ảnh khi hover */
+        }
+
+        .bordered-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border: 2px solid #4a9b38;
+            /* Màu viền nút */
+            color: #4a9b38;
+            /* Màu chữ */
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 30px;
+            /* Bo góc nút */
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .bordered-btn:hover {
+            background-color: #4a9b38;
+            /* Màu nền khi hover */
+            color: #fff;
+            /* Màu chữ khi hover */
         }
     </style>
     <!-- jquery -->
