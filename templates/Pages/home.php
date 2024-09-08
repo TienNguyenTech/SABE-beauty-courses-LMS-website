@@ -49,8 +49,6 @@ if ($error = 404) {
     <link rel="stylesheet" href="assets/css/responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-
-
 </head>
 
 <body>
@@ -898,15 +896,23 @@ if ($error = 404) {
         <a href="https://www.instagram.com/p/example2" target="_blank">
             <img src="img/portfolio_item_1.png" alt="Instagram Image 2">
         </a>
-       
+
         <!-- Thêm nhiều hình ảnh khác -->
     </div>
 
     <style>
         #instagram-gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
+            /* 4 ảnh mỗi hàng */
             gap: 10px;
+            /* Khoảng cách giữa các ảnh */
+            padding: 0 20px;
+            /* Khoảng cách từ hai bên màn hình vào lưới ảnh */
+            max-width: 1200px;
+            /* Đặt giới hạn chiều rộng tối đa nếu cần */
+            margin: 0 auto;
+            /* Canh giữa lưới ảnh trong màn hình */
         }
 
         #instagram-gallery a {
