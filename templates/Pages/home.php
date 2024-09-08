@@ -989,6 +989,32 @@ if ($error = 404) {
         .grid-portfolio .load-more-button a:hover {
             color: rgba(250, 250, 250, 0.5);
         }
+
+        #instagram-gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            /* 4 ảnh mỗi hàng */
+            gap: 10px;
+            /* Khoảng cách giữa các ảnh */
+            padding: 0 20px;
+            /* Khoảng cách từ hai bên màn hình vào lưới ảnh */
+            max-width: 1000px;
+            /* Đặt giới hạn chiều rộng tối đa nếu cần */
+            margin: 0 auto;
+            /* Canh giữa lưới ảnh trong màn hình */
+        }
+
+        #instagram-gallery a {
+            display: block;
+            aspect-ratio: 1/1;
+            overflow: hidden;
+        }
+
+        #instagram-gallery img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     </style>
 
     <style>
