@@ -886,13 +886,13 @@ if ($error = 404) {
                 <img src="img/insta4.png" alt="Instagram Image 4">
             </a>
             <!-- Second row -->
-            <a href="https://www.instagram.com/p/example5" target="_blank">
+            <a href="https://www.instagram.com/reel/C9qkdBFsJkz/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank">
                 <img src="img/insta5.png" alt="Instagram Image 5">
             </a>
-            <a href="https://www.instagram.com/p/example6" target="_blank">
+            <a href="https://www.instagram.com/reel/C8oE7k3v3Pf/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==6" target="_blank">
                 <img src="img/insta6.png" alt="Instagram Image 6">
             </a>
-            <a href="https://www.instagram.com/p/example7" target="_blank">
+            <a href="https://www.instagram.com/reel/C8YYLK9vmBB/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank">
                 <img src="img/insta7.png" alt="Instagram Image 7">
             </a>
             <a href="https://www.instagram.com/p/example8" target="_blank">
