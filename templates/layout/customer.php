@@ -73,7 +73,7 @@
                         <!-- logo -->
                         <div class="site-logo">
                             <?= $this->Html->link(
-                                $this->ContentBlock->image('logo'),
+                                $this->ContentBlock->image('logo',['style' => 'width: 100px; height: 100px;']),
                                 ['controller' => 'Pages', 'action' => 'display', 'home'],
                                 ['escape' => false]
                             ) ?>
