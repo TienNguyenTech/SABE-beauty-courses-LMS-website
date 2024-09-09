@@ -48,6 +48,8 @@
 
     <script src="https://kit.fontawesome.com/5a7bde2211.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="assets/css/main.css">
+    <!-- mean menu css -->
+    <link rel="stylesheet" href="assets/css/meanmenu.min.css">
 </head>
 
 <body>
@@ -63,7 +65,7 @@
     <!--PreLoader Ends-->
 
     <!-- header -->
-    <div class="top-header-area" id="sticker">
+    <div class="top-header-area" id="sticker" style="background-color: #1a4332; opacity: 0.75;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-sm-12 text-center">
@@ -94,7 +96,6 @@
                                 <li><?= $this->Html->link("Contact Us", ['controller' => 'Enquirys', 'action' => 'add']) ?>
                                 </li>
 
-                                <ul class="header-nav">
                                     <li>
                                         <?php
                                         if ($this->Identity->isLoggedIn()) {
@@ -117,9 +118,8 @@
                                         }
                                         ?>
                                     </li>
-                                </ul>
-
                             </ul>
+
                         </nav>
                         <div class="mobile-menu"></div>
                         <!-- menu end -->
@@ -220,41 +220,6 @@
 
     <!-- end copyright -->
     <style>
-        .main-menu-wrap {
-            display: flex;
-
-        }
-
-        .main-menu ul {
-            display: flex;
-            /* Use flexbox to arrange items horizontally */
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-
-        .main-menu ul li {
-            margin: 0 5px;
-            /* Adjust this value to your desired spacing */
-            padding: 0;
-        }
-
-        .main-menu ul li a {
-            text-decoration: none;
-            color: #333;
-            /* Update this color to match your design */
-            font-weight: bold;
-            /* Optional: Make the font bold */
-        }
-
-        nav.main-menu ul li a {
-            color: #fff;
-            font-weight: 700;
-            display: block;
-            padding: 15px;
-        }
-
         .breadcrumb-section {
             background-color: #f5f5f5;
             /* Set a background color if needed */
@@ -321,7 +286,7 @@
 
         div.sticky-wrapper.is-sticky .top-header-area {
             background-color: #1B4332;
-            padding: 15px 0;
+           /*padding: 15px 0;*/
         }
 
         .cart-btn {
