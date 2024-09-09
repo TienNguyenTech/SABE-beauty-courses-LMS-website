@@ -65,7 +65,7 @@
     <!--PreLoader Ends-->
 
     <!-- header -->
-    <div class="top-header-area" id="sticker" style="background-color: #1a4332; opacity: 0.75;">
+    <div class="top-header-area" id="sticker" style="background-color: #1a4332; opacity: 0.85;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-sm-12 text-center">
@@ -91,8 +91,10 @@
 
                                 <li><?= $this->Html->link("Courses", ['controller' => 'Courses', 'action' => 'courses']) ?>
                                 </li>
+
                                 <li><?= $this->Html->link("Beauty By Lisa", ['controller' => 'BeautyByLisa', 'action' => 'services']) ?>
                                 </li>
+
                                 <li><?= $this->Html->link("Contact Us", ['controller' => 'Enquirys', 'action' => 'add']) ?>
                                 </li>
 
@@ -220,6 +222,41 @@
 
     <!-- end copyright -->
     <style>
+        .main-menu-wrap {
+            display: flex;
+
+        }
+
+        .main-menu ul {
+            display: flex;
+            /* Use flexbox to arrange items horizontally */
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+
+        .main-menu ul li {
+            /*margin: 0 5px;*/
+            /* Adjust this value to your desired spacing */
+            padding: 0;
+        }
+
+        .main-menu ul li a {
+            text-decoration: none;
+            color: #333;
+            /* Update this color to match your design */
+            font-weight: bold;
+            /* Optional: Make the font bold */
+        }
+
+        nav.main-menu ul li a {
+            color: #fff;
+            font-weight: 700;
+            display: block;
+            padding: 15px;
+        }
+
         .breadcrumb-section {
             background-color: #f5f5f5;
             /* Set a background color if needed */

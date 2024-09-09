@@ -119,21 +119,7 @@ if ($error = 404) {
                                     }
                                     ?>
                                 </li>
-                                </ul>
-                                <!--  <li><a href="#">Pages</a>
-                                <ul class="sub-menu">
-                                    <li><a href="about.html">About</a></li>
-                                    <li><a href="cart.html">Cart</a></li>
-                                    <li><a href="checkout.html">Check Out</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
-                                    <li><a href="news.html">News</a></li>
-                                    <li><a href="shop.html">Shop</a></li>
-                                </ul>
-                            </li> -->
-
-
-
-
+                            </ul>
                         </nav>
                         <div class="mobile-menu"></div>
                         <!-- menu end -->
