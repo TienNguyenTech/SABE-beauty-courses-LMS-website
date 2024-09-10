@@ -82,7 +82,7 @@ if ($error = 404) {
                         <!-- logo -->
 
                         <!-- menu start -->
-                        <nav class="main-menu">
+                        <nav class="main-menu" style="position: relative; top: 50%; -webkit-transform: translateY(50%); -ms-transform: translateY(50%); transform: translateY(50%);">
                             <ul>
                                 <li><?= $this->Html->link("Home", "/") ?></li>
 
@@ -97,7 +97,7 @@ if ($error = 404) {
                                 <li><?= $this->Html->link("Contact Us", ['controller' => 'Enquirys', 'action' => 'add']) ?>
                                 </li>
 
-                                <li>
+                                <li style="float: right">
                                     <?php
                                     if ($this->Identity->isLoggedIn()) {
                                         echo $this->Html->link(
@@ -105,6 +105,10 @@ if ($error = 404) {
                                             ['controller' => 'AdminDashboard', 'action' => 'dashboard'],
                                             ['class' => 'button button-outline']
                                         );
+                                        ?>
+                                    </li>
+                                    <li style="float: right">
+                                    <?php
                                         echo $this->Html->link(
                                             'Log out',
                                             ['controller' => 'Auth', 'action' => 'logout'],

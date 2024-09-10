@@ -25,16 +25,6 @@
     <meta name="description"
         content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
 
-
-
-    <script src="../assets/js/jquery.min.js"></script>
-    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="../assets/js/owl.carousel.min.js"></script>
-    <script src="../assets/js/jquery.magnific-popup.min.js"></script>
-    <script src="../assets/js/jquery.meanmenu.min.js"></script>
-    <script src="../assets/js/jquery.ajaxchimp.min.js"></script>
-    <script src="../assets/js/main.js"></script>
-
     <!-- Favicon-->
     <link href="<?= $this->Url->build('/img/favicon.png') ?>" type="image/x-icon" rel="icon">
     <!-- Including the shortcut icon ensures that all browsers, regardless of their version, will correctly find and use this favicon.  -->
@@ -47,9 +37,22 @@
     <?= $this->fetch('script') ?>
 
     <script src="https://kit.fontawesome.com/5a7bde2211.js" crossorigin="anonymous"></script>
+    <!-- fontawesome -->
+        <link rel="stylesheet" href="assets/css/all.min.css">
+        <!-- bootstrap -->
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+        <!-- owl carousel -->
+        <link rel="stylesheet" href="assets/css/owl.carousel.css">
+        <!-- magnific popup -->
+        <link rel="stylesheet" href="assets/css/magnific-popup.css">
+        <!-- animate css -->
+        <link rel="stylesheet" href="assets/css/animate.css">
+        <!-- mean menu css -->
+        <link rel="stylesheet" href="assets/css/meanmenu.min.css">
+
+    <?= $this->Html->css('main') ?>
     <link rel="stylesheet" href="assets/css/main.css">
-    <!-- mean menu css -->
-    <link rel="stylesheet" href="assets/css/meanmenu.min.css">
+
 </head>
 
 <body>
@@ -83,7 +86,7 @@
                         <!-- logo -->
 
                         <!-- menu start -->
-                        <nav class="main-menu">
+                        <nav class="main-menu" style="position: relative; top: 50%; -webkit-transform: translateY(50%); -ms-transform: translateY(50%); transform: translateY(50%);">
                             <ul>
 
                                 <li><?= $this->Html->link("Home", "/") ?></li>
@@ -98,28 +101,32 @@
                                 <li><?= $this->Html->link("Contact Us", ['controller' => 'Enquirys', 'action' => 'add']) ?>
                                 </li>
 
-                                    <li>
-                                        <?php
-                                        if ($this->Identity->isLoggedIn()) {
-                                            echo $this->Html->link(
-                                                'Dashboard',
-                                                ['controller' => 'AdminDashboard', 'action' => 'dashboard'],
-                                                ['class' => 'button button-outline']
-                                            );
-                                            echo $this->Html->link(
-                                                'Log out',
-                                                ['controller' => 'Auth', 'action' => 'logout'],
-                                                ['class' => 'button button-outline', 'onclick' => 'return confirm("Are you sure you want to leave?");']
-                                            );
-                                        } else {
-                                            echo $this->Html->link(
-                                                'Log in',
-                                                ['controller' => 'Auth', 'action' => 'login'],
-                                                ['class' => 'button button-outline']
-                                            );
-                                        }
+                                <li style="float: right">
+                                    <?php
+                                    if ($this->Identity->isLoggedIn()) {
+                                        echo $this->Html->link(
+                                            'Dashboard',
+                                            ['controller' => 'AdminDashboard', 'action' => 'dashboard'],
+                                            ['class' => 'button button-outline']
+                                        );
                                         ?>
                                     </li>
+                                    <li style="float: right">
+                                    <?php
+                                        echo $this->Html->link(
+                                            'Log out',
+                                            ['controller' => 'Auth', 'action' => 'logout'],
+                                            ['class' => 'button button-outline', 'onclick' => 'return confirm("Are you sure you want to leave?");']
+                                        );
+                                    } else {
+                                        echo $this->Html->link(
+                                            'Log in',
+                                            ['controller' => 'Auth', 'action' => 'login'],
+                                            ['class' => 'button button-outline']
+                                        );
+                                    }
+                                    ?>
+                                </li>
                             </ul>
 
                         </nav>
@@ -222,39 +229,51 @@
 
     <!-- end copyright -->
     <style>
-        .main-menu-wrap {
-            display: flex;
+        /*.main-menu-wrap {*/
+        /*    display: flex;*/
 
-        }
+        /*}*/
 
-        .main-menu ul {
-            display: flex;
-            /* Use flexbox to arrange items horizontally */
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
+        /*.main-menu ul {*/
+        /*    display: flex;*/
+        /*    !* Use flexbox to arrange items horizontally *!*/
+        /*    list-style: none;*/
+        /*    padding: 0;*/
+        /*    margin: 0;*/
+        /*}*/
 
 
-        .main-menu ul li {
-            /*margin: 0 5px;*/
-            /* Adjust this value to your desired spacing */
-            padding: 0;
-        }
+        /*.main-menu ul li {*/
+        /*    !*margin: 0 5px;*!*/
+        /*    !* Adjust this value to your desired spacing *!*/
+        /*    padding: 0;*/
+        /*}*/
 
-        .main-menu ul li a {
-            text-decoration: none;
-            color: #333;
-            /* Update this color to match your design */
-            font-weight: bold;
-            /* Optional: Make the font bold */
-        }
+        /*.main-menu ul li a {*/
+        /*    text-decoration: none;*/
+        /*    color: #333;*/
+        /*    !* Update this color to match your design *!*/
+        /*    font-weight: bold;*/
+        /*    !* Optional: Make the font bold *!*/
+        /*}*/
+
+        /*nav.main-menu ul li a {*/
+        /*    color: #fff;*/
+        /*    font-weight: 700;*/
+        /*    display: block;*/
+        /*    padding: 15px;*/
+        /*}*/
 
         nav.main-menu ul li a {
             color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
             font-weight: 700;
             display: block;
             padding: 15px;
+        }
+
+        nav.main-menu ul li a:hover {
+            color: #4a9b38;
         }
 
         .breadcrumb-section {
@@ -297,8 +316,6 @@
         }
 
         .site-logo {
-            margin-right: 450px;
-            /* Adjust this value to increase spacing */
             float: left;
             max-width: 150px;
             padding: 6px 0;
@@ -1083,6 +1100,14 @@
             opacity: 0.8;
         }
     </style>
+
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/js/owl.carousel.min.js"></script>
+    <script src="../assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="../assets/js/jquery.meanmenu.min.js"></script>
+    <script src="../assets/js/jquery.ajaxchimp.min.js"></script>
+    <script src="../assets/js/main.js"></script>
 </body>
 
 </html>
