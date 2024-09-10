@@ -55,7 +55,7 @@ if ($error = 404) {
 
     <!--PreLoader-->
     <div class="loader">
-        <img src="<?= $this->Url->image('../webroot/img/login-logo-green.png') ?>" alt="SABE Logo" class="logo-image">
+        <?= $this->ContentBlock->image('logo-dark', ['alt' => 'South Adelaide Beauty and Education logo', 'class' => 'logo-image']) ?>
         <div class="loader-inner">
             <div class="circle"></div>
         </div>
@@ -1359,16 +1359,14 @@ if ($error = 404) {
         }
 
         .logo-image {
-            position: absolute;
-            top: 20%;
             /* Adjust to position the image above the spinner */
             z-index: 1112;
             /* Ensure the image is above the spinner */
-            max-width: 300px;
+            width: 300px;
             /* Adjust size as needed */
-            max-height: 200px;
-            /* Adjust size as needed */
-            margin-left: 650px;
+            height: 300px;
+            margin: 200px auto auto;
+            display: block;
         }
 
         .loader-inner {
