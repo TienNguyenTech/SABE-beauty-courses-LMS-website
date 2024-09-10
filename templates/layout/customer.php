@@ -55,6 +55,42 @@
 
 </head>
 
+<style>
+    /* General styles for header area */
+    .top-header-area {
+        width: 100%;
+        padding: 10px 0;
+    }
+    div.footer-area {
+        max-height: 400px;
+    }
+
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+       body .top-header-area {
+            width: 100%;
+            padding: 0px 0;
+        }
+        .site-logo {
+            display: none;
+        }
+    }
+    /* Media query for mobile devices */
+    @media only screen and (max-width: 767.96px) {
+        body .top-header-area {
+            width: 100%;
+            padding: 0px 0;
+        }
+        .site-logo {
+            display: none; /* Hide the logo in mobile mode */
+        }
+        div.footer-area {
+            max-height: 750px;
+        }
+        .social-icons.footer-box.subscribe {
+            margin: 0;
+        }
+    }
+</style>
 <body>
 
 
@@ -148,7 +184,7 @@
     <div class="footer-area">
         <div class="container" style="text-align: left;">
             <div class="row">
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6 col-12">
                     <div class="footer-box get-in-touch">
                         <h2 class="widget-title">Get in Touch</h2>
                         <ul>
@@ -162,7 +198,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6 col-12">
                     <div class="footer-box pages">
                         <h2 class="widget-title">Pages</h2>
                         <ul>
@@ -176,14 +212,14 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6 col-12">
                     <div class="footer-box subscribe">
                         <h2 class="widget-title">Opening Hours</h2>
                         <p>Monday to Friday: 9:30 - 20:00</p>
 
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6 col-12">
                     <div class="social-icons footer-box subscribe">
                         <ul>
                             <li><a href="https://www.facebook.com/adelaidebeautyandeducation" target="_blank"><i
@@ -689,9 +725,6 @@
             padding: 150px 0px;
         }
 
-        div.footer-area {
-            max-height: 400px;
-        }
 
         .copyright {
             background-color: #1a4332;
