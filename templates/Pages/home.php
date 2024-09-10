@@ -56,7 +56,9 @@ if ($error = 404) {
         width: 100%;
         padding: 10px 0;
     }
-
+    div.footer-area {
+        max-height: 400px;
+    }
 
     @media only screen and (min-width: 768px) and (max-width: 991px) {
         .top-header-area {
@@ -75,6 +77,12 @@ if ($error = 404) {
         }
         .site-logo {
             display: none; /* Hide the logo in mobile mode */
+        }
+        div.footer-area {
+            max-height: 750px;
+        }
+        .social-icons.footer-box.subscribe {
+            margin: 0;
         }
     }
 </style>
