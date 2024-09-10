@@ -26,8 +26,7 @@ $this->layout = 'empty';
             <div class="users form content cardhidden">
 
 
-                <img src="<?= $this->Url->image('../webroot/img/login-logo-green.png') ?>" alt="SABE Logo"
-                    class="logo-image">
+                <?= $this->ContentBlock->image('logo-dark', ['class' => 'logo-image','width' => '200px', 'height' => '200px']) ?>
                 <?= $this->Form->create() ?>
 
                 <fieldset>

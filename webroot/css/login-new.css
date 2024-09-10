@@ -57,7 +57,7 @@ body {
     justify-content: center;
     border-radius: 8px;
     box-shadow: 0 2px 8px -2px;
-    
+
 }
 
 .content {
@@ -119,15 +119,13 @@ body {
 
 
 .button-clear {
-
+    display: block;
+    width: 100%;
     text-decoration: none;
-
+    text-align: center;
     color: #4a9b38;
 
     font-size: 14px;
-
-    padding-left: 130px;
-    margin-top: -10px;
 
 }
 
@@ -153,10 +151,10 @@ body {
 
 
 .logo-image {
-    width: 150px;
-    height: 100px;
+    display: block;
+    width: 200px;
+    height: 200px;
     margin: 0 auto;
-    padding-left: 232px;
     margin-bottom: 30px;
 
 }
@@ -171,6 +169,7 @@ body {
     font-size: 36px;
     font-weight: bold;
     font-family: 'Arial', sans-serif;
+    width: 100%;
     /* You can change the font-family to something more beautiful */
     color: #333;
     /* Adjust the color as needed */
@@ -215,12 +214,10 @@ body {
 }
 
 .centered-button {
-    justify-items: center;
+    display: block;
     width: 350px;
+    margin: auto;
     align-items: center;
-
-    margin-top: 20px;
-    margin-left: 130px;
     border-radius: 10px;
 }
 
@@ -340,8 +337,10 @@ body {
 }
 
 .g-recaptcha{
-    margin-left: 135px;
-  
+    display: block;
+    width: 304px;
+    margin: auto;
+
 }
 
 .back-home-link {
