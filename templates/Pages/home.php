@@ -50,7 +50,85 @@ if ($error = 404) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 </head>
+<style>
+    /* General styles for header area */
+    .top-header-area {
+        width: 100%;
+        padding: 10px 0;
+    }
 
+
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+        .top-header-area {
+            width: 100%;
+            padding: 0px 0;
+        }
+        .site-logo {
+            display: none;
+        }
+    }
+    /* Media query for mobile devices */
+    @media only screen and (max-width: 767.96px) {
+        .top-header-area {
+            width: 100%;
+            padding: 0px 0;
+        }
+        .site-logo {
+            display: none; /* Hide the logo in mobile mode */
+        }
+    }
+</style>
+<style>
+    .hero-btns {
+        display: flex;
+        justify-content: center;
+        /* Centers the buttons horizontally */
+        gap: 10px;
+        /* Adds space between the buttons */
+        margin: 20px 0;
+        /* Optional: Adds vertical spacing around the button container */
+    }
+
+    .link-container {
+        margin: 0;
+        /* Ensures no extra margin around each button */
+    }
+
+    .boxed-btn {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 1em;
+        font-weight: bold;
+        color: #fff;
+
+        border-radius: 5px;
+        text-decoration: none;
+        text-align: center;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .boxed-btn:hover {
+        background-color: #4a9b38;
+        color: #fff;
+    }
+
+    .boxed-btn:active {
+        background-color: #4a9b38;
+    }
+</style>
+<style>
+    .hero-text-tablecell h1 {
+        text-align: center;
+    }
+
+    .single-homepage-slider:after {
+        background-color: transparent;
+    }
+
+    .sticky-wrapper.is-sticky .top-header-area {
+        background-color: #1a4332;
+    }
+</style>
 <body>
 
     <!--PreLoader-->
@@ -168,58 +246,6 @@ if ($error = 404) {
         window.onload = showPopup;
     </script>
 
-
-    <style>
-        .hero-btns {
-            display: flex;
-            justify-content: center;
-            /* Centers the buttons horizontally */
-            gap: 10px;
-            /* Adds space between the buttons */
-            margin: 20px 0;
-            /* Optional: Adds vertical spacing around the button container */
-        }
-
-        .link-container {
-            margin: 0;
-            /* Ensures no extra margin around each button */
-        }
-
-        .boxed-btn {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 1em;
-            font-weight: bold;
-            color: #fff;
-
-            border-radius: 5px;
-            text-decoration: none;
-            text-align: center;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        .boxed-btn:hover {
-            background-color: #4a9b38;
-            color: #fff;
-        }
-
-        .boxed-btn:active {
-            background-color: #4a9b38;
-        }
-    </style>
-    <style>
-        .hero-text-tablecell h1 {
-            text-align: center;
-        }
-
-        .single-homepage-slider:after {
-            background-color: transparent;
-        }
-
-        .sticky-wrapper.is-sticky .top-header-area {
-            background-color: #1a4332;
-        }
-    </style>
     <!-- home page slider -->
     <div class="homepage-slider">
         <!-- single home slider -->
@@ -1135,7 +1161,7 @@ if ($error = 404) {
     <div class="footer-area">
         <div class="container" style="text-align: left;">
             <div class="row">
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6 col-12">
                     <div class="footer-box get-in-touch">
                         <h2 class="widget-title">Get in Touch</h2>
                         <ul>
@@ -1149,7 +1175,7 @@ if ($error = 404) {
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6 col-12">
                     <div class="footer-box pages">
                         <h2 class="widget-title">Pages</h2>
                         <ul>
@@ -1163,14 +1189,14 @@ if ($error = 404) {
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6 col-12">
                     <div class="footer-box subscribe">
                         <h2 class="widget-title">Opening Hours</h2>
                         <p>Monday to Friday: 9:30 - 20:00</p>
 
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6 col-12">
                     <div class="social-icons footer-box subscribe">
                         <ul>
                             <li><a href="https://www.facebook.com/adelaidebeautyandeducation" target="_blank"><i
@@ -1222,10 +1248,6 @@ if ($error = 404) {
         .footer-area {
             background-color: #1a4332;
             padding: 150px 0px;
-        }
-
-        div.footer-area {
-            max-height: 400px;
         }
 
         .copyright {
