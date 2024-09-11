@@ -417,7 +417,7 @@ if ($error = 404) {
                         </p>
 
                         <div class="welcome-one__btn-box">
-                            <a href="services.html" class="bordered-btn">Discover more</a>
+                            <a href="services.html" class="bordered-btn" style="margin-left:0px;">Discover more</a>
                         </div>
                     </div>
                 </div>
@@ -820,10 +820,10 @@ if ($error = 404) {
                                     <?= h($course->course_price); ?>$
                                 </p>
                                 <a href="<?= $this->Url->build(['controller' => 'Courses', 'action' => 'view', $course->course_id]) ?>"
-                                    class="cart-btn" style="margin-bottom: 10px"><i class="fas fa-info-circle"></i> View
+                                    class="bordered-btn" style="margin-bottom: 10px"><i class="fas fa-info-circle"></i> View
                                     More</a>
                                 <a href="<?= $this->Url->build(['controller' => 'Payments', 'action' => 'checkout', $course->course_id]) ?>"
-                                    class="cart-btn"><i class="fas fa-user-graduate"></i> Enroll Now</a>
+                                    class="bordered-btn"><i class="fas fa-user-graduate"></i> Enroll Now</a>
                             </div>
                         </div>
                     <?php endif; ?>
@@ -1863,7 +1863,7 @@ if ($error = 404) {
 
         a.cart-btn:hover {
             background-color: #1a4332;
-            color: #4a9b38;
+            color: white;
         }
 
         a.cart-btn {
@@ -1945,6 +1945,8 @@ if ($error = 404) {
             /* Bo góc nút */
             transition: all 0.3s ease;
             font-size: 1rem;
+            width: 150px;
+            margin-left: 100px;
         }
 
         .bordered-btn:hover {
