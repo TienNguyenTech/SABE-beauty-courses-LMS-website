@@ -413,7 +413,7 @@ if ($error = 404) {
                         </p>
 
                         <div class="welcome-one__btn-box">
-                            <a href="services.html" class="bordered-btn">Discover more</a>
+                            <a href="<?= $this->Url->build(['controller' => 'BeautyByLisa', 'action' => 'services']) ?>" class="bordered-btn">Discover more</a>
                         </div>
                     </div>
                 </div>
