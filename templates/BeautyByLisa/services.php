@@ -1,3 +1,10 @@
+<?php
+/**
+* @var \App\View\AppView $this
+ * @var iterable<\App\Model\Entity\Service> $services
+ */
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,7 +36,7 @@
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 
-    
+
 
     <style>
         /* Custom Styles */
