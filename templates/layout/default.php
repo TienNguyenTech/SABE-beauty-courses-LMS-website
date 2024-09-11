@@ -106,6 +106,9 @@ if ($flashMessage):
             <a class="nav-link" href="<?= $this->Url->build(['plugin' => null, 'controller' => 'Courses', 'action' => 'index']) ?>">
                 <i class="fas fa-fw fa-book-open"></i>
                 <span>Courses</span></a>
+            <a class="nav-link" href="<?= $this->Url->build(['plugin' => null, 'controller' => 'Services', 'action' => 'index']) ?>">
+                <i class="fas fa-fw fa-shopping-bag"></i>
+                <span>Services</span></a>
             <a class="nav-link" href="<?= $this->Url->build(['plugin' => null, 'controller' => 'Users', 'action' => 'index']) ?>">
                 <i class="fas fa-fw fa-user"></i>
                 <span>Users</span></a>
