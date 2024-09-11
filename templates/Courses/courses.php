@@ -54,8 +54,6 @@
 
             /* Space between product items */
             align-items: center;
-            /* Center items vertically */
-            margin-left: 10%;
 
         }
 
