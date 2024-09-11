@@ -38,34 +38,18 @@
 <h1 class="h3 mb-2 text-gray-800">Student Dashboard</h1>
 
 <div class="dashboard-container">
-    <!-- Functional Card 1 -->
 
-    <div class="dashboard-card">
-        <h2>Enquiries</h2>
-        <p>View all enquiries here</p>
-        <!-- Link to feature -->
-        <a href="<?= $this->Url->build(['controller'=>'Enquirys','action'=>'index']) ?>">Go to Enquiries</a>
-    </div>
-
-    <!-- Functional Card 2 -->
     <div class="dashboard-card">
         <h2>Courses</h2>
-        <p>Manage all courses here</p>
+        <p>View all courses here</p>
         <a href="<?= $this->Url->build(['controller'=>'Courses','action'=>'index']) ?>">Go to Courses</a>
     </div>
 
     <div class="dashboard-card">
-        <h2>Users</h2>
-        <p>Manage all users here</p>
-        <a href="<?= $this->Url->build(['controller'=>'Users','action'=>'index']) ?>">Go to Users</a>
+        <h2>Profile</h2>
+        <p>View my profile</p>
+        <a href="<?= $this->Url->build(['controller'=>'Users','action'=>'index']) ?>">Go to Profile</a>
     </div>
-
-    <div class="dashboard-card">
-        <h2>Payments</h2>
-        <p>Manage all payments here</p>
-        <a href="<?= $this->Url->build(['controller' => 'Payments', 'action' => 'index']) ?>">Go to Payments</a>
-    </div>
-
 
 
     <!-- Empty Card -->
