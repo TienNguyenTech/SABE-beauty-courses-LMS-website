@@ -17,12 +17,12 @@ echo $this->Form->control('service_name', [
 ]);
 echo h('Category') . ' <span style="color: red;">*</span>';
 echo $this->Form->select('service_category', [
-    'Lash & Brow Treatments',
-    'Hair Removal',
-    'Spray Tan',
-    'Skincare Treatments',
-    'Massage Treatments',
-    'Foot Treatments'
+    'Lash & Brow Treatments' => 'Lash & Brow Treatments',
+    'Hair Removal' => 'Hair Removal',
+    'Spray Tan' => 'Spray Tan',
+    'Skincare Treatments' => 'Skincare Treatments',
+    'Massage Treatments' => 'Massage Treatments',
+    'Foot Treatments' => 'Foot Treatments'
 ]);
 
 echo $this->Form->control('service_price', [
