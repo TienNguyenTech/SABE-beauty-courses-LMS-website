@@ -25,8 +25,15 @@ class BeautyByLisaController extends AppController
 
         $services = $this->Services->find()->toArray();
 
+        $groupedServices = [];
+
+        // Group services by category into new array
+        foreach ($services as $service) {
+            $groupedServices[$service->service_category][] = $service;
+        }
+
         $this->set('title', 'Beauty by Lisa Follett');
-        $this->set(compact('services'));
+        $this->set(compact('services', 'groupedServices'));
     }
 
 }
