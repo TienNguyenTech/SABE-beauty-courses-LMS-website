@@ -54,7 +54,8 @@ if ($error = 404) {
     /* General styles for header area */
     .top-header-area {
         width: 100%;
-        padding: 10px 0;
+        padding: 5px 0;
+        height: 70px;
     }
     div.footer-area {
         max-height: 400px;
@@ -157,7 +158,7 @@ if ($error = 404) {
                         <!-- logo -->
                         <div class="site-logo">
                             <?= $this->Html->link(
-                                $this->ContentBlock->image('logo',['style' => 'width: 100px; height: 100px;']),
+                                $this->ContentBlock->image('logo',['style' => 'width: 45px; height: 45px;']),
                                 '/',
                                 ['escape' => false]
                             ) ?>
@@ -168,49 +169,40 @@ if ($error = 404) {
                         <!-- logo -->
 
                         <!-- menu start -->
-                        <nav class="main-menu" style="position: relative; top: 50%; -webkit-transform: translateY(50%); -ms-transform: translateY(50%); transform: translateY(50%);">
-                            <ul>
-                                <li><?= $this->Html->link("Home", "/") ?></li>
+                        <nav class="main-menu" style="position: relative; top: 0; -webkit-transform: translateY(10%); -ms-transform: translateY(10%); transform: translateY(10%);">
+    <ul>
+        <li><?= $this->Html->link("Home", "/") ?></li>
+        <li><?= $this->Html->link("Courses", ['controller' => 'Courses', 'action' => 'courses']) ?></li>
+        <li><?= $this->Html->link("Beauty By Lisa", ['controller' => 'BeautyByLisa', 'action' => 'services']) ?></li>
+        <li><?= $this->Html->link("Contact Us", ['controller' => 'Enquirys', 'action' => 'add']) ?></li>
+        <li style="float: right">
+            <?php if ($this->Identity->isLoggedIn()) {
+                echo $this->Html->link(
+                    'Dashboard',
+                    ['controller' => 'AdminDashboard', 'action' => 'dashboard'],
+                    ['class' => 'button button-outline']
+                );
+            ?>
+        </li>
+        <li style="float: right">
+            <?php
+                echo $this->Html->link(
+                    'Log out',
+                    ['controller' => 'Auth', 'action' => 'logout'],
+                    ['class' => 'button button-outline', 'onclick' => 'return confirm("Are you sure you want to leave?");']
+                );
+            } else {
+                echo $this->Html->link(
+                    'Log in',
+                    ['controller' => 'Auth', 'action' => 'login'],
+                    ['class' => 'button button-outline']
+                );
+            }
+            ?>
+        </li>
+    </ul>
+</nav>
 
-
-                                <li><?= $this->Html->link("Courses", ['controller' => 'Courses', 'action' => 'courses']) ?>
-                                </li>
-
-
-                                <li><?= $this->Html->link("Beauty By Lisa", ['controller' => 'BeautyByLisa', 'action' => 'services']) ?>
-                                </li>
-
-                                <li><?= $this->Html->link("Contact Us", ['controller' => 'Enquirys', 'action' => 'add']) ?>
-                                </li>
-
-                                <li style="float: right">
-                                    <?php
-                                    if ($this->Identity->isLoggedIn()) {
-                                        echo $this->Html->link(
-                                            'Dashboard',
-                                            ['controller' => 'AdminDashboard', 'action' => 'dashboard'],
-                                            ['class' => 'button button-outline']
-                                        );
-                                        ?>
-                                    </li>
-                                    <li style="float: right">
-                                    <?php
-                                        echo $this->Html->link(
-                                            'Log out',
-                                            ['controller' => 'Auth', 'action' => 'logout'],
-                                            ['class' => 'button button-outline', 'onclick' => 'return confirm("Are you sure you want to leave?");']
-                                        );
-                                    } else {
-                                        echo $this->Html->link(
-                                            'Log in',
-                                            ['controller' => 'Auth', 'action' => 'login'],
-                                            ['class' => 'button button-outline']
-                                        );
-                                    }
-                                    ?>
-                                </li>
-                            </ul>
-                        </nav>
                         <div class="mobile-menu"></div>
                         <!-- menu end -->
                     </div>
