@@ -121,7 +121,7 @@
                         <!-- logo -->
                         <div class="site-logo" style="margin-top: -20px;">
                             <?= $this->Html->link(
-                                $this->ContentBlock->image('logo', ['style' => 'width: 45px; height: 45px;']),
+                                $this->ContentBlock->image('logo', ['style' => 'width: 50px; height: 50px;']),
                                 ['controller' => 'Pages', 'action' => 'display', 'home'],
                                 ['escape' => false]
                             ) ?>
@@ -364,6 +364,9 @@
             float: left;
             max-width: 150px;
             padding: 6px 0;
+            pointer-events: auto;
+            position: relative;
+            z-index: 10;
         }
 
         .header-icons {
