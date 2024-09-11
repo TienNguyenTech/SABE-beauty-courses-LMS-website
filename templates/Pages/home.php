@@ -791,9 +791,9 @@ if ($error = 404) {
     </style>
     <!-- product section -->
     <div class="product-section mt-50 mb-150">
-        <div class="container">
+        <div class="container" style="margin-bottom: -40px">
             <div class="row">
-                <div class="col-lg-8 offset-lg-2 text-center">
+                <div class="col-lg-8 offset-lg-2 text-center" style="margin-bottom: -40px; margin-top:40px">
                     <div class="section-title">
                         <h3><span class="orange-text">Featured</span> Courses</h3>
                         <p>Explore our diverse range of programs designed to elevate your skills and prepare you for a
