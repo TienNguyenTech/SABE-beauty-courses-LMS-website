@@ -23,8 +23,7 @@ $this->assign('title', 'Reset Password');
             <div class="users form content cardhidden">
 
 
-                <img src="<?= $this->Url->image('../webroot/img/login-logo-green.png') ?>" alt="SABE Logo"
-                    class="logo-image">
+                <?= $this->ContentBlock->image('logo-dark', ['class' => 'logo-image','width' => '200px', 'height' => '200px']) ?>
                 <?= $this->Form->create() ?>
 
                 <fieldset>
@@ -50,7 +49,7 @@ $this->assign('title', 'Reset Password');
                         'style' => 'color: black; width: 350px; border-radius: 10px; font-size: 16px; cursor: pointer; margin-left: 115px;',
                     ]);
                     ?>
-                    
+
                     <div class="g-recaptcha" data-sitekey="6Lc7pCgqAAAAAJkUyRxxVhuFmd9v-5Pk-vtPtsUf"
                                                                 data-callback="onRecaptchaSuccess"></div>
 

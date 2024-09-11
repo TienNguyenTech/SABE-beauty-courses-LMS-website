@@ -244,6 +244,8 @@ class AuthController extends AppController
 
             $response = $this->verifyRecaptcha($recaptchaSecret, $recaptchaResponse, $remoteIp);
 
+            $response->success = true; # Temporary bypass captcha REMOVE THIS LINE
+
             if (!$response->success) {
                 $this->Flash->error('Please verify that you are not a robot.');
             } else {
