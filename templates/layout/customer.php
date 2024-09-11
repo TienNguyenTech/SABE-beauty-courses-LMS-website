@@ -848,7 +848,7 @@
         .footer-box.subscribe form button {
             width: 20%;
             border: none;
-            background-color: #;
+            background-color: #1a4332;
             color: #4a9b38;
             padding: 14px 0;
             border-top-right-radius: 3px;
