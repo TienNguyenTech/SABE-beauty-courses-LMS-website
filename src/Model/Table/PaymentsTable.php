@@ -43,8 +43,13 @@ class PaymentsTable extends Table
         $this->setDisplayField('payment_id');
         $this->setPrimaryKey('payment_id');
 
-        $this->belongsTo('Bookings', [
-            'foreignKey' => 'booking_id',
+        $this->belongsTo('Courses', [
+            'foreignKey' => 'course_id',
+            'joinType' => 'INNER',
+        ]);
+
+        $this->belongsTo('Users', [
+            'foreignKey' => 'user_id',
             'joinType' => 'INNER',
         ]);
     }
@@ -68,8 +73,12 @@ class PaymentsTable extends Table
             ->notEmptyDateTime('payment_datetime');
 
         $validator
-            ->integer('booking_id')
-            ->notEmptyString('booking_id');
+            ->integer('course_id')
+            ->notEmptyString('course_id');
+
+        $validator
+            ->integer('user_id')
+            ->notEmptyString('user_id');
 
         $validator
             ->scalar('checkout_id')
@@ -96,7 +105,8 @@ class PaymentsTable extends Table
      */
     public function buildRules(RulesChecker $rules): RulesChecker
     {
-        $rules->add($rules->existsIn(['booking_id'], 'Bookings'), ['errorField' => 'booking_id']);
+        $rules->add($rules->existsIn(['course_id'], 'Courses'), ['errorField' => 'course_id']);
+        $rules->add($rules->existsIn(['user_id'], 'Users'), ['errorField' => 'user_id']);
 
         return $rules;
     }

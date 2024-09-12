@@ -6,19 +6,20 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Payment Entity
+ * Content Entity
  *
- * @property int $payment_id
- * @property string $payment_amount
- * @property \Cake\I18n\DateTime $payment_datetime
+ * @property int $content_id
  * @property int $course_id
- * @property int $user_id
- * @property string $checkout_id
- * @property string $payment_email
- * @property int $payment_seen
- * @property boolean $archived
+ * @property string $content_type
+ * @property string $content_url
+ * @property string $content_title
+ * @property string|null $content_description
+ * @property int $content_position
+ * @property bool $archived
+ *
+ * @property \App\Model\Entity\Course $course
  */
-class Payment extends Entity
+class Content extends Entity
 {
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -30,13 +31,13 @@ class Payment extends Entity
      * @var array<string, bool>
      */
     protected array $_accessible = [
-        'payment_amount' => true,
-        'payment_datetime' => true,
         'course_id' => true,
-        'user_id' => true,
-        'checkout_id' => true,
-        'payment_email' => true,
-        'payment_seen' => true,
-        'archived' => true
+        'content_type' => true,
+        'content_url' => true,
+        'content_title' => true,
+        'content_description' => true,
+        'content_position' => true,
+        'archived' => true,
+        'course' => true,
     ];
 }

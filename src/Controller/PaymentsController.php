@@ -14,12 +14,12 @@ use Cake\Mailer\Mailer;
  *
  * @property \App\Model\Table\PaymentsTable $Payments
  * @property \App\Model\Table\CoursesTable $Courses
- * @property \App\Model\Table\BookingsTable $Bookings
+ * @property \App\Model\Table\UsersTable $Users
  */
 class PaymentsController extends AppController
 {
     private \Cake\ORM\Table $Courses;
-    private \Cake\ORM\Table $Bookings;
+    private \Cake\ORM\Table $Users;
 
         public function initialize(): void
     {
@@ -27,7 +27,7 @@ class PaymentsController extends AppController
 
         $this->Authentication->allowUnauthenticated(['checkout','success', 'fail']);
         $this->Courses= TableRegistry::getTableLocator()->get('Courses');
-        $this->Bookings= TableRegistry::getTableLocator()->get('Bookings');
+        $this->Users = TableRegistry::getTableLocator()->get('Users');
 
     }
     /**
@@ -38,7 +38,7 @@ class PaymentsController extends AppController
     public function index()
     {
         $query = $this->Payments->find()
-            ->contain(['Bookings']);
+            ->contain(['Courses', 'Users']);
         $payments = $this->paginate($query);
 
         $courses = $this->Courses->find()->toArray();
@@ -142,21 +142,17 @@ class PaymentsController extends AppController
             ],
         ];
 
-        $booking = $this->Bookings->newEmptyEntity();
-
-        $booking = $this->Bookings->patchEntity($booking, [
-            'course_id' => $course_id,
-            'booking_type' => 'online'
-        ]);
-
-        $this->Bookings->save($booking);
+        // Get user id for payment
+        $user = $this->Authentication->getIdentity();
+        $userID = $user->user_id;
 
         $payment = $this->Payments->newEmptyEntity();
 
         $payment = $this->Payments->patchEntity($payment, [
             'payment_amount' => $this->Courses->get($course_id)['course_price'],
             'payment_datetime' => new \DateTime(),
-            'booking_id' => $booking->booking_id
+            'course_id' => $course_id,
+            'user_id' => $userID
         ]);
 
         $this->Payments->save($payment);
@@ -173,7 +169,8 @@ class PaymentsController extends AppController
         $payment = $this->Payments->patchEntity($payment, [
             'payment_amount' => $this->Courses->get($course_id)['course_price'],
             'payment_datetime' => new \DateTime(),
-            'booking_id' => $booking->booking_id,
+            'course_id' => $course_id,
+            'user_id' => $userID,
             'checkout_id' => $checkout_session['id']
         ]);
 
@@ -203,8 +200,10 @@ class PaymentsController extends AppController
 
         $customer = $stripe->customers->retrieve($session->customer);
 
+        $customer = $this->Users->get($payment->user_id);
+
         $email = $customer->email;
-        $name = $customer->name;
+        $name = $customer->user_firstname . ' ' . $customer->user_surname;
 
         $payment->payment_email = $email;
 
@@ -225,7 +224,6 @@ class PaymentsController extends AppController
             'name' => $name
         ]);
 
-
         try {
             $email_result = $mailer->deliver();
 
@@ -233,13 +231,11 @@ class PaymentsController extends AppController
                 $this->set('message', 'Thank you for your payment! You will receive your login credentials within 24 hours!');
             } else {
                 $this->set('message', 'Payment confirmation failed to send, please ensure that you have entered the correct email address.');
-                $this->Bookings->delete($this->Bookings->get($payment->booking_id));
                 $this->Payments->delete($payment);
 
                 return $this->redirect(['action' => 'fail']);
             }
         } catch (\Throwable $th) {
-            $this->Bookings->delete($this->Bookings->get($payment->booking_id));
             $this->Payments->delete($payment);
 
             return $this->redirect(['action' => 'fail']);
