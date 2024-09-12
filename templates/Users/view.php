@@ -31,37 +31,6 @@
                 </tbody>
             </table>
             <div class="related">
-                <h4><?= __('Related Bookings') ?></h4>
-                <?php if (!empty($user->bookings)) : ?>
-                    <div class="table-responsive">
-                        <table class="table table-striped">
-                            <thead>
-                            <tr>
-                                <th><?= __('Booking Id') ?></th>
-                                <th><?= __('Course Id') ?></th>
-                                <th><?= __('Booking Type') ?></th>
-                                <th class="actions"><?= __('Actions') ?></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <?php foreach ($user->bookings as $booking) : ?>
-                                <tr>
-                                    <td><?= h($booking->booking_id) ?></td>
-                                    <td><?= h($booking->course_id) ?></td>
-                                    <td><?= h($booking->booking_type) ?></td>
-                                    <td class="actions">
-                                        <?= $this->Html->link(__('View'), ['controller' => 'Bookings', 'action' => 'view', $booking->booking_id]) ?>
-                                        <?= $this->Html->link(__('Edit'), ['controller' => 'Bookings', 'action' => 'edit', $booking->booking_id]) ?>
-                                        <?= $this->Form->postLink(__('Delete'), ['controller' => 'Bookings', 'action' => 'delete', $booking->booking_id], ['confirm' => __('Are you sure you want to delete # {0}?', $booking->booking_id)]) ?>
-                                    </td>
-                                </tr>
-                            <?php endforeach; ?>
-                            </tbody>
-                        </table>
-                    </div>
-                <?php endif; ?>
-            </div>
-            <div class="related">
                 <h4><?= __('Related Courses') ?></h4>
                 <?php if (!empty($user->courses)) : ?>
                     <div class="table-responsive">
