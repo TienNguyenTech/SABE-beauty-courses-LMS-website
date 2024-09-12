@@ -82,8 +82,8 @@ class ResponsesTable extends Table
             ->notEmptyString('response_score');
 
         $validator
-            ->integer('submitted_at')
-            ->notEmptyString('submitted_at');
+            ->dateTime('submitted_at')
+            ->notEmptyDateTime('submitted_at');
 
         $validator
             ->boolean('archived')

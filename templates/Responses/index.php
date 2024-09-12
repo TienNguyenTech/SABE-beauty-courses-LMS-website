@@ -27,7 +27,7 @@
                     <td><?= $response->hasValue('user') ? $this->Html->link($response->user->user_firstname, ['controller' => 'Users', 'action' => 'view', $response->user->user_id]) : '' ?></td>
                     <td><?= $response->hasValue('quiz') ? $this->Html->link($response->quiz->quiz_id, ['controller' => 'Quizzes', 'action' => 'view', $response->quiz->quiz_id]) : '' ?></td>
                     <td><?= $this->Number->format($response->response_score) ?></td>
-                    <td><?= $this->Number->format($response->submitted_at) ?></td>
+                    <td><?= h($response->submitted_at) ?></td>
                     <td><?= h($response->archived) ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $response->response_id]) ?>

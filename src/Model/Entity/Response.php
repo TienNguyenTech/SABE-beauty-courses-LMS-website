@@ -13,7 +13,7 @@ use Cake\ORM\Entity;
  * @property int $quiz_id
  * @property string $response_json
  * @property float $response_score
- * @property int $submitted_at
+ * @property \Cake\I18n\DateTime $submitted_at
  * @property bool $archived
  *
  * @property \App\Model\Entity\User $user

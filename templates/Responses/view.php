@@ -36,7 +36,7 @@
                 </tr>
                 <tr>
                     <th><?= __('Submitted At') ?></th>
-                    <td><?= $this->Number->format($response->submitted_at) ?></td>
+                    <td><?= h($response->submitted_at) ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Archived') ?></th>
