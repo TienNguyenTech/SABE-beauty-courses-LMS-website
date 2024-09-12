@@ -249,6 +249,11 @@ class AuthController extends AppController
             } else {
                 // Proceed with login if reCAPTCHA is valid
                 if ($result && $result->isValid()) {
+                    // Store the user ID in the session
+                    $user = $this->Authentication->getIdentity();
+                    $userId = $user->get('user_id');
+                    $this->request->getSession()->write('Auth.User.id', $userId);
+
                     $this->Flash->success('Login successful.');
                     return $this->redirect($this->Authentication->getLoginRedirect() ?? ['controller' => 'AdminDashboard', 'action' => 'dashboard']);
                 } else {
