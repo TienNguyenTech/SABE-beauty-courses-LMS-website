@@ -813,7 +813,7 @@ if ($error = 404) {
                                 <h3><?= h($course->course_name); ?></h3>
                                 <p class="product-price">
                                     <span><?= h(strlen($course->course_description) > 100 ? substr($course->course_description, 0, 100) . '...' : $course->course_description) ?></span>
-                                    <?= h($course->course_price); ?>$
+                                    $<?= h($course->course_price); ?>
                                 </p>
                                 <a href="<?= $this->Url->build(['controller' => 'Courses', 'action' => 'view', $course->course_id]) ?>" class="cart-btn" style="margin-bottom: 10px"><i class="fas fa-info-circle"></i> View More</a>
                                 <a href="<?= $this->Url->build(['controller' => 'Payments', 'action' => 'checkout', $course->course_id]) ?>" class="cart-btn"><i class="fas fa-user-graduate"></i> Enroll Now</a>

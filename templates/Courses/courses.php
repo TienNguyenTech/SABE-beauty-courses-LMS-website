@@ -337,7 +337,7 @@
                         <div class="card-body">
                             <h5 class="card-title"><?= $course->course_name ?></h5>
                             <p class="card-text"><?= $course->course_description ?></p>
-                            <p class="product-price"><?= $course->course_price ?>$</p>
+                            <p class="product-price">$<?= $course->course_price ?></p>
                             <a href="<?= $this->Url->build(['controller' => 'Courses', 'action' => 'view', $course->course_id]) ?>" class="cart-btn" style="margin-bottom: 10px"><i class="fas fa-info-circle"></i> View More</a>
                                                             <a href="<?= $this->Url->build(['controller' => 'Payments', 'action' => 'checkout', $course->course_id]) ?>" class="cart-btn"><i class="fas fa-user-graduate"></i> Enroll Now</a>
                         </div>
