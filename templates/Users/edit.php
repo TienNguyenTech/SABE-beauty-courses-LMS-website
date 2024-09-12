@@ -14,7 +14,7 @@ echo $this->Form->control('user_firstname', ['label' => 'First name *']);
 echo $this->Form->control('user_surname', ['label' => 'Surname *']);
 echo $this->Form->control('email', ['label' => 'Email *']);
 echo $this->Form->control('user_phone', ['label' => 'Phone Number']);
-echo $this->Form->control('user_type', ['options' => ['admin' => 'admin'], 'label' => 'User Type *']);
+echo $this->Form->control('user_type', ['options' => ['admin' => 'admin','student'], 'label' => 'User Type *']);
 ?>
 
 <?= $this->Form->button(__('Submit'),['class'=>'btn btn-primary']) ?>

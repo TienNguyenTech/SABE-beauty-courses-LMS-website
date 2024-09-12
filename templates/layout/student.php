@@ -84,10 +84,10 @@ if ($flashMessage):
             <a class="nav-link"
                href="<?= $this->Url->build(['plugin' => null, 'controller' => 'Pages', 'action' => 'display', 'home']) ?>">
                 <i class="fas fa-fw fa-home"></i>
-                <span>Customer Homepage</span></a>
-            <a class="nav-link" href="<?= $this->Url->build(['plugin' => null,'controller'=>'AdminDashboard','action'=>'dashboard']) ?>">
+                <span> Homepage</span></a>
+            <a class="nav-link" href="<?= $this->Url->build(['plugin' => null,'controller'=>'StudentDashboard','action'=>'dashboard']) ?>">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Admin Dashboard</span></a>
+                <span>Student Dashboard</span></a>
         </li>
 
         <!-- Divider -->
@@ -101,23 +101,11 @@ if ($flashMessage):
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
             <a class="nav-link" href="<?= $this->Url->build(['plugin' => null, 'controller' => 'Enquirys', 'action' => 'index']) ?>">
-                <i class="fas fa-fw fa-pen"></i>
-                <span>Enquiries</span></a>
-            <a class="nav-link" href="<?= $this->Url->build(['plugin' => null, 'controller' => 'Courses', 'action' => 'index']) ?>">
                 <i class="fas fa-fw fa-book-open"></i>
                 <span>Courses</span></a>
-            <a class="nav-link" href="<?= $this->Url->build(['plugin' => null, 'controller' => 'Services', 'action' => 'index']) ?>">
-                <i class="fas fa-fw fa-shopping-bag"></i>
-                <span>Services</span></a>
-            <a class="nav-link" href="<?= $this->Url->build(['plugin' => null, 'controller' => 'Users', 'action' => 'index']) ?>">
+            <a class="nav-link" href="<?= $this->Url->build(['plugin' => null, 'controller' => 'Enquirys', 'action' => 'index']) ?>">
                 <i class="fas fa-fw fa-user"></i>
-                <span>Users</span></a>
-            <a class="nav-link" href="<?= $this->Url->build(['plugin' => null, 'controller' => 'Payments', 'action' => 'index']) ?>">
-                <i class="fas fa-fw fa-dollar-sign"></i>
-                <span>Payments</span></a>
-            <a class="nav-link" href="<?= $this->Url->build (['plugin' => null,'plugin' => 'ContentBlocks', 'controller' => 'ContentBlocks', 'action' => 'index']) ?>">
-                <i class="fas fa-fw fa-cog"></i>
-                <span>Modify Website</span></a>
+                <span>Profile</span></a>
         </li>
 
         <!-- Divider -->
