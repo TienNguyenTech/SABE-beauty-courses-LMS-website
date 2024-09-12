@@ -25,7 +25,7 @@ class PaymentsController extends AppController
     {
         parent::initialize();
 
-        $this->Authentication->allowUnauthenticated(['checkout','success', 'fail']);
+        //$this->Authentication->allowUnauthenticated(['checkout','success', 'fail']);
         $this->Courses= TableRegistry::getTableLocator()->get('Courses');
         $this->Users = TableRegistry::getTableLocator()->get('Users');
 
