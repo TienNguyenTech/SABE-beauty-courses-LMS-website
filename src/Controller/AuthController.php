@@ -251,8 +251,11 @@ class AuthController extends AppController
                 if ($result && $result->isValid()) {
                     // Store the user ID in the session
                     $user = $this->Authentication->getIdentity();
+//                    debug($user); // Debugging statement
+
                     $userId = $user->get('user_id');
                     $this->request->getSession()->write('Auth.User.id', $userId);
+//                    debug($this->request->getSession()->read('Auth.User.id')); // Debugging statement
 
                     $this->Flash->success('Login successful.');
                     return $this->redirect($this->Authentication->getLoginRedirect() ?? ['controller' => 'AdminDashboard', 'action' => 'dashboard']);

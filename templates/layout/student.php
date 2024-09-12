@@ -79,7 +79,10 @@ if ($flashMessage):
         <hr class="sidebar-divider my-0">
 
         <!-- Nav Item - Dashboard -->
-
+<!--        --><?php
+//        // Debugging statement to check if the user ID is correctly retrieved from the session
+//        debug($this->request->getSession()->read('Auth.User.id'));
+//        ?>
         <li class="nav-item active">
             <a class="nav-link"
                href="<?= $this->Url->build(['plugin' => null, 'controller' => 'Pages', 'action' => 'display', 'home']) ?>">
