@@ -31,7 +31,7 @@
                 </tbody>
             </table>
             <div class="related">
-                <h4><?= __('Related Courses') ?></h4>
+                <h4><?= __('Enrolled Courses') ?></h4>
                 <?php if (!empty($user->courses)) : ?>
                     <div class="table-responsive">
                         <table class="table table-striped">
@@ -61,6 +61,8 @@
                             </tbody>
                         </table>
                     </div>
+                <?php else : ?>
+                    <p><?= __('No enrolled courses found.') ?></p>
                 <?php endif; ?>
             </div>
         </div>

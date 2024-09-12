@@ -103,7 +103,7 @@ if ($flashMessage):
             <a class="nav-link" href="<?= $this->Url->build(['plugin' => null, 'controller' => 'Enquirys', 'action' => 'index']) ?>">
                 <i class="fas fa-fw fa-book-open"></i>
                 <span>Courses</span></a>
-            <a class="nav-link" href="<?= $this->Url->build(['plugin' => null, 'controller' => 'Enquirys', 'action' => 'index']) ?>">
+            <a class="nav-link" href="<?= $this->Url->build(['plugin' => null, 'controller' => 'Users', 'action' => 'view', $this->request->getSession()->read('Auth.User.id')]) ?>">
                 <i class="fas fa-fw fa-user"></i>
                 <span>Profile</span></a>
         </li>
