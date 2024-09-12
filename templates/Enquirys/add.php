@@ -114,14 +114,14 @@
                 <div class="col-lg-8 mb-5 mb-lg-0">
                     <div class="form-title">
 
+                        <!-- Flash Messages -->
+                        <?= $this->Flash->render() ?>
                         <?= $this->Flash->render('positive') ?>
-
+                        
                         <h2>Contact us</h2>
                         <p>Any questions regarding our courses or available services? Feel free to contact us for more
                             information.</p>
 
-                        <!-- Flash Messages -->
-                        <?= $this->Flash->render() ?>
                     </div>
                     <div id="form_status"></div>
                     <div class="contact-form">
