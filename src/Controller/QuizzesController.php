@@ -3,17 +3,24 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use PhpParser\Node\Expr\Array_;use PHPUnit\Util\Json;/**
+use Cake\Routing\Router;
+use Laminas\Diactoros\Stream;
+use Cake\ORM\Table;use Cake\ORM\TableRegistry;use PhpParser\Node\Expr\Array_;use PHPUnit\Util\Json;/**
  * Quizzes Controller
  *
  * @property \App\Model\Table\QuizzesTable $Quizzes
+ * @property \App\Model\Table\ResponsesTable $Responses
  */
 class QuizzesController extends AppController
 {
+    private \Cake\ORM\Table $Responses;
+
     public function initialize() : void{
         parent::initialize();
 
-        $this->Authentication->allowUnauthenticated(['test']);
+        $this->Responses = TableRegistry::getTableLocator()->get('Responses');
+
+        $this->Authentication->allowUnauthenticated(['test', 'submit']);
     }
 
     // TEST FUNCTION
@@ -33,7 +40,9 @@ class QuizzesController extends AppController
 
         $quizJSON = $quiz->generate();
 
-        $this->set(compact('quizJSON'));
+        $csrfToken = $this->request->getAttribute('csrfToken');
+
+        $this->set(compact('quizJSON', 'csrfToken'));
     }
 
     /**
@@ -60,7 +69,12 @@ class QuizzesController extends AppController
     public function view($id = null)
     {
         $quiz = $this->Quizzes->get($id, contain: ['Courses']);
-        $this->set(compact('quiz'));
+
+        $quizID = $quiz->quiz_id;
+        $quizJSON = $quiz->quiz_json;
+        $csrfToken = $this->request->getAttribute('csrfToken');
+
+        $this->set(compact('quizID', 'quizJSON', 'csrfToken'));
     }
 
     /**
@@ -82,6 +96,51 @@ class QuizzesController extends AppController
         }
         $courses = $this->Quizzes->Courses->find('list', limit: 200)->all();
         $this->set(compact('quiz', 'courses'));
+    }
+
+    public function submit() {
+        $response = $this->Responses->newEmptyEntity();
+        if($this->request->is('post')) {
+            $data = $this->request->getData();
+
+            $quiz = $this->Quizzes->get($data[1]);
+
+            $rawQuestions = json_decode($quiz->quiz_json);
+
+            $answers = [];
+            $responses = $data[0];
+
+            foreach ($rawQuestions->pages as $question) {
+                array_push($answers, [$question->elements->name => $question->elements->correctAnswer]);
+            }
+
+            $totalQuestions = count($answers);
+            $correctAnswers = 0;
+
+            for($i = 0; $i < $totalQuestions; $i++) {
+                if($responses[$i] == $answers[$i]) {
+                    $correctAnswers++;
+                }
+            }
+
+            $grade = $correctAnswers / $totalQuestions;
+
+            $response = $this->Responses->newEmptyEntity();
+            $response = $this->Responses->patchEntity($response, [
+                'user_id' => $this->Authentication->getIdentity()->user_id,
+                'quiz_id' => $quiz->quiz_id,
+                'response_json' => json_encode($responses),
+                'response_score' => $grade
+            ]);
+
+            $this->Responses->save($response);
+
+            $json = json_encode($response);
+
+            // Send redirect url to client side
+            //return $this->response->withType('application/json; charset=utf-8')->withStringBody(Router::url(['action' => 'index']));
+            return $this->response->withType('application/json; charset=utf-8')->withStringBody($json);
+        }
     }
 
     /**
@@ -150,7 +209,8 @@ class QuizGenerator {
                     'title' => $question['title'],
                     'choicesOrder' => 'random',
                     'choices' => $question['choices'],
-                    'correctAnswer' => $question['correctAnswer']
+                    'correctAnswer' => $question['correctAnswer'],
+                    'score' => $question['score']
                 ]
             ]);
         }
@@ -180,7 +240,8 @@ class QuizQuestion {
             'name' => $this->name,
             'title' => $this->title,
             'choices' => $this->choices,
-            'correctAnswer' => $this->correctAnswer
+            'correctAnswer' => $this->correctAnswer,
+            'score' => 1
         ];
     }
 }

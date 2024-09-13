@@ -16,14 +16,38 @@ document.addEventListener('DOMContentLoaded', () => {
     survey.render(document.getElementById('surveyContainer'));
 });
 
-function surveyComplete(survey) {
-    saveSurveyResults('', survey.data);
-}
+survey.onComplete.add((sender, options) => {
+    options.showSaveInProgress();
 
-function saveSurveyResults(url, json) {
-    console.log(json);
-}
+    const token = '<?= $csrfToken ?>';
 
-survey.onComplete.add(surveyComplete);
+    const xhr = new XMLHttpRequest();
+    xhr.open('post', '<?= $this->Url->build(["controller" => "Quizzes", "action" => "submit"], ["fullBase" => true]) ?>');
+    xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+    xhr.setRequestHeader('X-CSRF-Token', token);
+
+    xhr.onload = xhr.onerror = () => {
+        if(xhr.status = 200) {
+            options.showSaveSuccess();
+        } else {
+            options.showSaveError();
+        }
+    }
+
+    // xhr.onreadystatechange = () => {
+    //
+    //     // Redirect
+    //     if(xhr.readyState === XMLHttpRequest.DONE) {
+    //         if(xhr.status === 200) {
+    //             console.log(xhr.responseText)
+    //             window.location.href = xhr.responseText;
+    //         }
+    //     }
+    // }
+
+    console.log(sender.data);
+
+    xhr.send(JSON.stringify(sender.data));
+})
 </script>
 </body>
