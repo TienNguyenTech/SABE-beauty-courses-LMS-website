@@ -25,7 +25,7 @@ echo $this->Form->control('course_id', ['options' => $courses]);
 
 </div>
 
-<?= $this->Form->button(__('Submit'),['id' => 'submitButton', 'class'=>'btn btn-primary', 'disabled']) ?>
+<?= $this->Form->button(__('Create quiz'),['id' => 'submitButton', 'class'=>'btn btn-primary', 'disabled', 'style' => 'margin-top: 10px']) ?>
 <?= $this->Form->end() ?>
 
 <script >
@@ -60,7 +60,7 @@ addButton.addEventListener('click', () => {
 
     questionsContainer.innerHTML += `
     <label class="form-label" for="question${questionCount}_correctoption">Correct Option</label>
-    <select class="form-control" type="" name="question${questionCount}_correctoption">
+    <select class="form-control" type="number" name="question${questionCount}_correctoption">
         ${optionsString}
     </select>
     `;

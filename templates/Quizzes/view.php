@@ -9,7 +9,9 @@
 <div id="surveyContainer"></div>
 
 <script>
-const surveyJson = JSON.parse(`<?= $quizJSON ?>`);
+const rawData = `<?= $quizJSON ?>`;
+console.log(rawData);
+const surveyJson = JSON.parse(rawData);
 const survey = new Survey.Model(surveyJson);
 
 document.addEventListener('DOMContentLoaded', () => {
