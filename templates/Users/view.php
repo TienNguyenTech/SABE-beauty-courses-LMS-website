@@ -2,6 +2,7 @@
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\User $user
+ * @var string[]|\Cake\Collection\CollectionInterface $courses
  */
 ?>
 <style>
@@ -29,6 +30,9 @@
     .form-group {
         margin-bottom: 25px;
     }
+    .error {
+        width: 100%;
+    }
 </style>
 <div class="row page-titles">
     <div class="col-md-5 align-self-center">
@@ -41,51 +45,52 @@
         <div class="card card-short">
             <!-- Tab panes -->
             <div class="card-body">
-                <form class="form-horizontal form-material mx-2">
-                    <div class="form-group">
-                        <label class="col-md-12">Full Name</label>
-                        <div class="col-md-12">
-                            <input type="text" value="<?= h($user->user_firstname) . ' ' . h($user->user_surname) ?>" class="form-control form-control-line">
-                        </div>
+                <?= $this->Form->create($user, ['class' => 'form-horizontal form-material mx-2']) ?>
+                <div class="form-group">
+                    <label class="col-md-12">Full Name</label>
+                    <div class="col-md-12">
+                        <input type="text" value="<?= h($user->user_firstname) . ' ' . h($user->user_surname) ?>" class="form-control form-control-line" readonly>
                     </div>
-                    <div class="form-group">
-                        <label class="col-md-12"><?= __('First Name') ?></label>
-                        <div class="col-md-12">
-                            <input type="text" value="<?= h($user->user_firstname) ?>" class="form-control form-control-line">
-                        </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <?= $this->Form->control('user_firstname', ['class' => 'form-control form-control-line']) ?>
                     </div>
-                    <div class="form-group">
-                        <label class="col-md-12"><?= __('Surname') ?></label>
-                        <div class="col-md-12">
-                            <input type="text" value="<?= h($user->user_surname) ?>" class="form-control form-control-line">
-                        </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <?= $this->Form->control('user_surname', ['class' => 'form-control form-control-line']) ?>
                     </div>
-                    <div class="form-group">
-                        <label for="example-email" class="col-md-12">Email</label>
-                        <div class="col-md-12">
-                            <input type="email" value="<?= h($user->email) ?>" class="form-control form-control-line">
-                        </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <?= $this->Form->control('email', ['type' => 'email', 'class' => 'form-control form-control-line']) ?>
                     </div>
-                    <div class="form-group">
-                        <label class="col-md-12">Phone No</label>
-                        <div class="col-md-12">
-                            <input type="text" value="<?= h($user->user_phone) ?>" class="form-control form-control-line">
-                        </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <?= $this->Form->control('user_phone', ['class' => 'form-control form-control-line']) ?>
                     </div>
-<!--                    <div class="form-group">-->
-<!--                        <label class="col-md-12">User Type</label>-->
-<!--                        <div class="col-md-12">-->
-<!--                            <input type="text" value="--><?php //= h($user->user_type) ?><!--" class="form-control form-control-line">-->
-<!--                        </div>-->
-<!--                    </div>-->
-                </form>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <?= $this->Form->control('user_type', ['text' => "$user->user_type", 'class' => 'form-control form-control-line', 'readonly' => true]) ?>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <?= $this->Form->button(__('Update Profile'), ['class' => 'btn btn-success']) ?>
+                    </div>
+                </div>
+                <?= $this->Form->end() ?>
             </div>
         </div>
     </div>
     <!-- Column -->
     <div class="col-lg-6 col-xlg-6 col-md-6">
-        <div class="card">
+        <div class="card ">
             <div class="card-body">
+              <form class="form-horizontal form-material mx-2">
                 <div class="form-group">
                     <label class="col-md-12">Enrolled Courses</label>
                     <div class="col-md-12">
@@ -123,6 +128,7 @@
                         <?php endif; ?>
                     </div>
                 </div>
+              </form>
             </div>
         </div>
     </div>
