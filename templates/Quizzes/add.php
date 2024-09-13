@@ -25,13 +25,18 @@ echo $this->Form->control('course_id', ['options' => $courses]);
 
 </div>
 
+<?= $this->Form->button(__('Submit'),['id' => 'submitButton', 'class'=>'btn btn-primary', 'disabled']) ?>
+<?= $this->Form->end() ?>
+
 <script >
 const addButton = document.getElementById('addButton');
 const questionsContainer = document.getElementById('questions-container');
+const submitButton = document.getElementById('submitButton');
 let questionCount = 0;
 
 addButton.addEventListener('click', () => {
     const optionCount = document.getElementById('optionCount').value;
+    submitButton.removeAttribute('disabled')
 
     questionCount++;
     questionsContainer.innerHTML += `
