@@ -197,11 +197,11 @@ class AuthController extends AppController
             // Used a different validation set in Model/Table file to ensure both fields are filled
             $user = $this->Users->patchEntity($user, $this->request->getData(), ['validate' => 'resetPassword']);
             if ($this->Users->save($user)) {
-                $this->Flash->success('The user has been saved.');
+                $this->Flash->success('The password has been saved.');
 
-                return $this->redirect(['controller' => 'Users', 'action' => 'index']);
+                return $this->redirect(['controller' => 'Users', 'action' => 'view', $this->request->getSession()->read('Auth.User.id')]);
             }
-            $this->Flash->error('The user could not be saved. Please, try again.');
+            $this->Flash->error('The password could not be saved. Please, try again.');
         }
         $this->set(compact('user'));
     }
