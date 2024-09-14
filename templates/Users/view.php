@@ -71,7 +71,10 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-12">
-                        <?= $this->Form->control('email', ['type' => 'email', 'class' => 'form-control form-control-line']) ?>
+                        <?= $this->Form->control('email', ['type' => 'email', 'class' => 'form-control form-control-line', 'readonly' => true, 'id' => 'email']) ?>
+                        <label>
+                            <input type="checkbox" id="change-email-checkbox"> Change the email
+                        </label>
                     </div>
                 </div>
                 <div class="form-group">
@@ -137,3 +140,9 @@
     <!-- Column -->
 </div>
 <!-- Row -->
+<script>
+    document.getElementById('change-email-checkbox').addEventListener('change', function() {
+        var emailField = document.getElementById('email');
+        emailField.readOnly = !this.checked;
+    });
+</script>
