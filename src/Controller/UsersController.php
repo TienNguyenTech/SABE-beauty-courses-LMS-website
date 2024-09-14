@@ -32,8 +32,18 @@ class UsersController extends AppController
      */
     public function view($id = null)
     {
-        $user = $this->Users->get($id, contain: ['Bookings', 'Courses']);
+        $this->viewBuilder()->setLayout('student');
+        $user = $this->Users->get($id, ['contain' => []]);
         $this->set(compact('user'));
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            $user = $this->Users->patchEntity($user, $this->request->getData());
+            if ($this->Users->save($user)) {
+                $this->Flash->success(__('The user has been saved.'));
+
+                return $this->redirect(['action' => 'view', $id]);
+            }
+            $this->Flash->error(__('The user could not be saved. Please, try again.'));
+        }
     }
 
     /**
@@ -53,9 +63,8 @@ class UsersController extends AppController
             }
             $this->Flash->error(__('The user could not be saved. Please, try again.'));
         }
-        $bookings = $this->Users->Bookings->find('list', limit: 200)->all();
         $courses = $this->Users->Courses->find('list', limit: 200)->all();
-        $this->set(compact('user', 'bookings', 'courses'));
+        $this->set(compact('user', 'courses'));
     }
 
     /**
@@ -67,7 +76,7 @@ class UsersController extends AppController
      */
     public function edit($id = null)
     {
-        $user = $this->Users->get($id, contain: ['Bookings', 'Courses']);
+        $user = $this->Users->get($id, contain: ['Courses']);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
             if ($this->Users->save($user)) {
@@ -77,9 +86,8 @@ class UsersController extends AppController
             }
             $this->Flash->error(__('The user could not be saved. Please, try again.'));
         }
-        $bookings = $this->Users->Bookings->find('list', limit: 200)->all();
         $courses = $this->Users->Courses->find('list', limit: 200)->all();
-        $this->set(compact('user', 'bookings', 'courses'));
+        $this->set(compact('user', 'courses'));
     }
 
     /**
