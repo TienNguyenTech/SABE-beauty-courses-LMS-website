@@ -23,28 +23,6 @@ class QuizzesController extends AppController
         $this->Authentication->allowUnauthenticated(['test', 'submit']);
     }
 
-    // TEST FUNCTION
-    public function test() {
-        $questions = [];
-        $question = new QuizQuestion('radiogroup', 'facemuscles', 'Face Muscles', ['a', 'b', 'c', 'e'], 'a');
-
-        $question->generate();
-        array_push($questions, $question->generate());
-
-        $question = new QuizQuestion('radiogroup', 'weresoback', 'We\'re so back', ['true', 'false'], 'true');
-
-        $question->generate();
-        array_push($questions, $question->generate());
-
-        $quiz = new QuizGenerator('Test Quiz', $questions);
-
-        $quizJSON = $quiz->generate();
-
-        $csrfToken = $this->request->getAttribute('csrfToken');
-
-        $this->set(compact('quizJSON', 'csrfToken'));
-    }
-
     /**
      * Index method
      *
