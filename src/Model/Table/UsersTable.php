@@ -60,7 +60,28 @@ class UsersTable extends Table
             'joinTable' => 'courses_users',
         ]);
     }
+    public function validationResetPassword(Validator $validator): Validator
+    {
+        $validator
+            ->requirePresence('password', 'create')
+            ->notEmptyString('password', 'Please enter a password')
+            ->add('password', [
+                'length' => [
+                    'rule' => ['minLength', 8],
+                    'message' => 'Password must be at least 8 characters long',
+                ],
+            ])
+            ->requirePresence('password_confirm', 'create')
+            ->notEmptyString('password_confirm', 'Please confirm your password')
+            ->add('password_confirm', 'custom', [
+                'rule' => function ($value, $context) {
+                    return $value === $context['data']['password'];
+                },
+                'message' => 'Passwords do not match',
+            ]);
 
+        return $validator;
+    }
     /**
      * Default validation rules.
      *

@@ -86,6 +86,7 @@
                 <div class="form-group">
                     <div class="col-sm-12">
                         <?= $this->Form->button(__('Update Profile'), ['class' => 'btn btn-success']) ?>
+                        <?= $this->Html->link(__('Change Password'), ['controller' => 'Auth', 'action' => 'changePassword', $this->request->getSession()->read('Auth.User.id')], ['class' => 'btn btn-warning']) ?>
                     </div>
                 </div>
                 <?= $this->Form->end() ?>
