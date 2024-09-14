@@ -47,7 +47,20 @@ class ContentsController extends AppController
         $content = $this->Contents->newEmptyEntity();
         if ($this->request->is('post')) {
             $content = $this->Contents->patchEntity($content, $this->request->getData());
+
+            // Validate file
+            $file = $this->request->getUploadedFiles()['content_image'];
+
+            if($file->getSize() > 100 * 1024 * 1024) {
+                return $this->Flash(__('Image file size must be 100MB or less.'));
+            } else if($file->getClientMediaType() != 'image/jpeg' && $file->getClientMediaType() != 'image/png' && $file->getClientMediaType() != 'video/mp4' && $file->getClientMediaType() != 'application/pdf') {
+                return $this->Flash(__('Invalid filetype'));
+            }
+
+            $content->content_url = 'assets/img/content/' . $file->getClientFilename();
+
             if ($this->Contents->save($content)) {
+                $file->moveTo(WWW_ROOT . 'assets' . DS . 'img' . DS . 'content' . DS . $file->getClientFilename());
                 $this->Flash->success(__('The content has been saved.'));
 
                 return $this->redirect(['action' => 'index']);

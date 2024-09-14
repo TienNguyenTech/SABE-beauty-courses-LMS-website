@@ -18,7 +18,7 @@ echo $this->Form->control('content_title', [
     'class' => 'form-control'
 ]);
 echo h('Content Type') . ' <span style="color: red;">*</span>';
-echo $this->Form->select('content_type',['pdf' => 'PDF', 'video' => 'Video', 'image' => 'Image' ], ['label' => [
+echo $this->Form->select('content_type',['pdf' => 'PDF', 'video' => 'Video', 'image' => 'Image' ], ['id' => 'fileType', 'label' => [
     'text' => 'Content Type <span style="color: red;">*</span>',
     'escape' => false
 ]]);
@@ -31,8 +31,23 @@ echo $this->Form->control('content_description', [
     'class' => 'form-control',
 ]);
 echo h('Content Upload') . ' <span style="color: red;">*</span>';
-echo $this->Form->file('course_image', ['label' => 'Image', 'type' => 'file', 'class' => 'form-control']);
+echo $this->Form->file('content_image', ['id' => 'fileUpload', 'label' => 'Image', 'type' => 'file', 'class' => 'form-control', 'accept' => '.pdf', 'style' => 'margin-bottom: 10px']);
 ?>
 
 <?= $this->Form->button(__('Submit'),['class'=>'btn btn-primary']) ?>
 <?= $this->Form->end() ?>
+
+<script>
+    const fileType = document.getElementById('fileType');
+    const fileUpload = document.getElementById('fileUpload');
+
+    fileType.addEventListener('change', () => {
+        if(fileType.value == 'pdf') {
+            fileUpload.setAttribute('accept', '.pdf');
+        } else if(fileType.value == 'video') {
+            fileUpload.setAttribute('accept', '.mp4');
+        } else if(fileType.value == 'image') {
+            fileUpload.setAttribute('accept', '.png,.jpg,.jpeg,image/png');
+        }
+    })
+</script>
