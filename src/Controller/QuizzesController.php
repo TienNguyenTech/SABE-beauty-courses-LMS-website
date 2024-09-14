@@ -160,14 +160,17 @@ class QuizzesController extends AppController
 
             $quiz = $this->Quizzes->get($data[1]);
 
-            $rawQuestions = json_decode($quiz->quiz_json);
+            $rawQuestions =  json_decode(json_decode($quiz->quiz_json));
+            $rawQuestions = $rawQuestions->pages;
 
             $answers = [];
             $responses = $data[0];
 
-            foreach ($rawQuestions->pages as $question) {
+            foreach ($rawQuestions as $question) {
                 array_push($answers, [$question->elements->name => $question->elements->correctAnswer]);
             }
+
+
 
             $totalQuestions = count($answers);
             $correctAnswers = 0;

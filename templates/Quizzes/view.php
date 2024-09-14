@@ -10,7 +10,6 @@
 
 <script>
 const rawData = `<?= $quizJSON ?>`;
-console.log(rawData);
 const surveyJson = JSON.parse(rawData);
 const survey = new Survey.Model(surveyJson);
 
@@ -44,7 +43,8 @@ survey.onComplete.add((sender, options) => {
         if(xhr.readyState === XMLHttpRequest.DONE) {
             if(xhr.status === 200) {
                 //window.location.href = xhr.responseText;
-                console.log(JSON.parse(xhr.responseText));
+                console.log(xhr.responseText)
+                console.log(JSON.parse('"' + xhr.responseText + '"'));
             }
         }
     }
