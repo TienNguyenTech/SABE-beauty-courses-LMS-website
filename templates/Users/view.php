@@ -121,9 +121,9 @@
                                             <td><?= h($course->course_description) ?></td>
                                             <td><?= h($course->course_price) ?></td>
                                             <td class="actions">
-                                                <?= $this->Html->link(__('View'), ['controller' => 'Courses', 'action' => 'view', $course->course_id]) ?>
-                                                <?= $this->Html->link(__('Edit'), ['controller' => 'Courses', 'action' => 'edit', $course->course_id]) ?>
-                                                <!--                                                    --><?php //= $this->Form->postLink(__('Delete'), ['controller' => 'Courses', 'action' => 'delete', $course->course_id], ['confirm' => __('Are you sure you want to delete # {0}?', $course->course_id)]) ?>
+<!--                                                --><?php //= $this->Html->link(__('View'), ['controller' => 'Courses', 'action' => 'view', $course->course_id]) ?>
+<!--                                                --><?php //= $this->Html->link(__('Edit'), ['controller' => 'Courses', 'action' => 'edit', $course->course_id]) ?>
+<!--                                                    --><?php //= $this->Form->postLink(__('Delete'), ['controller' => 'Courses', 'action' => 'delete', $course->course_id], ['confirm' => __('Are you sure you want to delete # {0}?', $course->course_id)]) ?>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
