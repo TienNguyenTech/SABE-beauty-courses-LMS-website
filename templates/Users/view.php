@@ -73,8 +73,9 @@
                     <div class="col-md-12">
                         <?= $this->Form->control('email', ['type' => 'email', 'class' => 'form-control form-control-line', 'readonly' => true, 'id' => 'email']) ?>
                         <label>
-                            <input type="checkbox" id="change-email-checkbox"> Change the email
+                            <input type="checkbox" id="change-email-checkbox"> Change the email(Click to enable)
                         </label>
+                        <p style="color: red; font-size: 0.9em;">Note: Changing the email will also change your login credential.</p>
                     </div>
                 </div>
                 <div class="form-group">
