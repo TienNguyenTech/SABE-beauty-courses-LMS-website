@@ -204,6 +204,7 @@ class AuthController extends AppController
             $this->Flash->error('The password could not be saved. Please, try again.');
         }
         $this->set(compact('user'));
+        $this->viewBuilder()->setLayout('student');
     }
 
     /**
