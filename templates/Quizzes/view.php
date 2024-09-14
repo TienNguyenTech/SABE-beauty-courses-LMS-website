@@ -42,9 +42,7 @@ survey.onComplete.add((sender, options) => {
         // Redirect
         if(xhr.readyState === XMLHttpRequest.DONE) {
             if(xhr.status === 200) {
-                //window.location.href = xhr.responseText;
-                console.log(xhr.responseText)
-                console.log(JSON.parse('"' + xhr.responseText + '"'));
+                window.location.href = xhr.responseText;
             }
         }
     }

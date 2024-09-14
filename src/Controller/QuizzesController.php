@@ -196,8 +196,7 @@ class QuizzesController extends AppController
             $json = json_encode($response);
 
             // Send redirect url to client side
-            //return $this->response->withType('application/json; charset=utf-8')->withStringBody(Router::url(['action' => 'index']));
-            return $this->response->withType('application/json; charset=utf-8')->withStringBody($json);
+            return $this->response->withType('application/json; charset=utf-8')->withStringBody(Router::url(['controller' => 'Responses' ,'action' => 'view', $response->response_id]));
         }
     }
 
