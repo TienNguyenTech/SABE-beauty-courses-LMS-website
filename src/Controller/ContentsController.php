@@ -19,6 +19,19 @@ class ContentsController extends AppController
         parent::initialize();
 
         $this->Courses = TableRegistry::getTableLocator()->get("Courses");
+        $this->Users = TableRegistry::getTableLocator()->get("Users");
+
+    }
+
+    protected function restrict()
+    {
+        $user = $this -> Authentication -> getIdentity() ->getOriginalData();
+        $userID = $user['User'];
+        $user = $this->Users->get($userID);
+        $userType = $user->user_type;
+        if($userType == 'student') {
+            return $this->redirect(['controller' => 'studentDashboard', 'action' => 'dashboard']);
+        }
     }
 
     /**
@@ -61,7 +74,7 @@ class ContentsController extends AppController
 
             return $this->redirect(['controller' => 'Courses', 'action' => 'course', $content->course_id]);
         }
-        
+
         $this->Flash->error('Content is already at the end of course');
         return $this->redirect(['controller' => 'Courses', 'action' => 'course', $content->course_id]);
     }
@@ -79,7 +92,7 @@ class ContentsController extends AppController
 
             return $this->redirect(['controller' => 'Courses', 'action' => 'course', $content->course_id]);
         }
-        
+
         $this->Flash->error('Content is already at the beginning of course');
         return $this->redirect(['controller' => 'Courses', 'action' => 'course', $content->course_id]);
     }
@@ -91,8 +104,9 @@ class ContentsController extends AppController
      */
     public function add($courseID = null)
     {
+        $this->restrict();
         $content = $this->Contents->newEmptyEntity();
-        $course = $this->Courses->get($courseID); 
+        $course = $this->Courses->get($courseID);
         if ($this->request->is('post')) {
             $content = $this->Contents->patchEntity($content, $this->request->getData());
             $content->course_id = $courseID;
@@ -107,7 +121,7 @@ class ContentsController extends AppController
             } else {
                 $position = 0;
             }
-            
+
             $content->content_position = $position + 1;
 
             // Validate file
@@ -142,6 +156,7 @@ class ContentsController extends AppController
      */
     public function edit($id = null)
     {
+        $this->restrict();
         $content = $this->Contents->get($id, contain: []);
         $course = $this->Courses->get($content->course_id);
         if ($this->request->is(['patch', 'post', 'put'])) {
@@ -192,6 +207,7 @@ class ContentsController extends AppController
      */
     public function delete($id = null)
     {
+        $this->restrict();
         $this->request->allowMethod(['post', 'delete']);
         $content = $this->Contents->get($id);
         $courseID = $content->course_id;
