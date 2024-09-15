@@ -64,12 +64,11 @@
             <h3>Quiz</h3>
         </div>
         <div class="card-body">
-            <?php if (!empty($quiz)): ?>
+            <?php if (!empty($quiz) && $progression == 1): ?>
                 <h5 class="card-title"><?= h($quiz->title) ?></h5>
                 <?= $this->Html->link('Start the Quiz', ['controller' => 'Quizzes', 'action' => 'view', $quiz->quiz_id], ['class' => 'btn btn-primary', 'id' => 'start-quiz-btn']) ?>
             <?php else: ?>
-                <p class="card-text"><?= __('This course doesn\'t currently have a quiz') ?></p>
-                <?= $this->Html->link('Create one', ['controller' => 'Quizzes', 'action' => 'add', $course->course_id], ['class' => 'btn btn-primary', 'id' => 'start-quiz-btn']) ?>
+                <p class="card-text"><?= __('You must complete all course content before attempting the quiz') ?></p>
             <?php endif; ?>
         </div>
     </div>
