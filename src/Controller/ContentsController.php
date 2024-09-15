@@ -188,7 +188,7 @@ class ContentsController extends AppController
                 $file->moveTo(WWW_ROOT . 'assets' . DS . 'img' . DS . 'content' . DS . $file->getClientFilename());
                 $this->Flash->success(__('The content has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller' => 'Courses','action' => 'course', $content->course_id]);
             }
             $this->Flash->error(__('The content could not be saved. Please, try again.'));
         }
