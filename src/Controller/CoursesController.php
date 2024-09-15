@@ -10,17 +10,20 @@ use Cake\ORM\TableRegistry;
  *
  * @property \App\Model\Table\CoursesTable $Courses
  * @property \App\Model\Table\ContentsTable $Contents
+ * @property \App\Model\Table\PaymentsTable $Payments
  */
 class CoursesController extends AppController
 {
     private \Cake\ORM\Table $Contents;
     private \Cake\ORM\Table $Quizzes;
+    private \Cake\ORM\Table $Payments;
 
     public function initialize(): void
     { {
             parent::initialize();
             $this->Contents = TableRegistry::getTableLocator()->get("Contents");
             $this->Quizzes = TableRegistry::getTableLocator()->get("Quizzes");
+            $this->Payments = TableRegistry::getTableLocator()->get("Payments");
 
             // Controller-level function/action whitelist for authentication
             $this->Authentication->allowUnauthenticated(['view', 'courses']);
@@ -51,8 +54,19 @@ class CoursesController extends AppController
 
     public function enrolledcourses()
     {
+        $user = $this->Authentication->getIdentity()->getOriginalData();
+        $userID = $user['User']['id'];
 
-        $query = $this->Courses->find();
+        $payments = $this->Payments->find()->where(['user_id IS' => $userID])->toArray();
+        $courses = [];
+
+        foreach ($payments as $payment) {
+            array_push($courses, $payment->course_id);
+        }
+        
+        
+
+        $query = $this->Courses->find()->where(['course_id IN' => $courses]);
         $courses = $this->paginate($query);
 
         $this->set(compact('courses'));

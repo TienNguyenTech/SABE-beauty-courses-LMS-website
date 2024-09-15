@@ -37,7 +37,6 @@
                 <div id="content-progress-bar" class="progress-bar" role="progressbar" style="width: 0%;"
                     aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
             </div>
-            <button id="reset-progress-btn" class="btn btn-warning ms-3">Reset Progress</button>
         </div>
         <div class="card-body">
             <div class="d-flex flex-wrap justify-content-start">
