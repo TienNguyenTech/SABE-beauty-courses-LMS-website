@@ -2,6 +2,8 @@
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Course $course
+ * @var mixed $quiz
+ * @var \App\Model\Entity\Content $content
  */
 ?>
 <div>
@@ -61,6 +63,46 @@
                     </tr>
                 <?php endforeach; ?>
             </tbody>
+        </table>
+    </div>
+    <div class="quizzes view content">
+        <h3>Quiz</h3>
+        <table class="table">
+            <?php if(!empty($quiz)): ?>
+            <tr>
+                <th class="col-2"><?= __('Quiz Title') ?></th>
+                <td><?= __($quiz->title) ?></td>
+            </tr>
+            <?php foreach($quiz->pages as $question): ?>
+                <tr>
+                    <th><?= __('Question: ' . $question->elements->title) ?></th>
+                    <td>
+                        <?php
+                        $options = 'Options: ' . implode(', ', $question->elements->choices);
+                        // foreach($question->elements->choices as $option) {
+                        //     $options .= $option . ', ';
+                        // }
+                        echo __($options);
+                        ?>
+                        <span style="text-align: right">
+                            <?= __(' | Correct Option: ' . $question->elements->correctAnswer) ?>
+                        </span>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+            <tr>
+                <th><?= __('Actions') ?></th>
+                <td>
+                <?= $this->Html->link('Edit', ['controller' => 'Quizzes', 'action' => 'edit', $quiz->quiz_id], ['class' => 'btn btn-primary']) ?>
+                <?= $this->Form->postLink('Remove', ['controller' => 'Contents', 'action' => 'delete', $quiz->quiz_id], ['confirm' => __('Are you sure you want to delete quiz: {0}?', $quiz->title), 'class' => 'btn btn-danger']) ?>
+                </td>
+            </tr>
+            <?php else: ?>
+            <tr>
+                <th class="col-2"><?= __('This course doesn\'t currently have a quiz') ?></th>
+                <td><?= $this->Html->link('Create one', ['controller' => 'Quizzes', 'action' => 'add', $course->course_id], ['class' => 'btn btn-primary']) ?></td>
+            </tr>
+            <?php endif; ?>
         </table>
     </div>
 </div>
