@@ -24,7 +24,16 @@
     <div class="column column-80">
         <div class="container">
             <div class="contents view content">
-                <h3><?= h($content->content_position . '. ' . $content->content_title) ?></h3>
+                <h3>
+                    <?= h($content->content_position . '. ' . $content->content_title) ?>
+                    <?php
+                        if($isCompleted) {
+                            echo h(' - Completed');
+                        } else {
+                            echo h(' - Incomplete');
+                        }
+                    ?>
+                </h3>
                 <table class="table">
                     <tr>
                         <th><?= __('Description') ?></th>
@@ -66,10 +75,12 @@
                             } 
                             if($content->content_position < end($courseContents)->content_position) {
                                 $nextContent = $courseContents[$content->content_position];
-                                echo $this->Html->link('Next', ['action' => 'view', $nextContent->content_id], ['class' => 'btn btn-primary']);
+                                echo $this->Html->link('Next', ['action' => 'view', $nextContent->content_id], ['class' => 'btn btn-primary', 'style' => 'margin-right: 5px']);
+                            }
+                            if(!$isCompleted) {
+                                echo $this->Html->link('Mark as complete', ['controller' => 'Progressions', 'action' => 'complete', $userID, $content->content_id], ['class' => 'btn btn-primary']);
                             }
                             ?>
-                            <?= $this->Html->link('Mark as complete', ['controller' => 'Progressions', 'action' => 'complete', $userID, $content->content_id], ['class' => 'btn btn-primary']) ?>
                         </td>
                     </tr>
                 </table>
