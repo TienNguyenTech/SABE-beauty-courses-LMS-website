@@ -30,6 +30,17 @@ class PaymentsController extends AppController
         $this->Users = TableRegistry::getTableLocator()->get('Users');
 
     }
+
+    protected function restrict()
+    {
+        $user = $this -> Authentication -> getIdentity() ->getOriginalData();
+        $userID = $user['User'];
+        $user = $this->Users->get($userID);
+        $userType = $user->user_type;
+        if($userType == 'student') {
+            return $this->redirect(['controller' => 'studentDashboard', 'action' => 'dashboard']);
+        }
+    }
     /**
      * Index method
      *
@@ -37,6 +48,7 @@ class PaymentsController extends AppController
      */
     public function index()
     {
+        $this->restrict();
         $query = $this->Payments->find()
             ->contain(['Courses', 'Users']);
         $payments = $this->paginate($query);

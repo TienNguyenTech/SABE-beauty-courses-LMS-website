@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use Cake\ORM\TableRegistry;
+
 /**
  * Enquirys Controller
  *
@@ -16,6 +18,18 @@ class EnquirysController extends AppController
 
         // Controller-level function/action whitelist for authentication
         $this->Authentication->allowUnauthenticated(['add']);
+        $this->Users = TableRegistry::getTableLocator()->get("Users");
+    }
+
+    protected function restrict()
+    {
+        $user = $this -> Authentication -> getIdentity() ->getOriginalData();
+        $userID = $user['User'];
+        $user = $this->Users->get($userID);
+        $userType = $user->user_type;
+        if($userType == 'student') {
+            return $this->redirect(['controller' => 'studentDashboard', 'action' => 'dashboard']);
+        }
     }
 
     /**
@@ -51,6 +65,7 @@ class EnquirysController extends AppController
      */
     public function add()
     {
+        $this->restrict();
         $this->viewBuilder()->setLayout('customer');
         $enquiry = $this->Enquirys->newEmptyEntity();
         if ($this->request->is('post')) {
@@ -74,6 +89,7 @@ class EnquirysController extends AppController
      */
     public function edit($id = null)
     {
+        $this->restrict();
         $enquiry = $this->Enquirys->get($id, contain: []);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $enquiry = $this->Enquirys->patchEntity($enquiry, $this->request->getData());
@@ -96,6 +112,7 @@ class EnquirysController extends AppController
      */
     public function delete($id = null)
     {
+        $this->restrict();
         $this->request->allowMethod(['post', 'delete']);
         $enquiry = $this->Enquirys->get($id);
         if ($this->Enquirys->delete($enquiry)) {

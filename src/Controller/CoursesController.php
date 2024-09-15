@@ -24,6 +24,7 @@ class CoursesController extends AppController
 
         // Controller-level function/action whitelist for authentication
         $this->Authentication->allowUnauthenticated(['view', 'courses']);
+        $this->Users = TableRegistry::getTableLocator()->get("Users");
     }
 
     protected function restrict()

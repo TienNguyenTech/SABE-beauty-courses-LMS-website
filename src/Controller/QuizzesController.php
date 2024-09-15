@@ -21,6 +21,18 @@ class QuizzesController extends AppController
         $this->Responses = TableRegistry::getTableLocator()->get('Responses');
 
         $this->Authentication->allowUnauthenticated(['test', 'submit']);
+        $this->Users = TableRegistry::getTableLocator()->get('Users');
+    }
+
+    protected function restrict()
+    {
+        $user = $this -> Authentication -> getIdentity() ->getOriginalData();
+        $userID = $user['User'];
+        $user = $this->Users->get($userID);
+        $userType = $user->user_type;
+        if($userType == 'student') {
+            return $this->redirect(['controller' => 'studentDashboard', 'action' => 'dashboard']);
+        }
     }
 
     /**
@@ -65,6 +77,7 @@ class QuizzesController extends AppController
      */
     public function add()
     {
+        $this->restrict();
         $quiz = $this->Quizzes->newEmptyEntity();
         if ($this->request->is('post')) {
             $data = $this->request->getData();
@@ -187,6 +200,7 @@ class QuizzesController extends AppController
      */
     public function edit($id = null)
     {
+        $this->restrict();
         $quiz = $this->Quizzes->get($id, contain: []);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $quiz = $this->Quizzes->patchEntity($quiz, $this->request->getData());
@@ -210,6 +224,7 @@ class QuizzesController extends AppController
      */
     public function delete($id = null)
     {
+        $this->restrict();
         $this->request->allowMethod(['post', 'delete']);
         $quiz = $this->Quizzes->get($id);
         if ($this->Quizzes->delete($quiz)) {
