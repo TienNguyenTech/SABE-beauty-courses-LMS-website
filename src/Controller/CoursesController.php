@@ -21,12 +21,12 @@ class CoursesController extends AppController
     private \Cake\ORM\Table $Progressions;
 
     public function initialize(): void
-    { {
-            parent::initialize();
-            $this->Contents = TableRegistry::getTableLocator()->get("Contents");
-            $this->Quizzes = TableRegistry::getTableLocator()->get("Quizzes");
-            $this->Payments = TableRegistry::getTableLocator()->get("Payments");
-            $this->Progressions = TableRegistry::getTableLocator()->get("Progressions");
+    {
+        parent::initialize();
+        $this->Contents = TableRegistry::getTableLocator()->get("Contents");
+        $this->Quizzes = TableRegistry::getTableLocator()->get("Quizzes");
+        $this->Payments = TableRegistry::getTableLocator()->get("Payments");
+        $this->Progressions = TableRegistry::getTableLocator()->get("Progressions");
 
         // Controller-level function/action whitelist for authentication
         $this->Authentication->allowUnauthenticated(['view', 'courses']);

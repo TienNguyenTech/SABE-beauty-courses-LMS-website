@@ -25,6 +25,7 @@ class ContentsController extends AppController
 
         $this->Courses = TableRegistry::getTableLocator()->get("Courses");
         $this->Users = TableRegistry::getTableLocator()->get("Users");
+        $this->Progressions = TableRegistry::getTableLocator()->get("Progressions");
 
     }
 
