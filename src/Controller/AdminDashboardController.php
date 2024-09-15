@@ -2,17 +2,25 @@
 declare(strict_types=1);
 
 namespace App\Controller;
+use Cake\ORM\TableRegistry;
 
 class AdminDashboardController extends AppController
 {
     public function initialize(): void
     {
         parent::initialize();
+        $this->Users = TableRegistry::getTableLocator()->get("Users");
         $this->viewBuilder()->setLayout('default');
     }
 
     public function dashboard() {
-
+        $user = $this -> Authentication -> getIdentity() ->getOriginalData();
+        $userID = $user['User'];
+        $user = $this->Users->get($userID);
+        $userType = $user->user_type;
+        if($userType == 'student') {
+            return $this->redirect(['controller' => 'studentDashboard', 'action' => 'dashboard']);
+        }
     }
 
     public function display(string ...$path): ?Response
