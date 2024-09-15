@@ -37,12 +37,12 @@ $this->assign('title', 'Create account');
             padding: 10px;
             border-radius: 10px;
             border: 1px solid #D9D9D9;
-            font-size: 16px;
+            font-size: 20px;
             color: black;
         }
 
         .form-field label {
-            font-size: 16px;
+            font-size: 20px;
             margin-bottom: 5px;
             display: block;
         }
@@ -54,7 +54,7 @@ $this->assign('title', 'Create account');
             border-radius: 10px;
             background-color: #28a745; /* Green color */
             color: white;
-            font-size: 16px;
+            font-size: 20px;
             cursor: pointer;
             text-align: center;
             border: none;
@@ -77,7 +77,7 @@ $this->assign('title', 'Create account');
         }
 
         .back-to-home {
-            color: #007bff;
+            color: #28a745;
             text-decoration: none;
         }
 
@@ -88,7 +88,7 @@ $this->assign('title', 'Create account');
 
         .login-title {
             text-align: center;
-            font-size: 24px;
+            font-size: 34px;
             margin-bottom: 20px;
         }
     </style>
