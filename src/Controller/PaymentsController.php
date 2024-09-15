@@ -208,15 +208,17 @@ class PaymentsController extends AppController
 
         Stripe::setApiKey('sk_test_51PnfYBHtFQ126a2JACHCRvlLDksG752hMQYdxCkoHDtqavhxcA5WHMmXqX7iVa0PgrrieQS0w5uGch0n0jLsD0ST00PMNE3Zwp');
 
-        $session = Session::retrieve($checkoutID);
-        $stripe = new \Stripe\StripeClient('sk_test_51PnfYBHtFQ126a2JACHCRvlLDksG752hMQYdxCkoHDtqavhxcA5WHMmXqX7iVa0PgrrieQS0w5uGch0n0jLsD0ST00PMNE3Zwp');
+        // $session = Session::retrieve($checkoutID);
+        // $stripe = new \Stripe\StripeClient('sk_test_51PnfYBHtFQ126a2JACHCRvlLDksG752hMQYdxCkoHDtqavhxcA5WHMmXqX7iVa0PgrrieQS0w5uGch0n0jLsD0ST00PMNE3Zwp');
 
-        $customer = $stripe->customers->retrieve($session->customer);
+        // $customer = $stripe->customers->retrieve($session->customer);
 
-        $customer = $this->Users->get($payment->user_id);
+        // $customer = $this->Users->get($payment->user_id);
 
-        $email = $customer->email;
-        $name = $customer->user_firstname . ' ' . $customer->user_surname;
+        $user = $this->Users->get($payment->user_id);
+
+        $email = $user->email;
+        $name = $user->user_firstname . ' ' . $user->user_surname;
 
         $this->Payments->save($payment);
 
