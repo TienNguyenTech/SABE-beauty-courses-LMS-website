@@ -8,7 +8,7 @@ $this->assign('title', 'Change User Password - Users');
 ?>
 <style>
     .form-container {
-        max-width: 600px;
+        max-width: 450px;
         margin: 0 auto;
         padding: 20px;
         border: 1px solid #ddd;
@@ -32,6 +32,7 @@ $this->assign('title', 'Change User Password - Users');
         padding: 10px;
         border: 1px solid #ccc;
         border-radius: 5px;
+        max-width: 410px;
     }
     .form-container .form-group .toggle-password {
         position: absolute;
