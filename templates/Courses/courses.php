@@ -378,7 +378,7 @@
 <!--                                <i class="fas fa-user-graduate"></i> Enroll Now-->
 <!--                            </a>-->
 <!---->
-<!--                            <!--                                                            <a href="-->--><?php ////= $this->Url->build(['controller' => 'Payments', 'action' => 'checkout', $course->course_id]) ?><!--<!--" class="cart-btn"><i class="fas fa-user-graduate"></i> Enroll Now</a>-->-->
+                            <!--                                                            <a href="--><?php //= $this->Url->build(['controller' => 'Payments', 'action' => 'checkout', $course->course_id]) ?><!--" class="cart-btn"><i class="fas fa-user-graduate"></i> Enroll Now</a>-->
 <!--                        </div>-->
 <!--                    </div>-->
 <!--                </div>-->
