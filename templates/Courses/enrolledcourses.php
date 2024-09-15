@@ -42,11 +42,7 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
 </style>
 <div class="courses index content">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800"><?= __('Courses') ?></h1>
-        <a href="<?= $this->Url->build(['action' => 'add']) ?>" class="d-none d-sm-inline-block btn btn-sm shadow-sm"
-            style="background-color: #1a4332; border-color: #1a4332; color: white;">
-            <i class="fas fa-plus fa-sm text-white-50"></i> New Course
-        </a>
+        <h1 class="h3 mb-0 text-gray-800"><?= __('My Courses') ?></h1>
     </div>
 
     <div class="row">
@@ -60,14 +56,6 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
                         <p class="card-text">
                             <?= h(strlen($course->course_description) > 100 ? substr($course->course_description, 0, 100) . '...' : $course->course_description) ?>
                         </p>
-                        <p class="card-text"><strong>Price:</strong> $<?= $this->Number->format($course->course_price) ?></p>
-                        <p class="card-text"><strong>Featured:</strong> <?= $course->course_featured ? 'Yes' : 'No' ?></p>
-                        <div class="progress final-score-bar">
-                            <div class="progress-bar" role="progressbar" style="width: <?= h($course->progress) ?>%;"
-                                aria-valuenow="<?= h($course->progress) ?>" aria-valuemin="0" aria-valuemax="100">
-                                <?= h($course->progress) ?>%
-                            </div>
-                        </div>
                         <div class="card-action">
                             <?= $this->Html->link(__('View'), ['action' => 'accesscourse', $course->course_id], ['class' => 'btn btn-primary']) ?>
                         </div>

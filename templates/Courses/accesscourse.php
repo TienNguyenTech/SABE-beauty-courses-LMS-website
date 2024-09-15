@@ -21,7 +21,6 @@
                 </div>
                 <div class="col-md-8">
                     <p><strong><?= __('Course Category') ?>:</strong> <?= __($course->course_category) ?></p>
-                    <p><strong><?= __('Course Price') ?>:</strong> <?= __($course->course_price) ?></p>
                     <p><strong><?= __('Course Description') ?>:</strong> <?= __($course->course_description) ?></p>
                 </div>
             </div>
@@ -31,13 +30,12 @@
     <!-- Course Content Cards -->
     <div class="card mb-4">
         <div class="card-header d-flex justify-content-between align-items-center">
-            <h3>Course Content</h3>
+            <h3>Course Content | Progress: <?= intval($progression * 100) ?>%</h3>
             <!-- Content Completion Progress -->
-            <div class="progress" style="width: 50%;">
+            <!-- <div class="progress" style="width: 50%;">
                 <div id="content-progress-bar" class="progress-bar" role="progressbar" style="width: 0%;"
                     aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
-            </div>
-            <button id="reset-progress-btn" class="btn btn-warning ms-3">Reset Progress</button>
+            </div> -->
         </div>
         <div class="card-body">
             <div class="d-flex flex-wrap justify-content-start">
@@ -50,13 +48,8 @@
                                 <p class="card-text flex-grow-1"><strong>Description:</strong>
                                     <?= h($content->content_description) ?></p>
 
-                                <!-- Read Now Button -->
-                                <button class="btn btn-info mt-auto read-btn" data-id="<?= $content->content_id ?>">Read
-                                    Now</button>
-
-                                <!-- Download Button -->
-                                <button class="btn btn-primary mt-2 download-btn"
-                                    data-id="<?= $content->content_id ?>">Download</button>
+                                <!-- Go To Content -->
+                                <?= $this->Html->link('Go To Content', ['controller' => 'Contents', 'action' => 'view', $content->content_id], ['class' => 'btn btn-info mt-auto read-btn']) ?>
                             </div>
                         </div>
                     </div>
@@ -82,148 +75,148 @@
     </div>
 
     <!-- Quiz Completion Progress -->
-    <div class="progress" style="width: 50%;">
-        <div id="quiz-progress-bar" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0"
-            aria-valuemin="0" aria-valuemax="100">0%</div>
-    </div>
+    <!-- <div class="progress" style="width: 50%;">
+        <div id="quiz-progress-bar" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="50"
+            aria-valuemin="0" aria-valuemax="100"><?= $progression * 100 ?>%</div>
+    </div> -->
 
 </div>
 
 <!-- Final Score Bar -->
-<div class="card mb-4">
+<!-- <div class="card mb-4">
     <div class="card-header">
         <h3>Final Score</h3>
     </div>
     <div class="card-body">
         <div class="progress" style="width: 50%;">
-            <div id="final-score-bar" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0"
-                aria-valuemin="0" aria-valuemax="100">0%</div>
+            <div id="final-score-bar" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"><?= $progression * 100 ?>%</div>
         </div>
     </div>
-</div>
+</div> -->
 
 
 
 <script>
     // JavaScript to track progress, handle button clicks, and reset progress
-    document.addEventListener('DOMContentLoaded', function () {
-    let totalContent = <?= count($contents) ?>;
-    let completedContent = localStorage.getItem('completedContent') ? parseInt(localStorage.getItem('completedContent')) : 0;
-    let quizProgress = localStorage.getItem('quizProgress') ? parseInt(localStorage.getItem('quizProgress')) : 0;
+//     document.addEventListener('DOMContentLoaded', function () {
+//     let totalContent = <?= count($contents) ?>;
+//     let completedContent = localStorage.getItem('completedContent') ? parseInt(localStorage.getItem('completedContent')) : 0;
+// //     let quizProgress = localStorage.getItem('quizProgress') ? parseInt(localStorage.getItem('quizProgress')) : 0;
 
-    const contentProgressBar = document.getElementById('content-progress-bar');
-    const quizProgressBar = document.getElementById('quiz-progress-bar');
-    const finalScoreBar = document.getElementById('final-score-bar');
-    const startQuizBtn = document.getElementById('start-quiz-btn');
-    const resetProgressBtn = document.getElementById('reset-progress-btn');
-    const completeQuizBtn = document.getElementById('complete-quiz-btn');
+//     const contentProgressBar = document.getElementById('content-progress-bar');
+// //     const quizProgressBar = document.getElementById('quiz-progress-bar');
+// //     const finalScoreBar = document.getElementById('final-score-bar');
+// //     const startQuizBtn = document.getElementById('start-quiz-btn');
+// //     const resetProgressBtn = document.getElementById('reset-progress-btn');
+// //     const completeQuizBtn = document.getElementById('complete-quiz-btn');
 
-    // Function to update content progress
-    function updateContentProgress() {
-        let progress = (completedContent / totalContent) * 100;
-        progress = Math.min(progress, 100); // Cap progress at 100%
-        contentProgressBar.style.width = progress + '%';
-        contentProgressBar.innerText = Math.round(progress) + '%';
+//     // Function to update content progress
+//     function updateContentProgress() {
+//         let progress = (completedContent / totalContent) * 100;
+//         progress = Math.min(progress, 100); // Cap progress at 100%
+//         contentProgressBar.style.width = progress + '%';
+//         contentProgressBar.innerText = Math.round(progress) + '%';
 
-        // Save progress to localStorage
-        localStorage.setItem('completedContent', completedContent);
+//         // Save progress to localStorage
+//         localStorage.setItem('completedContent', completedContent);
 
-        // Enable quiz button only when progress is 100%
-        if (progress >= 100) {
-            startQuizBtn.disabled = false;
-        }
+//         // Enable quiz button only when progress is 100%
+//         if (progress >= 100) {
+//             startQuizBtn.disabled = false;
+//         }
 
-        // Update final score bar
-        updateFinalScore();
-    }
+//         // Update final score bar
+//         updateFinalScore();
+//     }
 
-    // Function to update quiz progress
-    function updateQuizProgress() {
-        let progress = quizProgress;
-        quizProgressBar.style.width = progress + '%';
-        quizProgressBar.innerText = Math.round(progress) + '%';
+//     // Function to update quiz progress
+//     function updateQuizProgress() {
+//         let progress = quizProgress;
+//         quizProgressBar.style.width = progress + '%';
+//         quizProgressBar.innerText = Math.round(progress) + '%';
 
-        // Save quiz progress to localStorage
-        localStorage.setItem('quizProgress', quizProgress);
+//         // Save quiz progress to localStorage
+//         localStorage.setItem('quizProgress', quizProgress);
 
-        // Update final score bar
-        updateFinalScore();
-    }
+//         // Update final score bar
+//         updateFinalScore();
+//     }
 
-    // Function to update final score bar
-    function updateFinalScore() {
-        let contentScore = (completedContent / totalContent) * 50; // Content progress contributes 50%
-        let finalScore = contentScore + quizProgress * 0.5; // Quiz progress contributes 50%
+//     // Function to update final score bar
+//     function updateFinalScore() {
+//         let contentScore = (completedContent / totalContent) * 50; // Content progress contributes 50%
+//         let finalScore = contentScore + quizProgress * 0.5; // Quiz progress contributes 50%
 
-        finalScore = Math.min(finalScore, 100); // Cap final score at 100%
-        finalScoreBar.style.width = finalScore + '%';
-        finalScoreBar.innerText = Math.round(finalScore) + '%';
-    }
+//         finalScore = Math.min(finalScore, 100); // Cap final score at 100%
+//         finalScoreBar.style.width = finalScore + '%';
+//         finalScoreBar.innerText = Math.round(finalScore) + '%';
+//     }
 
-    // Function to reset content progress
-    function resetContentProgress() {
-        completedContent = 0;
-        updateContentProgress();
-        localStorage.removeItem('completedContent');
-        startQuizBtn.disabled = true;
-    }
+//     // Function to reset content progress
+//     function resetContentProgress() {
+//         completedContent = 0;
+//         updateContentProgress();
+//         localStorage.removeItem('completedContent');
+//         startQuizBtn.disabled = true;
+//     }
 
-    // Load the saved progress when the page loads
-    updateContentProgress();
-    updateQuizProgress();
+//     // Load the saved progress when the page loads
+//     updateContentProgress();
+//     updateQuizProgress();
 
-    // Read Now Button Click
-    document.querySelectorAll('.read-btn').forEach(function (button) {
-        button.addEventListener('click', function () {
-            // Allow link to proceed only if not already clicked
-            if (!button.classList.contains('clicked')) {
-                button.classList.add('clicked');
-                completedContent++;
-                updateContentProgress();
-            }
+//     // Read Now Button Click
+//     document.querySelectorAll('.read-btn').forEach(function (button) {
+//         button.addEventListener('click', function () {
+//             // Allow link to proceed only if not already clicked
+//             if (!button.classList.contains('clicked')) {
+//                 button.classList.add('clicked');
+//                 completedContent++;
+//                 updateContentProgress();
+//             }
 
-            // Allow link to proceed
-            const contentId = button.getAttribute('data-id');
-            window.location.href = `/contents/read/${contentId}`; // Example URL for reading content
-        });
-    });
+//             // Allow link to proceed
+//             const contentId = button.getAttribute('data-id');
+//             window.location.href = `/contents/read/${contentId}`; // Example URL for reading content
+//         });
+//     });
 
-    // Download Button Click
-    document.querySelectorAll('.download-btn').forEach(function (button) {
-        button.addEventListener('click', function () {
-            // Allow download to proceed only if not already clicked
-            if (!button.classList.contains('clicked')) {
-                button.classList.add('clicked');
-                completedContent++;
-                updateContentProgress();
-            }
+//     // Download Button Click
+//     document.querySelectorAll('.download-btn').forEach(function (button) {
+//         button.addEventListener('click', function () {
+//             // Allow download to proceed only if not already clicked
+//             if (!button.classList.contains('clicked')) {
+//                 button.classList.add('clicked');
+//                 completedContent++;
+//                 updateContentProgress();
+//             }
 
-            // Allow download to proceed
-            const contentId = button.getAttribute('data-id');
-            window.location.href = `/contents/download/${contentId}`; // Example URL for downloading content
-        });
-    });
+//             // Allow download to proceed
+//             const contentId = button.getAttribute('data-id');
+//             window.location.href = `/contents/download/${contentId}`; // Example URL for downloading content
+//         });
+//     });
 
-    // Reset Progress Button Click
-    resetProgressBtn.addEventListener('click', function () {
-        resetContentProgress();
-    });
+//     // Reset Progress Button Click
+//     resetProgressBtn.addEventListener('click', function () {
+//         resetContentProgress();
+//     });
 
-    // Start Quiz Button Click
-    startQuizBtn.addEventListener('click', function () {
-        // Set quiz progress to 50% when starting
-        quizProgress = 50;
-        updateQuizProgress();
-        completeQuizBtn.disabled = false; // Enable complete quiz button
-    });
+//     // Start Quiz Button Click
+//     startQuizBtn.addEventListener('click', function () {
+//         // Set quiz progress to 50% when starting
+//         quizProgress = 50;
+//         updateQuizProgress();
+//         completeQuizBtn.disabled = false; // Enable complete quiz button
+//     });
 
-    // Complete Quiz Button Click
-    completeQuizBtn.addEventListener('click', function () {
-        // Set quiz progress to 100% when completed
-        quizProgress = 100;
-        updateQuizProgress();
-        completeQuizBtn.disabled = true; // Disable the complete quiz button
-    });
-});
+//     // Complete Quiz Button Click
+//     completeQuizBtn.addEventListener('click', function () {
+//         // Set quiz progress to 100% when completed
+//         quizProgress = 100;
+//         updateQuizProgress();
+//         completeQuizBtn.disabled = true; // Disable the complete quiz button
+//     });
+// });
 
 </script>

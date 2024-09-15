@@ -10,17 +10,23 @@ use Cake\ORM\TableRegistry;
  *
  * @property \App\Model\Table\CoursesTable $Courses
  * @property \App\Model\Table\ContentsTable $Contents
+ * @property \App\Model\Table\PaymentsTable $Payments
+ * @property \App\Model\Table\ProgressionsTable $Progress
  */
 class CoursesController extends AppController
 {
     private \Cake\ORM\Table $Contents;
     private \Cake\ORM\Table $Quizzes;
+    private \Cake\ORM\Table $Payments;
+    private \Cake\ORM\Table $Progressions;
 
     public function initialize(): void
     { {
             parent::initialize();
             $this->Contents = TableRegistry::getTableLocator()->get("Contents");
             $this->Quizzes = TableRegistry::getTableLocator()->get("Quizzes");
+            $this->Payments = TableRegistry::getTableLocator()->get("Payments");
+            $this->Progressions = TableRegistry::getTableLocator()->get("Progressions");
 
             // Controller-level function/action whitelist for authentication
             $this->Authentication->allowUnauthenticated(['view', 'courses']);
@@ -51,8 +57,19 @@ class CoursesController extends AppController
 
     public function enrolledcourses()
     {
+        $user = $this->Authentication->getIdentity()->getOriginalData();
+        $userID = $user['User']['id'];
 
-        $query = $this->Courses->find();
+        $payments = $this->Payments->find()->where(['user_id IS' => $userID])->toArray();
+        $courses = [];
+
+        foreach ($payments as $payment) {
+            array_push($courses, $payment->course_id);
+        }
+        
+        
+
+        $query = $this->Courses->find()->where(['course_id IN' => $courses]);
         $courses = $this->paginate($query);
 
         $this->set(compact('courses'));
@@ -99,8 +116,23 @@ class CoursesController extends AppController
     /* Student accesses a course */
     public function accesscourse($id = null)
     {
+        $user = $this->Authentication->getIdentity()->getOriginalData();
+        $userID = $user['User']['id'];
+
         $course = $this->Courses->get($id);
+        $contents = $this->Contents->find()->where(['course_id IS' => $course->course_id])->toArray();
+
+        $contentIDs = [];
+        foreach ($contents as $content) {
+            array_push($contentIDs, $content->content_id);
+        }
+
         $quiz = $this->Quizzes->find()->where(['course_id IS' => $course->course_id])->first();
+        $progressions = $this->Progressions->find()->where(['user_id IS' => $userID, 'content_id IN' => $contentIDs])->toArray();
+
+        $progression = count($progressions) / count($contents);
+
+        // dd($progression);
 
         if (!empty($quiz)) {
             $quizID = $quiz->quiz_id;
@@ -112,7 +144,7 @@ class CoursesController extends AppController
         $query = $this->Contents->find()->where(['course_id IS' => $course->course_id]);
         $contents = $this->paginate($query);
         $this->viewBuilder()->setLayout('default');
-        $this->set(compact('course', 'contents', 'quiz'));
+        $this->set(compact('course', 'contents', 'quiz', 'progression'));
     }
 
 
