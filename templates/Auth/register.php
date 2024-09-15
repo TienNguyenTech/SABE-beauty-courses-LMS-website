@@ -87,13 +87,7 @@ $this->assign('title', 'Create account');
                 data-callback="onRecaptchaSuccess"></div>
         </fieldset>
 
-            <?php
-            $courseId = $this->request->getSession()->read('SelectedCourse.id'); // Retrieve course ID from session
-            ?>
-
-            <?= $this->Form->create(null, ['url' => ['controller' => 'Auth', 'action' => 'register', $courseId]]) ?>
             <?= $this->Form->button('Register', ['class' => 'centered-button']) ?>
-            <?= $this->Form->end() ?>
 
             <?= $this->Form->end() ?>
         <div class="back-home-link">
