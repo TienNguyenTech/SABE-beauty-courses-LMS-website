@@ -48,6 +48,10 @@ class CoursesTable extends Table
             'targetForeignKey' => 'user_id',
             'joinTable' => 'courses_users',
         ]);
+
+        $this->hasMany('Contents', [
+            'foreignKey' => 'course_id'
+        ]);
     }
 
     /**

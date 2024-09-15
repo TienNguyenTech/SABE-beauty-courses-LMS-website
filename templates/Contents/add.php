@@ -2,11 +2,12 @@
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Content $content
+ * @var \App\Model\Entity\Course $course
  * @var \Cake\Collection\CollectionInterface|string[] $courses
  */
 ?>
 
-<h1 class="h3 mb-2 text-gray-800">Add new course content</h1>
+<h1 class="h3 mb-2 text-gray-800">Add new course content to <?= $course->course_name ?></h1>
 <?= $this->Form->create($content, ['type' => 'file','class' => 'text-gray-800']) ?>
 
 <?php
