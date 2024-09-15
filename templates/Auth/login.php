@@ -68,6 +68,8 @@ $this->assign('title', 'Login');
                 <?= $this->Form->end() ?>
                 <div class="back-home-link">
                     <?= $this->Html->link('Back To Home', '/', ['class' => 'back-to-home']) ?>
+                    <br>
+                    <?= $this->Html->link('Don\'t have an account? Register', ['controller' => 'Auth', 'action' => 'register'], ['class' => 'back-to-home']) ?>
                 </div>
 
 
