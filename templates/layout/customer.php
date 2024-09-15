@@ -180,87 +180,85 @@
     <?= $this->fetch('content') ?>
 
 
-    <!-- footer -->
-    <div class="footer-area">
-        <div class="container" style="text-align: left;">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-12">
-                    <div class="footer-box get-in-touch">
-                        <h2 class="widget-title">Get in Touch</h2>
-                        <ul>
-                            <li><?= $this->ContentBlock->text('location-address') ?>,
-                                <?= $this->ContentBlock->text('location-suburb') ?>,
-                                <br><?= $this->ContentBlock->text('location-state') ?>,
-                                <?= $this->ContentBlock->text('location-postcode') ?>.
-                            </li>
-                            <li><?= $this->ContentBlock->text('contact-email') ?></li>
-                            <li>(+61) <?= $this->ContentBlock->text('contact-phone') ?></li>
-                        </ul>
-                    </div>
+     <!-- footer -->
+<div class="footer-area">
+    <div class="container" style="text-align: left;">
+        <div class="row" style="gap: 10px">
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="footer-box get-in-touch">
+                    <h2 class="widget-title" style="font-size: 24px; font-weight: 500; position: relative; padding-bottom: 20px; color: #fff;">Get in Touch</h2>
+                    <ul>
+                        <li><?= $this->ContentBlock->text('location-address') ?>,
+                            <?= $this->ContentBlock->text('location-suburb') ?>,
+                            <br><?= $this->ContentBlock->text('location-state') ?>,
+                            <?= $this->ContentBlock->text('location-postcode') ?>.
+                        </li>
+                        <li><?= $this->ContentBlock->text('contact-email') ?></li>
+                        <li>(+61) <?= $this->ContentBlock->text('contact-phone') ?></li>
+                    </ul>
                 </div>
-                <div class="col-lg-3 col-md-6 col-12">
-                    <div class="footer-box pages">
-                        <h2 class="widget-title">Pages</h2>
-                        <ul>
-                            <li><?= $this->Html->link("Home", "/") ?></li>
-                            <li><?= $this->Html->link("Beauty By Lisa", ['controller' => 'BeautyByLisa', 'action' => 'services']) ?>
-                            </li>
-                            <li><?= $this->Html->link("Courses", ['controller' => 'Courses', 'action' => 'courses']) ?>
-                            </li>
-                            <li><?= $this->Html->link("Contact Us", ['controller' => 'Enquirys', 'action' => 'add']) ?>
-                            </li>
-                        </ul>
-                    </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-12">
+                <div class="footer-box pages">
+                    <h2 class="widget-title" style="font-size: 24px; font-weight: 500; position: relative; padding-bottom: 20px; color: #fff;">Pages</h2>
+                    <ul>
+                        <li><?= $this->Html->link("Home", "/") ?></li>
+                        <li><?= $this->Html->link("Beauty By Lisa", ['controller' => 'BeautyByLisa', 'action' => 'services']) ?></li>
+                        <li><?= $this->Html->link("Courses", ['controller' => 'Courses', 'action' => 'courses']) ?></li>
+                        <li><?= $this->Html->link("Contact Us", ['controller' => 'Enquirys', 'action' => 'add']) ?></li>
+                    </ul>
                 </div>
-                <div class="col-lg-3 col-md-6 col-12">
-                    <div class="footer-box subscribe">
-                        <h2 class="widget-title">Opening Hours</h2>
-                        <p>Monday to Friday: 9:30 - 20:00</p>
-
-                    </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-12">
+                <div class="footer-box subscribe">
+                    <h2 class="widget-title" style="font-size: 24px; font-weight: 500; position: relative; padding-bottom: 20px; color: #fff;">Opening Hours</h2>
+                    <p>Monday to Friday: 9:30 - 20:00</p>
                 </div>
-                <div class="col-lg-3 col-md-6 col-12">
-                    <div class="social-icons footer-box subscribe">
-                        <ul>
-                            <li><a href="https://www.facebook.com/adelaidebeautyandeducation" target="_blank"><i
-                                        class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="https://www.instagram.com/adelaidebeautyandeducation" target="_blank"><i
-                                        class="fab fa-instagram"></i></a></li>
-                            <!--<li><a href="https://www.tiktok.com/@beautybylisafollett" target="_blank"><i
-                                        class="fab fa-tiktok"></i></a></li>
-                            <div class="site-logo">-->
-                            </div>
-                        </ul>
-                    </div>
+            </div>
+            <div class="col-lg-1 col-md-6 col-12">
+                <div class="social-icons footer-box subscribe">
+                    <ul style="display: flex; gap: 10px;"> <!-- Flexbox for horizontal layout and gap between icons -->
+                        <li><a href="https://www.facebook.com/adelaidebeautyandeducation" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a></li>
+                        <li><a href="https://www.instagram.com/adelaidebeautyandeducation" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a></li>
+                        <!-- Additional icons can be added here if needed -->
+                        <div class="site-logo"></div>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
-    <!-- end footer -->
+</div>
+<!-- end footer -->
+
 
     <!-- copyright -->
-    <div class="copyright">
-        <div class="container">
-            <div class="row" style="display: flex">
-                <div class="col-lg-12" style="display: flex; justify-content: space-between; align-items: center;">
-                    <p style="margin: 0;">
-                        Copyrights &copy; <span style="color: #4a9b38; font-weight: bold;">
-                            <?= $this->ContentBlock->text('copyright-message'); ?>
-                        </span> All Rights Reserved.
-                    </p>
-                    <!--<ul class="list-unstyled site-footer__bottom-menu"
-                        style="display: flex; margin: 0; padding: 0; list-style: none;">
-                        <li style="margin-right: 5px;">
-                            <a href="#">Help</a>
-                        </li>
-                        <li>
-                            <a href="#">Policy</a>
-                        </li>
-                    </ul>-->
-                </div>
+    <div class="copyright" style="padding: 0;">
+    <div class="container">
+        <div class="row" style="display: flex">
+            <div class="col-lg-12" style="display: flex; justify-content: space-between; align-items: center;">
+                <p style="margin: 0;">
+                    Copyrights &copy; <span style="color: #4a9b38; font-weight: bold;">
+                        <?= $this->ContentBlock->text('copyright-message'); ?>
+                    </span> All Rights Reserved.
+                </p>
+                <!--<ul class="list-unstyled site-footer__bottom-menu"
+                    style="display: flex; margin: 0; padding: 0; list-style: none;">
+                    <li style="margin-right: 5px;">
+                        <a href="#">Help</a>
+                    </li>
+                    <li>
+                        <a href="#">Policy</a>
+                    </li>
+                </ul>-->
             </div>
         </div>
     </div>
+</div>
+
 
 
     <!-- end copyright -->
@@ -595,24 +593,6 @@
             padding: 150px 0;
         }
 
-        h2.widget-title {
-            font-size: 24px;
-            font-weight: 500;
-            position: relative;
-            padding-bottom: 20px;
-            color: #fff;
-        }
-
-        h2.widget-title:after {
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 20px;
-            height: 2px;
-            background-color: #FF69B4;
-            content: "";
-        }
-
         .footer-box p {
             color: #fff;
             opacity: 0.7;
@@ -825,15 +805,6 @@
             color: #4a9b38;
         }
 
-        h2.widget-title:after {
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 20px;
-            height: 2px;
-            background-color: #4a9b38;
-            content: "";
-        }
 
         .footer-box.pages ul li:before {
             position: absolute;
@@ -1142,3 +1113,4 @@
 </body>
 
 </html>
+
