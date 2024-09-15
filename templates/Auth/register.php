@@ -33,22 +33,35 @@ $this->assign('title', 'Create account');
 
             <?= $this->Form->control('email', [
                 'type' => 'email',
+                'placeholder' => 'name@example.com',
                 'required' => true,
                 'autofocus' => true,
                 'style' => 'color: black; width: 350px; border-radius: 10px; margin-left: 75px;'
             ]); ?>
 
             <?= $this->Form->control('user_firstname', [
+                'placeholder' => 'John',
                 'style' => 'color: black; width: 350px; border-radius: 10px; margin-left: 45px; padding: 10px; margin-bottom: 10px; border: 1px solid #D9D9D9; font-size: 16px;',
                 'required' => true,
                 'label' => 'Firstname'
             ]); ?>
 
             <?= $this->Form->control('user_surname', [
+                'placeholder' => 'Smith',
                 'style' => 'color: black; width: 350px; border-radius: 10px; margin-left: 45px; padding: 10px; margin-bottom: 10px; border: 1px solid #D9D9D9; font-size: 16px;',
                 'required' => true,
                 'label' => 'Surname'
             ]); ?>
+
+            <?= $this->Form->control('user_phone', [
+                'type' => 'tel',
+                'pattern' => '[0-9](10))',
+                'placeholder' => '0412345678',
+                'required' => true,
+                'autofocus' => true,
+                'style' => 'color: black; width: 350px; border-radius: 10px; margin-left: 75px; padding: 10px; margin-bottom: 10px; border: 1px solid #D9D9D9; font-size: 16px;'
+            ]); ?>
+
             <?php
             echo $this->Form->control('password', [
                 'type' => 'password',
