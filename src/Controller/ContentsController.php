@@ -47,7 +47,10 @@ class ContentsController extends AppController
         $content = $this->Contents->get($id, contain: ['Courses']);
         $courseContents = $this->Contents->find()->where(['course_id IS' => $content->course_id])->toArray();
 
-        $this->set(compact('content', 'courseContents'));
+        $user = $this->Authentication->getIdentity()->getOriginalData();
+        $userID = $user['User']['id'];
+
+        $this->set(compact('content', 'courseContents', 'userID'));
     }
 
     public function moveup($id = null) {

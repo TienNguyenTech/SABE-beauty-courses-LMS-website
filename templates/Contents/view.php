@@ -69,7 +69,7 @@
                                 echo $this->Html->link('Next', ['action' => 'view', $nextContent->content_id], ['class' => 'btn btn-primary']);
                             }
                             ?>
-                            <button class="btn btn-primary">Mark as complete</button>
+                            <?= $this->Html->link('Mark as complete', ['controller' => 'Progressions', 'action' => 'complete', $userID, $content->content_id], ['class' => 'btn btn-primary']) ?>
                         </td>
                     </tr>
                 </table>
