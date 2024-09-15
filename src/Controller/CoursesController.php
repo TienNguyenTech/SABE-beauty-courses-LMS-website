@@ -14,11 +14,13 @@ use Cake\ORM\TableRegistry;
 class CoursesController extends AppController
 {
     private \Cake\ORM\Table $Contents;
+    private \Cake\ORM\Table $Quizzes;
 
     public function initialize(): void
     {
         parent::initialize();
         $this->Contents = TableRegistry::getTableLocator()->get("Contents");
+        $this->Quizzes = TableRegistry::getTableLocator()->get("Quizzes");
 
         // Controller-level function/action whitelist for authentication
         $this->Authentication->allowUnauthenticated(['view', 'courses']);
@@ -68,11 +70,19 @@ class CoursesController extends AppController
      */
     public function course($id = null) {
         $course = $this->Courses->get($id);
+        $quiz = $this->Quizzes->find()->where(['course_id IS' => $course->course_id])->first();
+
+        if(!empty($quiz)) {
+            $quizID = $quiz->quiz_id;
+            $quizJson = json_decode(json_decode($quiz->quiz_json));
+            $quiz = $quizJson;
+            $quiz->quiz_id = $quizID;
+        }        
 
         $query = $this->Contents->find()->where(['course_id IS' => $course->course_id]);
         $contents = $this->paginate($query);
         $this->viewBuilder()->setLayout('default');
-        $this->set(compact('course', 'contents'));
+        $this->set(compact('course', 'contents', 'quiz'));
     }
 
     /**
