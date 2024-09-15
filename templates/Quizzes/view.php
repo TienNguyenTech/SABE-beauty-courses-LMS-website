@@ -41,6 +41,7 @@ survey.onComplete.add((sender, options) => {
 
         // Redirect
         if(xhr.readyState === XMLHttpRequest.DONE) {
+            console.log(xhr.responseText)
             if(xhr.status === 200) {
                 window.location.href = xhr.responseText;
             }
