@@ -83,6 +83,10 @@ class CoursesController extends AppController
         $query = $this->Courses->find()->where(['course_id IN' => $courses]);
         $courses = $this->paginate($query);
 
+        if(empty($courses)) {
+            return $this->redirect(['action' => 'courses']);
+        }
+
         $this->set(compact('courses'));
     }
 
