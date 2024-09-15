@@ -217,6 +217,8 @@ class PaymentsController extends AppController
 
         $payment->payment_email = $email;
 
+        dd($payment);
+
         $this->Payments->save($payment);
 
         $mailer = new Mailer('default');
@@ -253,7 +255,7 @@ class PaymentsController extends AppController
     }
 
     public function fail() {
-        $this->viewBuilder()->disableAutoLayout();
+        $this->viewBuilder()->disableAutoLayout();        
     }
 
     public function toggle($id = null) {
