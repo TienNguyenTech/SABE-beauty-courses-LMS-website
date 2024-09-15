@@ -37,6 +37,20 @@ class ProgressionsController extends AppController
         $this->set(compact('progression'));
     }
 
+    public function complete($userID, $contentID) {
+        $progression = $this->Progressions->newEmptyEntity();
+        $progression->user_id = $userID;
+        $progression->content_id = $contentID;
+
+        if($this->Progressions->save($progression)) {
+            $this->Flash->success(__('The progression has been saved.'));
+
+            return $this->redirect(['controller' => 'Contents', 'action' => 'view', $contentID]);
+        }
+
+        $this->Flash->error(__('There was an error saving course progress'));
+    }
+
     /**
      * Add method
      *

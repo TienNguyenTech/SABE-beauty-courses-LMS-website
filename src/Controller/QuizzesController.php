@@ -10,15 +10,18 @@ use Cake\ORM\Table;use Cake\ORM\TableRegistry;use PhpParser\Node\Expr\Array_;use
  *
  * @property \App\Model\Table\QuizzesTable $Quizzes
  * @property \App\Model\Table\ResponsesTable $Responses
+ * @property \App\Model\Table\CompletionsTable $Completions
  */
 class QuizzesController extends AppController
 {
     private \Cake\ORM\Table $Responses;
+    private \Cake\ORM\Table $Completions;
 
     public function initialize() : void{
         parent::initialize();
 
         $this->Responses = TableRegistry::getTableLocator()->get('Responses');
+        $this->Completions = TableRegistry::getTableLocator()->get('Completions');
 
         $this->Authentication->allowUnauthenticated(['test', 'submit']);
         $this->Users = TableRegistry::getTableLocator()->get('Users');
@@ -58,7 +61,7 @@ class QuizzesController extends AppController
      */
     public function view($id = null)
     {
-        $quiz = $this->Quizzes->get($id, contain: ['Courses']);
+        $quiz = $this->Quizzes->get($id);
 
         $quizID = $quiz->quiz_id;
         $quizJSON = $quiz->quiz_json;
@@ -174,9 +177,12 @@ class QuizzesController extends AppController
 
             $grade = $correctAnswers / $totalQuestions;
 
+            $user = $this->Authentication->getIdentity()->getOriginalData();
+            $userID = $user['User']['id'];
+
             $response = $this->Responses->newEmptyEntity();
             $response = $this->Responses->patchEntity($response, [
-                'user_id' => $this->Authentication->getIdentity()->user_id,
+                'user_id' => $userID,
                 'quiz_id' => $quiz->quiz_id,
                 'response_json' => json_encode($responses),
                 'response_score' => $grade
@@ -184,10 +190,26 @@ class QuizzesController extends AppController
 
             $this->Responses->save($response);
 
-            $json = json_encode($response);
+            $completion = null;
+
+            if($response->response_score >= 0.75) {
+                // Pass -> complete course 
+                $completion = $this->Completions->newEmptyEntity();
+                $completion->user_id = $userID;
+                $completion->course_id = $quiz->course_id;
+
+                $this->Completions->save($completion);
+                return $this->response->withType('application/json; charset=utf-8')->withStringBody(Router::url(['controller' => 'Completions' ,'action' => 'view', $completion->completion_id]));
+            } else {
+                // Fail -> try again? maybe something else
+                return $this->response->withType('application/json; charset=utf-8')->withStringBody(Router::url(['controller' => 'Quizzes' ,'action' => 'view', $quiz->quiz_id]));
+            }
+
+            //$json = json_encode($response);
 
             // Send redirect url to client side
-            return $this->response->withType('application/json; charset=utf-8')->withStringBody(Router::url(['controller' => 'Responses' ,'action' => 'view', $response->response_id]));
+            // return $this->response->withType('application/json; charset=utf-8')->withStringBody(Router::url(['controller' => 'Completions' ,'action' => 'view', $completion->completion_id]));
+            // return $this->response->withType('application/json; charset=utf-8')->withStringBody(json_encode($completion));
         }
     }
 

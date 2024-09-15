@@ -4,18 +4,23 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use Cake\ORM\TableRegistry;
+use Cake\Http\Exception\NotFoundException;
+
 
 /**
  * Contents Controller
  *
  * @property \App\Model\Table\ContentsTable $Contents
  * @property \App\Model\Table\CoursesTable $Courses
+ * @property \App\Model\Table\ProgressionsTable $Progressions
  */
 class ContentsController extends AppController
 {
     private \Cake\ORM\Table $Courses;
+    private \Cake\ORM\Table $Progressions;
 
-    public function initialize(): void {
+    public function initialize(): void
+    {
         parent::initialize();
 
         $this->Courses = TableRegistry::getTableLocator()->get("Courses");
@@ -48,6 +53,36 @@ class ContentsController extends AppController
         $this->set(compact('contents'));
     }
 
+    /* Download the files */
+    public function download($id = null)
+{
+    // Kiểm tra xem ID có hợp lệ không
+    if ($id === null) {
+        throw new NotFoundException(__('Invalid content ID'));
+    }
+
+    // Lấy thông tin nội dung từ cơ sở dữ liệu
+    $content = $this->Contents->get($id);
+
+    // Đảm bảo rằng 'content_url' chứa đường dẫn đến tập tin
+    $filePath = WWW_ROOT . 'files' . DS . $content->content_url;
+
+    // Kiểm tra xem tập tin có tồn tại không
+    if (!file_exists($filePath)) {
+        throw new NotFoundException(__('File not found'));
+    }
+
+    // Sử dụng đối tượng phản hồi để xử lý việc tải xuống tập tin
+    $response = $this->response->withFile(
+        $filePath,
+        ['download' => true, 'name' => $content->content_title . '.' . pathinfo($filePath, PATHINFO_EXTENSION)]
+    );
+
+    return $response;
+}
+
+
+
     /**
      * View method
      *
@@ -58,14 +93,26 @@ class ContentsController extends AppController
     public function view($id = null)
     {
         $content = $this->Contents->get($id, contain: ['Courses']);
-        $this->set(compact('content'));
+        $courseContents = $this->Contents->find()->where(['course_id IS' => $content->course_id])->toArray();
+
+        $user = $this->Authentication->getIdentity()->getOriginalData();
+        $userID = $user['User']['id'];
+
+        $progression = $this->Progressions->find()->where(['user_id IS' => $userID, 'content_id IS' => $content->content_id])->first();
+        $isCompleted = false;
+        if(!empty($progression) && $progression->is_completed == true) {
+            $isCompleted = true;
+        } 
+
+        $this->set(compact('content', 'courseContents', 'userID', 'isCompleted'));
     }
 
-    public function moveup($id = null) {
+    public function moveup($id = null)
+    {
         $content = $this->Contents->get($id);
         $contentAbove = $this->Contents->find()->where(['course_id' => $content->course_id, 'content_position' => $content->content_position + 1])->first();
 
-        if(!empty($contentAbove->content_position)) {
+        if (!empty($contentAbove->content_position)) {
             $content->content_position++;
             $contentAbove->content_position--;
 
@@ -79,11 +126,12 @@ class ContentsController extends AppController
         return $this->redirect(['controller' => 'Courses', 'action' => 'course', $content->course_id]);
     }
 
-    public function movedown($id = null) {
+    public function movedown($id = null)
+    {
         $content = $this->Contents->get($id);
         $contentBelow = $this->Contents->find()->where(['course_id' => $content->course_id, 'content_position' => $content->content_position + 1])->first();
 
-        if(!empty($contentAbove->content_position)) {
+        if (!empty($contentAbove->content_position)) {
             $content->content_position--;
             $contentBelow->content_position++;
 
@@ -113,7 +161,7 @@ class ContentsController extends AppController
 
             // Calculate position of new content in course
             $contents = $this->Contents->find()->where(['course_id IS' => $content->course_id])->toArray();
-            if(!empty($contents)) {
+            if (!empty($contents)) {
                 usort($contents, function ($a, $b) {
                     return $a->content_position - $b->content_position;
                 });
@@ -127,9 +175,9 @@ class ContentsController extends AppController
             // Validate file
             $file = $this->request->getUploadedFiles()['content_image'];
 
-            if($file->getSize() > 100 * 1024 * 1024) {
+            if ($file->getSize() > 100 * 1024 * 1024) {
                 return $this->Flash->error(__('Image file size must be 100MB or less.'));
-            } else if($file->getClientMediaType() != 'image/jpeg' && $file->getClientMediaType() != 'image/png' && $file->getClientMediaType() != 'video/mp4' && $file->getClientMediaType() != 'video/mov' && $file->getClientMediaType() != 'application/pdf') {
+            } else if ($file->getClientMediaType() != 'image/jpeg' && $file->getClientMediaType() != 'image/png' && $file->getClientMediaType() != 'video/mp4' && $file->getClientMediaType() != 'video/mov' && $file->getClientMediaType() != 'application/pdf') {
                 return $this->Flash->error(__('Invalid filetype'));
             }
 
@@ -169,18 +217,18 @@ class ContentsController extends AppController
             $newContent = $this->request->getData();
             $newContent['content_url'] = $filename;
 
-            if($file->getError() == \UPLOAD_ERR_NO_FILE) {
+            if ($file->getError() == \UPLOAD_ERR_NO_FILE) {
                 $content = $this->Contents->patchEntity($content, $newContent);
 
-                if($this->Contents->save($content)) {
+                if ($this->Contents->save($content)) {
                     $this->Flash->success(__('The content has been updated'));
-                    return $this->redirect(['controller' => 'Courses', 'action'=> 'course', $content->course_id]);
+                    return $this->redirect(['controller' => 'Courses', 'action' => 'course', $content->course_id]);
                 }
 
                 $this->Flash->error(__('The content could not be saved. Please try again.'));
-            } else if($file->getSize() > 100 * 1024 * 1024) {
+            } else if ($file->getSize() > 100 * 1024 * 1024) {
                 return $this->Flash->error(__('Image file size must be 100MB or less.'));
-            } else if($file->getClientMediaType() != 'image/jpeg' && $file->getClientMediaType() != 'image/png' && $file->getClientMediaType() != 'video/mp4' && $file->getClientMediaType() != 'video/mov' && $file->getClientMediaType() != 'application/pdf') {
+            } else if ($file->getClientMediaType() != 'image/jpeg' && $file->getClientMediaType() != 'image/png' && $file->getClientMediaType() != 'video/mp4' && $file->getClientMediaType() != 'video/mov' && $file->getClientMediaType() != 'application/pdf') {
                 return $this->Flash->error(__('Invalid filetype'));
             }
 
@@ -190,7 +238,7 @@ class ContentsController extends AppController
                 $file->moveTo(WWW_ROOT . 'assets' . DS . 'img' . DS . 'content' . DS . $file->getClientFilename());
                 $this->Flash->success(__('The content has been saved.'));
 
-                return $this->redirect(['controller' => 'Courses', 'action'=> 'course', $content->course_id]);
+                return $this->redirect(['controller' => 'Courses', 'action' => 'course', $content->course_id]);
             }
             $this->Flash->error(__('The content could not be saved. Please, try again.'));
         }
