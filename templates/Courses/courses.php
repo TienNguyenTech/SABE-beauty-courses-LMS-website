@@ -48,7 +48,6 @@
     <?= $this->fetch('script') ?>
 
     <link rel="stylesheet" href="assets/css/main.css">
-
     <style>
         .product-lists {
 
@@ -319,7 +318,8 @@
                         <li data-filter=".Workshop">Workshop</li>
                         <li data-filter=".Hybrid">Hybrid</li>
                         <li data-filter=".Online">Online</li>
-                        <p><small>Note: All prices are in AUD (Australian Dollars).</small></p>
+                        <p> All prices are in AUD (Australian Dollars).</p>
+                        <p> Please make sure you are logged in before you enroll in a course!</p>
                     </ul>
                 </div>
             </div>
