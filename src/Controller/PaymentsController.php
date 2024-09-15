@@ -153,8 +153,8 @@ class PaymentsController extends AppController
         ];
 
         // Get user id for payment
-        $user = $this->Authentication->getIdentity();
-        $userID = $user->user_id;
+        $user = $this -> Authentication -> getIdentity() ->getOriginalData();
+        $userID = intval($user['User']);
 
         $payment = $this->Payments->newEmptyEntity();
 
