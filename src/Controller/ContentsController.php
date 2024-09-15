@@ -45,7 +45,9 @@ class ContentsController extends AppController
     public function view($id = null)
     {
         $content = $this->Contents->get($id, contain: ['Courses']);
-        $this->set(compact('content'));
+        $courseContents = $this->Contents->find()->where(['course_id IS' => $content->course_id])->toArray();
+
+        $this->set(compact('content', 'courseContents'));
     }
 
     public function moveup($id = null) {

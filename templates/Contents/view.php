@@ -5,52 +5,61 @@
  */
 ?>
 <div class="row">
+    <h3><?= $this->Html->link($content->course->course_name, ['controller' => 'Courses', 'action' => 'view', $content->course->course_id])?></h3>
+    <br>
+</div>
+<div class="row">
     <aside class="column">
         <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('Edit Content'), ['action' => 'edit', $content->content_id], ['class' => 'side-nav-item']) ?>
-            <?= $this->Form->postLink(__('Delete Content'), ['action' => 'delete', $content->content_id], ['confirm' => __('Are you sure you want to delete # {0}?', $content->content_id), 'class' => 'side-nav-item']) ?>
-            <?= $this->Html->link(__('List Contents'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-            <?= $this->Html->link(__('New Content'), ['action' => 'add'], ['class' => 'side-nav-item']) ?>
+            <h3 class="heading"><?= __('Course Content') ?></h3>
+            
+            <?php
+            foreach($courseContents as $courseContent) {
+                echo $this->Html->link(__($courseContent->content_position . '. ' . $courseContent->content_title), ['action' => 'view', $courseContent->content_id], ['class' => 'side-nav-item']);
+                echo '<br>';
+            }
+            ?>
         </div>
     </aside>
     <div class="column column-80">
-        <div class="contents view content">
-            <h3><?= h($content->content_type) ?></h3>
-            <table>
-                <tr>
-                    <th><?= __('Course') ?></th>
-                    <td><?= $content->hasValue('course') ? $this->Html->link($content->course->course_name, ['controller' => 'Courses', 'action' => 'view', $content->course->course_id]) : '' ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Content Type') ?></th>
-                    <td><?= h($content->content_type) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Content Url') ?></th>
-                    <td><?= h($content->content_url) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Content Title') ?></th>
-                    <td><?= h($content->content_title) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Content Description') ?></th>
-                    <td><?= h($content->content_description) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Content Id') ?></th>
-                    <td><?= $this->Number->format($content->content_id) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Content Position') ?></th>
-                    <td><?= $this->Number->format($content->content_position) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Archived') ?></th>
-                    <td><?= $content->archived ? __('Yes') : __('No'); ?></td>
-                </tr>
-            </table>
+        <div class="container">
+            <div class="contents view content">
+                <h3><?= h($content->content_position . '. ' . $content->content_title) ?></h3>
+                <table class="table">
+                    <tr>
+                        <th><?= __('Description') ?></th>
+                        <td><?= h($content->content_description) ?></td>
+                    </tr>
+                    <tr>
+                        <th><?= __('Content') ?></th>
+                        <td>
+                            <?php
+                            if($content->content_type == 'image') {
+                                ?>
+                                <img width="80%" src="/<?= $content->content_url ?>" alt="<?= $content->content_title ?> Image">
+                                <?php
+                            } else if($content->content_type == 'pdf') {
+                                ?>
+                                <object class="pdf" data="/<?= $content->content_url ?>" width="1000px" height="600px"></object>
+                                <?php
+                            } else if($content->content_type == 'video') {
+                                ?>
+                                <video controls width="800px">
+                                    <source src="/<?= $content->content_url ?>">
+                                </video>
+                                <?php
+                            }
+                            ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Actions</th>
+                        <td>
+                            <button class="btn btn-primary">Mark as complete</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
 </div>
