@@ -11,7 +11,6 @@ use Cake\Validation\Validator;
 /**
  * Users Model
  *
- * @property \App\Model\Table\BookingsTable&\Cake\ORM\Association\BelongsToMany $Bookings
  * @property \App\Model\Table\CoursesTable&\Cake\ORM\Association\BelongsToMany $Courses
  *
  * @method \App\Model\Entity\User newEmptyEntity()
@@ -49,18 +48,35 @@ class UsersTable extends Table
 
 
 
-        $this->belongsToMany('Bookings', [
-            'foreignKey' => 'user_id',
-            'targetForeignKey' => 'booking_id',
-            'joinTable' => 'bookings_users',
-        ]);
+        
         $this->belongsToMany('Courses', [
             'foreignKey' => 'user_id',
             'targetForeignKey' => 'course_id',
             'joinTable' => 'courses_users',
         ]);
     }
+    public function validationResetPassword(Validator $validator): Validator
+    {
+        $validator
+            ->requirePresence('password', 'create')
+            ->notEmptyString('password', 'Please enter a password')
+            ->add('password', [
+                'length' => [
+                    'rule' => ['minLength', 8],
+                    'message' => 'Password must be at least 8 characters long',
+                ],
+            ])
+            ->requirePresence('password_confirm', 'create')
+            ->notEmptyString('password_confirm', 'Please confirm your password')
+            ->add('password_confirm', 'custom', [
+                'rule' => function ($value, $context) {
+                    return $value === $context['data']['password'];
+                },
+                'message' => 'Passwords do not match',
+            ]);
 
+        return $validator;
+    }
     /**
      * Default validation rules.
      *
@@ -97,7 +113,11 @@ class UsersTable extends Table
             ->scalar('email')
             ->maxLength('email', 100)
             ->requirePresence('email', 'create')
-            ->notEmptyString('email');
+            ->notEmptyString('email')
+            ->add('email', 'validFormat', [
+            'rule' => 'email',
+            'message' => 'Please enter a valid email address.',
+            ]);
 
         $validator
             ->scalar('user_phone')

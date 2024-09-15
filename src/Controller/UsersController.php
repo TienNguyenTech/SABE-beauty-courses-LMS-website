@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use Cake\ORM\TableRegistry;
+
 /**
  * Users Controller
  *
@@ -10,6 +12,23 @@ namespace App\Controller;
  */
 class UsersController extends AppController
 {
+
+    public function initialize(): void
+    {
+        parent::initialize();
+        $this->Users = TableRegistry::getTableLocator()->get("Users");
+    }
+
+    protected function restrict()
+    {
+        $user = $this -> Authentication -> getIdentity() ->getOriginalData();
+        $userID = $user['User'];
+        $user = $this->Users->get($userID);
+        $userType = $user->user_type;
+        if($userType == 'student') {
+            return $this->redirect(['controller' => 'studentDashboard', 'action' => 'dashboard']);
+        }
+    }
     /**
      * Index method
      *
@@ -32,8 +51,18 @@ class UsersController extends AppController
      */
     public function view($id = null)
     {
-        $user = $this->Users->get($id, contain: ['Bookings', 'Courses']);
+        $this->viewBuilder()->setLayout('student');
+        $user = $this->Users->get($id, ['contain' => []]);
         $this->set(compact('user'));
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            $user = $this->Users->patchEntity($user, $this->request->getData());
+            if ($this->Users->save($user)) {
+                $this->Flash->success(__('The user has been saved.'));
+
+                return $this->redirect(['action' => 'view', $id]);
+            }
+            $this->Flash->error(__('The user could not be saved. Please, try again.'));
+        }
     }
 
     /**
@@ -43,6 +72,7 @@ class UsersController extends AppController
      */
     public function add()
     {
+        $this->restrict();
         $user = $this->Users->newEmptyEntity();
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
@@ -53,9 +83,8 @@ class UsersController extends AppController
             }
             $this->Flash->error(__('The user could not be saved. Please, try again.'));
         }
-        $bookings = $this->Users->Bookings->find('list', limit: 200)->all();
         $courses = $this->Users->Courses->find('list', limit: 200)->all();
-        $this->set(compact('user', 'bookings', 'courses'));
+        $this->set(compact('user', 'courses'));
     }
 
     /**
@@ -67,7 +96,8 @@ class UsersController extends AppController
      */
     public function edit($id = null)
     {
-        $user = $this->Users->get($id, contain: ['Bookings', 'Courses']);
+        $this->restrict();
+        $user = $this->Users->get($id, contain: ['Courses']);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
             if ($this->Users->save($user)) {
@@ -77,9 +107,8 @@ class UsersController extends AppController
             }
             $this->Flash->error(__('The user could not be saved. Please, try again.'));
         }
-        $bookings = $this->Users->Bookings->find('list', limit: 200)->all();
         $courses = $this->Users->Courses->find('list', limit: 200)->all();
-        $this->set(compact('user', 'bookings', 'courses'));
+        $this->set(compact('user', 'courses'));
     }
 
     /**
@@ -91,6 +120,7 @@ class UsersController extends AppController
      */
     public function delete($id = null)
     {
+        $this->restrict();
         $this->request->allowMethod(['post', 'delete']);
         $user = $this->Users->get($id);
         if ($user->user_type === 'admin') {

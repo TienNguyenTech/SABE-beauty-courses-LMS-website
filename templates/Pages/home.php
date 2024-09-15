@@ -150,7 +150,8 @@ if ($error = 404) {
 
     <!--PreLoader-->
     <div class="loader">
-        <?= $this->ContentBlock->image('logo-dark', ['alt' => 'South Adelaide Beauty and Education logo', 'class' => 'logo-image']) ?>
+    <?php /* <?= $this->ContentBlock->image('logo-dark', ['alt' => 'South Adelaide Beauty and Education logo', 'class' => 'logo-image']) ?> */ ?>
+
         <div class="loader-inner">
             <div class="circle"></div>
         </div>
@@ -417,7 +418,7 @@ if ($error = 404) {
                         </p>
 
                         <div class="welcome-one__btn-box">
-                            <a href="services.html" class="bordered-btn" style="margin-left:0px;">Discover more</a>
+                            <a href="<?= $this->Url->build(['controller' => 'BeautyByLisa', 'action' => 'services']) ?>" class="bordered-btn">Discover more</a>
                         </div>
                     </div>
                 </div>
@@ -817,7 +818,7 @@ if ($error = 404) {
                                 <h3><?= h($course->course_name); ?></h3>
                                 <p class="product-price">
                                     <span><?= h(strlen($course->course_description) > 100 ? substr($course->course_description, 0, 100) . '...' : $course->course_description) ?></span>
-                                    <?= h($course->course_price); ?>$
+                                    $<?= h($course->course_price); ?>
                                 </p>
                                 <a href="<?= $this->Url->build(['controller' => 'Courses', 'action' => 'view', $course->course_id]) ?>"
                                     class="bordered-btn" style="margin-bottom: 10px"><i class="fas fa-info-circle"></i> View

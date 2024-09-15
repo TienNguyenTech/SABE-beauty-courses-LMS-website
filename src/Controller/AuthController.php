@@ -45,18 +45,26 @@ class AuthController extends AppController
      */
     public function register()
     {
+        // Process user registration
         $user = $this->Users->newEmptyEntity();
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
-            if ($this->Users->save($user)) {
-                $this->Flash->success('You have been registered. Please log in. ');
+            $user->user_type = 'student';  // Default user type
 
-                return $this->redirect(['action' => 'login']);
+            if ($this->Users->save($user)) {
+                $this->Authentication->setIdentity($user);  // Log in the user
+
+                return $this->redirect(['controller' => 'Auth', 'action' => 'login']);
             }
-            $this->Flash->error('The user could not be registered. Please, try again.');
+
+            $this->Flash->error('Registration failed. Please try again.');
         }
+
         $this->set(compact('user'));
     }
+
+
+
 
     /**
      * Forget Password method
@@ -197,13 +205,14 @@ class AuthController extends AppController
             // Used a different validation set in Model/Table file to ensure both fields are filled
             $user = $this->Users->patchEntity($user, $this->request->getData(), ['validate' => 'resetPassword']);
             if ($this->Users->save($user)) {
-                $this->Flash->success('The user has been saved.');
+                $this->Flash->success('The password has been saved.');
 
-                return $this->redirect(['controller' => 'Users', 'action' => 'index']);
+                return $this->redirect(['controller' => 'Users', 'action' => 'view', $this->request->getSession()->read('Auth.User.id')]);
             }
-            $this->Flash->error('The user could not be saved. Please, try again.');
+            $this->Flash->error('The password could not be saved. Please, try again.');
         }
         $this->set(compact('user'));
+        $this->viewBuilder()->setLayout('student');
     }
 
     /**
@@ -230,6 +239,44 @@ class AuthController extends AppController
 //            $this->Flash->error('Email address and/or Password is incorrect. Please try again. ');
 //        }
 //    }
+//    public function login()
+//    {
+//        $this->set('pageTitle', 'South Adelaie Beauty & Education | Login');
+//        $this->request->allowMethod(['get', 'post']);
+//        $result = $this->Authentication->getResult();
+//
+//        if ($this->request->is('post')) {
+//            // reCAPTCHA verification
+//            $recaptchaSecret = '6Lc7pCgqAAAAAGQom2tHow31Z-fEEPh5dU7q8S3J'; // Replace with your reCAPTCHA secret key
+//            $recaptchaResponse = $this->request->getData('g-recaptcha-response');
+//            $remoteIp = $this->request->clientIp();
+//
+//            $response = $this->verifyRecaptcha($recaptchaSecret, $recaptchaResponse, $remoteIp);
+//
+//            if (!$response->success) {
+//                $this->Flash->error('Please verify that you are not a robot.');
+//            } else {
+//                // Proceed with login if reCAPTCHA is valid
+//                if ($result && $result->isValid()) {
+//                    // Store the user ID in the session
+//                    $user = $this->Authentication->getIdentity();
+////                    debug($user); // Debugging statement
+//
+//                    $userId = $user->get('user_id');
+//                    $this->request->getSession()->write('Auth.User.id', $userId);
+////                    debug($this->request->getSession()->read('Auth.User.id')); // Debugging statement
+//
+//                    $this->Flash->success('Login successful.');
+//                    return $this->redirect($this->Authentication->getLoginRedirect() ?? ['controller' => 'AdminDashboard', 'action' => 'dashboard']);
+//                } else {
+//                    $this->Flash->error('Email address and/or Password is incorrect. Please try again.');
+//                }
+//            }
+//        }
+//    }
+
+
+
     public function login()
     {
         $this->set('pageTitle', 'South Adelaie Beauty & Education | Login');
@@ -249,14 +296,27 @@ class AuthController extends AppController
             } else {
                 // Proceed with login if reCAPTCHA is valid
                 if ($result && $result->isValid()) {
+                    // Store the user ID in the session
+                    $user = $this->Authentication->getIdentity();
+                    $userId = $user->get('user_id');
+                    $this->request->getSession()->write('Auth.User.id', $userId);
+
                     $this->Flash->success('Login successful.');
-                    return $this->redirect($this->Authentication->getLoginRedirect() ?? ['controller' => 'AdminDashboard', 'action' => 'dashboard']);
+
+                    // Redirect based on user_type
+                    if ($user->get('user_type') === 'admin') {
+                        return $this->redirect(['controller' => 'AdminDashboard', 'action' => 'dashboard']);
+                    } elseif ($user->get('user_type') === 'student') {
+                        return $this->redirect(['controller' => 'StudentDashboard', 'action' => 'dashboard']);
+                    }
                 } else {
                     $this->Flash->error('Email address and/or Password is incorrect. Please try again.');
                 }
             }
         }
     }
+
+
 
 
 

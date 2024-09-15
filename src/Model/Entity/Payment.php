@@ -11,12 +11,12 @@ use Cake\ORM\Entity;
  * @property int $payment_id
  * @property string $payment_amount
  * @property \Cake\I18n\DateTime $payment_datetime
- * @property int $booking_id
+ * @property int $course_id
+ * @property int $user_id
  * @property string $checkout_id
  * @property string $payment_email
  * @property int $payment_seen
- *
- * @property \App\Model\Entity\Booking $booking
+ * @property boolean $archived
  */
 class Payment extends Entity
 {
@@ -32,10 +32,11 @@ class Payment extends Entity
     protected array $_accessible = [
         'payment_amount' => true,
         'payment_datetime' => true,
-        'booking_id' => true,
-        'booking' => true,
+        'course_id' => true,
+        'user_id' => true,
         'checkout_id' => true,
         'payment_email' => true,
-        'payment_seen' => true
+        'payment_seen' => true,
+        'archived' => true
     ];
 }

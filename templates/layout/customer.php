@@ -105,7 +105,7 @@
 
     <!--PreLoader-->
     <div class="loader">
-        <?= $this->ContentBlock->image('logo-dark', ['alt' => 'South Adelaide Beauty and Education logo', 'class' => 'logo-image']) ?>
+    <?php /* <?= $this->ContentBlock->image('logo-dark', ['alt' => 'South Adelaide Beauty and Education logo', 'class' => 'logo-image']) ?> */ ?>
         <div class="loader-inner">
             <div class="circle"></div>
         </div>

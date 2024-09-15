@@ -48,7 +48,6 @@
     <?= $this->fetch('script') ?>
 
     <link rel="stylesheet" href="assets/css/main.css">
-
     <style>
         .product-lists {
 
@@ -319,7 +318,8 @@
                         <li data-filter=".Workshop">Workshop</li>
                         <li data-filter=".Hybrid">Hybrid</li>
                         <li data-filter=".Online">Online</li>
-                        <p><small>Note: All prices are in AUD (Australian Dollars).</small></p>
+                        <p> All prices are in AUD (Australian Dollars).</p>
+                        <p> Please make sure you are logged in before you enroll in a course!</p>
                     </ul>
                 </div>
             </div>
@@ -337,14 +337,53 @@
                         <div class="card-body">
                             <h5 class="card-title"><?= $course->course_name ?></h5>
                             <p class="card-text"><?= $course->course_description ?></p>
-                            <p class="product-price"><?= $course->course_price ?>$</p>
-                            <a href="<?= $this->Url->build(['controller' => 'Courses', 'action' => 'view', $course->course_id]) ?>" class="cart-btn" style="margin-bottom: 10px"><i class="fas fa-info-circle"></i> View More</a>
-                                                            <a href="<?= $this->Url->build(['controller' => 'Payments', 'action' => 'checkout', $course->course_id]) ?>" class="cart-btn"><i class="fas fa-user-graduate"></i> Enroll Now</a>
+                            <p class="product-price">$<?= $course->course_price ?></p>
+                            <a href="<?= $this->Url->build(['controller' => 'Courses', 'action' => 'view', $course->course_id]) ?>" class="cart-btn" style="margin-bottom: 10px">
+                                <i class="fas fa-info-circle"></i> View More
+                            </a>
+
+                            <?php if ($this->Identity->isLoggedIn()): ?>
+                                <!-- If the user is logged in, redirect to the payment page -->
+                                <a href="<?= $this->Url->build(['controller' => 'Payments', 'action' => 'checkout', $course->course_id]) ?>" class="cart-btn">
+                                    <i class="fas fa-user-graduate"></i> Enroll Now
+                                </a>
+                            <?php else: ?>
+                                <!-- If the user is not logged in, redirect to the login page with the courseId -->
+                                <a href="<?= $this->Url->build(['controller' => 'Auth', 'action' => 'login', '?' => ['courseId' => $course->course_id]]) ?>" class="cart-btn">
+                                    <i class="fas fa-user-graduate"></i> Enroll Now
+                                </a>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
             <?php endforeach; ?>
         </div>
+
+
+        <!--        <div class="row product-lists">-->
+<!--            --><?php //foreach ($courses as $course): ?>
+<!--                <div class="col-lg-4 col-md-6 text-center --><?php //= $course->course_category ?><!--">-->
+<!--                    <div class="single-product-item">-->
+<!--                        <div class="product-image">-->
+<!--                            <a href="single-product.html">-->
+<!--                                <img src="/--><?php //= $course->course_image ?><!--" alt="--><?php //= $course->course_name ?><!--" class="card-img-top">-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                        <div class="card-body">-->
+<!--                            <h5 class="card-title">--><?php //= $course->course_name ?><!--</h5>-->
+<!--                            <p class="card-text">--><?php //= $course->course_description ?><!--</p>-->
+<!--                            <p class="product-price">$--><?php //= $course->course_price ?><!--</p>-->
+<!--                            <a href="--><?php //= $this->Url->build(['controller' => 'Courses', 'action' => 'view', $course->course_id]) ?><!--" class="cart-btn" style="margin-bottom: 10px"><i class="fas fa-info-circle"></i> View More</a>-->
+<!--                            <a href="--><?php //= $this->Url->build(['controller' => 'Auth', 'action' => 'login', $course->course_id]) ?><!--" class="cart-btn">-->
+<!--                                <i class="fas fa-user-graduate"></i> Enroll Now-->
+<!--                            </a>-->
+<!---->
+                            <!--                                                            <a href="--><?php //= $this->Url->build(['controller' => 'Payments', 'action' => 'checkout', $course->course_id]) ?><!--" class="cart-btn"><i class="fas fa-user-graduate"></i> Enroll Now</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            --><?php //endforeach; ?>
+<!--        </div>-->
 
 
 

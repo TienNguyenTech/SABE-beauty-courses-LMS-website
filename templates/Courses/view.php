@@ -300,7 +300,7 @@
                             <div class="single-product-content">
                                 <h3><?= h($course->course_name) ?></h3>
                                 <p><small>Note: All prices are in AUD (Australian Dollars).</small></p>
-                                <p class="single-product-pricing"><span><?= $this->Number->format($course->course_price) ?> $</span></p>
+                                <p class="single-product-pricing"><span>$<?= $this->Number->format($course->course_price) ?> </span></p>
                                 <p><?= h($course->course_description) ?></p>
                                 <?= $this->Html->link("Enroll Now", ['controller' => 'payments', 'action' => 'checkout', $course->course_id], ['class' => 'btn btn-primary']) ?>
                             </div>

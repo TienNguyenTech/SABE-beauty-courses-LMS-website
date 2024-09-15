@@ -1,3 +1,11 @@
+<?php
+/**
+* @var \App\View\AppView $this
+ * @var iterable<\App\Model\Entity\Service> $services
+ * @var iterable<\App\Model\Entity\Service> $groupedServices
+ */
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,7 +37,7 @@
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 
-    
+
 
     <style>
         /* Custom Styles */
@@ -275,55 +283,17 @@
                     services and indulge in a personalized beauty experience designed just for you.
                 </p>
                 <div class="services-grid">
-                    <div class="service">
-                        <h2>Lash & Brow treatments</h2>
-                        <ul>
-                            <li>Eyelash extensions from $130</li>
-                            <li>Lash lift & tint $90</li>
-                            <li>Brow lamination $75</li>
-                            <li>Eyelash tint $30</li>
-                            <li>Eyebrow tint $20</li>
-                            <li>Eyebrow wax $25</li>
-                        </ul>
-                    </div>
-                    <div class="service">
-                        <h2>Hair removal</h2>
-                        <ul>
-                            <li>Body waxing from $25</li>
-                            <li>Facial waxing from $15</li>
-                        </ul>
-                    </div>
-                    <div class="service">
-                        <h2>Spray tan</h2>
-                        <ul>
-                            <li>Full body tan $30</li>
-                        </ul>
-                    </div>
-                    <div class="service">
-                        <h2>Skincare treatments</h2>
-                        <ul>
-                            <li>SQT Bio-micro needling $280</li>
-                            <li>Ultimate facial - 90 mins $180</li>
-                            <li>Classic facial - 60 mins $140</li>
-                            <li>Express facial - 30 mins $90</li>
-                        </ul>
-                    </div>
-                    <div class="service">
-                        <h2>Massage treatments</h2>
-                        <ul>
-                            <li>Heavenly head treatment - 60 mins $100</li>
-                            <li>Heavenly head treatment - 30 mins $45</li>
-                            <li>Body massage - 60 mins $100</li>
-                            <li>Body massage - 30 mins $65</li>
-                        </ul>
-                    </div>
-                    <div class="service">
-                        <h2>Foot treatments</h2>
-                        <ul>
-                            <li>Pedicure $75</li>
-                            <li>Reflexology for relaxation $40</li>
-                        </ul>
-                    </div>
+                    <?php foreach ($groupedServices as $group): ?>
+                        <div class="service">
+                            <h2><?= $group[0]['service_category'] ?></h2>
+                            <ul>
+                            <?php foreach ($group as $service): ?>
+                                <li><?= $service->service_name . ' $ ' . $service->service_price ?></li>
+                            <?php endforeach; ?>
+                            </ul>
+                        </div>
+                    <?php endforeach; ?>
+                    
                 </div>
                 <div class="mt-6">
                     <a href="https://www.fresha.com/a/beauty-by-lisa-follett-hallett-cove-3-lepena-crescent-u54y2i7s" target="_blank" rel="noopener noreferrer" class="btn">Book Now on Fresha</a>
