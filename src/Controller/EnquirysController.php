@@ -65,7 +65,7 @@ class EnquirysController extends AppController
      */
     public function add()
     {
-        $this->restrict();
+//        $this->restrict();
         $this->viewBuilder()->setLayout('customer');
         $enquiry = $this->Enquirys->newEmptyEntity();
         if ($this->request->is('post')) {

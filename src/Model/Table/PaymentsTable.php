@@ -10,9 +10,7 @@ use Cake\Validation\Validator;
 
 /**
  * Payments Model
- *
- * @property \App\Model\Table\BookingsTable&\Cake\ORM\Association\BelongsTo $Bookings
- *
+ * *
  * @method \App\Model\Entity\Payment newEmptyEntity()
  * @method \App\Model\Entity\Payment newEntity(array $data, array $options = [])
  * @method array<\App\Model\Entity\Payment> newEntities(array $data, array $options = [])

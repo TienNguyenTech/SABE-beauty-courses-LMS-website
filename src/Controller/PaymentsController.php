@@ -67,7 +67,7 @@ class PaymentsController extends AppController
      */
     public function view($id = null)
     {
-        $payment = $this->Payments->get($id, contain: ['Bookings']);
+        $payment = $this->Payments->get($id);
         $this->set(compact('payment'));
     }
 
@@ -88,8 +88,7 @@ class PaymentsController extends AppController
             }
             $this->Flash->error(__('The payment could not be saved. Please, try again.'));
         }
-        $bookings = $this->Payments->Bookings->find('list', limit: 200)->all();
-        $this->set(compact('payment', 'bookings'));
+        $this->set(compact('payment'));
     }
 
     /**
@@ -111,8 +110,7 @@ class PaymentsController extends AppController
             }
             $this->Flash->error(__('The payment could not be saved. Please, try again.'));
         }
-        $bookings = $this->Payments->Bookings->find('list', limit: 200)->all();
-        $this->set(compact('payment', 'bookings'));
+        $this->set(compact('payment'));
     }
 
     /**

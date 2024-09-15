@@ -71,7 +71,7 @@ class CoursesController extends AppController
         $user = $this->Authentication->getIdentity()->getOriginalData();
         $userID = $user['User']['id'];
 
-        $payments = $this->Payments->find()->where(['user_id IS' => $userID])->toArray();
+        $payments = $this->Payments->find()->where(['user_id' => $userID])->toArray();
         $courses = [];
 
         foreach ($payments as $payment) {

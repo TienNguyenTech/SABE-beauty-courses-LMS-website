@@ -94,7 +94,7 @@
                 <th><?= __('Actions') ?></th>
                 <td>
                 <?= $this->Html->link('Edit', ['controller' => 'Quizzes', 'action' => 'edit', $quiz->quiz_id], ['class' => 'btn btn-primary']) ?>
-                <?= $this->Form->postLink('Remove', ['controller' => 'Contents', 'action' => 'delete', $quiz->quiz_id], ['confirm' => __('Are you sure you want to delete quiz: {0}?', $quiz->title), 'class' => 'btn btn-danger']) ?>
+                <?= $this->Form->postLink('Remove', ['controller' => 'Quizzes', 'action' => 'delete', $quiz->quiz_id], ['confirm' => __('Are you sure you want to delete quiz: {0}?', $quiz->title), 'class' => 'btn btn-danger']) ?>
                 </td>
             </tr>
             <?php else: ?>

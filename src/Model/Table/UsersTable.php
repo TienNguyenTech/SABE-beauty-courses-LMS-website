@@ -11,7 +11,6 @@ use Cake\Validation\Validator;
 /**
  * Users Model
  *
- * @property \App\Model\Table\BookingsTable&\Cake\ORM\Association\BelongsToMany $Bookings
  * @property \App\Model\Table\CoursesTable&\Cake\ORM\Association\BelongsToMany $Courses
  *
  * @method \App\Model\Entity\User newEmptyEntity()
@@ -49,11 +48,7 @@ class UsersTable extends Table
 
 
 
-        $this->belongsToMany('Bookings', [
-            'foreignKey' => 'user_id',
-            'targetForeignKey' => 'booking_id',
-            'joinTable' => 'bookings_users',
-        ]);
+        
         $this->belongsToMany('Courses', [
             'foreignKey' => 'user_id',
             'targetForeignKey' => 'course_id',
