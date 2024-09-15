@@ -103,7 +103,7 @@ if ($flashMessage):
 
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
-            <a class="nav-link" href="<?= $this->Url->build(['plugin' => null, 'controller' => 'Enquirys', 'action' => 'index']) ?>">
+            <a class="nav-link" href="<?= $this->Url->build(['plugin' => null, 'controller' => 'Courses', 'action' => 'enrolledcourses']) ?>">
                 <i class="fas fa-fw fa-book-open"></i>
                 <span>Courses</span></a>
             <a class="nav-link" href="<?= $this->Url->build(['plugin' => null, 'controller' => 'Users', 'action' => 'view', $this->request->getSession()->read('Auth.User.id')]) ?>">
