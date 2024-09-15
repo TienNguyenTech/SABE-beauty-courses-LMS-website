@@ -38,17 +38,17 @@
 
     <script src="https://kit.fontawesome.com/5a7bde2211.js" crossorigin="anonymous"></script>
     <!-- fontawesome -->
-        <link rel="stylesheet" href="assets/css/all.min.css">
-        <!-- bootstrap -->
-        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-        <!-- owl carousel -->
-        <link rel="stylesheet" href="assets/css/owl.carousel.css">
-        <!-- magnific popup -->
-        <link rel="stylesheet" href="assets/css/magnific-popup.css">
-        <!-- animate css -->
-        <link rel="stylesheet" href="assets/css/animate.css">
-        <!-- mean menu css -->
-        <link rel="stylesheet" href="assets/css/meanmenu.min.css">
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <!-- owl carousel -->
+    <link rel="stylesheet" href="assets/css/owl.carousel.css">
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <!-- animate css -->
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <!-- mean menu css -->
+    <link rel="stylesheet" href="assets/css/meanmenu.min.css">
 
     <?= $this->Html->css('main') ?>
     <link rel="stylesheet" href="assets/css/main.css">
@@ -59,38 +59,47 @@
     /* General styles for header area */
     .top-header-area {
         width: 100%;
-        padding: 10px 0;
+        padding: 5px 0;
+        height: 70px;
     }
+
     div.footer-area {
         max-height: 400px;
     }
 
     @media only screen and (min-width: 768px) and (max-width: 991px) {
-       body .top-header-area {
+        body .top-header-area {
             width: 100%;
             padding: 0px 0;
         }
+
         .site-logo {
             display: none;
         }
     }
+
     /* Media query for mobile devices */
     @media only screen and (max-width: 767.96px) {
         body .top-header-area {
             width: 100%;
             padding: 0px 0;
         }
+
         .site-logo {
-            display: none; /* Hide the logo in mobile mode */
+            display: none;
+            /* Hide the logo in mobile mode */
         }
+
         div.footer-area {
             max-height: 750px;
         }
+
         .social-icons.footer-box.subscribe {
             margin: 0;
         }
     }
 </style>
+
 <body>
 
 
@@ -110,9 +119,9 @@
                 <div class="col-lg-12 col-sm-12 text-center">
                     <div class="main-menu-wrap">
                         <!-- logo -->
-                        <div class="site-logo">
+                        <div class="site-logo" style="margin-top: -20px;">
                             <?= $this->Html->link(
-                                $this->ContentBlock->image('logo',['style' => 'width: 100px; height: 100px;']),
+                                $this->ContentBlock->image('logo', ['style' => 'width: 50px; height: 50px;']),
                                 ['controller' => 'Pages', 'action' => 'display', 'home'],
                                 ['escape' => false]
                             ) ?>
@@ -122,9 +131,9 @@
                         <!-- logo -->
 
                         <!-- menu start -->
-                        <nav class="main-menu" style="position: relative; top: 50%; -webkit-transform: translateY(50%); -ms-transform: translateY(50%); transform: translateY(50%);">
-                            <ul>
-
+                        <nav class="main-menu"
+                            style="position: relative; top: -20px; -webkit-transform: translateY(10%); -ms-transform: translateY(10%); transform: translateY(10%);">
+                            <ul >
                                 <li><?= $this->Html->link("Home", "/") ?></li>
 
 
@@ -148,7 +157,7 @@
                                         ?>
                                     </li>
                                     <li style="float: right">
-                                    <?php
+                                        <?php
                                         echo $this->Html->link(
                                             'Log out',
                                             ['controller' => 'Auth', 'action' => 'logout'],
@@ -229,12 +238,12 @@
                             <!--<li><a href="https://www.tiktok.com/@beautybylisafollett" target="_blank"><i
                                         class="fab fa-tiktok"></i></a></li>
                             <div class="site-logo">-->
-                            </div>
-                        </ul>
                     </div>
+                    </ul>
                 </div>
             </div>
         </div>
+    </div>
     </div>
     <!-- end footer -->
 
@@ -355,6 +364,9 @@
             float: left;
             max-width: 150px;
             padding: 6px 0;
+            pointer-events: auto;
+            position: relative;
+            z-index: 10;
         }
 
         .header-icons {
@@ -376,7 +388,7 @@
 
         div.sticky-wrapper.is-sticky .top-header-area {
             background-color: #1B4332;
-           /*padding: 15px 0;*/
+            /*padding: 15px 0;*/
         }
 
         .cart-btn {
