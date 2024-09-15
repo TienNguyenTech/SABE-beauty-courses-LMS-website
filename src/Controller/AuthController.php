@@ -232,6 +232,42 @@ class AuthController extends AppController
 //            $this->Flash->error('Email address and/or Password is incorrect. Please try again. ');
 //        }
 //    }
+//    public function login()
+//    {
+//        $this->set('pageTitle', 'South Adelaie Beauty & Education | Login');
+//        $this->request->allowMethod(['get', 'post']);
+//        $result = $this->Authentication->getResult();
+//
+//        if ($this->request->is('post')) {
+//            // reCAPTCHA verification
+//            $recaptchaSecret = '6Lc7pCgqAAAAAGQom2tHow31Z-fEEPh5dU7q8S3J'; // Replace with your reCAPTCHA secret key
+//            $recaptchaResponse = $this->request->getData('g-recaptcha-response');
+//            $remoteIp = $this->request->clientIp();
+//
+//            $response = $this->verifyRecaptcha($recaptchaSecret, $recaptchaResponse, $remoteIp);
+//
+//            if (!$response->success) {
+//                $this->Flash->error('Please verify that you are not a robot.');
+//            } else {
+//                // Proceed with login if reCAPTCHA is valid
+//                if ($result && $result->isValid()) {
+//                    // Store the user ID in the session
+//                    $user = $this->Authentication->getIdentity();
+////                    debug($user); // Debugging statement
+//
+//                    $userId = $user->get('user_id');
+//                    $this->request->getSession()->write('Auth.User.id', $userId);
+////                    debug($this->request->getSession()->read('Auth.User.id')); // Debugging statement
+//
+//                    $this->Flash->success('Login successful.');
+//                    return $this->redirect($this->Authentication->getLoginRedirect() ?? ['controller' => 'AdminDashboard', 'action' => 'dashboard']);
+//                } else {
+//                    $this->Flash->error('Email address and/or Password is incorrect. Please try again.');
+//                }
+//            }
+//        }
+//    }
+
     public function login()
     {
         $this->set('pageTitle', 'South Adelaie Beauty & Education | Login');
@@ -253,20 +289,26 @@ class AuthController extends AppController
                 if ($result && $result->isValid()) {
                     // Store the user ID in the session
                     $user = $this->Authentication->getIdentity();
-//                    debug($user); // Debugging statement
-
                     $userId = $user->get('user_id');
                     $this->request->getSession()->write('Auth.User.id', $userId);
-//                    debug($this->request->getSession()->read('Auth.User.id')); // Debugging statement
 
                     $this->Flash->success('Login successful.');
-                    return $this->redirect($this->Authentication->getLoginRedirect() ?? ['controller' => 'AdminDashboard', 'action' => 'dashboard']);
+
+                    // Redirect based on user_type
+                    if ($user->get('user_type') === 'admin') {
+                        return $this->redirect(['controller' => 'AdminDashboard', 'action' => 'dashboard']);
+                    } elseif ($user->get('user_type') === 'student') {
+                        return $this->redirect(['controller' => 'StudentDashboard', 'action' => 'dashboard']);
+                    }
                 } else {
                     $this->Flash->error('Email address and/or Password is incorrect. Please try again.');
                 }
             }
         }
     }
+
+
+
 
 
 

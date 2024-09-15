@@ -48,7 +48,8 @@
     <div class="dashboard-card">
         <h2>Profile</h2>
         <p>View my profile</p>
-        <a href="<?= $this->Url->build(['controller'=>'Users','action'=>'index']) ?>">Go to Profile</a>
+        <?php $userId = $this->request->getSession()->read('Auth.User.id'); ?>
+        <a href="<?= $this->Url->build(['controller'=>'Users','action'=>'view', $userId]) ?>">Go to Profile</a>
     </div>
 
 
