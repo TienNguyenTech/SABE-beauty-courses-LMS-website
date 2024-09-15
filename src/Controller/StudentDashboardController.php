@@ -15,6 +15,8 @@ class StudentDashboardController extends AppController
 
     }
 
+    
+
     public function display(string ...$path): ?Response
     {
         if (!$path) {

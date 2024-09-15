@@ -18,6 +18,7 @@ class CoursesController extends AppController
 
     public function initialize(): void
     {
+    {   
         parent::initialize();
         $this->Contents = TableRegistry::getTableLocator()->get("Contents");
         $this->Quizzes = TableRegistry::getTableLocator()->get("Quizzes");
@@ -42,6 +43,15 @@ class CoursesController extends AppController
      */
     public function index()
     {
+        $query = $this->Courses->find();
+        $courses = $this->paginate($query);
+
+        $this->set(compact('courses'));
+    }
+
+    public function enrolledcourses()
+    {   
+        
         $query = $this->Courses->find();
         $courses = $this->paginate($query);
 
@@ -84,6 +94,25 @@ class CoursesController extends AppController
         $this->viewBuilder()->setLayout('default');
         $this->set(compact('course', 'contents', 'quiz'));
     }
+
+    /* Student accesses a course */
+    public function accesscourse($id = null) {
+        $course = $this->Courses->get($id);
+        $quiz = $this->Quizzes->find()->where(['course_id IS' => $course->course_id])->first();
+
+        if(!empty($quiz)) {
+            $quizID = $quiz->quiz_id;
+            $quizJson = json_decode(json_decode($quiz->quiz_json));
+            $quiz = $quizJson;
+            $quiz->quiz_id = $quizID;
+        }        
+
+        $query = $this->Contents->find()->where(['course_id IS' => $course->course_id]);
+        $contents = $this->paginate($query);
+        $this->viewBuilder()->setLayout('default');
+        $this->set(compact('course', 'contents', 'quiz'));
+    }
+
 
     /**
      * Add method

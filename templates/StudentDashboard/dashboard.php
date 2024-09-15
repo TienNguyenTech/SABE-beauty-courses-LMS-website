@@ -42,7 +42,7 @@
     <div class="dashboard-card">
         <h2>Courses</h2>
         <p>View all courses here</p>
-        <a href="<?= $this->Url->build(['controller'=>'Courses','action'=>'index']) ?>">Go to Courses</a>
+        <a href="<?= $this->Url->build(['controller'=>'Courses','action'=>'enrolledcourses']) ?>">Go to Courses</a>
     </div>
 
     <div class="dashboard-card">
