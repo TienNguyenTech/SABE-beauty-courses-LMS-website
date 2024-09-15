@@ -25,6 +25,17 @@ class CoursesController extends AppController
         // Controller-level function/action whitelist for authentication
         $this->Authentication->allowUnauthenticated(['view', 'courses']);
     }
+
+    protected function restrict()
+    {
+        $user = $this -> Authentication -> getIdentity() ->getOriginalData();
+        $userID = $user['User'];
+        $user = $this->Users->get($userID);
+        $userType = $user->user_type;
+        if($userType == 'student') {
+            return $this->redirect(['controller' => 'studentDashboard', 'action' => 'dashboard']);
+        }
+    }
     public function courses()
     {
         $this->viewBuilder()->setLayout('customer');
@@ -77,7 +88,7 @@ class CoursesController extends AppController
             $quizJson = json_decode(json_decode($quiz->quiz_json));
             $quiz = $quizJson;
             $quiz->quiz_id = $quizID;
-        }        
+        }
 
         $query = $this->Contents->find()->where(['course_id IS' => $course->course_id]);
         $contents = $this->paginate($query);
@@ -92,6 +103,7 @@ class CoursesController extends AppController
      */
     public function add()
     {
+        $this->restrict();
         $course = $this->Courses->newEmptyEntity();
         if ($this->request->is('post')) {
             // Get the form data and patch the entity
@@ -132,6 +144,7 @@ class CoursesController extends AppController
      */
     public function edit($id = null)
     {
+        $this->restrict();
         $course = $this->Courses->get($id);
         if($this->request->is(['patch', 'post', 'put'])) {
 
@@ -181,6 +194,7 @@ class CoursesController extends AppController
      */
     public function delete($id = null)
     {
+        $this->restrict();
         $this->request->allowMethod(['post', 'delete']);
         $course = $this->Courses->get($id);
         if ($this->Courses->delete($course)) {
