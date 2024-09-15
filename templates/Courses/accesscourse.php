@@ -21,7 +21,6 @@
                 </div>
                 <div class="col-md-8">
                     <p><strong><?= __('Course Category') ?>:</strong> <?= __($course->course_category) ?></p>
-                    <p><strong><?= __('Course Price') ?>:</strong> <?= __($course->course_price) ?></p>
                     <p><strong><?= __('Course Description') ?>:</strong> <?= __($course->course_description) ?></p>
                 </div>
             </div>
