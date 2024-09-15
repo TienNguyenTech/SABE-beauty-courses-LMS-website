@@ -68,7 +68,6 @@ class CoursesController extends AppController
 
     public function enrolledcourses()
     {
-        dd('hello chat');
         $user = $this->Authentication->getIdentity()->getOriginalData();
         $userID = $user['User']['id'];
 
