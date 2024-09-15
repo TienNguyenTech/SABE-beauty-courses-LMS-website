@@ -17,7 +17,6 @@ use Cake\ORM\Entity;
  * @property string $user_type
  * @property string $password
  *
- * @property \App\Model\Entity\Booking[] $bookings
  * @property \App\Model\Entity\Course[] $courses
  */
 class User extends Entity
@@ -38,7 +37,6 @@ class User extends Entity
         'user_phone' => true,
         'user_type' => true,
         'password' => true,
-        'bookings' => true,
         'courses' => true,
     ];
 
