@@ -4,49 +4,80 @@
  * @var \App\Model\Entity\User $user
  */
 
-$this->layout = 'login';
-$this->assign('title', 'Register new user');
+$this->layout = 'empty';
+$this->assign('title', 'Create account');
 ?>
-<div class="container register">
-    <div class="users form content">
+<head>
+    <title><?= $this->ContentBlock->text('website-title'); ?> | Register</title>
+    <!-- Favicon-->
+    <link href="<?= $this->Url->build('/img/favicon.png') ?>" type="image/x-icon" rel="icon">
+    <!-- Including the shortcut icon ensures that all browsers, regardless of their version, will correctly find and use this favicon.  -->
+    <link href="<?= $this->Url->build('/img/favicon.png') ?>" type="image/x-icon" rel="shortcut icon">
 
-        <?= $this->Form->create($user) ?>
+    <?= $this->Html->css('login-new') ?>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
+</head>
+
+<body>
+<div class="container">
+    <div class="right-side">
+        <div class="users form content cardhidden">
+        <?= $this->ContentBlock->image('logo-dark', ['class' => 'logo-image','width' => '200px', 'height' => '200px']) ?>
+
+        <?= $this->Form->create() ?>
         <fieldset>
-            <legend>Register new user</legend>
+            <legend class="login-title">Create account</legend>
 
             <?= $this->Flash->render() ?>
 
-            <?= $this->Form->control('email'); ?>
+            <?= $this->Form->control('email', [
+                'type' => 'email',
+                'required' => true,
+                'autofocus' => true,
+                'style' => 'color: black; width: 350px; border-radius: 10px; margin-left: 75px;'
+            ]); ?>
 
-            <div class="row">
-                <?= $this->Form->control('user_firstname', ['templateVars' => ['container_class' => 'column']]); ?>
-                <?= $this->Form->control('user_surname', ['templateVars' => ['container_class' => 'column']]); ?>
-            </div>
+            <?= $this->Form->control('user_firstname', [
+                'style' => 'color: black; width: 350px; border-radius: 10px; margin-left: 45px; padding: 10px; margin-bottom: 10px; border: 1px solid #D9D9D9; font-size: 16px;',
+                'required' => true,
+                'label' => 'Firstname'
+            ]); ?>
 
-            <div class="row">
-                <?php
-                echo $this->Form->control('password', [
-                    'value' => '',  // Ensure password is not sending back to the client side
-                    'templateVars' => ['container_class' => 'column']
-                ]);
-                // Validate password by repeating it
-                echo $this->Form->control('password_confirm', [
-                    'type' => 'password',
-                    'value' => '',  // Ensure password is not sending back to the client side
-                    'label' => 'Retype Password',
-                    'templateVars' => ['container_class' => 'column']
-                ]);
-                ?>
-            </div>
-
-            <?= $this->Form->control('avatar', ['type' => 'file']); ?>
-
+            <?= $this->Form->control('user_surname', [
+                'style' => 'color: black; width: 350px; border-radius: 10px; margin-left: 45px; padding: 10px; margin-bottom: 10px; border: 1px solid #D9D9D9; font-size: 16px;',
+                'required' => true,
+                'label' => 'Surname'
+            ]); ?>
+            <?php
+            echo $this->Form->control('password', [
+                'type' => 'password',
+                'required' => true,
+                'label' => 'Password', // Custom label text
+                'style' => 'color: black; width: 350px; border-radius: 10px; margin-left: 45px;',
+                'value' => ''
+            ]);
+            // Validate password by repeating it
+            echo $this->Form->control('password_confirm', [
+                'type' => 'password',
+                'value' => '',  // Ensure password is not sending back to the client side
+                'label' => 'Retype Password',
+                'style' => 'color: black; width: 350px; border-radius: 10px; margin-left: 45px;',
+            ]);
+            ?>
+            <div class="g-recaptcha" data-sitekey="6Lc7pCgqAAAAAJkUyRxxVhuFmd9v-5Pk-vtPtsUf"
+                data-callback="onRecaptchaSuccess"></div>
         </fieldset>
 
-        <?= $this->Form->button('Register') ?>
-        <?= $this->Html->link('Back to login', ['controller' => 'Auth', 'action' => 'login'], ['class' => 'button button-outline float-right']) ?>
+        <?= $this->Form->button('Register', ['class' => 'centered-button']) ?>
         <?= $this->Form->end() ?>
-
+        <div class="back-home-link">
+            <?= $this->Html->link('Back to login', ['controller' => 'Auth', 'action' => 'login'], ['class' => 'back-to-home']) ?>
+            <br>
+            <?= $this->Html->link('Back to home', '/', ['class' => 'back-to-home']) ?>
+        </div>
+        </div>
     </div>
+</div>    
+</body>
 </div>
