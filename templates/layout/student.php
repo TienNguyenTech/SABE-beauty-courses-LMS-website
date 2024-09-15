@@ -139,34 +139,35 @@ if ($flashMessage):
                 <?php
                 // Determine if the current page is an index page or the admin_dashboard page
                 $isIndexPage = $this->getRequest()->getParam('action') === 'index';
-                $isEditPage = $this->getRequest()->getParam('action') === 'edit';
-                $isAdminDashboardPage = $this->getRequest()->getParam('controller') === 'Pages' && $this->getRequest()->getParam('action') === 'display';
+                $isStudentDashboardPage = $this->getRequest()->getParam('controller') === 'Pages' && $this->getRequest()->getParam('action') === 'display';
+                $isChangePasswordPage = $this->getRequest()->getParam('action') === 'changePassword';
+                $isUserViewPage = $this->getRequest()->getParam('controller') === 'Users' &&$this->getRequest()->getParam('action') === 'view';
 
                 // Define the URL for the admin dashboard page
-                $adminDashboardUrl = $this->Url->build(['plugin' => null,'controller' => 'adminDashboard', 'action' => 'dashboard']);
+                $studentDashboardUrl = $this->Url->build(['plugin' => null,'controller' => 'studentDashboard', 'action' => 'dashboard']);
 
                 // Render the back button based on the page type
-                if(!$isAdminDashboardPage) {
-                    if(!$isIndexPage&& !$isEditPage) {
-                        // If it's not an index page, render the back button
+                if(!$isStudentDashboardPage) {
+                    if(!$isIndexPage&&!$isChangePasswordPage&&!$isUserViewPage) {
+                        // If it's not an index page, return to the previous page
                         echo $this->Html->tag(
                             'button',
                             $this->Html->tag('i', '', ['class' => 'fas fa-arrow-left']) . ' Return',
                             ['onclick' => 'goBack()', 'class' => 'btn btn-secondary']
                         );
-                    } elseif($isIndexPage) {
-                        // If it's an index page, return to the admin dashboard
+                    } elseif($isIndexPage || $isUserViewPage) {
+                        // If it's the index page, return to the admin dashboard
                         echo $this->Html->tag(
                             'button',
                             $this->Html->tag('i', '', ['class' => 'fas fa-arrow-left']) . ' Return',
-                            ['onclick' => 'returnToAdminDashboard()', 'class' => 'btn btn-secondary']
+                            ['onclick' => 'returnToStudentDashboard()', 'class' => 'btn btn-secondary']
                         );
-                    } elseif($isEditPage) {
-                        // If it's an index page, return to the admin dashboard
+                    } elseif ($isChangePasswordPage) {
+                        // If it's the change password page, return to the user view page
                         echo $this->Html->tag(
                             'button',
                             $this->Html->tag('i', '', ['class' => 'fas fa-arrow-left']) . ' Return',
-                            ['onclick' => 'indexEditGoBack()', 'class' => 'btn btn-secondary']
+                            ['onclick' => 'changePasswordGoBack()', 'class' => 'btn btn-secondary']
                         );
                     }
                 }
@@ -176,12 +177,12 @@ if ($flashMessage):
                     function goBack() {
                         window.history.back();
                     }
-                    function indexEditGoBack() {
-                        window.location.href = '<?php echo $this->Url->build(['action' => 'index']); ?>';
+                    function changePasswordGoBack() {
+                        window.location.href = '<?= $this->Url->build(['plugin' => null, 'controller' => 'Users', 'action' => 'view', $this->request->getSession()->read('Auth.User.id')]) ?>';
                     }
                     // Function to navigate back to the admin dashboard
-                    function returnToAdminDashboard() {
-                        window.location.href = '<?php echo $adminDashboardUrl; ?>';
+                    function returnToStudentDashboard() {
+                        window.location.href = '<?php echo $studentDashboardUrl; ?>';
                     }
                 </script>
 
