@@ -77,7 +77,7 @@ $this->assign('title', 'Create account');
         }
 
         .back-to-home {
-            color: #007bff;
+            color: #28a745;
             text-decoration: none;
         }
 
