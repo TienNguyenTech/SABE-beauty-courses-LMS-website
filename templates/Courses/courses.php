@@ -319,7 +319,11 @@
                         <li data-filter=".Hybrid">Hybrid</li>
                         <li data-filter=".Online">Online</li>
                         <p> All prices are in AUD (Australian Dollars).</p>
-                        <p> Please make sure you are logged in before you enroll in a course!</p>
+                        <p> Please make sure you have an account and is logged in before you enroll in a course!</p>
+<!--                        <p> Create an account today</p>-->
+                        <?= $this->Html->link('Click here to Create an Account', [
+                            'controller' => 'Auth',
+                            'action' => 'register']) ?>
                     </ul>
                 </div>
             </div>
