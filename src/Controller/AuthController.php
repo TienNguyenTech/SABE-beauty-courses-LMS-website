@@ -45,29 +45,27 @@ class AuthController extends AppController
      */
     public function register($courseId = null)
     {
+        // Check if the courseId is passed
         if ($courseId) {
-            // Store the course ID in the session
+            // Store the courseId in the session if needed
             $this->request->getSession()->write('SelectedCourse.id', $courseId);
         } else {
-            // Debug to check if courseId is being passed correctly
-            debug('courseId is null!');
+            $this->Flash->error('No course selected.');
+            return $this->redirect(['controller' => 'Courses', 'action' => 'index']); // Redirect to courses list if no course is found
         }
 
+        // Process user registration
         $user = $this->Users->newEmptyEntity();
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
-            $user->user_type = 'student'; // Default to student
+            $user->user_type = 'student';  // Default user type
 
             if ($this->Users->save($user)) {
-                $this->Authentication->setIdentity($user); // Log in the user
-
-                // Retrieve the course ID from the session
-                $storedCourseId = $this->request->getSession()->read('SelectedCourse.id');
+                $this->Authentication->setIdentity($user);  // Log in the user
 
                 // Redirect to the payment checkout page with the course_id
                 $this->Flash->success('Registration successful. Redirecting to payment.');
-
-                return $this->redirect(['controller' => 'Payments', 'action' => 'checkout', $storedCourseId]);
+                return $this->redirect(['controller' => 'Payments', 'action' => 'checkout', $courseId]);
             }
 
             $this->Flash->error('Registration failed. Please try again.');
@@ -75,6 +73,41 @@ class AuthController extends AppController
 
         $this->set(compact('user'));
     }
+
+
+//    public function register($courseId = null)
+//    {
+//        // Fetch courseId from query parameters if it's passed
+//        if ($this->request->getQuery('courseId')) {
+//            $courseId = $this->request->getQuery('courseId');
+//        }
+//
+//        // Debug the courseId to see if it's being passed correctly
+//        debug('Course ID: ' . $courseId);
+//
+//        $user = $this->Users->newEmptyEntity();
+//
+//        if ($this->request->is('post')) {
+//            $user = $this->Users->patchEntity($user, $this->request->getData());
+//            $user->user_type = 'student'; // Default user type to student
+//
+//            if ($this->Users->save($user)) {
+//                // Log in the user after registration
+//                $this->Authentication->setIdentity($user);
+//
+//                // Debug the courseId before redirecting to payment page
+//                debug('Redirecting to payment page with Course ID: ' . $courseId);
+//
+//                // Redirect to the payment page with courseId
+//                return $this->redirect(['controller' => 'Payments', 'action' => 'checkout', $courseId]);
+//            }
+//
+//            $this->Flash->error('Registration failed. Please try again.');
+//        }
+//
+//        $this->set(compact('user'));
+//    }
+
 
 
 
@@ -289,43 +322,80 @@ class AuthController extends AppController
 
     public function login()
     {
-        $this->set('pageTitle', 'South Adelaie Beauty & Education | Login');
+        $this->set('pageTitle', 'Login');
         $this->request->allowMethod(['get', 'post']);
         $result = $this->Authentication->getResult();
 
+        // Get the courseId from the query parameters (passed from the "Already have an account?" link)
+        $courseId = $this->request->getQuery('courseId');
+
         if ($this->request->is('post')) {
-            // reCAPTCHA verification
-            $recaptchaSecret = '6Lc7pCgqAAAAAGQom2tHow31Z-fEEPh5dU7q8S3J'; // Replace with your reCAPTCHA secret key
-            $recaptchaResponse = $this->request->getData('g-recaptcha-response');
-            $remoteIp = $this->request->clientIp();
+            if ($result && $result->isValid()) {
+                // Store the user ID in the session
+                $user = $this->Authentication->getIdentity();
+                $userId = $user->get('user_id');
+                $this->request->getSession()->write('Auth.User.id', $userId);
 
-            $response = $this->verifyRecaptcha($recaptchaSecret, $recaptchaResponse, $remoteIp);
+                // Flash success message
+                $this->Flash->success('Login successful.');
 
-            if (!$response->success) {
-                $this->Flash->error('Please verify that you are not a robot.');
-            } else {
-                // Proceed with login if reCAPTCHA is valid
-                if ($result && $result->isValid()) {
-                    // Store the user ID in the session
-                    $user = $this->Authentication->getIdentity();
-                    $userId = $user->get('user_id');
-                    $this->request->getSession()->write('Auth.User.id', $userId);
-
-                    $this->Flash->success('Login successful.');
-
-                    // Redirect based on user_type
-                    if ($user->get('user_type') === 'admin') {
-                        return $this->redirect(['controller' => 'AdminDashboard', 'action' => 'dashboard']);
-                    } elseif ($user->get('user_type') === 'student') {
-                        return $this->redirect(['controller' => 'StudentDashboard', 'action' => 'dashboard']);
-                    }
-                } else {
-                    $this->Flash->error('Email address and/or Password is incorrect. Please try again.');
+                // If courseId is passed in the URL, redirect to the payment checkout
+                if ($courseId) {
+                    return $this->redirect(['controller' => 'Payments', 'action' => 'checkout', $courseId]);
                 }
+
+                // Otherwise, redirect based on user_type
+                if ($user->get('user_type') === 'admin') {
+                    return $this->redirect(['controller' => 'AdminDashboard', 'action' => 'dashboard']);
+                } elseif ($user->get('user_type') === 'student') {
+                    return $this->redirect(['controller' => 'StudentDashboard', 'action' => 'dashboard']);
+                }
+            } else {
+                $this->Flash->error('Email or Password is incorrect. Please try again.');
             }
         }
     }
 
+
+//    public function login()
+//    {
+//        $this->set('pageTitle', 'South Adelaie Beauty & Education | Login');
+//        $this->request->allowMethod(['get', 'post']);
+//        $result = $this->Authentication->getResult();
+//
+//        if ($this->request->is('post')) {
+//            // reCAPTCHA verification
+//            $recaptchaSecret = '6Lc7pCgqAAAAAGQom2tHow31Z-fEEPh5dU7q8S3J'; // Replace with your reCAPTCHA secret key
+//            $recaptchaResponse = $this->request->getData('g-recaptcha-response');
+//            $remoteIp = $this->request->clientIp();
+//
+//            $response = $this->verifyRecaptcha($recaptchaSecret, $recaptchaResponse, $remoteIp);
+//
+//            if (!$response->success) {
+//                $this->Flash->error('Please verify that you are not a robot.');
+//            } else {
+//                // Proceed with login if reCAPTCHA is valid
+//                if ($result && $result->isValid()) {
+//                    // Store the user ID in the session
+//                    $user = $this->Authentication->getIdentity();
+//                    $userId = $user->get('user_id');
+//                    $this->request->getSession()->write('Auth.User.id', $userId);
+//
+//                    $this->Flash->success('Login successful.');
+//
+//                    // Redirect based on user_type
+//                    if ($user->get('user_type') === 'admin') {
+//                        return $this->redirect(['controller' => 'AdminDashboard', 'action' => 'dashboard']);
+//                    } elseif ($user->get('user_type') === 'student') {
+//                        return $this->redirect(['controller' => 'StudentDashboard', 'action' => 'dashboard']);
+//                    }
+//                } else {
+//                    $this->Flash->error('Email address and/or Password is incorrect. Please try again.');
+//                }
+//            }
+//        }
+//    }
+//
 
 
 
