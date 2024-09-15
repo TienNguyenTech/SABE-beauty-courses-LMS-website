@@ -62,6 +62,12 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
                         </p>
                         <p class="card-text"><strong>Price:</strong> $<?= $this->Number->format($course->course_price) ?></p>
                         <p class="card-text"><strong>Featured:</strong> <?= $course->course_featured ? 'Yes' : 'No' ?></p>
+                        <div class="progress final-score-bar">
+                            <div class="progress-bar" role="progressbar" style="width: <?= h($course->progress) ?>%;"
+                                aria-valuenow="<?= h($course->progress) ?>" aria-valuemin="0" aria-valuemax="100">
+                                <?= h($course->progress) ?>%
+                            </div>
+                        </div>
                         <div class="card-action">
                             <?= $this->Html->link(__('View'), ['action' => 'accesscourse', $course->course_id], ['class' => 'btn btn-primary']) ?>
                         </div>
