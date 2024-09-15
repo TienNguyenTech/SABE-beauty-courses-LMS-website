@@ -55,6 +55,20 @@
                     <tr>
                         <th>Actions</th>
                         <td>
+                            <?php
+                            usort($courseContents, function($a, $b) {
+                                return $a->content_position - $b->content_position;
+                            });
+
+                            if($content->content_position > 1) {
+                                $previousContent = $courseContents[$content->content_position - 2];
+                                echo $this->Html->link('Previous', ['action' => 'view', $previousContent->content_id], ['class' => 'btn btn-primary', 'style' => 'margin-right: 5px']);
+                            } 
+                            if($content->content_position < end($courseContents)->content_position) {
+                                $nextContent = $courseContents[$content->content_position];
+                                echo $this->Html->link('Next', ['action' => 'view', $nextContent->content_id], ['class' => 'btn btn-primary']);
+                            }
+                            ?>
                             <button class="btn btn-primary">Mark as complete</button>
                         </td>
                     </tr>
