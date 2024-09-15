@@ -10,15 +10,18 @@ use Cake\ORM\TableRegistry;
  *
  * @property \App\Model\Table\ContentsTable $Contents
  * @property \App\Model\Table\CoursesTable $Courses
+ * @property \App\Model\Table\ProgressionsTable $Progressions
  */
 class ContentsController extends AppController
 {
     private \Cake\ORM\Table $Courses;
+    private \Cake\ORM\Table $Progressions;
 
     public function initialize(): void {
         parent::initialize();
 
         $this->Courses = TableRegistry::getTableLocator()->get("Courses");
+        $this->Progressions = TableRegistry::getTableLocator()->get("Progressions");
     }
 
     /**
@@ -45,7 +48,18 @@ class ContentsController extends AppController
     public function view($id = null)
     {
         $content = $this->Contents->get($id, contain: ['Courses']);
-        $this->set(compact('content'));
+        $courseContents = $this->Contents->find()->where(['course_id IS' => $content->course_id])->toArray();
+
+        $user = $this->Authentication->getIdentity()->getOriginalData();
+        $userID = $user['User']['id'];
+
+        $progression = $this->Progressions->find()->where(['user_id IS' => $userID, 'content_id IS' => $content->content_id])->first();
+        $isCompleted = false;
+        if(!empty($progression) && $progression->is_completed == true) {
+            $isCompleted = true;
+        } 
+
+        $this->set(compact('content', 'courseContents', 'userID', 'isCompleted'));
     }
 
     public function moveup($id = null) {
