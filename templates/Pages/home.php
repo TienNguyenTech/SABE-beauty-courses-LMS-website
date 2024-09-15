@@ -1181,13 +1181,22 @@ if ($error = 404) {
                     <div class="footer-box get-in-touch">
                         <h2 class="widget-title">Get in Touch</h2>
                         <ul>
-                            <li><?= $this->ContentBlock->text('location-address') ?>,
+                            <li style="font-size: 18px;">
+                                <?= $this->ContentBlock->text('location-address') ?>,
                                 <?= $this->ContentBlock->text('location-suburb') ?>,
                                 <br><?= $this->ContentBlock->text('location-state') ?>,
                                 <?= $this->ContentBlock->text('location-postcode') ?>.
                             </li>
-                            <li><?= $this->ContentBlock->text('contact-email') ?></li>
-                            <li>(+61) <?= $this->ContentBlock->text('contact-phone') ?></li>
+                            <li style="font-size: 18px;"><?= $this->ContentBlock->text('contact-email') ?></li>
+                            <li style="font-size: 18px;">(+61) <?= $this->ContentBlock->text('contact-phone') ?></li>
+
+                            <!--                            <li>--><?php //= $this->ContentBlock->text('location-address') ?><!--,-->
+<!--                                --><?php //= $this->ContentBlock->text('location-suburb') ?><!--,-->
+<!--                                <br>--><?php //= $this->ContentBlock->text('location-state') ?><!--,-->
+<!--                                --><?php //= $this->ContentBlock->text('location-postcode') ?><!--.-->
+<!--                            </li>-->
+<!--                            <li>--><?php //= $this->ContentBlock->text('contact-email') ?><!--</li>-->
+<!--                            <li>(+61) --><?php //= $this->ContentBlock->text('contact-phone') ?><!--</li>-->
                         </ul>
                     </div>
                 </div>
@@ -1195,20 +1204,19 @@ if ($error = 404) {
                     <div class="footer-box pages">
                         <h2 class="widget-title">Pages</h2>
                         <ul>
-                            <li><?= $this->Html->link("Home", "/") ?></li>
-                            <li><?= $this->Html->link("Beauty By Lisa", ['controller' => 'BeautyByLisa', 'action' => 'services']) ?>
-                            </li>
-                            <li><?= $this->Html->link("Courses", ['controller' => 'Courses', 'action' => 'courses']) ?>
-                            </li>
-                            <li><?= $this->Html->link("Contact Us", ['controller' => 'Enquirys', 'action' => 'add']) ?>
-                            </li>
+                            <li><?= $this->Html->link("Home", "/", ['style' => 'font-size: 18px;']) ?></li>
+                            <li><?= $this->Html->link("Beauty By Lisa", ['controller' => 'BeautyByLisa', 'action' => 'services'], ['style' => 'font-size: 18px;']) ?></li>
+                            <li><?= $this->Html->link("Courses", ['controller' => 'Courses', 'action' => 'courses'], ['style' => 'font-size: 18px;']) ?></li>
+                            <li><?= $this->Html->link("Contact Us", ['controller' => 'Enquirys', 'action' => 'add'], ['style' => 'font-size: 18px;']) ?></li>
+
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-12">
                     <div class="footer-box subscribe">
                         <h2 class="widget-title">Opening Hours</h2>
-                        <p>Monday to Friday: 9:30 - 20:00</p>
+<!--                        <p>Monday to Friday: 9:30 - 20:00</p>-->
+                        <p style="font-size: 18px;">Monday to Friday: 9:30 - 20:00</p>
 
                     </div>
                 </div>

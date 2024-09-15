@@ -74,6 +74,10 @@ class CoursesController extends AppController
         $payments = $this->Payments->find()->where(['user_id' => $userID])->toArray();
         $courses = [];
 
+        if(empty($courses)) {
+            return $this->redirect(['action' => 'courses']);
+        }
+
         foreach ($payments as $payment) {
             array_push($courses, $payment->course_id);
         }
@@ -82,6 +86,8 @@ class CoursesController extends AppController
 
         $query = $this->Courses->find()->where(['course_id IN' => $courses]);
         $courses = $this->paginate($query);
+
+        
 
         $this->set(compact('courses'));
     }
