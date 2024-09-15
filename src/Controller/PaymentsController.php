@@ -155,6 +155,8 @@ class PaymentsController extends AppController
         // Get user id for payment
         $user = $this -> Authentication -> getIdentity() ->getOriginalData();
         $userID = intval($user['User']);
+        $user = $this->Users->get($userID);
+        $email = $user->email;
 
         $payment = $this->Payments->newEmptyEntity();
 
@@ -162,7 +164,8 @@ class PaymentsController extends AppController
             'payment_amount' => $this->Courses->get($course_id)['course_price'],
             'payment_datetime' => new \DateTime(),
             'course_id' => $course_id,
-            'user_id' => $userID
+            'user_id' => $userID,
+            'payment_email' => $email,
         ]);
 
         $this->Payments->save($payment);
@@ -214,10 +217,6 @@ class PaymentsController extends AppController
 
         $email = $customer->email;
         $name = $customer->user_firstname . ' ' . $customer->user_surname;
-
-        $payment->payment_email = $email;
-
-        dd($payment);
 
         $this->Payments->save($payment);
 
