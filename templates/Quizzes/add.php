@@ -12,11 +12,23 @@
 echo $this->Form->control('quiz_title', [
     'label' => [
         'text' => 'Quiz Title <span style="color: red;">*</span>',
-        'escape' => false
+        'escape' => false,
+        'style' => 'width: 150px; text-align: left;'
+
     ],
+    'style' => 'width: 400px; margin-left: 10px;',
+    'class' => 'form-control'
+
+]);
+echo $this->Form->control('course_id', [
+    'options' => $courses,
+    'label' => [
+        'text' => 'Course',
+        'style' => 'width: 150px; text-align: left;'
+    ],
+    'style' => 'width: 400px; margin-left: 10px;',  // 400px width for Course ID
     'class' => 'form-control'
 ]);
-echo $this->Form->control('course_id', ['options' => $courses]);
 ?>
 <h3>Questions</h3>
 <span class="form-inline">Create a new question with <input class="form-control" id="optionCount" type="number" min="2" max="10" value="4"> options <span id="addButton" class="btn btn-primary">Add</span></span>

@@ -27,7 +27,7 @@
 <div style="margin-bottom: 15px; display: flex; align-items: center;">
     <?= $this->Form->control('email', [
         'label' => ['text' => 'Email *', 'style' => 'width: 150px; text-align: left;'],
-        'style' => 'width: 200px; margin-left: 10px;'
+        'style' => 'width: 450px; margin-left: 10px;'
     ]) ?>
 </div>
 
