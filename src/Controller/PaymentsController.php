@@ -248,6 +248,7 @@ class PaymentsController extends AppController
                 return $this->redirect(['action' => 'fail']);
             }
         } catch (\Throwable $th) {
+            dd($th);
             $this->Payments->delete($payment);
 
             return $this->redirect(['action' => 'fail']);
