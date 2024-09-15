@@ -816,8 +816,8 @@ if ($error = 404) {
                                     <span><?= h(strlen($course->course_description) > 100 ? substr($course->course_description, 0, 100) . '...' : $course->course_description) ?></span>
                                     $<?= h($course->course_price); ?>
                                 </p>
-                                <a href="<?= $this->Url->build(['controller' => 'Courses', 'action' => 'view', $course->course_id]) ?>" class="cart-btn" style="margin-bottom: 10px"><i class="fas fa-info-circle"></i> View More</a>
-                                <a href="<?= $this->Url->build(['controller' => 'Payments', 'action' => 'checkout', $course->course_id]) ?>" class="cart-btn"><i class="fas fa-user-graduate"></i> Enroll Now</a>
+                                <a href="<?= $this->Url->build(['controller' => 'Courses', 'action' => 'view', $course->course_id]) ?>" class="bordered-btn" style="margin-bottom: 10px"><i class="fas fa-info-circle"></i> View More</a>
+                                <a href="<?= $this->Url->build(['controller' => 'Payments', 'action' => 'checkout', $course->course_id]) ?>" class="bordered-btn"><i class="fas fa-user-graduate"></i> Enroll Now</a>
                             </div>
                         </div>
                     <?php endif; ?>
@@ -1007,14 +1007,19 @@ if ($error = 404) {
 
         .bordered-btn {
             display: inline-block;
-            padding: 10px 20px;
+            padding: 12px 30px;
             border: 2px solid #4a9b38;
             /* Màu viền nút */
             color: #4a9b38;
             /* Màu chữ */
             text-decoration: none;
             font-weight: bold;
+            border-radius: 30px;
+            /* Bo góc nút */
             transition: all 0.3s ease;
+            font-size: 1rem;
+            width: 150px;
+            margin-left: 100px;
         }
 
         .bordered-btn:hover {
@@ -1023,6 +1028,7 @@ if ($error = 404) {
             color: #fff;
             /* Màu chữ khi hover */
         }
+
     </style>
 
     <style>

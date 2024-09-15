@@ -103,14 +103,23 @@ $this->assign('title', 'Create account');
             <?= $this->Form->create() ?>
             <fieldset>
                 <legend class="login-title">Create account</legend>
+                <div style="text-align: center;">
+                    <?= $this->Html->link('Already have an account?', [
+                        'controller' => 'Auth',
+                        'action' => 'login',
+                        '?' => ['courseId' => $this->request->getSession()->read('SelectedCourse.id')]
+                    ], ['class' => 'back-to-home', 'style' => 'font-size: 15px;']) ?>
 
-                <?= $this->Html->link('Already have an account?', [
-                    'controller' => 'Auth',
-                    'action' => 'login',
-                    '?' => ['courseId' => $this->request->getSession()->read('SelectedCourse.id')]
-                ], ['class' => 'back-to-home']) ?>
+                </div>
+
+<!--                --><?php //= $this->Html->link('Already have an account?', [
+//                    'controller' => 'Auth',
+//                    'action' => 'login',
+//                    '?' => ['courseId' => $this->request->getSession()->read('SelectedCourse.id')]
+//                ], ['class' => 'back-to-home']) ?>
 
                 <?= $this->Flash->render() ?>
+                <br>
 
                 <div class="form-field">
                     <?= $this->Form->control('email', [
@@ -174,10 +183,16 @@ $this->assign('title', 'Create account');
 
             <?= $this->Form->end() ?>
 
-            <div class="back-home-link">
-                <?= $this->Html->link('Back to login', ['controller' => 'Auth', 'action' => 'login'], ['class' => 'back-to-home']) ?>
-                <br>
-                <?= $this->Html->link('Back to home', '/', ['class' => 'back-to-home']) ?>
+<!--            <div class="back-home-link">-->
+<!--                --><?php //= $this->Html->link('Back to login', ['controller' => 'Auth', 'action' => 'login'], ['class' => 'back-to-home']) ?>
+<!--                <br>-->
+<!--                --><?php //= $this->Html->link('Back to home', '/', ['class' => 'back-to-home']) ?>
+                <div class="back-home-link">
+                    <?= $this->Html->link('Back to Login', ['controller' => 'Auth', 'action' => 'login'], ['class' => 'back-to-home', 'style' => 'font-size: 20px; font-weight: bold;']) ?>
+                    <br>
+                    <?= $this->Html->link('Back to Home', '/', ['class' => 'back-to-home', 'style' => 'font-size: 20px; font-weight: bold;']) ?>
+                </div>
+
             </div>
         </div>
     </div>

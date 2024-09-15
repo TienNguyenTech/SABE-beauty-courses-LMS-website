@@ -62,14 +62,15 @@ $this->assign('title', 'Login');
 
                 </fieldset>
 
-                <?= $this->Html->link('Forgot Password?', ['action' => 'forgetPassword'], ['class' => 'button-clear']) ?>
+                <?= $this->Html->link('Forgot Password?', ['action' => 'forgetPassword'], ['class' => 'button-clear', 'style' => 'font-size: 15px;']) ?>
                 <br>
                 <?= $this->Form->button('Login', ['class' => 'centered-button']) ?>
                 <?= $this->Form->end() ?>
                 <div class="back-home-link">
-                    <?= $this->Html->link('Back To Home', '/', ['class' => 'back-to-home']) ?>
+                    <?= $this->Html->link('Back To Home', '/', ['class' => 'back-to-home', 'style' => 'font-size: 18px; font-weight: bold;']) ?>
+<!--                    --><?php //= $this->Html->link('Back to Login', ['controller' => 'Auth', 'action' => 'login'], ['class' => 'back-to-home', 'style' => 'font-size: 24px; font-weight: bold;']) ?>
                     <br>
-                    <?= $this->Html->link('Don\'t have an account? Register', ['controller' => 'Auth', 'action' => 'register'], ['class' => 'back-to-home']) ?>
+                    <?= $this->Html->link('Don\'t have an account? Register', ['controller' => 'Auth', 'action' => 'register'], ['class' => 'back-to-home','style' => 'font-size: 18px; font-weight: bold;']) ?>
                 </div>
 
 
