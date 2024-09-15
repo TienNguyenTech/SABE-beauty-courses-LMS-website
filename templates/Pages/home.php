@@ -1176,7 +1176,7 @@ if ($error = 404) {
     <!-- footer -->
     <div class="footer-area">
         <div class="container" style="text-align: left;">
-            <div class="row">
+            <div class="row" style="gap: 10px;">
                 <div class="col-lg-3 col-md-6 col-12">
                     <div class="footer-box get-in-touch">
                         <h2 class="widget-title">Get in Touch</h2>
@@ -1191,7 +1191,7 @@ if ($error = 404) {
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-12">
+                <div class="col-lg-2 col-md-6 col-12">
                     <div class="footer-box pages">
                         <h2 class="widget-title">Pages</h2>
                         <ul>
@@ -1212,20 +1212,21 @@ if ($error = 404) {
 
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-12">
-                    <div class="social-icons footer-box subscribe">
-                        <ul>
-                            <li><a href="https://www.facebook.com/adelaidebeautyandeducation" target="_blank"><i
-                                        class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="https://www.instagram.com/adelaidebeautyandeducation" target="_blank"><i
-                                        class="fab fa-instagram"></i></a></li>
-                            <!--<li><a href="https://www.tiktok.com/@beautybylisafollett" target="_blank"><i
-                                        class="fab fa-tiktok"></i></a></li>-->
-                            <div class="site-logo">
-                            </div>
-                        </ul>
-                    </div>
-                </div>
+                <div class="col-lg-1 col-md-6 col-12">
+    <div class="social-icons footer-box subscribe">
+        <ul style="display: flex; gap: 10px;"> <!-- Flexbox for horizontal layout and gap between icons -->
+            <li><a href="https://www.facebook.com/adelaidebeautyandeducation" target="_blank">
+                <i class="fab fa-facebook-f"></i>
+            </a></li>
+            <li><a href="https://www.instagram.com/adelaidebeautyandeducation" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a></li>
+            <!-- Additional icons can be added here if needed -->
+            <div class="site-logo"></div>
+        </ul>
+    </div>
+</div>
+
             </div>
         </div>
     </div>
@@ -1254,6 +1255,11 @@ if ($error = 404) {
             </div>
         </div>
     </div>
+
+
+    <!-- end copyright -->
+
+
 
 
     <!-- end copyright -->
