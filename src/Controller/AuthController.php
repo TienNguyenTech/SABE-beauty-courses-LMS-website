@@ -43,21 +43,40 @@ class AuthController extends AppController
      *
      * @return \Cake\Http\Response|null|void Redirects on successful add, renders view otherwise.
      */
-    public function register()
+    public function register($courseId = null)
     {
+        if ($courseId) {
+            // Store the course ID in the session
+            $this->request->getSession()->write('SelectedCourse.id', $courseId);
+        } else {
+            // Debug to check if courseId is being passed correctly
+            debug('courseId is null!');
+        }
+
         $user = $this->Users->newEmptyEntity();
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
-            $user->user_type = 'student';
-            if ($this->Users->save($user)) {
-                $this->Flash->success('You have been registered. Please log in. ');
+            $user->user_type = 'student'; // Default to student
 
-                return $this->redirect(['action' => 'login']);
+            if ($this->Users->save($user)) {
+                $this->Authentication->setIdentity($user); // Log in the user
+
+                // Retrieve the course ID from the session
+                $storedCourseId = $this->request->getSession()->read('SelectedCourse.id');
+
+                // Redirect to the payment checkout page with the course_id
+                $this->Flash->success('Registration successful. Redirecting to payment.');
+
+                return $this->redirect(['controller' => 'Payments', 'action' => 'checkout', $storedCourseId]);
             }
-            $this->Flash->error('The user could not be registered. Please, try again.');
+
+            $this->Flash->error('Registration failed. Please try again.');
         }
+
         $this->set(compact('user'));
     }
+
+
 
     /**
      * Forget Password method
