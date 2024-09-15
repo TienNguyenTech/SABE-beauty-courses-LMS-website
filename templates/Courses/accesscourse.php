@@ -31,12 +31,12 @@
     <!-- Course Content Cards -->
     <div class="card mb-4">
         <div class="card-header d-flex justify-content-between align-items-center">
-            <h3>Course Content</h3>
+            <h3>Course Content | Progress: <?= intval($progression * 100) ?>%</h3>
             <!-- Content Completion Progress -->
-            <div class="progress" style="width: 50%;">
+            <!-- <div class="progress" style="width: 50%;">
                 <div id="content-progress-bar" class="progress-bar" role="progressbar" style="width: 0%;"
                     aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
-            </div>
+            </div> -->
         </div>
         <div class="card-body">
             <div class="d-flex flex-wrap justify-content-start">
@@ -76,25 +76,25 @@
     </div>
 
     <!-- Quiz Completion Progress -->
-    <div class="progress" style="width: 50%;">
-        <div id="quiz-progress-bar" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0"
-            aria-valuemin="0" aria-valuemax="100">0%</div>
-    </div>
+    <!-- <div class="progress" style="width: 50%;">
+        <div id="quiz-progress-bar" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="50"
+            aria-valuemin="0" aria-valuemax="100"><?= $progression * 100 ?>%</div>
+    </div> -->
 
 </div>
 
 <!-- Final Score Bar -->
-<div class="card mb-4">
+<!-- <div class="card mb-4">
     <div class="card-header">
         <h3>Final Score</h3>
     </div>
     <div class="card-body">
         <div class="progress" style="width: 50%;">
-            <div id="final-score-bar" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0"
-                aria-valuemin="0" aria-valuemax="100">0%</div>
+            <div id="final-score-bar" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"><?= $progression * 100 ?>%</div>
         </div>
     </div>
-</div>
+</div> -->
 
 
 
@@ -103,14 +103,14 @@
 //     document.addEventListener('DOMContentLoaded', function () {
 //     let totalContent = <?= count($contents) ?>;
 //     let completedContent = localStorage.getItem('completedContent') ? parseInt(localStorage.getItem('completedContent')) : 0;
-//     let quizProgress = localStorage.getItem('quizProgress') ? parseInt(localStorage.getItem('quizProgress')) : 0;
+// //     let quizProgress = localStorage.getItem('quizProgress') ? parseInt(localStorage.getItem('quizProgress')) : 0;
 
 //     const contentProgressBar = document.getElementById('content-progress-bar');
-//     const quizProgressBar = document.getElementById('quiz-progress-bar');
-//     const finalScoreBar = document.getElementById('final-score-bar');
-//     const startQuizBtn = document.getElementById('start-quiz-btn');
-//     const resetProgressBtn = document.getElementById('reset-progress-btn');
-//     const completeQuizBtn = document.getElementById('complete-quiz-btn');
+// //     const quizProgressBar = document.getElementById('quiz-progress-bar');
+// //     const finalScoreBar = document.getElementById('final-score-bar');
+// //     const startQuizBtn = document.getElementById('start-quiz-btn');
+// //     const resetProgressBtn = document.getElementById('reset-progress-btn');
+// //     const completeQuizBtn = document.getElementById('complete-quiz-btn');
 
 //     // Function to update content progress
 //     function updateContentProgress() {
