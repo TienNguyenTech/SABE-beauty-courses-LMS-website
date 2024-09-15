@@ -24,7 +24,19 @@ class ContentsController extends AppController
         parent::initialize();
 
         $this->Courses = TableRegistry::getTableLocator()->get("Courses");
-        $this->Progressions = TableRegistry::getTableLocator()->get("Progressions");
+        $this->Users = TableRegistry::getTableLocator()->get("Users");
+
+    }
+
+    protected function restrict()
+    {
+        $user = $this -> Authentication -> getIdentity() ->getOriginalData();
+        $userID = $user['User'];
+        $user = $this->Users->get($userID);
+        $userType = $user->user_type;
+        if($userType == 'student') {
+            return $this->redirect(['controller' => 'studentDashboard', 'action' => 'dashboard']);
+        }
     }
 
     /**
@@ -140,6 +152,7 @@ class ContentsController extends AppController
      */
     public function add($courseID = null)
     {
+        $this->restrict();
         $content = $this->Contents->newEmptyEntity();
         $course = $this->Courses->get($courseID);
         if ($this->request->is('post')) {
@@ -191,6 +204,7 @@ class ContentsController extends AppController
      */
     public function edit($id = null)
     {
+        $this->restrict();
         $content = $this->Contents->get($id, contain: []);
         $course = $this->Courses->get($content->course_id);
         if ($this->request->is(['patch', 'post', 'put'])) {
@@ -241,6 +255,7 @@ class ContentsController extends AppController
      */
     public function delete($id = null)
     {
+        $this->restrict();
         $this->request->allowMethod(['post', 'delete']);
         $content = $this->Contents->get($id);
         $courseID = $content->course_id;

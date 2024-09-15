@@ -29,6 +29,11 @@ $this->assign('title', 'Create account');
         <fieldset>
             <legend class="login-title">Create account</legend>
 
+            <?= $this->Html->link('Already have an account?', [
+                'controller' => 'Auth',
+                'action' => 'login',
+                '?' => ['courseId' => $this->request->getSession()->read('SelectedCourse.id')] // Pass courseId to login page
+            ], ['class' => 'back-to-home']) ?>
             <?= $this->Flash->render() ?>
 
             <?= $this->Form->control('email', [
@@ -82,8 +87,9 @@ $this->assign('title', 'Create account');
                 data-callback="onRecaptchaSuccess"></div>
         </fieldset>
 
-        <?= $this->Form->button('Register', ['class' => 'centered-button']) ?>
-        <?= $this->Form->end() ?>
+            <?= $this->Form->button('Register', ['class' => 'centered-button']) ?>
+
+            <?= $this->Form->end() ?>
         <div class="back-home-link">
             <?= $this->Html->link('Back to login', ['controller' => 'Auth', 'action' => 'login'], ['class' => 'back-to-home']) ?>
             <br>
@@ -91,6 +97,6 @@ $this->assign('title', 'Create account');
         </div>
         </div>
     </div>
-</div>    
+</div>
 </body>
 </div>

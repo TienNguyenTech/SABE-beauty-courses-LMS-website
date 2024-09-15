@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use Cake\ORM\TableRegistry;
+
 /**
  * Services Controller
  *
@@ -10,6 +12,27 @@ namespace App\Controller;
  */
 class ServicesController extends AppController
 {
+
+    public function initialize(): void
+    {
+        parent::initialize();
+
+        //$this->Authentication->allowUnauthenticated(['checkout','success', 'fail']);
+        $this->Courses= TableRegistry::getTableLocator()->get('Courses');
+        $this->Users = TableRegistry::getTableLocator()->get('Users');
+
+    }
+
+    protected function restrict()
+    {
+        $user = $this -> Authentication -> getIdentity() ->getOriginalData();
+        $userID = $user['User'];
+        $user = $this->Users->get($userID);
+        $userType = $user->user_type;
+        if($userType == 'student') {
+            return $this->redirect(['controller' => 'studentDashboard', 'action' => 'dashboard']);
+        }
+    }
     /**
      * Index method
      *
@@ -43,6 +66,7 @@ class ServicesController extends AppController
      */
     public function add()
     {
+        $this->restrict();
         $service = $this->Services->newEmptyEntity();
         if ($this->request->is('post')) {
             $service = $this->Services->patchEntity($service, $this->request->getData());
@@ -65,6 +89,7 @@ class ServicesController extends AppController
      */
     public function edit($id = null)
     {
+        $this->restrict();
         $service = $this->Services->get($id, contain: []);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $service = $this->Services->patchEntity($service, $this->request->getData());
@@ -87,6 +112,7 @@ class ServicesController extends AppController
      */
     public function delete($id = null)
     {
+        $this->restrict();
         $this->request->allowMethod(['post', 'delete']);
         $service = $this->Services->get($id);
         if ($this->Services->delete($service)) {

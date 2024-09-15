@@ -43,31 +43,18 @@ class AuthController extends AppController
      *
      * @return \Cake\Http\Response|null|void Redirects on successful add, renders view otherwise.
      */
-    public function register($courseId = null)
+    public function register()
     {
-        if ($courseId) {
-            // Store the course ID in the session
-            $this->request->getSession()->write('SelectedCourse.id', $courseId);
-        } else {
-            // Debug to check if courseId is being passed correctly
-            debug('courseId is null!');
-        }
-
+        // Process user registration
         $user = $this->Users->newEmptyEntity();
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
-            $user->user_type = 'student'; // Default to student
+            $user->user_type = 'student';  // Default user type
 
             if ($this->Users->save($user)) {
-                $this->Authentication->setIdentity($user); // Log in the user
+                $this->Authentication->setIdentity($user);  // Log in the user
 
-                // Retrieve the course ID from the session
-                $storedCourseId = $this->request->getSession()->read('SelectedCourse.id');
-
-                // Redirect to the payment checkout page with the course_id
-                $this->Flash->success('Registration successful. Redirecting to payment.');
-
-                return $this->redirect(['controller' => 'Payments', 'action' => 'checkout', $storedCourseId]);
+                return $this->redirect(['controller' => 'Auth', 'action' => 'login']);
             }
 
             $this->Flash->error('Registration failed. Please try again.');
@@ -75,6 +62,7 @@ class AuthController extends AppController
 
         $this->set(compact('user'));
     }
+
 
 
 
@@ -287,6 +275,8 @@ class AuthController extends AppController
 //        }
 //    }
 
+
+
     public function login()
     {
         $this->set('pageTitle', 'South Adelaie Beauty & Education | Login');
@@ -325,7 +315,6 @@ class AuthController extends AppController
             }
         }
     }
-
 
 
 

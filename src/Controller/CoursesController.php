@@ -28,8 +28,19 @@ class CoursesController extends AppController
             $this->Payments = TableRegistry::getTableLocator()->get("Payments");
             $this->Progressions = TableRegistry::getTableLocator()->get("Progressions");
 
-            // Controller-level function/action whitelist for authentication
-            $this->Authentication->allowUnauthenticated(['view', 'courses']);
+        // Controller-level function/action whitelist for authentication
+        $this->Authentication->allowUnauthenticated(['view', 'courses']);
+        $this->Users = TableRegistry::getTableLocator()->get("Users");
+    }
+
+    protected function restrict()
+    {
+        $user = $this -> Authentication -> getIdentity() ->getOriginalData();
+        $userID = $user['User'];
+        $user = $this->Users->get($userID);
+        $userType = $user->user_type;
+        if($userType == 'student') {
+            return $this->redirect(['controller' => 'studentDashboard', 'action' => 'dashboard']);
         }
     }
     public function courses()
@@ -155,6 +166,7 @@ class CoursesController extends AppController
      */
     public function add()
     {
+        $this->restrict();
         $course = $this->Courses->newEmptyEntity();
         if ($this->request->is('post')) {
             // Get the form data and patch the entity
@@ -195,6 +207,7 @@ class CoursesController extends AppController
      */
     public function edit($id = null)
     {
+        $this->restrict();
         $course = $this->Courses->get($id);
         if ($this->request->is(['patch', 'post', 'put'])) {
 
@@ -244,6 +257,7 @@ class CoursesController extends AppController
      */
     public function delete($id = null)
     {
+        $this->restrict();
         $this->request->allowMethod(['post', 'delete']);
         $course = $this->Courses->get($id);
         if ($this->Courses->delete($course)) {

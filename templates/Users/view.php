@@ -94,51 +94,51 @@
         </div>
     </div>
     <!-- Column -->
-    <div class="col-lg-6 col-xlg-6 col-md-6">
-        <div class="card ">
-            <div class="card-body">
-              <form class="form-horizontal form-material mx-2">
-                <div class="form-group">
-                    <label class="col-md-12">Enrolled Courses</label>
-                    <div class="col-md-12">
-                        <?php if (!empty($user->courses)) : ?>
-                            <div class="table-responsive">
-                                <table class="table table-striped">
-                                    <thead>
-                                    <tr>
-                                        <th><?= __('Course Id') ?></th>
-                                        <th><?= __('Course Name') ?></th>
-                                        <th><?= __('Course Description') ?></th>
-                                        <th><?= __('Course Price') ?></th>
-                                        <th class="actions"><?= __('Actions') ?></th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <?php foreach ($user->courses as $course) : ?>
-                                        <tr>
-                                            <td><?= h($course->course_id) ?></td>
-                                            <td><?= h($course->course_name) ?></td>
-                                            <td><?= h($course->course_description) ?></td>
-                                            <td><?= h($course->course_price) ?></td>
-                                            <td class="actions">
+<!--    <div class="col-lg-6 col-xlg-6 col-md-6">-->
+<!--        <div class="card ">-->
+<!--            <div class="card-body">-->
+<!--              <form class="form-horizontal form-material mx-2">-->
+<!--                <div class="form-group">-->
+<!--                    <label class="col-md-12">Enrolled Courses</label>-->
+<!--                    <div class="col-md-12">-->
+<!--                        --><?php //if (!empty($user->courses)) : ?>
+<!--                            <div class="table-responsive">-->
+<!--                                <table class="table table-striped">-->
+<!--                                    <thead>-->
+<!--                                    <tr>-->
+<!--                                        <th>--><?php //= __('Course Id') ?><!--</th>-->
+<!--                                        <th>--><?php //= __('Course Name') ?><!--</th>-->
+<!--                                        <th>--><?php //= __('Course Description') ?><!--</th>-->
+<!--                                        <th>--><?php //= __('Course Price') ?><!--</th>-->
+<!--                                        <th class="actions">--><?php //= __('Actions') ?><!--</th>-->
+<!--                                    </tr>-->
+<!--                                    </thead>-->
+<!--                                    <tbody>-->
+<!--                                    --><?php //foreach ($user->courses as $course) : ?>
+<!--                                        <tr>-->
+<!--                                            <td>--><?php //= h($course->course_id) ?><!--</td>-->
+<!--                                            <td>--><?php //= h($course->course_name) ?><!--</td>-->
+<!--                                            <td>--><?php //= h($course->course_description) ?><!--</td>-->
+<!--                                            <td>--><?php //= h($course->course_price) ?><!--</td>-->
+<!--                                            <td class="actions">-->
 <!--                                                --><?php //= $this->Html->link(__('View'), ['controller' => 'Courses', 'action' => 'view', $course->course_id]) ?>
 <!--                                                --><?php //= $this->Html->link(__('Edit'), ['controller' => 'Courses', 'action' => 'edit', $course->course_id]) ?>
 <!--                                                    --><?php //= $this->Form->postLink(__('Delete'), ['controller' => 'Courses', 'action' => 'delete', $course->course_id], ['confirm' => __('Are you sure you want to delete # {0}?', $course->course_id)]) ?>
-                                            </td>
-                                        </tr>
-                                    <?php endforeach; ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        <?php else : ?>
-                            <p><?= __('No enrolled courses found.') ?></p>
-                        <?php endif; ?>
-                    </div>
-                </div>
-              </form>
-            </div>
-        </div>
-    </div>
+<!--                                            </td>-->
+<!--                                        </tr>-->
+<!--                                    --><?php //endforeach; ?>
+<!--                                    </tbody>-->
+<!--                                </table>-->
+<!--                            </div>-->
+<!--                        --><?php //else : ?>
+<!--                            <p>--><?php //= __('No enrolled courses found.') ?><!--</p>-->
+<!--                        --><?php //endif; ?>
+<!--                    </div>-->
+<!--                </div>-->
+<!--              </form>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
     <!-- Column -->
 </div>
 <!-- Row -->
