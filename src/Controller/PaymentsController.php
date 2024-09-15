@@ -166,6 +166,7 @@ class PaymentsController extends AppController
             'course_id' => $course_id,
             'user_id' => $user->user_id,
             'payment_email' => $email,
+            'checkout_id' => 'null'
         ]);
 
         $this->Payments->save($payment);
