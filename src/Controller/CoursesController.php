@@ -3,17 +3,22 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use Cake\ORM\TableRegistry;
+
 /**
  * Courses Controller
  *
  * @property \App\Model\Table\CoursesTable $Courses
+ * @property \App\Model\Table\ContentsTable $Contents
  */
 class CoursesController extends AppController
 {
+    private \Cake\ORM\Table $Contents;
 
     public function initialize(): void
     {
         parent::initialize();
+        $this->Contents = TableRegistry::getTableLocator()->get("Contents");
 
         // Controller-level function/action whitelist for authentication
         $this->Authentication->allowUnauthenticated(['view', 'courses']);
@@ -56,6 +61,21 @@ class CoursesController extends AppController
     }
 
     /**
+     * Admin view method
+     * @param string|null $id Course ID
+     * @return \Cake\Http\Response|null|void Renders view
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     */
+    public function course($id = null) {
+        $course = $this->Courses->get($id);
+
+        $query = $this->Contents->find()->where(['course_id IS' => $course->course_id]);
+        $contents = $this->paginate($query);
+        $this->viewBuilder()->setLayout('default');
+        $this->set(compact('course', 'contents'));
+    }
+
+    /**
      * Add method
      *
      * @return \Cake\Http\Response|null|void Redirects on successful add, renders view otherwise.
@@ -77,9 +97,9 @@ class CoursesController extends AppController
                 $this->Flash->error(__('The image must be either png or jpg format.'));
             } else {
                 $course->course_image = 'assets/img/products/' . $image['course_image']->getClientFilename();
-                $image['course_image']->moveTo(WWW_ROOT . 'assets' . DS . 'img' . DS . 'products' . DS . $image['course_image']->getClientFilename());
 
                 if($this->Courses->save($course)) {
+                    $image['course_image']->moveTo(WWW_ROOT . 'assets' . DS . 'img' . DS . 'products' . DS . $image['course_image']->getClientFilename());
                     $this->Flash->success(__('The course has been saved.'));
                     return $this->redirect(['action' => 'index']);
                 }
