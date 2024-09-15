@@ -42,19 +42,33 @@ class ContentsController extends AppController
      *
      * @return \Cake\Http\Response|null|void Redirects on successful add, renders view otherwise.
      */
-    public function add()
+    public function add($courseID = null)
     {
         $content = $this->Contents->newEmptyEntity();
         if ($this->request->is('post')) {
             $content = $this->Contents->patchEntity($content, $this->request->getData());
+            $content->course_id = $courseID;
+
+            // Calculate position of new content in course
+            $contents = $this->Contents->find()->where(['course_id IS' => $content->course_id])->toArray();
+            if(!empty($contents)) {
+                usort($contents, function ($a, $b) {
+                    return $a->content_position - $b->content_position;
+                });
+                $position = end($contents)->content_position;
+            } else {
+                $position = 0;
+            }
+            
+            $content->content_position = $position + 1;
 
             // Validate file
             $file = $this->request->getUploadedFiles()['content_image'];
 
             if($file->getSize() > 100 * 1024 * 1024) {
-                return $this->Flash(__('Image file size must be 100MB or less.'));
-            } else if($file->getClientMediaType() != 'image/jpeg' && $file->getClientMediaType() != 'image/png' && $file->getClientMediaType() != 'video/mp4' && $file->getClientMediaType() != 'application/pdf') {
-                return $this->Flash(__('Invalid filetype'));
+                return $this->Flash->error(__('Image file size must be 100MB or less.'));
+            } else if($file->getClientMediaType() != 'image/jpeg' && $file->getClientMediaType() != 'image/png' && $file->getClientMediaType() != 'video/mp4' && $file->getClientMediaType() != 'video/mov' && $file->getClientMediaType() != 'application/pdf') {
+                return $this->Flash->error(__('Invalid filetype'));
             }
 
             $content->content_url = 'assets/img/content/' . $file->getClientFilename();

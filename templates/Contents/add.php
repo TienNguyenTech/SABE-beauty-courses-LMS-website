@@ -45,7 +45,7 @@ echo $this->Form->file('content_image', ['id' => 'fileUpload', 'label' => 'Image
         if(fileType.value == 'pdf') {
             fileUpload.setAttribute('accept', '.pdf');
         } else if(fileType.value == 'video') {
-            fileUpload.setAttribute('accept', '.mp4');
+            fileUpload.setAttribute('accept', '.mp4,.mov');
         } else if(fileType.value == 'image') {
             fileUpload.setAttribute('accept', '.png,.jpg,.jpeg,image/png');
         }
