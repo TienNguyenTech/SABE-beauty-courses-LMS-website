@@ -93,11 +93,19 @@ class QuizzesController extends AppController
 
             $questionIndex = 1;
             while (isset($data['question' . $questionIndex . '_title'])) {
-                $question = [
-                    'title' => $data['question' . $questionIndex . '_title'],
-                    'options' => [],
-                    'correct_option' => $data['question' . $questionIndex . '_correctoption']
-                ];
+                if (isset($data['question' . $questionIndex . '_correctoption'])) {
+                    $question = [
+                        'title' => $data['question' . $questionIndex . '_title'],
+                        'options' => [],
+                        'correct_option' => $data['question' . $questionIndex . '_correctoption']
+                    ];
+                } else {
+                    $question = [
+                        'title' => $data['question' . $questionIndex . '_title'],
+                        'options' => [],
+                        'correct_option' => null // or handle the missing key appropriately
+                    ];
+                }
 
                 $optionIndex = 1;
                 while (isset($data['question' . $questionIndex . '_option' . $optionIndex])) {
@@ -117,7 +125,7 @@ class QuizzesController extends AppController
                     $question['title'],
                     $question['title'],
                     $question['options'],
-                    $question['options'][intval($question['correctoption'])]
+                    $question['options'][intval($question['correct_option'])]
                 ));
             }
 
