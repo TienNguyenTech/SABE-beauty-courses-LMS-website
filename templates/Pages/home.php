@@ -413,9 +413,9 @@ if ($error = 404) {
                             there are of the highest quality.
                         </p>
 
-                        <div class="welcome-one__btn-box">
-                            <a href="<?= $this->Url->build(['controller' => 'BeautyByLisa', 'action' => 'services']) ?>" class="bordered-btn">Discover more</a>
-                        </div>
+<!--                        <div class="welcome-one__btn-box">-->
+<!--                            <a href="--><?php //= $this->Url->build(['controller' => 'BeautyByLisa', 'action' => 'services']) ?><!--" class="bordered-btn">Discover more</a>-->
+<!--                        </div>-->
                     </div>
                 </div>
             </div>
