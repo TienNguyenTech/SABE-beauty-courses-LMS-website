@@ -139,7 +139,7 @@ class QuizzesController extends AppController
             if ($this->Quizzes->save($quiz)) {
                 $this->Flash->success(__('The quiz has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller' => 'Courses', 'action' => 'index']);
             }
             $this->Flash->error(__('The quiz could not be saved. Please, try again.'));
         }
@@ -193,7 +193,7 @@ class QuizzesController extends AppController
             $completion = null;
 
             if($response->response_score >= 0.75) {
-                // Pass -> complete course 
+                // Pass -> complete course
                 $completion = $this->Completions->newEmptyEntity();
                 $completion->user_id = $userID;
                 $completion->course_id = $quiz->course_id;
