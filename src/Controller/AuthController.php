@@ -213,10 +213,17 @@ class AuthController extends AppController
             }
 
             $currentPassword = $data['current_password'];
+            $newPassword = $data['password'];
 
             // Verify current password
             if (!password_verify($currentPassword, $user->password)) {
                 $this->Flash->error(__('Your current password is incorrect.'));
+                return $this->redirect(['action' => 'changePassword']);
+            }
+
+            // Check if new password is the same as current password
+            if (password_verify($newPassword, $user->password)) {
+                $this->Flash->error(__('The new password cannot be the same as the current password.'));
                 return $this->redirect(['action' => 'changePassword']);
             }
 
