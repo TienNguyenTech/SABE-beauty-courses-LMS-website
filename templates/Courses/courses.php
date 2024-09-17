@@ -314,16 +314,15 @@
             <div class="col-md-12">
                 <div class="product-filters">
                     <ul>
+                        <?= $this->Html->link('Click here to Create an Account', [
+                            'controller' => 'Auth',
+                            'action' => 'register']) ?>
+                        <p> Please make sure you have an account and is logged in before you enroll in a course!</p><br>
                         <li class="active" data-filter="*">All</li>
                         <li data-filter=".Workshop">Workshop</li>
                         <li data-filter=".Hybrid">Hybrid</li>
                         <li data-filter=".Online">Online</li>
                         <p> All prices are in AUD (Australian Dollars).</p>
-                        <p> Please make sure you have an account and is logged in before you enroll in a course!</p>
-<!--                        <p> Create an account today</p>-->
-                        <?= $this->Html->link('Click here to Create an Account', [
-                            'controller' => 'Auth',
-                            'action' => 'register']) ?>
                     </ul>
                 </div>
             </div>
