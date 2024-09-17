@@ -198,16 +198,34 @@ class AuthController extends AppController
      * @return \Cake\Http\Response|null|void Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function changePassword(?string $id = null)
+    public function changePassword()
     {
-        $user = $this->Users->get($id, ['contain' => []]);
+        $userId = $this->request->getSession()->read('Auth.User.id');
+        $user = $this->Users->get($userId, ['contain' => []]);
+
         if ($this->request->is(['patch', 'post', 'put'])) {
+            $data = $this->request->getData();
+
+            // Check if current_password is set
+            if (empty($data['current_password'])) {
+                $this->Flash->error(__('Current password is required.'));
+                return $this->redirect(['action' => 'changePassword']);
+            }
+
+            $currentPassword = $data['current_password'];
+
+            // Verify current password
+            if (!password_verify($currentPassword, $user->password)) {
+                $this->Flash->error(__('Your current password is incorrect.'));
+                return $this->redirect(['action' => 'changePassword']);
+            }
+
             // Used a different validation set in Model/Table file to ensure both fields are filled
-            $user = $this->Users->patchEntity($user, $this->request->getData(), ['validate' => 'resetPassword']);
+            $user = $this->Users->patchEntity($user, $data, ['validate' => 'resetPassword']);
             if ($this->Users->save($user)) {
                 $this->Flash->success('The password has been saved.');
 
-                return $this->redirect(['controller' => 'Users', 'action' => 'view', $this->request->getSession()->read('Auth.User.id')]);
+                return $this->redirect(['controller' => 'Users', 'action' => 'view', $userId]);
             }
             $this->Flash->error('The password could not be saved. Please, try again.');
         }

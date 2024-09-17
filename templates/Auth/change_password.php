@@ -50,12 +50,25 @@ $this->assign('title', 'Change User Password - Users');
         font-size: 1em;
     }
 </style>
+
+
 <div class="row">
     <div class="column">
         <div class="form-container">
             <?= $this->Form->create($user) ?>
             <fieldset>
                 <legend>Change the Password</legend>
+                <div class="form-group">
+                    <?= $this->Form->control('current_password', [
+                        'type' => 'password',
+                        'label' => 'Current Password',
+                        'templateVars' => ['container_class' => 'column'],
+                        'id' => 'current_password'
+                    ]); ?>
+                    <span class="toggle-password" onclick="togglePasswordVisibility('current_password')">
+                        <i class="fas fa-fw fa-eye"></i>
+                    </span>
+                </div>
                 <div class="form-group">
                     <?= $this->Form->control('password', [
                         'label' => 'New Password',
