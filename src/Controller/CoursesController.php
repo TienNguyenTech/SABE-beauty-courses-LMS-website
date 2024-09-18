@@ -146,18 +146,21 @@ class CoursesController extends AppController
         $course = $this->Courses->get($id);
         $contents = $this->Contents->find()->where(['course_id IS' => $course->course_id])->toArray();
 
-        $contentIDs = [];
-        foreach ($contents as $content) {
-            array_push($contentIDs, $content->content_id);
+        $progressions = [];
+        $progression = 0;
+        if($contents) {
+            $contentIDs = [];
+            foreach ($contents as $content) {
+                array_push($contentIDs, $content->content_id);
+            }
+    
+            
+            $progressions = $this->Progressions->find()->where(['user_id IS' => $userID, 'content_id IN' => $contentIDs])->toArray();
+    
+            $progression = count($progressions) / count($contents);
         }
 
         $quiz = $this->Quizzes->find()->where(['course_id IS' => $course->course_id])->first();
-        $progressions = $this->Progressions->find()->where(['user_id IS' => $userID, 'content_id IN' => $contentIDs])->toArray();
-
-        $progression = count($progressions) / count($contents);
-
-        // dd($progression);
-
         if (!empty($quiz)) {
             $quizID = $quiz->quiz_id;
             $quizJson = json_decode(json_decode($quiz->quiz_json));

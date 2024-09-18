@@ -1,4 +1,4 @@
-<?php
+<h5?php
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Course $course
@@ -39,6 +39,11 @@
         </div>
         <div class="card-body">
             <div class="d-flex flex-wrap justify-content-start">
+                <?php
+                if(empty($contents->items)) {
+                    echo '<h5>This course does not have any content currently.</h5>';
+                }
+                ?>
                 <?php foreach ($contents as $content): ?>
                     <div class="col-md-4 d-flex mb-4">
                         <div class="card flex-grow-1">
@@ -68,7 +73,7 @@
                 <h5 class="card-title"><?= h($quiz->title) ?></h5>
                 <?= $this->Html->link('Start the Quiz', ['controller' => 'Quizzes', 'action' => 'view', $quiz->quiz_id], ['class' => 'btn btn-primary', 'id' => 'start-quiz-btn']) ?>
             <?php else: ?>
-                <p class="card-text"><?= __('You must complete all course content before attempting the quiz') ?></p>
+                <h5 class="card-text"><?= __('You must complete all course content before attempting the quiz') ?></h5>
             <?php endif; ?>
         </div>
     </div>
