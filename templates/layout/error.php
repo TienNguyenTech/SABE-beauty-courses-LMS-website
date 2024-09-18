@@ -159,12 +159,16 @@
         text-align: center;
     }
 
-    /*.single-homepage-slider:after {*/
-    /*    background-color: transparent;*/
-    /*}*/
+    .single-homepage-slider:after {
+        background-color: transparent;
+    }
 
     .sticky-wrapper.is-sticky .top-header-area {
         background-color: #1a4332;
+    }
+    .dark-background {
+        background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+        padding: 20px; /* Optional: Add padding */
     }
 </style>
 <style>
@@ -1132,7 +1136,7 @@
     <div class="homepage-slider">
         <!-- single home slider -->
         <div class="single-homepage-slider homepage-bg-1">
-            <div class="container">
+            <div class="container dark-background">
                 <div class="row">
                     <div class="col-md-12 col-lg-7 offset-lg-1 offset-xl-0">
                         <div class="hero-text">
