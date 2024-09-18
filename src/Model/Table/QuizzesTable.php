@@ -83,22 +83,35 @@ class QuizzesTable extends Table
                     if (empty($value) || !is_array($value)) {
                         return false;
                     }
+
+                    $titles = [];
                     foreach ($value as $question) {
                         if (empty($question['title'])) {
                             return false;
                         }
+                        if (in_array($question['title'], $titles)) {
+                            return false; // Duplicate question title
+                        }
+                        $titles[] = $question['title'];
+
                         if (empty($question['options']) || !is_array($question['options'])) {
                             return false;
                         }
+
+                        $options = [];
                         foreach ($question['options'] as $option) {
                             if (empty($option)) {
                                 return false;
                             }
+                            if (in_array($option, $options)) {
+                                return false; // Duplicate option within the same question
+                            }
+                            $options[] = $option;
                         }
                     }
                     return true;
                 },
-                'message' => 'Each question must have a title and non-empty options'
+                'message' => 'Each question must have a unique title and non-empty, unique options'
             ]);
 
         return $validator;
