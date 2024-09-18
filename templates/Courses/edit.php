@@ -52,7 +52,7 @@
 </div>
 
 <div style="margin-bottom: 15px; display: flex; align-items: center;">
-    <?= h('Featured Course') . ' <span style="color: red;">*</span>' ?>
+    <?= h('Featured Course on homepage') . ' <span style="color: red;">*</span>' ?>
     <?= $this->Form->select('course_featured', [
         '1' => 'Yes',
         '0' => 'No'

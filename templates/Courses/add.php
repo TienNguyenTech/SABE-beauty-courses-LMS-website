@@ -68,7 +68,7 @@
 </div>
 
 <div class="form-group row">
-    <label for="course_featured" class="col-sm-2 col-form-label clearfix">Featured Course <span style="color: red;">*</span></label>
+    <label for="course_featured" class="col-sm-2 col-form-label clearfix">Featured Course on homepage<span style="color: red;">*</span></label>
     <div class="col-sm-10">
         <?= $this->Form->select('course_featured', [
             '1' => 'Yes',
