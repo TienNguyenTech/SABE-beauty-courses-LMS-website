@@ -54,7 +54,7 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
                         <td>$<?= $this->Number->format($course->course_price) ?></td>
                         <td><?= $course->course_featured ? 'Yes' : 'No' ?></td>
                         <td class="actions">
-                            <?= $this->Html->link(__('View'), ['action' => 'course', $course->course_id], ['class' => 'btn btn-primary', 'style' => 'margin-bottom: 10px;']) ?>
+                            <?= $this->Html->link(__('Manage'), ['action' => 'course', $course->course_id], ['class' => 'btn btn-primary', 'style' => 'margin-bottom: 10px;']) ?>
                             <?= $this->Html->link(__('Edit'), ['action' => 'edit', $course->course_id], ['class' => 'btn btn-secondary', 'style' => 'margin-bottom: 10px;']) ?>
                             <?= $this->Form->postLink(__('Unarchive'), ['action' => 'archive', $course->course_id], ['confirm' => __('Are you sure you want to unarchive course: {0}?', $course->course_name), 'class' => 'btn btn-danger',]) ?>
                         </td>
