@@ -19,6 +19,7 @@ class CoursesController extends AppController
     private \Cake\ORM\Table $Quizzes;
     private \Cake\ORM\Table $Payments;
     private \Cake\ORM\Table $Progressions;
+    private \Cake\ORM\Table $Users;
 
     public function initialize(): void
     {
