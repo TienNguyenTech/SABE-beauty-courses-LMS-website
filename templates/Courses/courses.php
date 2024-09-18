@@ -9,7 +9,7 @@
 <html lang="en">
 
 <head>
-    <title><?= $this->ContentBlock->text('website-title'); ?> | Courses</title>
+    <title>Courses</title>
     <link rel="stylesheet" href="webroot/assets/css/main.css">
     <!-- Google Fonts -->
     <?= $this->Html->css('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700', ['block' => true]) ?>
@@ -304,7 +304,7 @@
             transition: all 0.3s ease;
             font-size: 1rem;
             width: 150px;
-           
+
         }
 
         .bordered-btn:hover {
@@ -346,7 +346,7 @@
             font-size: 1rem;
             /* Adjust font size if necessary */
             width: 150px;
-           
+
         }
 
 
