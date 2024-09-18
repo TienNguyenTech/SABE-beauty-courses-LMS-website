@@ -422,7 +422,7 @@
                         <div class="single-product-item">
                             <div class="product-image">
                                 <a href="single-product.html">
-                                    <img src="/<?= $course->course_image ?>" alt="<?= $course->course_name ?>"
+                                    <img src="../<?= $course->course_image ?>" alt="<?= $course->course_name ?>"
                                         class="card-img-top">
                                 </a>
                             </div>
