@@ -189,15 +189,17 @@ if ($flashMessage):
                 <!-- Topbar Navbar -->
 
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <?php if ($this->Identity->isLoggedIn()): ?>
-                            <a class="nav-link" href="#" style="color: black" data-toggle="modal" data-target="#logoutModal">Logout</a>
-                        <?php endif; ?>
-                    </li>
-                </ul>
+                        <li class="nav-item">
+                            <?php if ($this->Identity->isLoggedIn()): ?>
+                                <a class="nav-link"
+                                    href="<?= $this->Url->build(['controller' => 'Auth', 'action' => 'logout']) ?>"
+                                    style="color: black">Logout</a>
+                            <?php endif; ?>
+                        </li>
+                    </ul>
 
                 <!-- Logout Confirmation Modal -->
-                <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <!-- <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -209,11 +211,11 @@ if ($flashMessage):
                             <div class="modal-body" style="color: black;">Are you sure you want to logout?</div>
                             <div class="modal-footer">
                                 <button class="btn btn-secondary" type="button" data-dismiss="modal">No</button>
-                                <?= $this->Html->link('Yes', ['plugin' => null,'controller' => 'Auth', 'action' => 'logout'], ['class' => 'btn btn-primary']) ?>
+                                //$this->Html->link('Yes', ['plugin' => null,'controller' => 'Auth', 'action' => 'logout'], ['class' => 'btn btn-primary']) ?>
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
             </nav>
             <!-- End of Topbar -->
@@ -250,7 +252,7 @@ if ($flashMessage):
 </a>
 
 <!-- Logout Modal-->
-<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<!-- <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -263,11 +265,11 @@ if ($flashMessage):
             <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="<?= $this->Url->build(['controller'=>'Users','action'=>'logout'])?>">Logout</a>
+                <a class="btn btn-primary" href="//$this->Url->build(['controller'=>'Users','action'=>'logout'])?>">Logout</a>
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 <!-- Bootstrap core JavaScript-->
 <?= $this->Html->script('/vendor/bootstrap/js/bootstrap.bundle.min.js') ?>

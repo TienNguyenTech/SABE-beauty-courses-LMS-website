@@ -326,7 +326,7 @@ class AuthController extends AppController
                     $userId = $user->get('user_id');
                     $this->request->getSession()->write('Auth.User.id', $userId);
 
-                    $this->Flash->success('Login successful.');
+                  
 
                     // Redirect based on user_type
                     if ($user->get('user_type') === 'admin') {
@@ -379,7 +379,7 @@ class AuthController extends AppController
         if ($result && $result->isValid()) {
             $this->Authentication->logout();
 
-            $this->Flash->success('You have been logged out successfully. ');
+            //$this->Flash->success('You have been logged out successfully. ');
         }
 
         // Otherwise just send them to the login page

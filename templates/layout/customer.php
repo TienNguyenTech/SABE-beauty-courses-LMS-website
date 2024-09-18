@@ -152,8 +152,8 @@
                                 echo $this->Html->link(
                                     'Log out',
                                     ['controller' => 'Auth', 'action' => 'logout'],
-                                    ['class' => 'button button-outline', 'onclick' => 'return confirm("Are you sure you want to leave?");']
-                                );
+                                    ['class' => 'button button-outline',]);//'onclick' => 'return confirm("Are you sure you want to leave?");'
+                                
                                 } else {
                                     echo $this->Html->link(
                                         'Log in',

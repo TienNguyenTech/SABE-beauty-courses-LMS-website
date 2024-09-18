@@ -199,8 +199,8 @@ if ($error = 404) {
                                         echo $this->Html->link(
                                             'Log out',
                                             ['controller' => 'Auth', 'action' => 'logout'],
-                                            ['class' => 'button button-outline', 'onclick' => 'return confirm("Are you sure you want to leave?");']
-                                        );
+                                            ['class' => 'button button-outline', ]); //'onclick' => 'return confirm("Are you sure you want to leave?");'
+
                                     } else {
                                         echo $this->Html->link(
                                             'Log in',
@@ -816,7 +816,7 @@ if ($error = 404) {
                                     <span><?= h(strlen($course->course_description) > 100 ? substr($course->course_description, 0, 100) . '...' : $course->course_description) ?></span>
                                     $<?= h($course->course_price); ?>
                                 </p>
-                                <a href="<?= $this->Url->build(['controller' => 'Courses', 'action' => 'view', $course->course_id]) ?>" class="bordered-btn" style="margin-bottom: 10px"><i class="fas fa-info-circle"></i> View More</a>
+                                <a href="<?= $this->Url->build(['controller' => 'Courses', 'action' => 'view', $course->course_id]) ?>" class="whiteb-btn" style="margin-bottom: 10px"><i class="fas fa-info-circle"></i> View More</a>
                                 <a href="<?= $this->Url->build(['controller' => 'Payments', 'action' => 'checkout', $course->course_id]) ?>" class="bordered-btn"><i class="fas fa-user-graduate"></i> Enroll Now</a>
                             </div>
                         </div>
@@ -1679,7 +1679,8 @@ if ($error = 404) {
             /* Phóng to hình ảnh khi hover */
         }
 
-        .bordered-btn {
+        
+        .whiteb-btn {
             display: inline-block;
             padding: 12px 30px;
             border: 2px solid #4a9b38;
@@ -1692,13 +1693,38 @@ if ($error = 404) {
             /* Bo góc nút */
             transition: all 0.3s ease;
             font-size: 1rem;
+            width: 150px;
+            margin-left: 100px;
         }
 
-        .bordered-btn:hover {
+        .whiteb-btn:hover {
             background-color: #4a9b38;
             /* Màu nền khi hover */
             color: #fff;
             /* Màu chữ khi hover */
+
+        }a.whiteb-btn {
+            font-family: 'Poppins', sans-serif;
+            display: inline-block;
+            color: #4a9b38;
+            background-color: #fff;
+            border: 2px solid #4a9b38;
+            padding: 7px 20px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            /* Add shadow */
+            transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+            
+        }
+
+        a.whiteb-btn:hover {
+            background-color: #4a9b38;
+            color: #fff;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            /* Larger shadow on hover */
+        }
+
+        .footer-box.pages ul li a:hover {
+            color: #4a9b38;
         }
     </style>
     <!-- jquery -->
