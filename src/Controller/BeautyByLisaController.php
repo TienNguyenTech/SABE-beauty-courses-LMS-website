@@ -17,7 +17,7 @@ class BeautyByLisaController extends AppController
         parent::initialize();
 
         // Controller-level function/action whitelist for authentication
-        $this->Authentication->allowUnauthenticated(['services']);
+        $this->Authentication->allowUnauthenticated(['services', 'murad']);
         $this->Services = TableRegistry::getTableLocator()->get('Services');
     }
     public function services() {

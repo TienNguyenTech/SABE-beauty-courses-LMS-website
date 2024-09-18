@@ -10,7 +10,7 @@
 <html lang="en">
 
 <head>
-    <title>Beauty by Lisa Follett</title>
+    <title>Murad</title>
     <!-- Google Fonts -->
     <?= $this->Html->css('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700', ['block' => true]) ?>
     <?= $this->Html->css('https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap', ['block' => true]) ?>
@@ -58,9 +58,9 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 100vh;
+            min-height: 50vh;
             background-color: white;
-            padding: 40px;
+            /*padding: 40px;*/
         }
 
         .content-box {
@@ -264,7 +264,7 @@
                     <div class="col-lg-8 offset-lg-2 text-center">
                         <div class="breadcrumb-text">
                            <!-- <p>Pretty and Bright</p>-->
-                            <h1>Beauty by Lisa Follett</h1>
+                            <img src="/team009-app_fit3048/webroot/assets/img/murad_logo.png" alt="Murad Logo" style="width: 300px; height: auto;">
                         </div>
                     </div>
                 </div>
@@ -275,7 +275,7 @@
     <div class="w-full">
         <div class="content-container">
             <div class="content-box">
-                <h1>Beauty by Lisa Follett</h1>
+                <h1>What is Murad?</h1>
                 <p>Welcome to Beauty by Lisa Follett, a home-based beauty sanctuary in Hallett Cove! With 20 years of
                     industry experience across England and Australia, I am dedicated to bringing you the best in beauty
                     therapy. I am also an educator in beauty therapy and I combine my expertise and passion for the
