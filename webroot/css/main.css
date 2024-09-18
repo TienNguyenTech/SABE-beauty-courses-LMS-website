@@ -546,7 +546,7 @@ a.cart-btn {
     /* Center the text container if it has a set width */
     color: #333;
     /* Update the text color if needed */
-    background-color: white;
+    /*background-color: white;*/
 }
 
 .breadcrumb-section:after {
