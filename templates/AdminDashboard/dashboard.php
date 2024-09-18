@@ -18,24 +18,24 @@
 
     .dashboard-card h2 {
         margin: 0;
-        color: #1a4332;
+        color: black;
         font-size: 1.5em;
     }
 
     .dashboard-card p {
-        color: #858796;
+        color: black;
     }
 
     .dashboard-card a {
         display: inline-block;
         margin-top: 10px;
-        color: #1a4332;
+        color: #1cc88a;
         text-decoration: none;
     }
 
 </style>
 
-<h1 class="h3 mb-2 text-gray-800">Admin Dashboard</h1>
+<h1 style="color:#1cc88a">Admin Dashboard</h1>
 
 <div class="dashboard-container">
     <!-- Functional Card 1 -->
