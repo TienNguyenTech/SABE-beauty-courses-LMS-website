@@ -240,7 +240,7 @@ class PaymentsController extends AppController
             'name' => $name,
             'courseID' => $course->course_id,
             'courseName' => $course->course_name,
-            'courseURL' => Router::Url->build(['controller' => 'Courses', 'action' => 'accesscourse', $course->course_id], ['fullBase' => 'true'])
+            'courseURL' => Router::url->build(['controller' => 'Courses', 'action' => 'accesscourse', $course->course_id], ['fullBase' => 'true'])
         ]);
 
         try {
