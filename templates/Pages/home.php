@@ -193,6 +193,10 @@ if ($error = 404) {
                                 <li><?= $this->Html->link("Contact Us", ['controller' => 'Enquirys', 'action' => 'add']) ?>
                                 </li>
 
+                                <li><?= $this->Html->link("Murad", ['controller' => 'BeautyByLisa', 'action' => 'murad']) ?>
+                                </li>
+
+
                                 <li style="float: right">
                                     <?php
                                     if ($this->Identity->isLoggedIn()) {
@@ -210,7 +214,7 @@ if ($error = 404) {
                                             ['controller' => 'Auth', 'action' => 'logout'],
                                             ['class' => 'button button-outline',]
                                         ); //'onclick' => 'return confirm("Are you sure you want to leave?");'
-                                    
+
                                     } else {
                                         echo $this->Html->link(
                                             'Log in',
