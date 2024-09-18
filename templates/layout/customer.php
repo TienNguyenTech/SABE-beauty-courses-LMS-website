@@ -305,6 +305,7 @@
         font-weight: 700;
         display: block;
         padding: 15px;
+        font-size: 18px;
     }
 
     nav.main-menu ul li a:hover {
