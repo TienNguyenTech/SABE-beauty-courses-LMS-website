@@ -1278,11 +1278,7 @@ div.owl-controls div.owl-nav div:hover {
   box-shadow: none;
 }
 
- {
-  -webkita.cart-btn-transition: 0.3s;
-  -o-transition: 0.3s;
-  transition: 0.3s;
-}
+ 
 
 a.cart-btn:hover {
   background-color: #051922;
