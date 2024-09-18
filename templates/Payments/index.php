@@ -31,13 +31,7 @@ $ausTimezone = new \DateTimeZone('Australia/Sydney');
                 <?php foreach ($payments as $payment): ?>
                 <tr>
                     <td>$<?= $this->Number->format($payment->payment_amount, ['places' => 2]) ?></td>
-                    <td>
-                        <?php
-                        $paymentTime = new \DateTime($payment->payment_datetime);
-                        $paymentTime->setTimezone($ausTimezone);
-                        echo h($paymentTime->format('n/j/y, g:i A'));
-                        ?>
-                    </td>
+                    <td><?= h($payment->payment_datetime) ?></td>
                     <td><?= h($payment->payment_email) ?></td>
                     <td><?= $this->Html->link($payment->course->course_name, ['controller' => 'Courses', 'action' => 'view', $payment->course->course_id]) ?></td>
                     <td><?= h($payment->payment_seen ? 'Read' : 'Unread') ?></td>
