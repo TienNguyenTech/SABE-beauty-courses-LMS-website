@@ -246,18 +246,20 @@ class PaymentsController extends AppController
         try {
             $email_result = $mailer->deliver();
 
+            dd($email_result);
+
             if($email_result) {
                 $this->set('message', 'Thank you for your payment! You will receive your login credentials within 24 hours!');
             } else {
                 $this->set('message', 'Payment confirmation failed to send, please ensure that you have entered the correct email address.');
                 $this->Payments->delete($payment);
 
-                return $this->redirect(['action' => 'fail']);
+                return $this->redirect(['controller' => 'Payments', 'action' => 'fail']);
             }
         } catch (\Throwable $th) {
             $this->Payments->delete($payment);
 
-            return $this->redirect(['action' => 'fail']);
+            return $this->redirect(['controller' => 'Payments', 'action' => 'fail']);
         }
     }
 
