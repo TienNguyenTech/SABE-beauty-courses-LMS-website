@@ -40,9 +40,9 @@
         <div class="card-body">
             <div class="d-flex flex-wrap justify-content-start">
                 <?php
-                if(empty($contents->items)) {
+                if(empty($contents)) {
                     echo '<h5>This course does not have any content currently.</h5>';
-                }
+                } else {
                 ?>
                 <?php foreach ($contents as $content): ?>
                     <div class="col-md-4 d-flex mb-4">
@@ -58,7 +58,9 @@
                             </div>
                         </div>
                     </div>
-                <?php endforeach; ?>
+                <?php endforeach; 
+                }
+                ?>
             </div>
         </div>
     </div>

@@ -148,7 +148,7 @@ class CoursesController extends AppController
 
         $progressions = [];
         $progression = 0;
-        if($contents) {
+        if(!empty($contents)) {
             $contentIDs = [];
             foreach ($contents as $content) {
                 array_push($contentIDs, $content->content_id);

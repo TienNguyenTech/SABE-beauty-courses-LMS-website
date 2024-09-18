@@ -226,7 +226,7 @@ class QuizzesController extends AppController
                 return $this->response->withType('application/json; charset=utf-8')->withStringBody(Router::url(['controller' => 'Completions' ,'action' => 'view', $completion->completion_id]));
             } else {
                 // Fail -> try again? maybe something else
-                return $this->response->withType('application/json; charset=utf-8')->withStringBody(Router::url(['controller' => 'Quizzes' ,'action' => 'view', $quiz->quiz_id]));
+                return $this->response->withType('application/json; charset=utf-8')->withStringBody(Router::url(['controller' => 'Completion' ,'action' => 'fail', $quiz->quiz_id]));
             }
 
             //$json = json_encode($response);
