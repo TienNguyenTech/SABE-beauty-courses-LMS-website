@@ -282,7 +282,7 @@
 <!--                    <a href="https://www.fresha.com/a/beauty-by-lisa-follett-hallett-cove-3-lepena-crescent-u54y2i7s" target="_blank" rel="noopener noreferrer" class="bordered-btn">Book Now on Fresha</a>-->
 <!--                </div>-->
 
-                <div class="image-row">
+                <div class="image-grid">
                     <div class="image-container">
                         <img src="/team009-app_fit3048/webroot/assets/img/murad_green1.jpeg" alt="Image 1">
                     </div>
@@ -291,6 +291,15 @@
                     </div>
                     <div class="image-container">
                         <img src="/team009-app_fit3048/webroot/assets/img/murad3.jpeg" alt="Image 3">
+                    </div>
+                    <div class="image-container">
+                        <img src="/team009-app_fit3048/webroot/assets/img/murad_face1.jpeg" alt="Image 4">
+                    </div>
+                    <div class="image-container">
+                        <img src="/team009-app_fit3048/webroot/assets/img/This or that - DCP (1).JPG" alt="Image 5">
+                    </div>
+                    <div class="image-container">
+                        <img src="/team009-app_fit3048/webroot/assets/img/murad_face2.jpeg" alt="Image 6">
                     </div>
                 </div>
 
