@@ -74,23 +74,19 @@ class CoursesController extends AppController
         $payments = $this->Payments->find()->where(['user_id' => $userID])->toArray();
         $courses = [];
 
-        if(empty($courses)) {
-            //return $this->redirect(['action' => 'courses']);
-            $this->set(compact('courses'));
-            return $this->Flash->error('You are not currently enrolled in any courses');
-        }
-
         foreach ($payments as $payment) {
             array_push($courses, $payment->course_id);
         }
-        
-        
+
+        if(empty($courses)) {
+            $this->set(compact('courses'));
+            return $this->Flash->error('You are not currently enrolled in any courses');
+        }
 
         $query = $this->Courses->find()->where(['course_id IN' => $courses]);
         $courses = $this->paginate($query);
 
         
-
         $this->set(compact('courses'));
     }
 
