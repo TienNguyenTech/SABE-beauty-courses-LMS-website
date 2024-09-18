@@ -101,9 +101,9 @@ class ContentsController extends AppController
     public function movedown($id = null)
     {
         $content = $this->Contents->get($id);
-        $contentBelow = $this->Contents->find()->where(['course_id' => $content->course_id, 'content_position' => $content->content_position + 1])->first();
+        $contentBelow = $this->Contents->find()->where(['course_id' => $content->course_id, 'content_position' => $content->content_position - 1])->first();
 
-        if (!empty($contentAbove->content_position)) {
+        if (!empty($contentBelow->content_position)) {
             $content->content_position--;
             $contentBelow->content_position++;
 

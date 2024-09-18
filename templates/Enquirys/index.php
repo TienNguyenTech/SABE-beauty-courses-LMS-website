@@ -58,7 +58,6 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
 <!--                        --><?php //= $this->Html->link(__('View'), ['action' => 'view', $enquiry->enquiry_id]) ?>
 <!--                        --><?php //= $this->Html->link(__('Edit'), ['action' => 'edit', $enquiry->enquiry_id]) ?>
                         <?= $this->Html->link('View Message', ['action' => 'viewMessage', $enquiry->enquiry_id], ['class' => 'btn btn-info']) ?>
-                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $enquiry->enquiry_id], ['class' => 'btn btn-danger', 'confirm' => __('Are you sure you want to delete enquiry: {0}?', $enquiry->enquiry_name)]) ?>
                         <?= $this->Html->link($enquiry->enquiry_seen ? 'Mark as Unread' : 'Mark as Read', ['action' => 'toggle', $enquiry->enquiry_id], ['class' => 'btn btn-primary']) ?>
                     </td>
                 </tr>
