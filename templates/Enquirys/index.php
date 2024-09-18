@@ -9,29 +9,35 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
 ?>
 <style>
     .message {
-        max-width: 300px; /* Adjust this value to your needs */
+        max-width: 300px;
+        /* Adjust this value to your needs */
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
     }
+
     .subject {
-        max-width: 250px; /* Adjust this value to your needs */
+        max-width: 250px;
+        /* Adjust this value to your needs */
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
     }
+
     .table a {
         color: black;
     }
+
     .actions {
         color: black;
     }
+
     .enquirys h3 {
-        color: #1a4332;
+        color: #1cc88a;
     }
 </style>
 <div class="enquirys index content">
-<!--    --><?php //= $this->Html->link(__('New Enquiry'), ['action' => 'add'], ['class' => 'button float-right']) ?>
+    <!--    --><?php //= $this->Html->link(__('New Enquiry'), ['action' => 'add'], ['class' => 'button float-right']) ?>
     <h3><?= __('Enquiries') ?></h3>
     <div class="table-responsive">
         <table class="table table-bordered" id="dataTable">
@@ -47,26 +53,60 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
             </thead>
             <tbody>
                 <?php foreach ($enquirys as $enquiry): ?>
-                <tr>
-                    <td><?= h($enquiry->enquiry_name) ?></td>
-                    <td><?= h($enquiry->enquiry_email) ?></td>
-                    <td class="subject" title="<?= h($enquiry->enquiry_subject) ?>"><?= h($enquiry->enquiry_subject) ?></td>
-                    <td class="message" title="<?= h($enquiry->enquiry_message) ?>"><?= h($enquiry->enquiry_message) ?></td>
-<!--                    <td>--><?php //= h($enquiry->enquiry_message) ?><!--</td>-->
-                    <td><?= h($enquiry->enquiry_seen ? 'Read' : 'Unread') ?></td>
-                    <td class="actions">
-<!--                        --><?php //= $this->Html->link(__('View'), ['action' => 'view', $enquiry->enquiry_id]) ?>
-<!--                        --><?php //= $this->Html->link(__('Edit'), ['action' => 'edit', $enquiry->enquiry_id]) ?>
-                        <?= $this->Html->link('View Message', ['action' => 'viewMessage', $enquiry->enquiry_id], ['class' => 'btn btn-info']) ?>
-                        <?= $this->Html->link($enquiry->enquiry_seen ? 'Mark as Unread' : 'Mark as Read', ['action' => 'toggle', $enquiry->enquiry_id], ['class' => 'btn btn-primary']) ?>
-                    </td>
-                </tr>
+                    <tr>
+                        <td><?= h($enquiry->enquiry_name) ?></td>
+                        <td><?= h($enquiry->enquiry_email) ?></td>
+                        <td class="subject" title="<?= h($enquiry->enquiry_subject) ?>"><?= h($enquiry->enquiry_subject) ?>
+                        </td>
+                        <td class="message" title="<?= h($enquiry->enquiry_message) ?>"><?= h($enquiry->enquiry_message) ?>
+                        </td>
+                        <!--                    <td>--><?php //= h($enquiry->enquiry_message) ?><!--</td>-->
+                        <td><?= h($enquiry->enquiry_seen ? 'Read' : 'Unread') ?></td>
+                        <td class="actions">
+                            <!--                        --><?php //= $this->Html->link(__('View'), ['action' => 'view', $enquiry->enquiry_id]) ?>
+                            <!--                        --><?php //= $this->Html->link(__('Edit'), ['action' => 'edit', $enquiry->enquiry_id]) ?>
+                            <?= $this->Html->link('View Message', ['action' => 'viewMessage', $enquiry->enquiry_id], ['class' => 'btn btn-info view-btn']) ?>
+                            <?= $this->Html->link($enquiry->enquiry_seen ? 'Mark as Unread' : 'Mark as Read', ['action' => 'toggle', $enquiry->enquiry_id], ['class' => 'btn btn-primary mark-read-btn']) ?>
+                        </td>
+                    </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>
     </div>
+    <style>
+        .view-btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+        }
+
+        .add-btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+        }
+
+        .edit-btn {
+            background-color: #ffc107;
+            color: white;
+            border: none;
+        }
+
+        .delete-btn {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+        }
+
+        .mark-read-btn {
+    background-color: #b794f4;
+    color: black; /* Set text color to black */
+    border: none;
+}
+
+    </style>
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             $('#dataTable').DataTable();
         });
     </script>
