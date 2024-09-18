@@ -276,16 +276,26 @@
         <div class="content-container">
             <div class="content-box">
                 <h1>What is Murad?</h1>
-                <p>Welcome to Beauty by Lisa Follett, a home-based beauty sanctuary in Hallett Cove! With 20 years of
-                    industry experience across England and Australia, I am dedicated to bringing you the best in beauty
-                    therapy. I am also an educator in beauty therapy and I combine my expertise and passion for the
-                    beauty industry to create a comfortable and welcoming environment for all my clients. Explore our
-                    services and indulge in a personalized beauty experience designed just for you.
+                <p>Murad is the dermatologist-developed brand that approaches skin differently. How? Through founder Dr. Howard Murad’s four main pillars of wellness for total skin health: 1) “eat your water,” 2) “awaken your body,” 3) “be kind to your mind” and, of course, 4) “nourish your skin” with our high-performance technologies and formulas. Because we believe skincare is healthcare and selfcare.
                 </p>
-                <div class="mt-6">
-                    <a href="https://www.fresha.com/a/beauty-by-lisa-follett-hallett-cove-3-lepena-crescent-u54y2i7s" target="_blank" rel="noopener noreferrer" class="bordered-btn">Book Now on Fresha</a>
+<!--                <div class="mt-6">-->
+<!--                    <a href="https://www.fresha.com/a/beauty-by-lisa-follett-hallett-cove-3-lepena-crescent-u54y2i7s" target="_blank" rel="noopener noreferrer" class="bordered-btn">Book Now on Fresha</a>-->
+<!--                </div>-->
+
+                <div class="image-row">
+                    <div class="image-container">
+                        <img src="/team009-app_fit3048/webroot/assets/img/murad_green1.jpeg" alt="Image 1">
+                    </div>
+                    <div class="image-container">
+                        <img src="/team009-app_fit3048/webroot/assets/img/murad_green2.png" alt="Image 2">
+                    </div>
+                    <div class="image-container">
+                        <img src="/team009-app_fit3048/webroot/assets/img/murad3.jpeg" alt="Image 3">
+                    </div>
                 </div>
+
             </div>
+            <img src="/team009-app_fit3048/webroot/assets/img/dr_murad_banner.jpeg" style="width: 50%; height: auto";>
         </div>
     </div>
     <style>
