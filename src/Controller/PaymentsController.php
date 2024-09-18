@@ -193,7 +193,7 @@ class PaymentsController extends AppController
         $this->set('sessionId', $checkout_session['id']);
     }
 
-    public function success($paymentID='help')
+    public function success($paymentID)
     {
         $this->viewBuilder()->disableAutoLayout();
 
@@ -216,6 +216,8 @@ class PaymentsController extends AppController
 
         // $customer = $this->Users->get($payment->user_id);
 
+        $course = $this->Courses->get($payment->course_id);
+
         $user = $this->Users->get($payment->user_id);
 
         $email = $user->email;
@@ -235,7 +237,9 @@ class PaymentsController extends AppController
             ->setTemplate('payment_confirmation');
 
         $mailer->setViewVars([
-            'name' => $name
+            'name' => $name,
+            'courseID' => $course->course_id,
+            'courseName' => $course->course_name
         ]);
 
         try {
