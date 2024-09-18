@@ -158,6 +158,13 @@ class PaymentsController extends AppController
         $user = $this->Users->get($userID);
         $email = $user->email;
 
+        // Check if the user has already purchased the course
+        $checkPayments = $this->Payments->find()->where(['course_id IS' => $course_id, 'user_id IS' => $userID['id']])->toArray();
+        if($checkPayments) {
+            // Student already owns this course -> redirect to course page
+            return $this->redirect(['controller' => 'Courses', 'action' => 'accesscourse', $course_id]);
+        } 
+
         $payment = $this->Payments->newEmptyEntity();
 
         $payment = $this->Payments->patchEntity($payment, [

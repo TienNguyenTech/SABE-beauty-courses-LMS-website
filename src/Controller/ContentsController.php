@@ -54,36 +54,6 @@ class ContentsController extends AppController
         $this->set(compact('contents'));
     }
 
-    /* Download the files */
-    public function download($id = null)
-{
-    // Kiểm tra xem ID có hợp lệ không
-    if ($id === null) {
-        throw new NotFoundException(__('Invalid content ID'));
-    }
-
-    // Lấy thông tin nội dung từ cơ sở dữ liệu
-    $content = $this->Contents->get($id);
-
-    // Đảm bảo rằng 'content_url' chứa đường dẫn đến tập tin
-    $filePath = WWW_ROOT . 'files' . DS . $content->content_url;
-
-    // Kiểm tra xem tập tin có tồn tại không
-    if (!file_exists($filePath)) {
-        throw new NotFoundException(__('File not found'));
-    }
-
-    // Sử dụng đối tượng phản hồi để xử lý việc tải xuống tập tin
-    $response = $this->response->withFile(
-        $filePath,
-        ['download' => true, 'name' => $content->content_title . '.' . pathinfo($filePath, PATHINFO_EXTENSION)]
-    );
-
-    return $response;
-}
-
-
-
     /**
      * View method
      *
