@@ -77,6 +77,30 @@ class QuizzesTable extends Table
             ->requirePresence('quiz_title', 'create')
             ->notEmptyString('quiz_title', 'Quiz title is required');
 
+        $validator
+            ->add('questions', 'validQuestions', [
+                'rule' => function ($value, $context) {
+                    if (empty($value) || !is_array($value)) {
+                        return false;
+                    }
+                    foreach ($value as $question) {
+                        if (empty($question['title'])) {
+                            return false;
+                        }
+                        if (empty($question['options']) || !is_array($question['options'])) {
+                            return false;
+                        }
+                        foreach ($question['options'] as $option) {
+                            if (empty($option)) {
+                                return false;
+                            }
+                        }
+                    }
+                    return true;
+                },
+                'message' => 'Each question must have a title and non-empty options'
+            ]);
+
         return $validator;
     }
 

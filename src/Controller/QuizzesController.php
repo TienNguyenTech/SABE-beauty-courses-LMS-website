@@ -151,6 +151,7 @@ class QuizzesController extends AppController
 
             $quiz = $this->Quizzes->patchEntity($quiz, [
                 'quiz_title' => $transformedData['quiz_title'],
+                'questions' => $transformedData['questions'],
                 'course_id' => $transformedData['course_id'],
                 'quiz_json' => $quizJSON
             ]);
