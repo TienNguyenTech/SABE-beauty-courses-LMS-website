@@ -56,7 +56,7 @@ echo $this->Form->control('course_id', [
     <?php endif; ?>
 </div>
 
-<?= $this->Form->button(__('Create quiz'), ['id' => 'submitButton', 'class' => 'btn btn-primary', 'style' => 'margin-top: 10px']) ?>
+<?= $this->Form->button(__('Create quiz'), ['id' => 'submitButton', 'class' => 'btn btn-primary', 'style' => 'margin-top: 10px', 'disabled' => true]) ?>
 <?= $this->Form->end() ?>
 
 <?php if ($quiz->getErrors()): ?>
@@ -109,5 +109,10 @@ echo $this->Form->control('course_id', [
         questionHTML += `</select>`;
 
         questionsContainer.insertAdjacentHTML('beforeend', questionHTML);
+
+        // Enable the submit button when a question is added
+        if (questionCount > 0) {
+            submitButton.removeAttribute('disabled');
+        }
     });
 </script>
