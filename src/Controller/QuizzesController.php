@@ -85,7 +85,7 @@ class QuizzesController extends AppController
      *
      * @return \Cake\Http\Response|null|void Redirects on successful add, renders view otherwise.
      */
-    public function add()
+    public function add($courseID)
     {
         $this->restrict();
         $quiz = $this->Quizzes->newEmptyEntity();
@@ -95,7 +95,6 @@ class QuizzesController extends AppController
 
             $transformedData = [
                 'quiz_title' => $data['quiz_title'],
-                'course_id' => $data['course_id'],
                 'questions' => []
             ];
 
@@ -153,7 +152,7 @@ class QuizzesController extends AppController
             $quiz = $this->Quizzes->patchEntity($quiz, [
                 'quiz_title' => $transformedData['quiz_title'],
                 'questions' => $transformedData['questions'],
-                'course_id' => $transformedData['course_id'],
+                'course_id' => $courseID,
                 'quiz_json' => $quizJSON
             ]);
 
@@ -168,8 +167,8 @@ class QuizzesController extends AppController
 //            Log::debug('Validation Errors: ' . print_r($quiz->getErrors(), true));
             $this->Flash->error(__('The quiz could not be saved. Please, try again.'));
         }
-        $courses = $this->Quizzes->Courses->find('list', ['limit' => 200])->all();
-        $this->set(compact('quiz', 'courses'));
+        $course = $this->Quizzes->Courses->get($courseID);
+        $this->set(compact('quiz', 'course'));
     }
 
     public function submit() {
