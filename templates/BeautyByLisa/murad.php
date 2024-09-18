@@ -264,7 +264,7 @@
                     <div class="col-lg-8 offset-lg-2 text-center">
                         <div class="breadcrumb-text">
                            <!-- <p>Pretty and Bright</p>-->
-                            <img src="/team009-app_fit3048/webroot/assets/img/murad_logo.png" alt="Murad Logo" style="width: 300px; height: auto;">
+                            <img src="../assets/img/murad_logo.png" alt="Murad Logo" style="width: 300px; height: auto;">
                         </div>
                     </div>
                 </div>
@@ -285,28 +285,28 @@
 
                 <div class="image-grid">
                     <div class="image-container">
-                        <img src="/team009-app_fit3048/webroot/assets/img/murad_green1.jpeg" alt="Image 1">
+                        <img src="../assets/img/murad_green1.jpeg" alt="Image 1">
                     </div>
                     <div class="image-container">
-                        <img src="/team009-app_fit3048/webroot/assets/img/murad_green2.png" alt="Image 2">
+                        <img src="../assets/img/murad_green2.png" alt="Image 2">
                     </div>
                     <div class="image-container">
-                        <img src="/team009-app_fit3048/webroot/assets/img/murad3.jpeg" alt="Image 3">
+                        <img src="../assets/img/murad3.jpeg" alt="Image 3">
                     </div>
                     <div class="image-container">
-                        <img src="/team009-app_fit3048/webroot/assets/img/murad_face1.jpeg" alt="Image 4">
+                        <img src="../assets/img/murad_face1.jpeg" alt="Image 4">
                     </div>
                     <div class="image-container">
-                        <img src="/team009-app_fit3048/webroot/assets/img/This or that - DCP (1).JPG" alt="Image 5">
+                        <img src="../assets/img/This or that - DCP (1).JPG" alt="Image 5">
                     </div>
                     <div class="image-container">
-                        <img src="/team009-app_fit3048/webroot/assets/img/murad_face2.jpeg" alt="Image 6">
+                        <img src="../assets/img/murad_face2.jpeg" alt="Image 6">
                     </div>
                 </div>
-                <img src="/team009-app_fit3048/webroot/assets/img/dr_murad_banner.jpeg" style="width: 100%; height: auto";>
+                <img src="../assets/img/dr_murad_banner.jpeg" style="width: 100%; height: auto";>
 
             </div>
-<!--            <img src="/team009-app_fit3048/webroot/assets/img/dr_murad_banner.jpeg" style="width: 50%; height: auto";>-->
+<!--            <img src="../assets/img/dr_murad_banner.jpeg" style="width: 50%; height: auto";>-->
         </div>
     </div>
     <style>
