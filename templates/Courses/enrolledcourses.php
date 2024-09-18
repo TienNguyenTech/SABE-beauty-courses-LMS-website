@@ -45,6 +45,15 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
         <h1 class="h3 mb-0 text-gray-800"><?= __('My Courses') ?></h1>
     </div>
 
+    <?php
+        if(empty($courses)) {
+        ?>
+        <h4>You are not currently enrolled in any courses  </h4>
+        <?= $this->Html->link('View available courses', ['action' => 'courses'], ['class' => 'btn btn-primary', 'style' => 'margin-left: 10px']) ?>
+        <?php
+        }
+    ?>
+
     <div class="row">
         <?php foreach ($courses as $course): ?>
             <div class="col-lg-4 col-md-6 mb-4">

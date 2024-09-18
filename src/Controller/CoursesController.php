@@ -75,7 +75,9 @@ class CoursesController extends AppController
         $courses = [];
 
         if(empty($courses)) {
-            return $this->redirect(['action' => 'courses']);
+            //return $this->redirect(['action' => 'courses']);
+            $this->set(compact('courses'));
+            return $this->Flash->error('You are not currently enrolled in any courses');
         }
 
         foreach ($payments as $payment) {
