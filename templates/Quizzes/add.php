@@ -81,33 +81,33 @@ echo $this->Form->control('course_id', [
 
     addButton.addEventListener('click', () => {
         const optionCount = document.getElementById('optionCount').value;
-        submitButton.removeAttribute('disabled')
+        submitButton.removeAttribute('disabled');
 
         questionCount++;
-        questionsContainer.innerHTML += `
-    <h5>Question ${questionCount}</h5>
-    <label class="form-label" for="question${questionCount}_title">Question ${questionCount} Title</label>
-    <input class="form-control" type="text" name="question${questionCount}_title">
+        let questionHTML = `
+        <h5>Question ${questionCount}</h5>
+        <label class="form-label" for="question${questionCount}_title">Question ${questionCount} Title</label>
+        <input class="form-control" type="text" name="question${questionCount}_title">
     `;
 
-        let optionsString = '';
-
-        for(let i = 0; i < optionCount; i++) {
-            questionsContainer.innerHTML += `
-        <label class="form-label" for="question${questionCount}_option${i+1}">Option ${i+1}</label>
-        <input class="form-control" type="text" name="question${questionCount}_option${i+1}">
-        `;
-
-            optionsString += `
-        <option value="${i+1}">${i+1}</option>
+        for (let i = 0; i < optionCount; i++) {
+            questionHTML += `
+            <label class="form-label" for="question${questionCount}_option${i+1}">Option ${i+1}</label>
+            <input class="form-control" type="text" name="question${questionCount}_option${i+1}">
         `;
         }
 
-        questionsContainer.innerHTML += `
-    <label class="form-label" for="question${questionCount}_correctoption">Correct Option</label>
-    <select class="form-control" name="question${questionCount}_correctoption">
-        ${optionsString}
-    </select>
+        questionHTML += `
+        <label class="form-label" for="question${questionCount}_correctoption">Correct Option</label>
+        <select class="form-control" name="question${questionCount}_correctoption">
     `;
+
+        for (let i = 1; i <= optionCount; i++) {
+            questionHTML += `<option value="${i}">${i}</option>`;
+        }
+
+        questionHTML += `</select>`;
+
+        questionsContainer.insertAdjacentHTML('beforeend', questionHTML);
     });
 </script>
