@@ -290,8 +290,8 @@ class CoursesController extends AppController
      */
     public function archive($id = null) {
         $this->request->allowMethod(['post']);
-        dd('chat');
         $course = $this->Courses->get($id);
+        dd($course);
         if($course->archived == 1) {
             // Unarchive
             $course->archived = 0;
