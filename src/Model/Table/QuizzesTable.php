@@ -71,6 +71,11 @@ class QuizzesTable extends Table
             ->boolean('archived')
             ->notEmptyString('archived');
 
+        $validator
+            ->scalar('quiz_title')
+            ->requirePresence('quiz_title', 'create')
+            ->notEmptyString('quiz_title', 'Quiz title is required');
+
         return $validator;
     }
 
