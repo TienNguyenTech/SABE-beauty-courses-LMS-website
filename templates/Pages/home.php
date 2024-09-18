@@ -1722,6 +1722,10 @@ if ($error = 404) {
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
             /* Larger shadow on hover */
         }
+
+        .footer-box.pages ul li a:hover {
+            color: #4a9b38;
+        }
     </style>
     <!-- jquery -->
     <script src="assets/js/jquery-1.11.3.min.js"></script>
