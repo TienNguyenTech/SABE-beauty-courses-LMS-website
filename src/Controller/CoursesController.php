@@ -123,6 +123,13 @@ class CoursesController extends AppController
         }
 
         $query = $this->Contents->find()->where(['course_id IS' => $course->course_id]);
+
+        $this->paginate = [
+            'order' => [
+                'content_position' => 'ASC'
+            ]
+        ];
+
         $contents = $this->paginate($query);
         $this->viewBuilder()->setLayout('default');
         $this->set(compact('course', 'contents', 'quiz'));
