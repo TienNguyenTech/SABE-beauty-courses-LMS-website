@@ -39,7 +39,7 @@ echo $this->Form->control('quiz_title', [
             <label class="form-label" for="question<?= $questionIndex ?>_correctoption">Correct Option</label>
             <select class="form-control" name="question<?= $questionIndex ?>_correctoption">
                 <?php for ($i = 1; $i < $optionIndex; $i++): ?>
-                    <option value="<?= $i ?>" <?= $data['question' . $questionIndex . '_correctoption'] == $i ? 'selected' : '' ?>><?= $i ?></option>
+                    <option value="<?= $i - 1 ?>" <?= $data['question' . $questionIndex . '_correctoption'] == $i ? 'selected' : '' ?>><?= $i ?></option>
                 <?php endfor; ?>
             </select>
             <?php $questionIndex++; ?>
@@ -94,7 +94,7 @@ echo $this->Form->control('quiz_title', [
     `;
 
         for (let i = 1; i <= optionCount; i++) {
-            questionHTML += `<option value="${i}">${i}</option>`;
+            questionHTML += `<option value="${i-1}">${i}</option>`;
         }
 
         questionHTML += `</select>`;
