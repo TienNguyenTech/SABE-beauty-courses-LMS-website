@@ -36,4 +36,9 @@ class BeautyByLisaController extends AppController
         $this->set(compact('services', 'groupedServices'));
     }
 
+    public function murad() {
+        $this->viewBuilder()->setLayout('customer');
+        $this->set('title', 'Beauty by Lisa Follett | Murad');
+    }
+
 }
