@@ -39,7 +39,7 @@ $ausTimezone = new \DateTimeZone('Australia/Sydney');
                         ?>
                     </td>
                     <td><?= h($payment->payment_email) ?></td>
-                    <td><?= array_values(array_filter($courses, fn($course) => $course->course_id === $payment->booking->course_id))[0]->course_name ?></td>
+                    <td><?= $this->Html->link($payment->course->course_name, ['controller' => 'Courses', 'action' => 'view', $payment->course->course_id]) ?></td>
                     <td><?= h($payment->payment_seen ? 'Read' : 'Unread') ?></td>
                     <td class="actions">
 <!--                        --><?php //= $this->Html->link(__('View'), ['action' => 'view', $payment->payment_id]) ?>
