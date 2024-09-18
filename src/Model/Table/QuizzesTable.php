@@ -73,6 +73,7 @@ class QuizzesTable extends Table
 
         $validator
             ->scalar('quiz_title')
+            ->maxLength('quiz_title', 255)
             ->requirePresence('quiz_title', 'create')
             ->notEmptyString('quiz_title', 'Quiz title is required');
 

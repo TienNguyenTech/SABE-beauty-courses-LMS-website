@@ -5,7 +5,13 @@ namespace App\Controller;
 
 use Cake\Routing\Router;
 use Laminas\Diactoros\Stream;
-use Cake\ORM\Table;use Cake\ORM\TableRegistry;use PhpParser\Node\Expr\Array_;use PHPUnit\Util\Json;/**
+use Cake\ORM\Table;
+use Cake\ORM\TableRegistry;
+use PhpParser\Node\Expr\Array_;
+use PHPUnit\Util\Json;
+use Cake\Log\Log;
+
+/**
  * Quizzes Controller
  *
  * @property \App\Model\Table\QuizzesTable $Quizzes
@@ -84,6 +90,7 @@ class QuizzesController extends AppController
         $quiz = $this->Quizzes->newEmptyEntity();
         if ($this->request->is('post')) {
             $data = $this->request->getData();
+//            Log::debug('Request Data: ' . print_r($data, true));
 
             $transformedData = [
                 'quiz_title' => $data['quiz_title'],
@@ -117,6 +124,8 @@ class QuizzesController extends AppController
                 $questionIndex++;
             }
 
+//            Log::debug('Transformed Data: ' . print_r($transformedData, true));
+
             $questions = [];
 
             foreach ($transformedData['questions'] as $question) {
@@ -141,17 +150,23 @@ class QuizzesController extends AppController
             $quizJSON = json_encode($quizJSON->generate());
 
             $quiz = $this->Quizzes->patchEntity($quiz, [
+                'quiz_title' => $transformedData['quiz_title'],
                 'course_id' => $transformedData['course_id'],
                 'quiz_json' => $quizJSON
             ]);
+
+//            Log::debug('Quiz Entity: ' . print_r($quiz, true));
+
             if ($this->Quizzes->save($quiz)) {
                 $this->Flash->success(__('The quiz has been saved.'));
 
                 return $this->redirect(['controller' => 'Courses', 'action' => 'index']);
             }
+
+//            Log::debug('Validation Errors: ' . print_r($quiz->getErrors(), true));
             $this->Flash->error(__('The quiz could not be saved. Please, try again.'));
         }
-        $courses = $this->Quizzes->Courses->find('list', limit: 200)->all();
+        $courses = $this->Quizzes->Courses->find('list', ['limit' => 200])->all();
         $this->set(compact('quiz', 'courses'));
     }
 
