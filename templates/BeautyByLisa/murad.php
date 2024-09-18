@@ -276,7 +276,8 @@
         <div class="content-container">
             <div class="content-box">
                 <h1>What is Murad?</h1>
-                <p>Murad is the dermatologist-developed brand that approaches skin differently. How? Through founder Dr. Howard Murad’s four main pillars of wellness for total skin health: 1) “eat your water,” 2) “awaken your body,” 3) “be kind to your mind” and, of course, 4) “nourish your skin” with our high-performance technologies and formulas. Because we believe skincare is healthcare and selfcare.
+                <p style="font-size: 15px;">
+                    Murad is the dermatologist-developed brand that approaches skin differently. How? Through founder Dr. Howard Murad’s four main pillars of wellness for total skin health: 1) “eat your water,” 2) “awaken your body,” 3) “be kind to your mind” and, of course, 4) “nourish your skin” with our high-performance technologies and formulas. Because we believe skincare is healthcare and selfcare.
                 </p>
                 <p style="font-size: 15px; font-weight: bold;">
                     Please contact us for purchases or for more information
