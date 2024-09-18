@@ -68,6 +68,7 @@ class CoursesController extends AppController
 
     public function enrolledcourses()
     {
+        $this->viewBuilder()->setLayout('student');
         $user = $this->Authentication->getIdentity()->getOriginalData();
         $userID = $user['User']['id'];
 
@@ -86,7 +87,6 @@ class CoursesController extends AppController
         $query = $this->Courses->find()->where(['course_id IN' => $courses]);
         $courses = $this->paginate($query);
 
-        
         $this->set(compact('courses'));
     }
 
@@ -131,6 +131,7 @@ class CoursesController extends AppController
     /* Student accesses a course */
     public function accesscourse($id = null)
     {
+        $this->viewBuilder()->setLayout('student');
         $user = $this->Authentication->getIdentity()->getOriginalData();
         $userID = $user['User']['id'];
 
@@ -158,7 +159,6 @@ class CoursesController extends AppController
 
         $query = $this->Contents->find()->where(['course_id IS' => $course->course_id]);
         $contents = $this->paginate($query);
-        $this->viewBuilder()->setLayout('default');
         $this->set(compact('course', 'contents', 'quiz', 'progression'));
     }
 

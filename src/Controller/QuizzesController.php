@@ -61,6 +61,7 @@ class QuizzesController extends AppController
      */
     public function view($id = null)
     {
+        $this->viewBuilder()->setLayout('student');
         $quiz = $this->Quizzes->get($id);
 
         $quizID = $quiz->quiz_id;

@@ -93,6 +93,7 @@ class ContentsController extends AppController
      */
     public function view($id = null)
     {
+        $this->viewBuilder()->setLayout('student');
         $content = $this->Contents->get($id, contain: ['Courses']);
         $courseContents = $this->Contents->find()->where(['course_id IS' => $content->course_id])->toArray();
 
