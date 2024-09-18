@@ -239,7 +239,8 @@ class PaymentsController extends AppController
         $mailer->setViewVars([
             'name' => $name,
             'courseID' => $course->course_id,
-            'courseName' => $course->course_name
+            'courseName' => $course->course_name,
+            'courseURL' => $this->Url->build(['controller' => 'Courses', 'action' => 'accesscourse', $course->course_id], ['fullBase' => 'true'])
         ]);
 
         try {
