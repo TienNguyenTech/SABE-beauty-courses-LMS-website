@@ -10,7 +10,7 @@
 <html lang="en">
 
 <head>
-    <title>Beauty by Lisa Follett</title>
+    <title>Murad</title>
     <!-- Google Fonts -->
     <?= $this->Html->css('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700', ['block' => true]) ?>
     <?= $this->Html->css('https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap', ['block' => true]) ?>
@@ -58,9 +58,9 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 100vh;
+            min-height: 50vh;
             background-color: white;
-            padding: 40px;
+            /*padding: 40px;*/
         }
 
         .content-box {
@@ -264,7 +264,7 @@
                     <div class="col-lg-8 offset-lg-2 text-center">
                         <div class="breadcrumb-text">
                            <!-- <p>Pretty and Bright</p>-->
-                            <h1>Beauty by Lisa Follett</h1>
+                            <img src="/team009-app_fit3048/webroot/assets/img/murad_logo.png" alt="Murad Logo" style="width: 300px; height: auto;">
                         </div>
                     </div>
                 </div>
@@ -275,17 +275,38 @@
     <div class="w-full">
         <div class="content-container">
             <div class="content-box">
-                <h1>Beauty by Lisa Follett</h1>
-                <p>Welcome to Beauty by Lisa Follett, a home-based beauty sanctuary in Hallett Cove! With 20 years of
-                    industry experience across England and Australia, I am dedicated to bringing you the best in beauty
-                    therapy. I am also an educator in beauty therapy and I combine my expertise and passion for the
-                    beauty industry to create a comfortable and welcoming environment for all my clients. Explore our
-                    services and indulge in a personalized beauty experience designed just for you.
+                <h1>What is Murad?</h1>
+                <p style="font-size: 15px;">
+                    Murad is the dermatologist-developed brand that approaches skin differently. How? Through founder Dr. Howard Murad’s four main pillars of wellness for total skin health: 1) “eat your water,” 2) “awaken your body,” 3) “be kind to your mind” and, of course, 4) “nourish your skin” with our high-performance technologies and formulas. Because we believe skincare is healthcare and selfcare.
                 </p>
-                <div class="mt-6">
-                    <a href="https://www.fresha.com/a/beauty-by-lisa-follett-hallett-cove-3-lepena-crescent-u54y2i7s" target="_blank" rel="noopener noreferrer" class="bordered-btn">Book Now on Fresha</a>
+                <p style="font-size: 15px; font-weight: bold;">
+                    Please contact us for purchases or for more information
+                </p>
+
+                <div class="image-grid">
+                    <div class="image-container">
+                        <img src="/team009-app_fit3048/webroot/assets/img/murad_green1.jpeg" alt="Image 1">
+                    </div>
+                    <div class="image-container">
+                        <img src="/team009-app_fit3048/webroot/assets/img/murad_green2.png" alt="Image 2">
+                    </div>
+                    <div class="image-container">
+                        <img src="/team009-app_fit3048/webroot/assets/img/murad3.jpeg" alt="Image 3">
+                    </div>
+                    <div class="image-container">
+                        <img src="/team009-app_fit3048/webroot/assets/img/murad_face1.jpeg" alt="Image 4">
+                    </div>
+                    <div class="image-container">
+                        <img src="/team009-app_fit3048/webroot/assets/img/This or that - DCP (1).JPG" alt="Image 5">
+                    </div>
+                    <div class="image-container">
+                        <img src="/team009-app_fit3048/webroot/assets/img/murad_face2.jpeg" alt="Image 6">
+                    </div>
                 </div>
+                <img src="/team009-app_fit3048/webroot/assets/img/dr_murad_banner.jpeg" style="width: 100%; height: auto";>
+
             </div>
+<!--            <img src="/team009-app_fit3048/webroot/assets/img/dr_murad_banner.jpeg" style="width: 50%; height: auto";>-->
         </div>
     </div>
     <style>
