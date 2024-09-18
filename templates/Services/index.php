@@ -15,12 +15,29 @@
     .table th {
         color: black;
     }
+    /* Add Button */
+    .add-btn {
+        background-color: #1cc88a;
+        color: white;
+        display: inline-block;
+        padding: 5px 10px;
+        /* Smaller padding */
+        width: 100px;
+        /* Smaller width */
+        height: 35px;
+        /* Smaller height */
+        text-align: center;
+    }
+
+    .add-btn:hover {
+        background-color: #17a673;
+        /* Darker shade of green */
+    }
 </style>
 <div class="services index content">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800"><?= __('Services') ?></h1>
-        <a href="<?= $this->Url->build(['action' => 'add']) ?>" class="d-none d-sm-inline-block btn btn-sm shadow-sm"
-            style="background-color: #1a4332; border-color: #1a4332; color: white;">
+        <h1 style="color:#1cc88a"><?= __('Services') ?></h1>
+        <a href="<?= $this->Url->build(['action' => 'add']) ?>" class="btn btn-info add-btn">
             <i class="fas fa-plus fa-sm text-white-50"></i> New Service
         </a>
 
