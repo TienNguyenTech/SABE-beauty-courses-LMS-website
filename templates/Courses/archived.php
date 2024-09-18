@@ -21,14 +21,13 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
 </style>
 <div class="courses index content">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800"><?= __('Courses') ?></h1>
+        <h1 class="h3 mb-0 text-gray-800"><?= __('Courses - Archived') ?></h1>
         <a href="<?= $this->Url->build(['action' => 'add']) ?>" class="d-none d-sm-inline-block btn btn-sm shadow-sm"
             style="background-color: #1a4332; border-color: #1a4332; color: white;">
             <i class="fas fa-plus fa-sm text-white-50"></i> New Course
         </a>
 
     </div>
-    <?= $this->Html->link('View Archive', ['action' => 'archived'], ['class' => 'btn btn-secondary', 'style' => 'margin-bottom: 10px']) ?>
     <div class="table-responsive">
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
@@ -57,7 +56,7 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
                         <td class="actions">
                             <?= $this->Html->link(__('View'), ['action' => 'course', $course->course_id], ['class' => 'btn btn-primary', 'style' => 'margin-bottom: 10px;']) ?>
                             <?= $this->Html->link(__('Edit'), ['action' => 'edit', $course->course_id], ['class' => 'btn btn-secondary', 'style' => 'margin-bottom: 10px;']) ?>
-                            <?= $this->Form->postLink(__('Archive'), ['action' => 'archive', $course->course_id], ['confirm' => __('Are you sure you want to archive course: {0}?', $course->course_name), 'class' => 'btn btn-danger',]) ?>
+                            <?= $this->Form->postLink(__('Unarchive'), ['action' => 'archive', $course->course_id], ['confirm' => __('Are you sure you want to unarchive course: {0}?', $course->course_name), 'class' => 'btn btn-danger',]) ?>
                         </td>
                     </tr>
                 <?php endforeach; ?>

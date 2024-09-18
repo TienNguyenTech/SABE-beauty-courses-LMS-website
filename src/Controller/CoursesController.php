@@ -60,7 +60,7 @@ class CoursesController extends AppController
      */
     public function index()
     {
-        $query = $this->Courses->find();
+        $query = $this->Courses->find()->where(['archived IS' => 0]);
         $courses = $this->paginate($query);
 
         $this->set(compact('courses'));
@@ -271,5 +271,42 @@ class CoursesController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+
+    /**
+     * Archive method - toggles archived status
+     * 
+     * @param string|null $id Course id.
+     * @return \Cake\Http\Response|null Redirects to index.
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     */
+    public function archive($id = null) {
+        $this->request->allowMethod(['post']);
+        $course = $this->Courses->get($id);
+        if($course->archived == 1) {
+            // Unarchive
+            $course->archived = 0;
+            $this->Flash->success(__('The course has been unarchived.'));
+        } else {
+            // Archive
+            $course->archived = 1;
+            $this->Flash->success(__('The course has been archived.'));
+        }
+
+        $this->Courses->save($course);
+
+        return $this->redirect(['action' => 'index']);
+    }
+
+    /**
+     * Gets all archived courses
+     * 
+     * @return void
+     */
+    public function archived() {
+        $query = $this->Courses->find()->where(['archived IS' => 1]);
+        $courses = $this->paginate($query);
+
+        $this->set(compact('courses'));
     }
 }
