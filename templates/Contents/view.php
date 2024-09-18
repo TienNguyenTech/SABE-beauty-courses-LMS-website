@@ -54,7 +54,7 @@
                             } else if($content->content_type == 'video') {
                                 ?>
                                 <video controls width="800px">
-                                    <source src="/<?= $content->content_url ?>">
+                                    <source src="/<?= $content->content_url ?>" type="video/mp4">
                                 </video>
                                 <?php
                             }
