@@ -290,6 +290,30 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
 
+        .bordered-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border: 2px solid #4a9b38;
+            /* Màu viền nút */
+            color: #4a9b38;
+            /* Màu chữ */
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 30px;
+            /* Bo góc nút */
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            width: 150px;
+           
+        }
+
+        .bordered-btn:hover {
+            background-color: #4a9b38;
+            /* Màu nền khi hover */
+            color: #fff;
+            /* Màu chữ khi hover */
+        }
+
         a.bordered-btn {
             font-family: 'Poppins', sans-serif;
             display: inline-block;
@@ -321,6 +345,7 @@
             transition: all 0.3s ease;
             font-size: 1rem;
             /* Adjust font size if necessary */
+            width: 150px;
            
         }
 
