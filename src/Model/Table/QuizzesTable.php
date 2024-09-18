@@ -71,6 +71,49 @@ class QuizzesTable extends Table
             ->boolean('archived')
             ->notEmptyString('archived');
 
+        $validator
+            ->scalar('quiz_title')
+            ->maxLength('quiz_title', 255)
+            ->requirePresence('quiz_title', 'create')
+            ->notEmptyString('quiz_title', 'Quiz title is required');
+
+        $validator
+            ->add('questions', 'validQuestions', [
+                'rule' => function ($value, $context) {
+                    if (empty($value) || !is_array($value)) {
+                        return false;
+                    }
+
+                    $titles = [];
+                    foreach ($value as $question) {
+                        if (empty($question['title'])) {
+                            return false;
+                        }
+                        if (in_array($question['title'], $titles)) {
+                            return false; // Duplicate question title
+                        }
+                        $titles[] = $question['title'];
+
+                        if (empty($question['options']) || !is_array($question['options'])) {
+                            return false;
+                        }
+
+                        $options = [];
+                        foreach ($question['options'] as $option) {
+                            if (empty($option)) {
+                                return false;
+                            }
+                            if (in_array($option, $options)) {
+                                return false; // Duplicate option within the same question
+                            }
+                            $options[] = $option;
+                        }
+                    }
+                    return true;
+                },
+                'message' => 'Each question must have a unique title and non-empty, unique options'
+            ]);
+
         return $validator;
     }
 
