@@ -240,13 +240,11 @@ class PaymentsController extends AppController
             'name' => $name,
             'courseID' => $course->course_id,
             'courseName' => $course->course_name,
-            'courseURL' => $this->Url->build(['controller' => 'Courses', 'action' => 'accesscourse', $course->course_id], ['fullBase' => 'true'])
+            'courseURL' => Router::Url->build(['controller' => 'Courses', 'action' => 'accesscourse', $course->course_id], ['fullBase' => 'true'])
         ]);
 
         try {
             $email_result = $mailer->deliver();
-
-            dd($email_result);
 
             if($email_result) {
                 $this->set('message', 'Thank you for your payment! You will receive your login credentials within 24 hours!');
