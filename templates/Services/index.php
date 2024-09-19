@@ -77,7 +77,7 @@
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 style="color:#1cc88a"><?= __('Services') ?></h1>
         <a href="<?= $this->Url->build(['action' => 'add']) ?>" class="btn btn-info add-btn">
-            <i class="fas fa-plus fa-sm text-white-50"></i> New Service
+            <i class="fas fa-plus fa-sm text-white-50"></i> New
         </a>
 
     </div>
