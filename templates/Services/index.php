@@ -15,6 +15,7 @@
     .table th {
         color: black;
     }
+    
     /* Add Button */
     .add-btn {
         background-color: #1cc88a;
@@ -32,6 +33,44 @@
     .add-btn:hover {
         background-color: #17a673;
         /* Darker shade of green */
+    }
+
+     /* Edit Button */
+     .edit-btn {
+        background-color: #ffc107;
+        color: white;
+        display: inline-block;
+        padding: 5px 10px;
+        /* Smaller padding */
+        width: 100px;
+        /* Smaller width */
+        height: 35px;
+        /* Smaller height */
+        text-align: center;
+    }
+
+    .edit-btn:hover {
+        background-color: #e0a800;
+        /* Darker shade of yellow */
+    }
+
+    /* Delete Button */
+    .delete-btn {
+        background-color: #dc3545;
+        color: white;
+        display: inline-block;
+        padding: 5px 10px;
+        /* Smaller padding */
+        width: 100px;
+        /* Smaller width */
+        height: 35px;
+        /* Smaller height */
+        text-align: center;
+    }
+
+    .delete-btn:hover {
+        background-color: #c82333;
+        /* Darker shade of red */
     }
 </style>
 <div class="services index content">
@@ -59,8 +98,8 @@
                         <td><?= h($service->service_category) ?></td>
                         <td>$<?= $this->Number->format($service->service_price) ?></td>
                         <td class="actions">
-                            <?= $this->Html->link(__('Edit'), ['action' => 'edit', $service->service_id], ['class' => 'btn btn-secondary']) ?>
-                            <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $service->service_id], ['confirm' => __('Are you sure you want to delete service: {0}?', $service->service_name), 'class' => 'btn btn-danger delete-menu-item-btn',]) ?>
+                            <?= $this->Html->link(__('Edit'), ['action' => 'edit', $service->service_id], ['class' => 'btn btn-info edit-btn']) ?>
+                            <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $service->service_id], ['confirm' => __('Are you sure you want to delete service: {0}?', $service->service_name), 'class' => 'btn btn-info delete-btn',]) ?>
                         </td>
                     </tr>
                 <?php endforeach; ?>
