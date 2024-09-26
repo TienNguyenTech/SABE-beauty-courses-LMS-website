@@ -39,7 +39,9 @@ class EnquirysController extends AppController
      */
     public function index()
     {
-        $query = $this->Enquirys->find()->where(['archived' => false]);
+        $query = $this->Enquirys->find()
+            ->select(['enquiry_id', 'enquiry_name', 'enquiry_email', 'enquiry_subject', 'enquiry_message', 'enquiry_seen', 'enquiry_datetime'])
+            ->where(['archived' => false]);
         $enquirys = $this->paginate($query);
 
         $this->set(compact('enquirys'));
@@ -65,7 +67,7 @@ class EnquirysController extends AppController
      */
     public function add()
     {
-//        $this->restrict();
+        // $this->restrict();
         $this->viewBuilder()->setLayout('customer');
         $enquiry = $this->Enquirys->newEmptyEntity();
         if ($this->request->is('post')) {
@@ -158,7 +160,9 @@ class EnquirysController extends AppController
         return $this->redirect(['action' => 'archived']);
     }
     public function archived() {
-        $query = $this->Enquirys->find()->where(['archived' => true]);
+        $query = $this->Enquirys->find()
+            ->select(['enquiry_id', 'enquiry_name', 'enquiry_email', 'enquiry_subject', 'enquiry_message', 'enquiry_seen', 'enquiry_datetime'])
+            ->where(['archived' => true]);
         $enquirys = $this->paginate($query);
 
         $this->set(compact('enquirys'));

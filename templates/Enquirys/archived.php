@@ -6,6 +6,7 @@
 echo $this->Html->css('/vendor/datatables/dataTables.bootstrap4.min.css', ['block' => true]);
 echo $this->Html->script('/vendor/datatables/jquery.dataTables.min.js', ['block' => true]);
 echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['block' => true]);
+$ausTimezone = new \DateTimeZone('Australia/Adelaide');
 ?>
 <style>
     .message {
@@ -45,6 +46,7 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
             <tr>
                 <th><?= $this->Paginator->sort('enquiry_name', 'Name') ?></th>
                 <th><?= $this->Paginator->sort('enquiry_email', 'Email Address') ?></th>
+                <th><?= $this->Paginator->sort('enquiry_datetime', 'Enquiry Time') ?></th>
                 <th><?= $this->Paginator->sort('enquiry_subject', 'Subject') ?></th>
                 <th><?= $this->Paginator->sort('enquiry_message', 'Message') ?></th>
                 <th><?= $this->Paginator->sort('enquiry_seen', 'Read') ?></th>
@@ -56,6 +58,7 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
                 <tr>
                     <td><?= h($enquiry->enquiry_name) ?></td>
                     <td><?= h($enquiry->enquiry_email) ?></td>
+                    <td><?= h($enquiry->enquiry_datetime) ?></td>
                     <td class="subject" title="<?= h($enquiry->enquiry_subject) ?>"><?= h($enquiry->enquiry_subject) ?>
                     </td>
                     <td class="message" title="<?= h($enquiry->enquiry_message) ?>"><?= h($enquiry->enquiry_message) ?>
