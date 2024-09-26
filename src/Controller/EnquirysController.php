@@ -39,7 +39,7 @@ class EnquirysController extends AppController
      */
     public function index()
     {
-        $query = $this->Enquirys->find();
+        $query = $this->Enquirys->find()->where(['archived' => false]);
         $enquirys = $this->paginate($query);
 
         $this->set(compact('enquirys'));
@@ -132,6 +132,19 @@ class EnquirysController extends AppController
         $this->set(compact('enquiry'));
     }
 
+
+    public function archive($id = null)
+    {
+        $this->request->allowMethod(['post', 'put']);
+        $enquiry = $this->Enquirys->get($id);
+        $enquiry->archived = true;
+        if ($this->Enquirys->save($enquiry)) {
+            $this->Flash->success(__('The enquiry has been archived.'));
+        } else {
+            $this->Flash->error(__('The enquiry could not be archived. Please, try again.'));
+        }
+        return $this->redirect(['action' => 'index']);
+    }
 
     public function toggle($id = null) {
         $this->request->allowMethod(['get']);

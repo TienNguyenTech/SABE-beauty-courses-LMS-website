@@ -67,6 +67,7 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
                             <!--                        --><?php //= $this->Html->link(__('Edit'), ['action' => 'edit', $enquiry->enquiry_id]) ?>
                             <?= $this->Html->link('View Message', ['action' => 'viewMessage', $enquiry->enquiry_id], ['class' => 'btn btn-info view-btn']) ?>
                             <?= $this->Html->link($enquiry->enquiry_seen ? 'Mark as Unread' : 'Mark as Read', ['action' => 'toggle', $enquiry->enquiry_id], ['class' => 'btn btn-primary mark-read-btn']) ?>
+                            <?= $this->Form->postLink('Archive', ['action' => 'archive', $enquiry->enquiry_id], ['class' => 'btn btn-warning archive-btn', 'confirm' => 'Are you sure you want to archive this enquiry?']) ?>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -80,6 +81,11 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
             border: none;
         }
 
+        .archive-btn {
+            background-color: #ffc107;
+            color: white;
+            border: none;
+        }
         .add-btn {
             background-color: #28a745;
             color: white;

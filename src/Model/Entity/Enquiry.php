@@ -35,5 +35,6 @@ class Enquiry extends Entity
         'enquiry_message' => true,
         'enquiry_seen' => true,
         'enquirys' => true,
+        'archived' => true,
     ];
 }
