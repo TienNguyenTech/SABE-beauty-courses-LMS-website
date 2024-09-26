@@ -39,6 +39,7 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
 <div class="enquirys index content">
     <!--    --><?php //= $this->Html->link(__('New Enquiry'), ['action' => 'add'], ['class' => 'button float-right']) ?>
     <h3><?= __('Enquiries') ?></h3>
+    <?= $this->Html->link('View Archive', ['action' => 'archived'], ['class' => 'btn btn-secondary', 'style' => 'margin-bottom: 10px']) ?>
     <div class="table-responsive">
         <table class="table table-bordered" id="dataTable">
             <thead>
