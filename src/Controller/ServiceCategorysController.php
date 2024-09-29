@@ -3,6 +3,9 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use Cake\ORM\TableRegistry;
+
+
 /**
  * ServiceCategorys Controller
  *
@@ -10,6 +13,9 @@ namespace App\Controller;
  */
 class ServiceCategorysController extends AppController
 {
+    public function initialize(): void {
+        $this->ServiceCategorys = $this->getTableLocator()->get("ServiceCategorys");
+    }
     /**
      * Index method
      *
