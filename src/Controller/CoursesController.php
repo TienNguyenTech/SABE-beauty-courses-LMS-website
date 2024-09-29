@@ -150,10 +150,10 @@ class CoursesController extends AppController
         // Set the layout based on the user type
         if ($userType === 'admin') {
             $this->viewBuilder()->setLayout('default');
-        } elseif ($userType === 'student') {
+        } else {
             $this->viewBuilder()->setLayout('student');
         }
-        
+
         $user = $this->Authentication->getIdentity()->getOriginalData();
         $userID = $user['User']['id'];
 
@@ -199,10 +199,10 @@ class CoursesController extends AppController
             foreach ($contents as $content) {
                 array_push($contentIDs, $content->content_id);
             }
-    
-            
+
+
             $progressions = $this->Progressions->find()->where(['user_id IS' => $userID, 'content_id IN' => $contentIDs])->toArray();
-    
+
             $progression = count($progressions) / count($contents);
         }
 

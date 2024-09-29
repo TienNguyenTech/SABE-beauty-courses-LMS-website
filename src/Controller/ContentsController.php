@@ -70,7 +70,7 @@ class ContentsController extends AppController
         // Set the layout based on the user type
         if ($userType === 'admin') {
             $this->viewBuilder()->setLayout('default');
-        } elseif ($userType === 'student') {
+        } else{
             $this->viewBuilder()->setLayout('student');
         }
 
