@@ -10,8 +10,10 @@
 <div class="course-view">
     <!-- Course Information Card -->
     <div class="card mb-4">
-        <div class="card-header d-flex justify-content-between align-items-center">
+        <div class="card-header">
             <h3><?= h($course->course_name) ?></h3>
+            <br>
+            <h3><?= h('Student - ' . $user->user_firstname . ' ' . $user->user_surname) ?></h3>
         </div>
         <div class="card-body">
             <div class="row">
@@ -54,7 +56,7 @@
                                     <?= h($content->content_description) ?></p>
 
                                 <!-- Go To Content -->
-                                <?= $this->Html->link('Go To Content', ['controller' => 'Contents', 'action' => 'view', $content->content_id], ['class' => 'btn btn-info mt-auto read-btn']) ?>
+                                <!-- <?= $this->Html->link('Go To Content', ['controller' => 'Contents', 'action' => 'view', $content->content_id], ['class' => 'btn btn-info mt-auto read-btn']) ?> -->
                             </div>
                         </div>
                     </div>
@@ -71,11 +73,13 @@
             <h3>Quiz</h3>
         </div>
         <div class="card-body">
-            <?php if (!empty($quiz) && $progression == 1): ?>
+            <?php if (!empty($quiz) && !empty($response)): ?>
                 <h5 class="card-title"><?= h($quiz->title) ?></h5>
-                <?= $this->Html->link('Start the Quiz', ['controller' => 'Quizzes', 'action' => 'view', $quiz->quiz_id], ['class' => 'btn btn-primary', 'id' => 'start-quiz-btn']) ?>
+                <h5 class="card-title"><?= h('Score: ' . $response->response_score) ?></h5>
+            <?php elseif (empty($response)) : ?>
+                <h5 class="card-title"><?= h($quiz->title . ': Student has not yet attempted the quiz') ?></h5>
             <?php else: ?>
-                <h5 class="card-text"><?= __('You must complete all course content before attempting the quiz') ?></h5>
+                <h5 class="card-text"><?= __('This course does not currently have a quiz available') ?></h5>
             <?php endif; ?>
         </div>
     </div>
