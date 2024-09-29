@@ -483,38 +483,6 @@
 
 
         </div>
-<<<<<<< HEAD
-
-
-        <!--        <div class="row product-lists">-->
-<!--            --><?php //foreach ($courses as $course): ?>
-<!--                <div class="col-lg-4 col-md-6 text-center --><?php //= $course->course_category ?><!--">-->
-<!--                    <div class="single-product-item">-->
-<!--                        <div class="product-image">-->
-<!--                            <a href="single-product.html">-->
-<!--                                <img src="/--><?php //= $course->course_image ?><!--" alt="--><?php //= $course->course_name ?><!--" class="card-img-top">-->
-<!--                            </a>-->
-<!--                        </div>-->
-<!--                        <div class="card-body">-->
-<!--                            <h5 class="card-title">--><?php //= $course->course_name ?><!--</h5>-->
-<!--                            <p class="card-text">--><?php //= $course->course_description ?><!--</p>-->
-<!--                            <p class="product-price">$--><?php //= $course->course_price ?><!--</p>-->
-<!--                            <a href="--><?php //= $this->Url->build(['controller' => 'Courses', 'action' => 'view', $course->course_id]) ?><!--" class="cart-btn" style="margin-bottom: 10px"><i class="fas fa-info-circle"></i> View More</a>-->
-<!--                            <a href="--><?php //= $this->Url->build(['controller' => 'Auth', 'action' => 'login', $course->course_id]) ?><!--" class="cart-btn">-->
-<!--                                <i class="fas fa-user-graduate"></i> Enroll Now-->
-<!--                            </a>-->
-<!---->
-<!--                                                                                       <a href="-->--><?php ////= $this->Url->build(['controller' => 'Payments', 'action' => 'checkout', $course->course_id]) ?><!--<!--" class="cart-btn"><i class="fas fa-user-graduate"></i> Enroll Now</a>-->-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            --><?php //endforeach; ?>
-<!--        </div>-->
-
-
-
-=======
->>>>>>> 55a519dae9a33cac0b300fa86c787265a2e3f1d0
     </div>
 
 
