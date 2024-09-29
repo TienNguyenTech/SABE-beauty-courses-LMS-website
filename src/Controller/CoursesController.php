@@ -139,7 +139,17 @@ class CoursesController extends AppController
     /* Student accesses a course */
     public function accesscourse($id = null)
     {
-        $this->viewBuilder()->setLayout('student');
+        // Retrieve the user type
+        $user = $this->Authentication->getIdentity()->getOriginalData();
+        $userType = $user['user_type'];
+
+        // Set the layout based on the user type
+        if ($userType === 'admin') {
+            $this->viewBuilder()->setLayout('default');
+        } elseif ($userType === 'student') {
+            $this->viewBuilder()->setLayout('student');
+        }
+        
         $user = $this->Authentication->getIdentity()->getOriginalData();
         $userID = $user['User']['id'];
 
@@ -153,10 +163,10 @@ class CoursesController extends AppController
             foreach ($contents as $content) {
                 array_push($contentIDs, $content->content_id);
             }
-    
-            
+
+
             $progressions = $this->Progressions->find()->where(['user_id IS' => $userID, 'content_id IN' => $contentIDs])->toArray();
-    
+
             $progression = count($progressions) / count($contents);
         }
 
@@ -286,7 +296,7 @@ class CoursesController extends AppController
 
     /**
      * Archive method - toggles archived status
-     * 
+     *
      * @param string|null $id Course id.
      * @return \Cake\Http\Response|null Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
@@ -311,7 +321,7 @@ class CoursesController extends AppController
 
     /**
      * Gets all archived courses
-     * 
+     *
      * @return void
      */
     public function archived() {
