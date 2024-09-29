@@ -40,6 +40,10 @@ class ServicesTable extends Table
         $this->setTable('services');
         $this->setDisplayField('service_name');
         $this->setPrimaryKey('service_id');
+
+        $this->hasOne('ServiceCategorys', [
+            'foreignKey' => 'category_id'
+        ]);
     }
 
     /**

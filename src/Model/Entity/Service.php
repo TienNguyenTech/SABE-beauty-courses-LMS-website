@@ -11,6 +11,7 @@ use Cake\ORM\Entity;
  * @property int $service_id
  * @property string $service_name
  * @property string $service_category
+ * @property int $category_id
  * @property string $service_price
  */
 class Service extends Entity
@@ -27,6 +28,7 @@ class Service extends Entity
     protected array $_accessible = [
         'service_name' => true,
         'service_category' => true,
+        'category_id' => true,
         'service_price' => true,
     ];
 }
