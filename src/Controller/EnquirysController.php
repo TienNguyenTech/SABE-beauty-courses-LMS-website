@@ -40,7 +40,6 @@ class EnquirysController extends AppController
     public function index()
     {
         $query = $this->Enquirys->find()
-            ->select(['enquiry_id', 'enquiry_name', 'enquiry_email', 'enquiry_subject', 'enquiry_message', 'enquiry_seen', 'enquiry_datetime'])
             ->where(['archived' => false]);
         $enquirys = $this->paginate($query);
 
@@ -72,6 +71,7 @@ class EnquirysController extends AppController
         $enquiry = $this->Enquirys->newEmptyEntity();
         if ($this->request->is('post')) {
             $enquiry = $this->Enquirys->patchEntity($enquiry, $this->request->getData());
+            $enquiry->archived = false;
             if ($this->Enquirys->save($enquiry)) {
                 $this->redirect(['action' => 'add']);
 
@@ -135,16 +135,22 @@ class EnquirysController extends AppController
     }
 
 
-    public function archive($id = null)
-    {
-        $this->request->allowMethod(['post', 'put']);
+    public function archive($id = null) {
+        $this->request->allowMethod(['post']);
         $enquiry = $this->Enquirys->get($id);
-        $enquiry->archived = true;
-        if ($this->Enquirys->save($enquiry)) {
-            $this->Flash->success(__('The enquiry has been archived.'));
+
+        if($enquiry->archived == true) {
+            // Unarchive
+            $enquiry->archived = false;
+            $this->Flash->success(__('The course has been unarchived.'));
         } else {
-            $this->Flash->error(__('The enquiry could not be archived. Please, try again.'));
+            // Archive
+            $enquiry->archived = true;
+            $this->Flash->success(__('The course has been archived.'));
         }
+
+        $this->Enquirys->save($enquiry);
+
         return $this->redirect(['action' => 'index']);
     }
     public function unarchive($id = null)
@@ -161,7 +167,6 @@ class EnquirysController extends AppController
     }
     public function archived() {
         $query = $this->Enquirys->find()
-            ->select(['enquiry_id', 'enquiry_name', 'enquiry_email', 'enquiry_subject', 'enquiry_message', 'enquiry_seen', 'enquiry_datetime'])
             ->where(['archived' => true]);
         $enquirys = $this->paginate($query);
 

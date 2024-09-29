@@ -94,6 +94,9 @@ class EnquirysTable extends Table
             ->integer('enquiry_seen')
             ->notEmptyString('enquiry_seen');
 
+        $validator
+            ->boolean('archived');
+
         return $validator;
     }
 }
