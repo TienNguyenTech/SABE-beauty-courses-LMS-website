@@ -58,6 +58,14 @@ class PaymentsController extends AppController
         $this->set(compact('payments', 'courses'));
     }
 
+    public function enrollments() {
+        $this->restrict();
+        $query = $this->Payments->find()->contain(['Courses', 'Users']);
+        $payments = $this->paginate($query);
+        
+        $this->set(compact('payments'));
+    }
+
     /**
      * View method
      *
@@ -285,6 +293,24 @@ class PaymentsController extends AppController
         }
 
         $this->redirect(['action' => 'index']);
+    }
+
+    public function archive($id = null) {
+        $this->request->allowMethod(['post']);
+        $payment = $this->Payments->get($id);
+        if($payment->archived == 1) {
+            // Unarchive
+            $payment->archived = 0;
+            $this->Flash->success(__('The course has been unarchived.'));
+        } else {
+            // Archive
+            $payment->archived = 1;
+            $this->Flash->success(__('The course has been archived.'));
+        }
+
+        $this->Payments->save($payment);
+
+        return $this->redirect(['action' => 'enrollments']);
     }
 
 }
