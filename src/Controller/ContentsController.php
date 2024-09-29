@@ -54,36 +54,6 @@ class ContentsController extends AppController
         $this->set(compact('contents'));
     }
 
-    /* Download the files */
-    public function download($id = null)
-{
-    // Kiểm tra xem ID có hợp lệ không
-    if ($id === null) {
-        throw new NotFoundException(__('Invalid content ID'));
-    }
-
-    // Lấy thông tin nội dung từ cơ sở dữ liệu
-    $content = $this->Contents->get($id);
-
-    // Đảm bảo rằng 'content_url' chứa đường dẫn đến tập tin
-    $filePath = WWW_ROOT . 'files' . DS . $content->content_url;
-
-    // Kiểm tra xem tập tin có tồn tại không
-    if (!file_exists($filePath)) {
-        throw new NotFoundException(__('File not found'));
-    }
-
-    // Sử dụng đối tượng phản hồi để xử lý việc tải xuống tập tin
-    $response = $this->response->withFile(
-        $filePath,
-        ['download' => true, 'name' => $content->content_title . '.' . pathinfo($filePath, PATHINFO_EXTENSION)]
-    );
-
-    return $response;
-}
-
-
-
     /**
      * View method
      *
@@ -93,6 +63,7 @@ class ContentsController extends AppController
      */
     public function view($id = null)
     {
+        $this->viewBuilder()->setLayout('student');
         $content = $this->Contents->get($id, contain: ['Courses']);
         $courseContents = $this->Contents->find()->where(['course_id IS' => $content->course_id])->toArray();
 
@@ -130,9 +101,9 @@ class ContentsController extends AppController
     public function movedown($id = null)
     {
         $content = $this->Contents->get($id);
-        $contentBelow = $this->Contents->find()->where(['course_id' => $content->course_id, 'content_position' => $content->content_position + 1])->first();
+        $contentBelow = $this->Contents->find()->where(['course_id' => $content->course_id, 'content_position' => $content->content_position - 1])->first();
 
-        if (!empty($contentAbove->content_position)) {
+        if (!empty($contentBelow->content_position)) {
             $content->content_position--;
             $contentBelow->content_position++;
 
@@ -188,7 +159,7 @@ class ContentsController extends AppController
                 $file->moveTo(WWW_ROOT . 'assets' . DS . 'img' . DS . 'content' . DS . $file->getClientFilename());
                 $this->Flash->success(__('The content has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller' => 'Courses','action' => 'course', $content->course_id]);
             }
             $this->Flash->error(__('The content could not be saved. Please, try again.'));
         }

@@ -1,6 +1,6 @@
 <?php
 /**
-* @var \App\View\AppView $this
+ * @var \App\View\AppView $this
  * @var iterable<\App\Model\Entity\Course> $courses
  */
 ?>
@@ -9,7 +9,7 @@
 <html lang="en">
 
 <head>
-    <title><?= $this->ContentBlock->text('website-title'); ?> | Courses</title>
+    <title>Courses</title>
     <link rel="stylesheet" href="webroot/assets/css/main.css">
     <!-- Google Fonts -->
     <?= $this->Html->css('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700', ['block' => true]) ?>
@@ -40,7 +40,7 @@
     <!-- mean menu -->
     <?= $this->Html->script('jquery.meanmenu.min') ?>
     <!-- sticker js -->
-     <?= $this->Html->script('sticker') ?>
+    <?= $this->Html->script('sticker') ?>
     <!-- main js -->
     <?= $this->Html->script('main') ?>
 
@@ -141,8 +141,7 @@
         }
     </style>
 
-<style>
-
+    <style>
         .card-img-top {
             height: 200px;
             /* Consistent height for image frame */
@@ -219,87 +218,174 @@
 
 
 
-<style>
-    /* Ensure that the card takes up full width and is properly styled */
-    .single-product-item {
-        border: 1px solid #ddd;
-        padding: 15px;
-        border-radius: 5px;
-        background-color: #fff;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        transition: transform 0.3s;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 100%;
-    }
+    <style>
+        /* Ensure that the card takes up full width and is properly styled */
+        .single-product-item {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
 
-    .single-product-item:hover {
-        transform: scale(1.05);
-    }
+        .single-product-item:hover {
+            transform: scale(1.05);
+        }
 
-    .product-image img {
-        max-width: 100%;
-        height: auto;
-    }
+        .product-image img {
+            max-width: 100%;
+            height: auto;
+        }
 
-    .card-body {
-        padding: 15px;
-    }
+        .card-body {
+            padding: 15px;
+        }
 
-    .card-title {
-        font-size: 1.25rem;
-        margin: 0;
-    }
+        .card-title {
+            font-size: 1.25rem;
+            margin: 0;
+        }
 
-    .product-price {
-        font-size: 1.2em;
-        color: #333;
-        margin-top: 10px;
-    }
+        .product-price {
+            font-size: 1.2em;
+            color: #333;
+            margin-top: 10px;
+        }
 
-    .card-text {
-        margin: 10px 0;
-    }
+        .card-text {
+            margin: 10px 0;
+        }
 
-    /* Button styling */
-    .btn-primary {
-        display: inline-block;
-        padding: 10px 20px;
-        font-size: 1em;
-        font-weight: bold;
-        color: #fff;
-        background-color: #007bff;
-        border: none;
-        border-radius: 5px;
-        text-decoration: none;
-        text-align: center;
-        transition: background-color 0.3s, transform 0.3s;
-    }
+        /* Button styling */
+        .btn-primary {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1em;
+            font-weight: bold;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s, transform 0.3s;
+        }
 
-    .btn-primary:hover {
-        background-color: #0056b3;
-        transform: translateY(-2px);
-    }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
 
-    .btn-primary:active {
-        background-color: #004085;
-        transform: translateY(0);
-    }
+        .btn-primary:active {
+            background-color: #004085;
+            transform: translateY(0);
+        }
 
-    .breadcrumb-text {
+        .breadcrumb-text {
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
 
-</style>
+        .bordered-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border: 2px solid #4a9b38;
+            /* Màu viền nút */
+            color: #4a9b38;
+            /* Màu chữ */
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 30px;
+            /* Bo góc nút */
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            width: 150px;
 
-<!-- breadcrumb-section -->
+        }
+
+        .bordered-btn:hover {
+            background-color: #4a9b38;
+            /* Màu nền khi hover */
+            color: #fff;
+            /* Màu chữ khi hover */
+        }
+
+        a.bordered-btn {
+            font-family: 'Poppins', sans-serif;
+            display: inline-block;
+            color: #fff;
+            background-color: #4a9b38;
+            border: 2px solid #4a9b38;
+            padding: 7px 20px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            /* Add shadow */
+            transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+        }
+
+        a.bordered-btn:hover {
+            background-color: #fff;
+            color: #4a9b38;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            /* Larger shadow on hover */
+        }
+
+        .whiteb-btn {
+            display: inline-block;
+            padding: 7px 20px;
+            /* Match padding of .bordered-btn */
+            border: 2px solid #4a9b38;
+            color: #4a9b38;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            /* Adjust font size if necessary */
+            width: 150px;
+
+        }
+
+
+        .whiteb-btn:hover {
+            background-color: #4a9b38;
+
+            color: #fff;
+
+        }
+
+        a.whiteb-btn {
+            font-family: 'Poppins', sans-serif;
+            display: inline-block;
+            color: #4a9b38;
+            background-color: #fff;
+            border: 2px solid #4a9b38;
+            padding: 7px 20px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            /* Add shadow */
+            transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+
+
+        }
+
+        a.whiteb-btn:hover {
+            background-color: #4a9b38;
+            color: #fff;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            /* Larger shadow on hover */
+        }
+    </style>
+
+    <!-- breadcrumb-section -->
     <div class="breadcrumb-section" style="background-image: url('../assets/img/hero-bg.jpg')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2 text-center">
                     <div class="breadcrumb-text">
-                       <!-- <p>Pretty and Bright</p>-->
+                        <!-- <p>Pretty and Bright</p>-->
                         <h1>Courses</h1>
                     </div>
                 </div>
@@ -308,56 +394,96 @@
     </div>
     <!-- end breadcrumb section -->
 
-<div class="product-section mt-150 mb-150">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="product-filters">
-                    <ul>
-                        <li class="active" data-filter="*">All</li>
-                        <li data-filter=".Workshop">Workshop</li>
-                        <li data-filter=".Hybrid">Hybrid</li>
-                        <li data-filter=".Online">Online</li>
-                        <p> All prices are in AUD (Australian Dollars).</p>
-                        <p> Please make sure you are logged in before you enroll in a course!</p>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="row product-lists">
-            <?php foreach ($courses as $course): ?>
-                <div class="col-lg-4 col-md-6 text-center <?= $course->course_category ?>">
-                    <div class="single-product-item">
-                        <div class="product-image">
-                            <a href="single-product.html">
-                                <img src="/<?= $course->course_image ?>" alt="<?= $course->course_name ?>" class="card-img-top">
-                            </a>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title"><?= $course->course_name ?></h5>
-                            <p class="card-text"><?= $course->course_description ?></p>
-                            <p class="product-price">$<?= $course->course_price ?></p>
-                            <a href="<?= $this->Url->build(['controller' => 'Courses', 'action' => 'view', $course->course_id]) ?>" class="cart-btn" style="margin-bottom: 10px">
-                                <i class="fas fa-info-circle"></i> View More
-                            </a>
-
-                            <?php if ($this->Identity->isLoggedIn()): ?>
-                                <!-- If the user is logged in, redirect to the payment page -->
-                                <a href="<?= $this->Url->build(['controller' => 'Payments', 'action' => 'checkout', $course->course_id]) ?>" class="cart-btn">
-                                    <i class="fas fa-user-graduate"></i> Enroll Now
-                                </a>
-                            <?php else: ?>
-                                <!-- If the user is not logged in, redirect to the login page with the courseId -->
-                                <a href="<?= $this->Url->build(['controller' => 'Auth', 'action' => 'login', '?' => ['courseId' => $course->course_id]]) ?>" class="cart-btn">
-                                    <i class="fas fa-user-graduate"></i> Enroll Now
-                                </a>
-                            <?php endif; ?>
-                        </div>
+    <div class="product-section mt-150 mb-150">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="product-filters">
+                        <ul>
+                            <?= $this->Html->link('Click here to Create an Account', [
+                                'controller' => 'Auth',
+                                'action' => 'register'
+                            ]) ?>
+                            <p> Please make sure you have an account and is logged in before you enroll in a course!</p>
+                            <br>
+                            <li class="active" data-filter="*">All</li>
+                            <li data-filter=".Workshop">Workshop</li>
+                            <li data-filter=".Hybrid">Hybrid</li>
+                            <li data-filter=".Online">Online</li>
+                            <p> All prices are in AUD (Australian Dollars).</p>
+                        </ul>
                     </div>
                 </div>
-            <?php endforeach; ?>
+            </div>
+
+            <div class="row product-lists">
+                <?php foreach ($courses as $course): ?>
+                    <div class="col-lg-4 col-md-6 text-center <?= $course->course_category ?>">
+                        <div class="single-product-item">
+                            <div class="product-image">
+                                <a href="single-product.html">
+                                    <img src="../<?= $course->course_image ?>" alt="<?= $course->course_name ?>"
+                                        class="card-img-top">
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title"><?= $course->course_name ?></h5>
+                                <p class="card-text"><?= $course->course_description ?></p>
+                                <p class="product-price">$<?= $course->course_price ?></p>
+                                <a href="<?= $this->Url->build(['controller' => 'Courses', 'action' => 'view', $course->course_id]) ?>"
+                                    class="whiteb-btn" style="margin-bottom: 10px">
+                                    <i class="fas fa-info-circle"></i> View More
+                                </a>
+
+                                <?php if ($this->Identity->isLoggedIn()): ?>
+                                    <!-- If the user is logged in, redirect to the payment page -->
+                                    <a href="<?= $this->Url->build(['controller' => 'Payments', 'action' => 'checkout', $course->course_id]) ?>"
+                                        class="bordered-btn">
+                                        <i class="fas fa-user-graduate"></i> Enroll Now
+                                    </a>
+                                <?php else: ?>
+                                    <!-- If the user is not logged in, redirect to the login page with the courseId -->
+                                    <a href="<?= $this->Url->build(['controller' => 'Auth', 'action' => 'login', '?' => ['courseId' => $course->course_id]]) ?>"
+                                        class="bordered-btn">
+                                        <i class="fas fa-user-graduate"></i> Enroll Now
+                                    </a>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+
+
+            <!--        <div class="row product-lists">-->
+            <!--            --><?php //foreach ($courses as $course): ?>
+            <!--                <div class="col-lg-4 col-md-6 text-center --><?php //= $course->course_category ?><!--">-->
+            <!--                    <div class="single-product-item">-->
+            <!--                        <div class="product-image">-->
+            <!--                            <a href="single-product.html">-->
+            <!--                                <img src="/--><?php //= $course->course_image ?><!--" alt="--><?php //= $course->course_name ?><!--" class="card-img-top">-->
+            <!--                            </a>-->
+            <!--                        </div>-->
+            <!--                        <div class="card-body">-->
+            <!--                            <h5 class="card-title">--><?php //= $course->course_name ?><!--</h5>-->
+            <!--                            <p class="card-text">--><?php //= $course->course_description ?><!--</p>-->
+            <!--                            <p class="product-price">$--><?php //= $course->course_price ?><!--</p>-->
+            <!--                            <a href="--><?php //= $this->Url->build(['controller' => 'Courses', 'action' => 'view', $course->course_id]) ?><!--" class="cart-btn" style="margin-bottom: 10px"><i class="fas fa-info-circle"></i> View More</a>-->
+            <!--                            <a href="--><?php //= $this->Url->build(['controller' => 'Auth', 'action' => 'login', $course->course_id]) ?><!--" class="cart-btn">-->
+            <!--                                <i class="fas fa-user-graduate"></i> Enroll Now-->
+            <!--                            </a>-->
+            <!---->
+            <!--                                                            <a href="--><?php //= $this->Url->build(['controller' => 'Payments', 'action' => 'checkout', $course->course_id]) ?><!--" class="cart-btn"><i class="fas fa-user-graduate"></i> Enroll Now</a>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--            --><?php //endforeach; ?>
+            <!--        </div>-->
+
+
+
         </div>
+<<<<<<< HEAD
 
 
         <!--        <div class="row product-lists">-->
@@ -387,23 +513,24 @@
 
 
 
+=======
+>>>>>>> 55a519dae9a33cac0b300fa86c787265a2e3f1d0
     </div>
-</div>
 
 
 
 
     <?php
-            function truncateDescription($description, $words)
-            {
-                $wordArray = explode(' ', $description);
-                if (count($wordArray) > $words) {
-                    $wordArray = array_slice($wordArray, 0, $words);
-                    return implode(' ', $wordArray) . '...';
-                }
-                return $description;
-            }
-            ?>
+    function truncateDescription($description, $words)
+    {
+        $wordArray = explode(' ', $description);
+        if (count($wordArray) > $words) {
+            $wordArray = array_slice($wordArray, 0, $words);
+            return implode(' ', $wordArray) . '...';
+        }
+        return $description;
+    }
+    ?>
 
 
 

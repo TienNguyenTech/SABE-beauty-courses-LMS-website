@@ -1,4 +1,4 @@
-<?php $this->assign('title', 'Admin Dashboard'); ?>
+<?php $this->assign('title', 'Student Dashboard'); ?>
 
 
 <style>

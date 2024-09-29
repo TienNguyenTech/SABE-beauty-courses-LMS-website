@@ -153,8 +153,17 @@ class PaymentsController extends AppController
         ];
 
         // Get user id for payment
-        $user = $this->Authentication->getIdentity();
-        $userID = $user->user_id;
+        $user = $this -> Authentication -> getIdentity() ->getOriginalData();
+        $userID = $user['User'];
+        $user = $this->Users->get($userID);
+        $email = $user->email;
+
+        // Check if the user has already purchased the course
+        $checkPayments = $this->Payments->find()->where(['course_id IS' => $course_id, 'user_id IS' => $userID['id']])->toArray();
+        if($checkPayments) {
+            // Student already owns this course -> redirect to course page
+            return $this->redirect(['controller' => 'Courses', 'action' => 'accesscourse', $course_id]);
+        } 
 
         $payment = $this->Payments->newEmptyEntity();
 
@@ -162,7 +171,9 @@ class PaymentsController extends AppController
             'payment_amount' => $this->Courses->get($course_id)['course_price'],
             'payment_datetime' => new \DateTime(),
             'course_id' => $course_id,
-            'user_id' => $userID
+            'user_id' => $user->user_id,
+            'payment_email' => $email,
+            'checkout_id' => 'null'
         ]);
 
         $this->Payments->save($payment);
@@ -189,7 +200,7 @@ class PaymentsController extends AppController
         $this->set('sessionId', $checkout_session['id']);
     }
 
-    public function success($paymentID='help')
+    public function success($paymentID)
     {
         $this->viewBuilder()->disableAutoLayout();
 
@@ -205,17 +216,19 @@ class PaymentsController extends AppController
 
         Stripe::setApiKey('sk_test_51PnfYBHtFQ126a2JACHCRvlLDksG752hMQYdxCkoHDtqavhxcA5WHMmXqX7iVa0PgrrieQS0w5uGch0n0jLsD0ST00PMNE3Zwp');
 
-        $session = Session::retrieve($checkoutID);
-        $stripe = new \Stripe\StripeClient('sk_test_51PnfYBHtFQ126a2JACHCRvlLDksG752hMQYdxCkoHDtqavhxcA5WHMmXqX7iVa0PgrrieQS0w5uGch0n0jLsD0ST00PMNE3Zwp');
+        // $session = Session::retrieve($checkoutID);
+        // $stripe = new \Stripe\StripeClient('sk_test_51PnfYBHtFQ126a2JACHCRvlLDksG752hMQYdxCkoHDtqavhxcA5WHMmXqX7iVa0PgrrieQS0w5uGch0n0jLsD0ST00PMNE3Zwp');
 
-        $customer = $stripe->customers->retrieve($session->customer);
+        // $customer = $stripe->customers->retrieve($session->customer);
 
-        $customer = $this->Users->get($payment->user_id);
+        // $customer = $this->Users->get($payment->user_id);
 
-        $email = $customer->email;
-        $name = $customer->user_firstname . ' ' . $customer->user_surname;
+        $course = $this->Courses->get($payment->course_id);
 
-        $payment->payment_email = $email;
+        $user = $this->Users->get($payment->user_id);
+
+        $email = $user->email;
+        $name = $user->user_firstname . ' ' . $user->user_surname;
 
         $this->Payments->save($payment);
 
@@ -231,7 +244,10 @@ class PaymentsController extends AppController
             ->setTemplate('payment_confirmation');
 
         $mailer->setViewVars([
-            'name' => $name
+            'name' => $name,
+            'courseID' => $course->course_id,
+            'courseName' => $course->course_name,
+            'courseURL' => Router::url(['controller' => 'Courses', 'action' => 'accesscourse', $course->course_id], true)
         ]);
 
         try {
@@ -243,17 +259,17 @@ class PaymentsController extends AppController
                 $this->set('message', 'Payment confirmation failed to send, please ensure that you have entered the correct email address.');
                 $this->Payments->delete($payment);
 
-                return $this->redirect(['action' => 'fail']);
+                return $this->redirect(['controller' => 'Payments', 'action' => 'fail']);
             }
         } catch (\Throwable $th) {
             $this->Payments->delete($payment);
 
-            return $this->redirect(['action' => 'fail']);
+            return $this->redirect(['controller' => 'Payments', 'action' => 'fail']);
         }
     }
 
     public function fail() {
-        $this->viewBuilder()->disableAutoLayout();
+        $this->viewBuilder()->disableAutoLayout();        
     }
 
     public function toggle($id = null) {

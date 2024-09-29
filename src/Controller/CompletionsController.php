@@ -3,13 +3,22 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use Cake\ORM\TableRegistry;
+
 /**
  * Completions Controller
  *
  * @property \App\Model\Table\CompletionsTable $Completions
+ * @property \App\Model\Table\QuizzesTable $Quizzes
  */
 class CompletionsController extends AppController
 {
+    private \Cake\ORM\Table $Quizzes;
+
+    public function initialize(): void {
+        $this->Quizzes = TableRegistry::getTableLocator()->get("Quizzes");
+    }
+
     /**
      * Index method
      *
@@ -33,8 +42,19 @@ class CompletionsController extends AppController
      */
     public function view($id = null)
     {
+        $this->viewBuilder()->setLayout('student');
         $completion = $this->Completions->get($id, contain: ['Users', 'Courses']);
         $this->set(compact('completion'));
+    }
+
+    public function fail($quizID) {
+        $this->viewBuilder()->setLayout('student');
+
+        $quiz = $this->Quizzes->get($quizID);
+        $courseID = $quiz->course_id;
+        $quiz = json_decode(json_decode($quiz->quiz_json));
+
+        $this->set(compact('quiz', 'courseID'));
     }
 
     /**

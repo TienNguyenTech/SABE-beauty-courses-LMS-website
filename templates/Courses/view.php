@@ -274,8 +274,8 @@
         <div class="row">
             <div class="col-lg-8 offset-lg-2 text-center">
                 <div class="breadcrumb-text">
-                    <p>See more Details</p>
-                    <h1>Course Details</h1>
+                <h1 style="text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3), 6px 6px 10px rgba(0, 0, 0, 0.2);">Course Details</h1>
+
                 </div>
             </div>
         </div>

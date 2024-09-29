@@ -8,7 +8,8 @@
 <html lang="en">
 
 <head>
-    <title><?= $this->ContentBlock->text('website-title'); ?> | Contact Us</title>
+<!--    <title>--><?php //= $this->ContentBlock->text('website-title'); ?><!-- | Contact Us</title>-->
+    <title>Contact Us</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -117,7 +118,7 @@
                         <!-- Flash Messages -->
                         <?= $this->Flash->render() ?>
                         <?= $this->Flash->render('positive') ?>
-                        
+
                         <h2>Contact us</h2>
                         <p>Any questions regarding our courses or available services? Feel free to contact us for more
                             information.</p>

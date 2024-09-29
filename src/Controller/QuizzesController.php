@@ -5,7 +5,13 @@ namespace App\Controller;
 
 use Cake\Routing\Router;
 use Laminas\Diactoros\Stream;
-use Cake\ORM\Table;use Cake\ORM\TableRegistry;use PhpParser\Node\Expr\Array_;use PHPUnit\Util\Json;/**
+use Cake\ORM\Table;
+use Cake\ORM\TableRegistry;
+use PhpParser\Node\Expr\Array_;
+use PHPUnit\Util\Json;
+use Cake\Log\Log;
+
+/**
  * Quizzes Controller
  *
  * @property \App\Model\Table\QuizzesTable $Quizzes
@@ -61,6 +67,7 @@ class QuizzesController extends AppController
      */
     public function view($id = null)
     {
+        $this->viewBuilder()->setLayout('student');
         $quiz = $this->Quizzes->get($id);
 
         $quizID = $quiz->quiz_id;
@@ -78,26 +85,34 @@ class QuizzesController extends AppController
      *
      * @return \Cake\Http\Response|null|void Redirects on successful add, renders view otherwise.
      */
-    public function add()
+    public function add($courseID)
     {
         $this->restrict();
         $quiz = $this->Quizzes->newEmptyEntity();
         if ($this->request->is('post')) {
             $data = $this->request->getData();
+//            Log::debug('Request Data: ' . print_r($data, true));
 
             $transformedData = [
                 'quiz_title' => $data['quiz_title'],
-                'course_id' => $data['course_id'],
                 'questions' => []
             ];
 
             $questionIndex = 1;
             while (isset($data['question' . $questionIndex . '_title'])) {
-                $question = [
-                    'title' => $data['question' . $questionIndex . '_title'],
-                    'options' => [],
-                    'correct_option' => $data['question' . $questionIndex . '_correctoption']
-                ];
+                if (isset($data['question' . $questionIndex . '_correctoption'])) {
+                    $question = [
+                        'title' => $data['question' . $questionIndex . '_title'],
+                        'options' => [],
+                        'correct_option' => $data['question' . $questionIndex . '_correctoption']
+                    ];
+                } else {
+                    $question = [
+                        'title' => $data['question' . $questionIndex . '_title'],
+                        'options' => [],
+                        'correct_option' => null // or handle the missing key appropriately
+                    ];
+                }
 
                 $optionIndex = 1;
                 while (isset($data['question' . $questionIndex . '_option' . $optionIndex])) {
@@ -109,6 +124,8 @@ class QuizzesController extends AppController
                 $questionIndex++;
             }
 
+//            Log::debug('Transformed Data: ' . print_r($transformedData, true));
+
             $questions = [];
 
             foreach ($transformedData['questions'] as $question) {
@@ -117,7 +134,7 @@ class QuizzesController extends AppController
                     $question['title'],
                     $question['title'],
                     $question['options'],
-                    $question['options'][intval($question['correctoption'])]
+                    $question['options'][intval($question['correct_option'])]
                 ));
             }
 
@@ -133,18 +150,25 @@ class QuizzesController extends AppController
             $quizJSON = json_encode($quizJSON->generate());
 
             $quiz = $this->Quizzes->patchEntity($quiz, [
-                'course_id' => $transformedData['course_id'],
+                'quiz_title' => $transformedData['quiz_title'],
+                'questions' => $transformedData['questions'],
+                'course_id' => $courseID,
                 'quiz_json' => $quizJSON
             ]);
+
+//            Log::debug('Quiz Entity: ' . print_r($quiz, true));
+
             if ($this->Quizzes->save($quiz)) {
                 $this->Flash->success(__('The quiz has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller' => 'Courses', 'action' => 'index']);
             }
+
+//            Log::debug('Validation Errors: ' . print_r($quiz->getErrors(), true));
             $this->Flash->error(__('The quiz could not be saved. Please, try again.'));
         }
-        $courses = $this->Quizzes->Courses->find('list', limit: 200)->all();
-        $this->set(compact('quiz', 'courses'));
+        $course = $this->Quizzes->Courses->get($courseID);
+        $this->set(compact('quiz', 'course'));
     }
 
     public function submit() {
@@ -193,7 +217,7 @@ class QuizzesController extends AppController
             $completion = null;
 
             if($response->response_score >= 0.75) {
-                // Pass -> complete course 
+                // Pass -> complete course
                 $completion = $this->Completions->newEmptyEntity();
                 $completion->user_id = $userID;
                 $completion->course_id = $quiz->course_id;
@@ -202,7 +226,7 @@ class QuizzesController extends AppController
                 return $this->response->withType('application/json; charset=utf-8')->withStringBody(Router::url(['controller' => 'Completions' ,'action' => 'view', $completion->completion_id]));
             } else {
                 // Fail -> try again? maybe something else
-                return $this->response->withType('application/json; charset=utf-8')->withStringBody(Router::url(['controller' => 'Quizzes' ,'action' => 'view', $quiz->quiz_id]));
+                return $this->response->withType('application/json; charset=utf-8')->withStringBody(Router::url(['controller' => 'Completions' ,'action' => 'fail', $quiz->quiz_id]));
             }
 
             //$json = json_encode($response);
@@ -255,7 +279,7 @@ class QuizzesController extends AppController
             $this->Flash->error(__('The quiz could not be deleted. Please, try again.'));
         }
 
-        return $this->redirect(['action' => 'index']);
+        return $this->redirect(['controller' => 'Courses','action' => 'index']);
     }
 }
 

@@ -19,6 +19,7 @@ class CoursesController extends AppController
     private \Cake\ORM\Table $Quizzes;
     private \Cake\ORM\Table $Payments;
     private \Cake\ORM\Table $Progressions;
+    private \Cake\ORM\Table $Users;
 
     public function initialize(): void
     {
@@ -60,7 +61,7 @@ class CoursesController extends AppController
      */
     public function index()
     {
-        $query = $this->Courses->find();
+        $query = $this->Courses->find()->where(['archived IS' => 0]);
         $courses = $this->paginate($query);
 
         $this->set(compact('courses'));
@@ -68,6 +69,7 @@ class CoursesController extends AppController
 
     public function enrolledcourses()
     {
+        $this->viewBuilder()->setLayout('student');
         $user = $this->Authentication->getIdentity()->getOriginalData();
         $userID = $user['User']['id'];
 
@@ -77,8 +79,11 @@ class CoursesController extends AppController
         foreach ($payments as $payment) {
             array_push($courses, $payment->course_id);
         }
-        
-        
+
+        if(empty($courses)) {
+            $this->set(compact('courses'));
+            return $this->Flash->error('You are not currently enrolled in any courses');
+        }
 
         $query = $this->Courses->find()->where(['course_id IN' => $courses]);
         $courses = $this->paginate($query);
@@ -119,6 +124,13 @@ class CoursesController extends AppController
         }
 
         $query = $this->Contents->find()->where(['course_id IS' => $course->course_id]);
+
+        $this->paginate = [
+            'order' => [
+                'content_position' => 'ASC'
+            ]
+        ];
+
         $contents = $this->paginate($query);
         $this->viewBuilder()->setLayout('default');
         $this->set(compact('course', 'contents', 'quiz'));
@@ -127,24 +139,28 @@ class CoursesController extends AppController
     /* Student accesses a course */
     public function accesscourse($id = null)
     {
+        $this->viewBuilder()->setLayout('student');
         $user = $this->Authentication->getIdentity()->getOriginalData();
         $userID = $user['User']['id'];
 
         $course = $this->Courses->get($id);
         $contents = $this->Contents->find()->where(['course_id IS' => $course->course_id])->toArray();
 
-        $contentIDs = [];
-        foreach ($contents as $content) {
-            array_push($contentIDs, $content->content_id);
+        $progressions = [];
+        $progression = 0;
+        if(!empty($contents)) {
+            $contentIDs = [];
+            foreach ($contents as $content) {
+                array_push($contentIDs, $content->content_id);
+            }
+    
+            
+            $progressions = $this->Progressions->find()->where(['user_id IS' => $userID, 'content_id IN' => $contentIDs])->toArray();
+    
+            $progression = count($progressions) / count($contents);
         }
 
         $quiz = $this->Quizzes->find()->where(['course_id IS' => $course->course_id])->first();
-        $progressions = $this->Progressions->find()->where(['user_id IS' => $userID, 'content_id IN' => $contentIDs])->toArray();
-
-        $progression = count($progressions) / count($contents);
-
-        // dd($progression);
-
         if (!empty($quiz)) {
             $quizID = $quiz->quiz_id;
             $quizJson = json_decode(json_decode($quiz->quiz_json));
@@ -154,7 +170,6 @@ class CoursesController extends AppController
 
         $query = $this->Contents->find()->where(['course_id IS' => $course->course_id]);
         $contents = $this->paginate($query);
-        $this->viewBuilder()->setLayout('default');
         $this->set(compact('course', 'contents', 'quiz', 'progression'));
     }
 
@@ -267,5 +282,42 @@ class CoursesController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+
+    /**
+     * Archive method - toggles archived status
+     * 
+     * @param string|null $id Course id.
+     * @return \Cake\Http\Response|null Redirects to index.
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     */
+    public function archive($id = null) {
+        $this->request->allowMethod(['post']);
+        $course = $this->Courses->get($id);
+        if($course->archived == 1) {
+            // Unarchive
+            $course->archived = 0;
+            $this->Flash->success(__('The course has been unarchived.'));
+        } else {
+            // Archive
+            $course->archived = 1;
+            $this->Flash->success(__('The course has been archived.'));
+        }
+
+        $this->Courses->save($course);
+
+        return $this->redirect(['action' => 'index']);
+    }
+
+    /**
+     * Gets all archived courses
+     * 
+     * @return void
+     */
+    public function archived() {
+        $query = $this->Courses->find()->where(['archived IS' => 1]);
+        $courses = $this->paginate($query);
+
+        $this->set(compact('courses'));
     }
 }

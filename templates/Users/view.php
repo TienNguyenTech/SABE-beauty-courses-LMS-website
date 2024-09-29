@@ -48,11 +48,11 @@
             <!-- Tab panes -->
             <div class="card-body">
                 <?= $this->Form->create($user, ['class' => 'form-horizontal form-material mx-2']) ?>
-                <div class="form-group">
-                    <div class="col-md-12">
-                        <?= $this->Form->control('user_type', ['text' => "$user->user_type", 'class' => 'form-control form-control-line', 'readonly' => true]) ?>
-                    </div>
-                </div>
+<!--                <div class="form-group">-->
+<!--                    <div class="col-md-12">-->
+<!--                        --><?php //= $this->Form->control('user_type', ['text' => "$user->user_type", 'class' => 'form-control form-control-line', 'readonly' => true]) ?>
+<!--                    </div>-->
+<!--                </div>-->
                 <div class="form-group">
                     <label class="col-md-12">Full Name</label>
                     <div class="col-md-12">

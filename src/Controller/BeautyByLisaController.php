@@ -17,7 +17,7 @@ class BeautyByLisaController extends AppController
         parent::initialize();
 
         // Controller-level function/action whitelist for authentication
-        $this->Authentication->allowUnauthenticated(['services']);
+        $this->Authentication->allowUnauthenticated(['services', 'murad']);
         $this->Services = TableRegistry::getTableLocator()->get('Services');
     }
     public function services() {
@@ -34,6 +34,11 @@ class BeautyByLisaController extends AppController
 
         $this->set('title', 'Beauty by Lisa Follett');
         $this->set(compact('services', 'groupedServices'));
+    }
+
+    public function murad() {
+        $this->viewBuilder()->setLayout('customer');
+        $this->set('title', 'Beauty by Lisa Follett | Murad');
     }
 
 }

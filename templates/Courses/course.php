@@ -39,24 +39,24 @@
         <h3>Course Content</h3>
         <table class="table">
             <thead>
+                <th><?= $this->Paginator->sort('content_position') ?></th>
                 <th><?= $this->Paginator->sort('content_title') ?></th>
                 <th><?= $this->Paginator->sort('content_type') ?></th>
                 <th><?= $this->Paginator->sort('content_url', 'View Content') ?></th>
                 <th><?= $this->Paginator->sort('content_description') ?></th>
-                <th><?= $this->Paginator->sort('content_position') ?></th>
                 <th class="actions"><?= __('Actions') ?></th>
             </thead>
             <tbody>
                 <?php foreach ($contents as $content): ?>
                     <tr>
+                        <td><?= $content->content_position ?></td>
                         <td><?= $this->Html->link($content->content_title, ['controller' => 'Contents', 'action' => 'view', $content->content_id]) ?></td>
                         <td><?= $content->content_type ?></td>
                         <td><a href="/<?= $content->content_url ?>">Click here</a></td>
                         <td><?= $content->content_description ?></td>
-                        <td><?= $content->content_position ?></td>
                         <td>
-                            <?= $this->Html->link('Move Up', ['controller' => 'Contents', 'action' => 'moveup', $content->content_id], ['class' => 'btn btn-primary']) ?>
-                            <?= $this->Html->link('Move Down', ['controller' => 'Contents', 'action' => 'movedown', $content->content_id], ['class' => 'btn btn-primary']) ?>
+                            <?= $this->Html->link('Move Down', ['controller' => 'Contents', 'action' => 'moveup', $content->content_id], ['class' => 'btn btn-primary']) ?>
+                            <?= $this->Html->link('Move Up', ['controller' => 'Contents', 'action' => 'movedown', $content->content_id], ['class' => 'btn btn-primary']) ?>
                             <?= $this->Html->link('Edit', ['controller' => 'Contents', 'action' => 'edit', $content->content_id], ['class' => 'btn btn-primary']) ?>
                             <?= $this->Form->postLink('Remove', ['controller' => 'Contents', 'action' => 'delete', $content->content_id], ['confirm' => __('Are you sure you want to delete content: {0}?', $content->content_title), 'class' => 'btn btn-danger']) ?>
                         </td>
@@ -93,7 +93,7 @@
             <tr>
                 <th><?= __('Actions') ?></th>
                 <td>
-                <?= $this->Html->link('Edit', ['controller' => 'Quizzes', 'action' => 'edit', $quiz->quiz_id], ['class' => 'btn btn-primary']) ?>
+                <!-- <?= $this->Html->link('Edit', ['controller' => 'Quizzes', 'action' => 'edit', $quiz->quiz_id], ['class' => 'btn btn-primary']) ?> -->
                 <?= $this->Form->postLink('Remove', ['controller' => 'Quizzes', 'action' => 'delete', $quiz->quiz_id], ['confirm' => __('Are you sure you want to delete quiz: {0}?', $quiz->title), 'class' => 'btn btn-danger']) ?>
                 </td>
             </tr>

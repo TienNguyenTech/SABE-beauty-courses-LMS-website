@@ -65,7 +65,7 @@
 
         .content-box {
             background-color: #ffffff;
-            padding: 20px;
+            padding: 20px   ;
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             max-width: 800px;
@@ -296,7 +296,7 @@
                     
                 </div>
                 <div class="mt-6">
-                    <a href="https://www.fresha.com/a/beauty-by-lisa-follett-hallett-cove-3-lepena-crescent-u54y2i7s" target="_blank" rel="noopener noreferrer" class="btn">Book Now on Fresha</a>
+                    <a href="https://www.fresha.com/a/beauty-by-lisa-follett-hallett-cove-3-lepena-crescent-u54y2i7s" target="_blank" rel="noopener noreferrer" class="bordered-btn">Book Now on Fresha</a>
                 </div>
             </div>
         </div>

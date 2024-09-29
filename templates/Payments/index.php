@@ -7,6 +7,9 @@
 echo $this->Html->css('/vendor/datatables/dataTables.bootstrap4.min.css', ['block' => true]);
 echo $this->Html->script('/vendor/datatables/jquery.dataTables.min.js', ['block' => true]);
 echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['block' => true]);
+
+// Define the Australian timezone
+$ausTimezone = new \DateTimeZone('Australia/Sydney');
 ?>
 <div class="payments index content">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -30,7 +33,7 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
                     <td>$<?= $this->Number->format($payment->payment_amount, ['places' => 2]) ?></td>
                     <td><?= h($payment->payment_datetime) ?></td>
                     <td><?= h($payment->payment_email) ?></td>
-                    <td><?= array_values(array_filter($courses, fn($course) => $course->course_id === $payment->booking->course_id))[0]->course_name ?></td>
+                    <td><?= $this->Html->link($payment->course->course_name, ['controller' => 'Courses', 'action' => 'view', $payment->course->course_id]) ?></td>
                     <td><?= h($payment->payment_seen ? 'Read' : 'Unread') ?></td>
                     <td class="actions">
 <!--                        --><?php //= $this->Html->link(__('View'), ['action' => 'view', $payment->payment_id]) ?>

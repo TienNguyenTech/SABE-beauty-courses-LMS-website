@@ -15,6 +15,7 @@ use Cake\ORM\Entity;
  * @property string $course_image
  * @property string $course_category
  * @property int $course_featured
+ * @property int $archived
  *
  * @property \App\Model\Entity\User[] $users
  */
@@ -36,6 +37,7 @@ class Course extends Entity
         'course_image' => true,
         'course_category' => true,
         'course_featured' => true,
+        'archived' => true,
         'users' => true,
     ];
 }

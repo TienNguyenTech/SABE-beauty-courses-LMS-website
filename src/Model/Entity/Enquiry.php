@@ -14,6 +14,8 @@ use Cake\ORM\Entity;
  * @property string $enquiry_subject
  * @property string $enquiry_message
  * @property int $enquiry_seen
+ * @property bool $archived
+ * @property \Cake\I18n\DateTime $enquiry_datetime
  *
  * @property \App\Model\Entity\Enquiry[] $enquirys
  */
@@ -35,5 +37,7 @@ class Enquiry extends Entity
         'enquiry_message' => true,
         'enquiry_seen' => true,
         'enquirys' => true,
+        'archived' => true,
+        'enquiry_datetime' => true,
     ];
 }
