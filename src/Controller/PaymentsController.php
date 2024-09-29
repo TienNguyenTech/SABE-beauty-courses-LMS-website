@@ -60,7 +60,7 @@ class PaymentsController extends AppController
 
     public function enrollments() {
         $this->restrict();
-        $query = $this->Payments->find()->contain(['Courses', 'Users']);
+        $query = $this->Payments->find()->where(['Payments.archived IS' => 0])->contain(['Courses', 'Users']);
         $payments = $this->paginate($query);
         
         $this->set(compact('payments'));
@@ -311,6 +311,13 @@ class PaymentsController extends AppController
         $this->Payments->save($payment);
 
         return $this->redirect(['action' => 'enrollments']);
+    }
+
+    public function archived() {
+        $query = $this->Payments->find()->where(['Payments.archived IS' => 1])->contain(['Courses', 'Users']);
+        $payments = $this->paginate($query);
+
+        $this->set(compact('payments'));
     }
 
 }

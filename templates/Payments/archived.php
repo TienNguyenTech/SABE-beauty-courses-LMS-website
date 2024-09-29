@@ -13,9 +13,9 @@ $ausTimezone = new \DateTimeZone('Australia/Sydney');
 ?>
 <div class="payments index content">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800"><?= __('Enrollments') ?></h1>
+        <h1 class="h3 mb-0 text-gray-800"><?= __('Archived Enrollments') ?></h1>
     </div>
-    <?= $this->Html->link('View Archive', ['action' => 'archived'], ['class' => 'btn btn-secondary', 'style' => 'margin-bottom: 10px']) ?>
+    <?= $this->Html->link('Go back', ['action' => 'enrollments'], ['class' => 'btn btn-secondary', 'style' => 'margin-bottom: 10px']) ?>
     <div class="table-responsive">
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
@@ -36,7 +36,7 @@ $ausTimezone = new \DateTimeZone('Australia/Sydney');
                     <td><?= $this->Html->link($payment->course->course_name, ['controller' => 'Courses', 'action' => 'course', $payment->course->course_id]) ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View Progress'), ['action' => 'view', $payment->payment_id], ['class' => 'btn btn-primary']) ?>
-                        <?= $this->Form->postLink('Archive', ['action' => 'archive', $payment->payment_id], ['class' => 'btn btn-primary']) ?>
+                        <?= $this->Form->postLink('Unarchive', ['action' => 'archive', $payment->payment_id], ['class' => 'btn btn-primary']) ?>
                     </td>
                 </tr>
                 <?php endforeach; ?>
