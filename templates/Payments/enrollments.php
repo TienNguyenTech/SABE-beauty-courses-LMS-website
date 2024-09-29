@@ -35,7 +35,7 @@ $ausTimezone = new \DateTimeZone('Australia/Sydney');
                     </td>
                     <td><?= $this->Html->link($payment->course->course_name, ['controller' => 'Courses', 'action' => 'course', $payment->course->course_id]) ?></td>
                     <td class="actions">
-                        <?= $this->Html->link(__('View Progress'), ['action' => 'view', $payment->payment_id], ['class' => 'btn btn-primary']) ?>
+                        <?= $this->Html->link(__('View Progress'), ['controller' => 'Courses', 'action' => 'enrollment', $payment->user_id, $payment->course->course_id], ['class' => 'btn btn-primary']) ?>
                         <?= $this->Form->postLink('Archive', ['action' => 'archive', $payment->payment_id], ['class' => 'btn btn-primary']) ?>
                     </td>
                 </tr>
