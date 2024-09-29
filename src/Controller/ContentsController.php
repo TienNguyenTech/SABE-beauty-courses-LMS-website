@@ -63,18 +63,27 @@ class ContentsController extends AppController
      */
     public function view($id = null)
     {
-        $this->viewBuilder()->setLayout('student');
+        // Retrieve the user type
+        $user = $this->Authentication->getIdentity()->getOriginalData();
+        $userType = $user['user_type'];
+
+        // Set the layout based on the user type
+        if ($userType === 'admin') {
+            $this->viewBuilder()->setLayout('default');
+        } elseif ($userType === 'student') {
+            $this->viewBuilder()->setLayout('student');
+        }
+
         $content = $this->Contents->get($id, contain: ['Courses']);
         $courseContents = $this->Contents->find()->where(['course_id IS' => $content->course_id])->toArray();
 
-        $user = $this->Authentication->getIdentity()->getOriginalData();
         $userID = $user['User']['id'];
 
         $progression = $this->Progressions->find()->where(['user_id IS' => $userID, 'content_id IS' => $content->content_id])->first();
         $isCompleted = false;
-        if(!empty($progression) && $progression->is_completed == true) {
+        if (!empty($progression) && $progression->is_completed == true) {
             $isCompleted = true;
-        } 
+        }
 
         $this->set(compact('content', 'courseContents', 'userID', 'isCompleted'));
     }
