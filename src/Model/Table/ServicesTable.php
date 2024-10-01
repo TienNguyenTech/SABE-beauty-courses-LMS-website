@@ -40,6 +40,12 @@ class ServicesTable extends Table
         $this->setTable('services');
         $this->setDisplayField('service_name');
         $this->setPrimaryKey('service_id');
+
+        $this->belongsTo('ServiceCategorys', [
+            'className' => 'ServiceCategorys',
+            'foreignKey' => 'category_id',
+            'joinType' => 'INNER'
+        ]);
     }
 
     /**
@@ -55,12 +61,6 @@ class ServicesTable extends Table
             ->maxLength('service_name', 100)
             ->requirePresence('service_name', 'create')
             ->notEmptyString('service_name');
-
-        $validator
-            ->scalar('service_category')
-            ->maxLength('service_category', 100)
-            ->requirePresence('service_category', 'create')
-            ->notEmptyString('service_category');
 
         $validator
             ->decimal('service_price')

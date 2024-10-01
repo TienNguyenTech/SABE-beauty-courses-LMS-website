@@ -6,14 +6,12 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Service Entity
+ * ServiceCategory Entity
  *
- * @property int $service_id
- * @property string $service_name
  * @property int $category_id
- * @property string $service_price
+ * @property string $category_name
  */
-class Service extends Entity
+class ServiceCategory extends Entity
 {
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -25,8 +23,6 @@ class Service extends Entity
      * @var array<string, bool>
      */
     protected array $_accessible = [
-        'service_name' => true,
-        'category_id' => true,
-        'service_price' => true,
+        'category_name' => true,
     ];
 }

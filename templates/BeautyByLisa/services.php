@@ -285,7 +285,7 @@
                 <div class="services-grid">
                     <?php foreach ($groupedServices as $group): ?>
                         <div class="service">
-                            <h2><?= $group[0]['service_category'] ?></h2>
+                            <h2><?= $group[0]['service_category']['category_name'] ?></h2>
                             <ul>
                             <?php foreach ($group as $service): ?>
                                 <li><?= $service->service_name . ' $ ' . $service->service_price ?></li>

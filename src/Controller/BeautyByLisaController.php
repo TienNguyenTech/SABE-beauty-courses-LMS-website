@@ -23,13 +23,13 @@ class BeautyByLisaController extends AppController
     public function services() {
         $this->viewBuilder()->setLayout('customer');
 
-        $services = $this->Services->find()->toArray();
+        $services = $this->Services->find()->contain('ServiceCategorys')->toArray();
 
         $groupedServices = [];
 
         // Group services by category into new array
         foreach ($services as $service) {
-            $groupedServices[$service->service_category][] = $service;
+            $groupedServices[$service->category_id][] = $service;
         }
 
         $this->set('title', 'Beauty by Lisa Follett');

@@ -20,7 +20,9 @@ class ServicesController extends AppController
         //$this->Authentication->allowUnauthenticated(['checkout','success', 'fail']);
         $this->Courses= TableRegistry::getTableLocator()->get('Courses');
         $this->Users = TableRegistry::getTableLocator()->get('Users');
+        $this->Categories = TableRegistry::getTableLocator()->get('ServiceCategorys');
 
+        $this->loadComponent('Flash');
     }
 
     protected function restrict()
@@ -40,7 +42,7 @@ class ServicesController extends AppController
      */
     public function index()
     {
-        $query = $this->Services->find();
+        $query = $this->Services->find()->contain('ServiceCategorys');
         $services = $this->paginate($query);
 
         $this->set(compact('services'));
@@ -77,7 +79,8 @@ class ServicesController extends AppController
             }
             $this->Flash->error(__('The service could not be saved. Please, try again.'));
         }
-        $this->set(compact('service'));
+        $serviceCategorys = $this->Services->ServiceCategorys->find('list', limit: 200)->all();
+        $this->set(compact('service', 'serviceCategorys'));
     }
 
     /**
@@ -100,7 +103,8 @@ class ServicesController extends AppController
             }
             $this->Flash->error(__('The service could not be saved. Please, try again.'));
         }
-        $this->set(compact('service'));
+        $serviceCategorys = $this->Services->ServiceCategorys->find('list', limit: 200)->all();
+        $this->set(compact('service', 'serviceCategorys'));
     }
 
     /**

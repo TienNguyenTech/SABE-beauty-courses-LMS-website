@@ -75,36 +75,27 @@
 </style>
 <div class="services index content">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 style="color:#1cc88a"><?= __('Services') ?></h1>
-        <div>
-            <a href="<?= $this->Url->build(['action' => 'add']) ?>" class="btn btn-info add-btn">
-                <i class="fas fa-plus fa-sm text-white-50"></i> New
-            </a>
-            <a href="<?= $this->Url->build(['controller' => 'ServiceCategorys', 'action' => 'index']) ?>" class="btn btn-info">
-                Manage Categories
-            </a>
-        </div>
+        <h1 style="color:#1cc88a"><?= __('Service Categories') ?></h1>
+        <a href="<?= $this->Url->build(['action' => 'add']) ?>" class="btn btn-info add-btn">
+            <i class="fas fa-plus fa-sm text-white-50"></i> New
+        </a>
 
     </div>
     <div class="table-responsive">
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
                 <tr>
-                    <th><?= h('Service Name') ?></th>
-                    <th><?= h('Category') ?></th>
-                    <th><?= h('Price') ?></th>
+                    <th><?= h('Category Name') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($services as $service): ?>
+                <?php foreach ($serviceCategorys as $category): ?>
                     <tr>
-                        <td><?= h($service->service_name) ?></td>
-                        <td><?= h($service->service_category->category_name) ?></td>
-                        <td>$<?= $this->Number->format($service->service_price) ?></td>
+                        <td><?= h($category->category_name) ?></td>
                         <td class="actions">
-                            <?= $this->Html->link(__('Edit'), ['action' => 'edit', $service->service_id], ['class' => 'btn btn-info edit-btn']) ?>
-                            <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $service->service_id], ['confirm' => __('Are you sure you want to delete service: {0}?', $service->service_name), 'class' => 'btn btn-info delete-btn',]) ?>
+                            <?= $this->Html->link(__('Edit'), ['action' => 'edit', $category->category_id], ['class' => 'btn btn-info edit-btn']) ?>
+                            <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $category->category_id], ['confirm' => __('Are you sure you want to delete category: {0}?', $category->category_name), 'class' => 'btn btn-info delete-btn',]) ?>
                         </td>
                     </tr>
                 <?php endforeach; ?>
