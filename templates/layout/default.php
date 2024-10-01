@@ -157,13 +157,15 @@
                     </button>
 
                     <?php
-                    // Determine if the current page is an index page, edit page, admin_dashboard page, or quiz add page
+                    // Determine if the current page is an index page, edit page, admin_dashboard page, quiz add page, or content edit page
                     $isIndexPage = $this->getRequest()->getParam('action') === 'index';
                     $isEditPage = $this->getRequest()->getParam('action') === 'edit';
                     $isAdminDashboardPage = $this->getRequest()->getParam('controller') === 'Pages' && $this->getRequest()->getParam('action') === 'display';
                     $isQuizAddPage = $this->getRequest()->getParam('controller') === 'Quizzes' && $this->getRequest()->getParam('action') === 'add';
+                    $isContentEditPage = $this->getRequest()->getParam('controller') === 'Contents' && $this->getRequest()->getParam('action') === 'edit';
+                    $isCoursesCoursePage = $this->getRequest()->getParam('controller') === 'Courses' && $this->getRequest()->getParam('action') === 'course';
 
-                    // Define the URL for the admin dashboard page
+                    // Define the URL for the admin dashboard page and courses index page
                     $adminDashboardUrl = $this->Url->build(['plugin' => null, 'controller' => 'adminDashboard', 'action' => 'dashboard']);
                     $coursesIndexUrl = $this->Url->build(['plugin' => null, 'controller' => 'Courses', 'action' => 'index']);
 
@@ -171,6 +173,20 @@
                     if (!$isAdminDashboardPage) {
                         if ($isQuizAddPage) {
                             // If it's the quiz add page, return to the courses index page
+                            echo $this->Html->tag(
+                                'button',
+                                $this->Html->tag('i', '', ['class' => 'fas fa-arrow-left']) . ' Return',
+                                ['onclick' => 'returnToCoursesIndex()', 'class' => 'btn btn-secondary']
+                            );
+                        } elseif ($isContentEditPage) {
+                            // If it's the content edit page, return to the previous page
+                            echo $this->Html->tag(
+                                'button',
+                                $this->Html->tag('i', '', ['class' => 'fas fa-arrow-left']) . ' Return',
+                                ['onclick' => 'goBack()', 'class' => 'btn btn-secondary']
+                            );
+                        } elseif ($isCoursesCoursePage) {
+                            // If it's the courses/course page, return to the index page
                             echo $this->Html->tag(
                                 'button',
                                 $this->Html->tag('i', '', ['class' => 'fas fa-arrow-left']) . ' Return',
