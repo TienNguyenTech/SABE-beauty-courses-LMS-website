@@ -340,24 +340,39 @@ class CoursesController extends AppController
      * @return \Cake\Http\Response|null Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function archive($id = null) {
+    public function archive($id = null)
+    {
         $this->request->allowMethod(['post']);
+    
+        // Fetch the course by its ID
         $course = $this->Courses->get($id);
-        if($course->archived == 1) {
-            // Unarchive
+    
+        // Check if there are any payments associated with this course
+        $hasPayments = $this->Courses->Payments->exists(['course_id' => $id]);
+    
+        if ($course->archived == 1) {
+            // Unarchive the course
             $course->archived = 0;
             $this->Flash->success(__('The course has been unarchived.'));
         } else {
-            // Archive
-            $course->archived = 1;
-            $this->Flash->success(__('The course has been archived.'));
+            // Confirm archiving the course
+            if ($hasPayments) {
+                $this->Flash->warning(__('This course has students enrolled in it. Are you sure you want to archive it?'));
+            } else {
+                $this->Flash->warning(__('There is no student enrolled in this course. You still want to archive it?'));
+            }
+    
+            // Redirect back to the index or wherever you need, not saving yet
+            return $this->redirect(['action' => 'index']);
         }
-
+    
+        // Save the course's new archive status
         $this->Courses->save($course);
-
+    
         return $this->redirect(['action' => 'index']);
     }
-
+    
+    
     /**
      * Gets all archived courses
      *
