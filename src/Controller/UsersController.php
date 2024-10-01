@@ -36,7 +36,7 @@ class UsersController extends AppController
      */
     public function index()
     {
-        $query = $this->Users->find();
+        $query = $this->Users->find()->where(['archived IS' => 0]);
         $users = $this->paginate($query);
 
         $this->set(compact('users'));
@@ -140,7 +140,7 @@ class UsersController extends AppController
             return $this->redirect(['action' => 'index']);
 
         } else {
-// For non-admin users (e.g., customers), proceed with deletion
+        // For non-admin users (e.g., customers), proceed with deletion
             if ($this->Users->delete($user)) {
                 $this->Flash->success(__('The user has been deleted.'));
             } else {
@@ -149,5 +149,35 @@ class UsersController extends AppController
             return $this->redirect(['action' => 'index']);
         }
 
+    }
+
+    public function archive($id = null) {
+        $this->request->allowMethod(['post']);
+        $user = $this->Users->get($id);
+        if($user->archived == 1) {
+            // Unarchive
+            $user->archived = 0;
+            $this->Flash->success(__('The user account has been reactivated.'));
+        } else {
+            // Archive
+            $user->archived = 1;
+            $this->Flash->success(__('The user account has been deactivated.'));
+        }
+
+        $this->Users->save($user);
+
+        return $this->redirect(['action' => 'index']);
+    }
+
+    /**
+     * Gets all archived users
+     *
+     * @return void
+     */
+    public function archived() {
+        $query = $this->Users->find()->where(['archived IS' => 1]);
+        $users = $this->paginate($query);
+
+        $this->set(compact('users'));
     }
 }

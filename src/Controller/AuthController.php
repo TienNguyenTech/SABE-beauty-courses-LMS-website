@@ -324,7 +324,12 @@ class AuthController extends AppController
                 // Proceed with login if reCAPTCHA is valid
 
                 $email = $this->request->getData()['email'];
-                $user = $this->Users->find()->select(['user_id', 'login_attempts'])->where(['email IS' => $email])->first();
+                $user = $this->Users->find()->select(['user_id', 'login_attempts', 'archived'])->where(['email IS' => $email])->first();
+
+                if($user->archived == true) {
+                    // Display error message if account has been deactivated
+                    return $this->Flash->error('Email address and/or Password is incorrect. Please try again.');
+                }
 
                 if($user->login_attempts > 3) {
                     $Html = (new View($this->request))->loadHelper('Html');

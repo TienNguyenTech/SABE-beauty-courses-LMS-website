@@ -80,7 +80,7 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
             <i class="fas fa-plus fa-sm text-white-50"></i> New
         </a>
     </div>
-    <?= $this->Html->link('View Deactivated Users', ['action' => 'archived'], ['class' => 'btn btn-secondary', 'style' => 'margin-bottom: 10px']) ?>
+    <?= $this->Html->link('Go back', ['action' => 'index'], ['class' => 'btn btn-secondary', 'style' => 'margin-bottom: 10px']) ?>
     <div class="table-responsive">
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
@@ -104,7 +104,7 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
                         <td class="actions">
                             <?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->user_id], ['class' => 'btn btn-info edit-btn', 'style' => 'margin-right: 10px;']) ?>
                             <!-- <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $user->user_id], ['confirm' => __('Are you sure you want to delete User# {0}?', $user->user_firstname), 'class' => 'btn btn-info delete-btn']) ?> -->
-                            <?= $this->Form->postLink(__('Deactivate'), ['action' => 'archive', $user->user_id], ['confirm' => __('Are you sure you want to deactivate User# {0}?', $user->user_firstname . ' ' . $user->user_surname), 'class' => 'btn btn-info delete-btn']) ?>
+                            <?= $this->Form->postLink(__('Reactivate'), ['action' => 'archive', $user->user_id], ['confirm' => __('Are you sure you want to reactivate User# {0}?', $user->user_firstname . ' ' . $user->user_surname), 'class' => 'btn btn-info delete-btn']) ?>
                         </td>
                     </tr>
                 <?php endforeach; ?>
