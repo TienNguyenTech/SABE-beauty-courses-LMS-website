@@ -163,7 +163,7 @@ class EnquirysController extends AppController
         } else {
             $this->Flash->error(__('The enquiry could not be unarchived. Please, try again.'));
         }
-        return $this->redirect(['action' => 'archived']);
+        return $this->redirect(['action' => 'index']);
     }
     public function archived() {
         $query = $this->Enquirys->find()
