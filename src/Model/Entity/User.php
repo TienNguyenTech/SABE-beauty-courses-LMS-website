@@ -16,6 +16,8 @@ use Cake\ORM\Entity;
  * @property string $user_phone
  * @property string $user_type
  * @property string $password
+ * @property int $login_attempts
+ * @property int $archived
  *
  * @property \App\Model\Entity\Course[] $courses
  */
@@ -38,6 +40,8 @@ class User extends Entity
         'user_type' => true,
         'password' => true,
         'courses' => true,
+        'login_attempts' => true,
+        'archived' => true
     ];
 
     /**
