@@ -7,6 +7,8 @@ use App\Model\Table\UsersTable;
 use Cake\I18n\DateTime;
 use Cake\Mailer\Mailer;
 use Cake\Utility\Security;
+use Cake\Routing\Router;
+use Cake\View\View;
 
 /**
  * Auth Controller
@@ -320,13 +322,28 @@ class AuthController extends AppController
                 $this->Flash->error('Please verify that you are not a robot.');
             } else {
                 // Proceed with login if reCAPTCHA is valid
+
+                $email = $this->request->getData()['email'];
+                $user = $this->Users->find()->select(['user_id', 'login_attempts'])->where(['email IS' => $email])->first();
+
+                if($user->login_attempts > 3) {
+                    $Html = (new View($this->request))->loadHelper('Html');
+                    $link = $Html->link('reset your password.', [
+                        'controller' => 'Auth',
+                        'action' => 'forgetPassword'
+                    ]);
+                    return $this->Flash->error('Your account has been locked due to too many failed login attempts. Please ' . $link, ['escape' => false]);
+                }
+
                 if ($result && $result->isValid()) {
                     // Store the user ID in the session
                     $user = $this->Authentication->getIdentity();
                     $userId = $user->get('user_id');
                     $this->request->getSession()->write('Auth.User.id', $userId);
 
-                  
+                    $user = $this->Users->get($userId);
+                    $user->login_attempts = 0;
+                    $this->Users->save($user);
 
                     // Redirect based on user_type
                     if ($user->get('user_type') === 'admin') {
@@ -335,6 +352,12 @@ class AuthController extends AppController
                         return $this->redirect(['controller' => 'StudentDashboard', 'action' => 'dashboard']);
                     }
                 } else {
+                    $user = $this->Users->find()->select(['user_id', 'login_attempts'])->where(['email IS' => $email])->first();
+
+                    $user->login_attempts++;
+
+                    $this->Users->save($user);
+
                     $this->Flash->error('Email address and/or Password is incorrect. Please try again.');
                 }
             }
