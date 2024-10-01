@@ -60,11 +60,9 @@ class UsersTable extends Table
         $validator
             ->requirePresence('password', 'create')
             ->notEmptyString('password', 'Please enter a password')
-            ->add('password', [
-                'length' => [
-                    'rule' => ['minLength', 8],
-                    'message' => 'Password must be at least 8 characters long',
-                ],
+            ->add('password', 'validFormat', [
+                'rule' => ['custom', '/^(?=.*[A-Z])(?=(.*\d){2,})(?=.*[!@#$%^&*()_+\-=\[\]{};\'":\\|,.<>\/?]).{8,}$/'],
+                'message' => 'Password must be at least 8 characters long, contain at least one uppercase letter, at least two digits, and at least one special character.'
             ])
             ->requirePresence('password_confirm', 'create')
             ->notEmptyString('password_confirm', 'Please confirm your password')
@@ -138,7 +136,11 @@ class UsersTable extends Table
             ->scalar('password')
             ->maxLength('password', 255)
             ->requirePresence('password', 'create')
-            ->notEmptyString('password');
+            ->notEmptyString('password')
+            ->add('password', 'validFormat', [
+                'rule' => ['custom', '/^(?=.*[A-Z])(?=(.*\d){2,})(?=.*[!@#$%^&*()_+\-=\[\]{};\'":\\|,.<>\/?]).{8,}$/'],
+                'message' => 'Password must be at least 8 characters long, contain at least one uppercase letter, at least two digits, and at least one special character.'
+            ]);
 
         return $validator;
     }
