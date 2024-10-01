@@ -59,8 +59,12 @@ class AuthController extends AppController
                 return $this->redirect(['controller' => 'Auth', 'action' => 'login']);
             }
 
-            if($user->getErrors()['password']['validFormat']) {
+            if(!empty($user->getErrors()['password']['validFormat'])) {
                 return $this->Flash->error($user->getErrors()['password']['validFormat']);
+            }
+
+            if(!empty($user->getErrors()['email']['unique'])) {
+                return $this->Flash->error($user->getErrors()['email']['unique']);
             }
 
             $this->Flash->error('Registration failed. Please try again.');

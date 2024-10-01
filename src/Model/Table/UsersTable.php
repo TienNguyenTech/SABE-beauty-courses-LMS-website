@@ -113,8 +113,13 @@ class UsersTable extends Table
             ->requirePresence('email', 'create')
             ->notEmptyString('email')
             ->add('email', 'validFormat', [
-            'rule' => 'email',
-            'message' => 'Please enter a valid email address.',
+                'rule' => 'email',
+                'message' => 'Please enter a valid email address.',
+            ])
+            ->add('email', 'unique', [
+                'rule' => 'validateUnique',
+                'provider' => 'table',
+                'message' => 'This email address is unavailable.'
             ]);
 
         $validator
