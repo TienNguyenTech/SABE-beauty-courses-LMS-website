@@ -42,6 +42,7 @@ class ServiceCategorysTable extends Table
         $this->setPrimaryKey('category_id');
 
         $this->belongsToMany('Services', [
+            'className' => 'Services',
             'foreignKey' => 'category_id',
             'targetForeignKey' => 'category_id'
         ]);

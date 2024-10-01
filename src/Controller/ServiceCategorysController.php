@@ -15,6 +15,8 @@ class ServiceCategorysController extends AppController
 {
     public function initialize(): void {
         $this->ServiceCategorys = $this->getTableLocator()->get("ServiceCategorys");
+        $this->Services = TableRegistry::getTableLocator()->get(alias: 'Services');
+        $this->loadComponent('Flash');
     }
     /**
      * Index method
@@ -95,7 +97,12 @@ class ServiceCategorysController extends AppController
     {
         $this->request->allowMethod(['post', 'delete']);
         $serviceCategory = $this->ServiceCategorys->get($id);
-        if ($this->ServiceCategorys->delete($serviceCategory)) {
+
+        $services = $this->Services->find()->where(['category_id IS' => $id])->toArray();
+
+        if (!empty($services)) {
+            $this->Flash->error(__('The service category could not be deleted. Please, try again.'));
+        } else if ($this->ServiceCategorys->deleteAll(['category_id IS' => $id])) {
             $this->Flash->success(__('The service category has been deleted.'));
         } else {
             $this->Flash->error(__('The service category could not be deleted. Please, try again.'));

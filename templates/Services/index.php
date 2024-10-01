@@ -76,9 +76,14 @@
 <div class="services index content">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 style="color:#1cc88a"><?= __('Services') ?></h1>
-        <a href="<?= $this->Url->build(['action' => 'add']) ?>" class="btn btn-info add-btn">
-            <i class="fas fa-plus fa-sm text-white-50"></i> New
-        </a>
+        <div>
+            <a href="<?= $this->Url->build(['action' => 'add']) ?>" class="btn btn-info add-btn">
+                <i class="fas fa-plus fa-sm text-white-50"></i> New
+            </a>
+            <a href="<?= $this->Url->build(['controller' => 'ServiceCategorys', 'action' => 'index']) ?>" class="btn btn-info">
+                Manage Categories
+            </a>
+        </div>
 
     </div>
     <div class="table-responsive">
@@ -95,7 +100,7 @@
                 <?php foreach ($services as $service): ?>
                     <tr>
                         <td><?= h($service->service_name) ?></td>
-                        <td><?= h($service->service_category) ?></td>
+                        <td><?= h($service->service_category->category_name) ?></td>
                         <td>$<?= $this->Number->format($service->service_price) ?></td>
                         <td class="actions">
                             <?= $this->Html->link(__('Edit'), ['action' => 'edit', $service->service_id], ['class' => 'btn btn-info edit-btn']) ?>

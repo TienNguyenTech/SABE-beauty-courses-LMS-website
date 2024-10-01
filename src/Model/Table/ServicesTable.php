@@ -42,7 +42,9 @@ class ServicesTable extends Table
         $this->setPrimaryKey('service_id');
 
         $this->belongsTo('ServiceCategorys', [
-            'foreignKey' => 'category_id'
+            'className' => 'ServiceCategorys',
+            'foreignKey' => 'category_id',
+            'joinType' => 'INNER'
         ]);
     }
 

@@ -22,6 +22,7 @@ class ServicesController extends AppController
         $this->Users = TableRegistry::getTableLocator()->get('Users');
         $this->Categories = TableRegistry::getTableLocator()->get('ServiceCategorys');
 
+        $this->loadComponent('Flash');
     }
 
     protected function restrict()
