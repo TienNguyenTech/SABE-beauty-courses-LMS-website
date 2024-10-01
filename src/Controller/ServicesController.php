@@ -20,6 +20,7 @@ class ServicesController extends AppController
         //$this->Authentication->allowUnauthenticated(['checkout','success', 'fail']);
         $this->Courses= TableRegistry::getTableLocator()->get('Courses');
         $this->Users = TableRegistry::getTableLocator()->get('Users');
+        $this->Categories = TableRegistry::getTableLocator()->get('ServiceCategorys');
 
     }
 
@@ -40,7 +41,7 @@ class ServicesController extends AppController
      */
     public function index()
     {
-        $query = $this->Services->find();
+        $query = $this->Services->find()->contain('ServiceCategorys');
         $services = $this->paginate($query);
 
         $this->set(compact('services'));

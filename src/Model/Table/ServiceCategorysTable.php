@@ -40,6 +40,11 @@ class ServiceCategorysTable extends Table
         $this->setTable('service_categorys');
         $this->setDisplayField('category_name');
         $this->setPrimaryKey('category_id');
+
+        $this->belongsToMany('Services', [
+            'foreignKey' => 'category_id',
+            'targetForeignKey' => 'category_id'
+        ]);
     }
 
     /**
