@@ -66,7 +66,20 @@ class CoursesController extends AppController
     public function index()
     {
         $query = $this->Courses->find()->where(['archived IS' => 0]);
-        $courses = $this->paginate($query);
+        $courses = $this->paginate($query)->toArray();
+
+        // Set hasPayments for each course
+        for($i = 0; $i < sizeOf($courses); $i++) {
+            // Check if there are any payments associated with this course
+            $id = $courses[$i]['course_id'];
+            $hasPayments = $this->Courses->Payments->exists(['course_id IS' => $id]);
+
+            if($hasPayments == true) {
+                $courses[$i]->hasPayments = true;
+            } else {
+                $courses[$i]->hasPayments = false;
+            }
+        }
 
         $this->set(compact('courses'));
     }
@@ -340,24 +353,38 @@ class CoursesController extends AppController
      * @return \Cake\Http\Response|null Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function archive($id = null) {
+    public function archive($id = null)
+    {
         $this->request->allowMethod(['post']);
+    
+        // Fetch the course by its ID
         $course = $this->Courses->get($id);
-        if($course->archived == 1) {
-            // Unarchive
+    
+        // Check if there are any payments associated with this course
+        $hasPayments = $this->Courses->Payments->exists(['course_id' => $id]);
+    
+        if ($course->archived == 1) {
+            // Unarchive the course
             $course->archived = 0;
             $this->Flash->success(__('The course has been unarchived.'));
         } else {
-            // Archive
+            // Confirm archiving the course
+            if ($hasPayments) {
+                return $this->Flash->warning(__('This course has students enrolled in it. Are you sure you want to archive it?'));
+            } 
+
+            // Archive the course
             $course->archived = 1;
-            $this->Flash->success(__('The course has been archived.'));
+            $this->Flash->success(__('The course has been unarchived.'));
         }
 
+        // Save the course's new archive status
         $this->Courses->save($course);
-
+    
         return $this->redirect(['action' => 'index']);
     }
-
+    
+    
     /**
      * Gets all archived courses
      *

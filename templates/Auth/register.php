@@ -162,6 +162,7 @@ $this->assign('title', 'Create account');
                         'type' => 'password',
                         'required' => true,
                         'label' => 'Password',
+                        'pattern' => "^(?=.*[A-Z])(?=(.*\d){2,})(?=.*[!@#$%^&*()_+\-=\[\]{};':&quot;\\|,.&lt;&gt;\/?]).{8,}$"
                     ]); ?>
                 </div>
 
@@ -170,6 +171,7 @@ $this->assign('title', 'Create account');
                         'type' => 'password',
                         'required' => true,
                         'label' => 'Retype Password',
+                        'pattern' => "^(?=.*[A-Z])(?=(.*\d){2,})(?=.*[!@#$%^&*()_+\-=\[\]{};':&quot;\\|,.&lt;&gt;\/?]).{8,}$"
                     ]); ?>
                 </div>
 
