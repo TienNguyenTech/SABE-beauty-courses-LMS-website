@@ -52,6 +52,10 @@ class CoursesTable extends Table
         $this->hasMany('Contents', [
             'foreignKey' => 'course_id'
         ]);
+
+        $this->hasMany('Payments', [
+            'foreignKey' => 'course_id',
+        ]);
     }
 
     /**
