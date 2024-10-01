@@ -4,24 +4,17 @@
  * @var \App\Model\Entity\ServiceCategory $serviceCategory
  */
 ?>
-<div class="row">
-    <aside class="column">
-        <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('List Service Categorys'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-        </div>
-    </aside>
-    <div class="column column-80">
-        <div class="serviceCategorys form content">
-            <?= $this->Form->create($serviceCategory) ?>
-            <fieldset>
-                <legend><?= __('Add Service Category') ?></legend>
-                <?php
-                    echo $this->Form->control('category_name');
-                ?>
-            </fieldset>
-            <?= $this->Form->button(__('Submit')) ?>
-            <?= $this->Form->end() ?>
-        </div>
-    </div>
-</div>
+<h1 class="h3 mb-2 text-gray-800">Add new category</h1>
+
+<?= $this->Form->create($serviceCategory, ['class' => 'text-gray-800']); ?>
+<?php
+echo $this->Form->control('category_name', [
+    'label' => [
+        'text' => 'Name <span style="color: red;">*</span>',
+        'escape' => false
+    ],
+    'class' => 'form-control'
+]);
+?>
+<?= $this->Form->button(__('Submit'),['class'=>'btn btn-primary']) ?>
+<?= $this->Form->end() ?>

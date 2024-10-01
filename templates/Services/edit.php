@@ -4,7 +4,7 @@
  * @var \App\Model\Entity\Service $service
  */
 ?>
-<h1 class="h3 mb-2 text-gray-800">Add new service</h1>
+<h1 class="h3 mb-2 text-gray-800">Edit service</h1>
 
 <?= $this->Form->create($service, ['class' => 'text-gray-800']); ?>
 
