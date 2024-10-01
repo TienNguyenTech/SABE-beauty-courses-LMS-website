@@ -66,7 +66,20 @@ class CoursesController extends AppController
     public function index()
     {
         $query = $this->Courses->find()->where(['archived IS' => 0]);
-        $courses = $this->paginate($query);
+        $courses = $this->paginate($query)->toArray();
+
+        // Set hasPayments for each course
+        for($i = 0; $i < sizeOf($courses); $i++) {
+            // Check if there are any payments associated with this course
+            $id = $courses[$i]['course_id'];
+            $hasPayments = $this->Courses->Payments->exists(['course_id IS' => $id]);
+
+            if($hasPayments == true) {
+                $courses[$i]->hasPayments = true;
+            } else {
+                $courses[$i]->hasPayments = false;
+            }
+        }
 
         $this->set(compact('courses'));
     }
@@ -357,15 +370,14 @@ class CoursesController extends AppController
         } else {
             // Confirm archiving the course
             if ($hasPayments) {
-                $this->Flash->warning(__('This course has students enrolled in it. Are you sure you want to archive it?'));
-            } else {
-                $this->Flash->warning(__('There is no student enrolled in this course. You still want to archive it?'));
-            }
-    
-            // Redirect back to the index or wherever you need, not saving yet
-            return $this->redirect(['action' => 'index']);
+                return $this->Flash->warning(__('This course has students enrolled in it. Are you sure you want to archive it?'));
+            } 
+
+            // Archive the course
+            $course->archived = 1;
+            $this->Flash->success(__('The course has been unarchived.'));
         }
-    
+
         // Save the course's new archive status
         $this->Courses->save($course);
     

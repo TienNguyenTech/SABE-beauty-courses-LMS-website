@@ -132,14 +132,27 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
                         <td class="actions">
                             <?= $this->Html->link(__('Manage'), ['action' => 'course', $course->course_id], ['class' => 'btn btn-info view-btn', 'style' => 'margin-bottom: 10px;', 'target' => '_blank']) ?>
                             <?= $this->Html->link(__('Edit'), ['action' => 'edit', $course->course_id], ['class' => 'btn btn-info edit-btn', 'style' => 'margin-bottom: 10px;', 'target' => '_blank']) ?>
-                            <?= $this->Form->postLink(
-                                __('Archive'),
-                                ['action' => 'archive', $course->course_id],
-                                [
-                                    //'confirm' => __('Are you sure you want to archive course: {0}?', $course->course_name),
-                                    'class' => 'btn btn-info delete-btn',
-                                ]
-                            ) ?>
+                            <?php
+                                if($course->hasPayments == false) {
+                                    echo $this->Form->postLink(
+                                        __('Archive'),
+                                        ['action' => 'archive', $course->course_id],
+                                        [
+                                            'confirm' => __('Are you sure you want to archive course: {0}?', $course->course_name),
+                                            'class' => 'btn btn-info delete-btn',
+                                        ]
+                                    );
+                                } else {
+                                    echo $this->Form->postLink(
+                                        __('Archive'),
+                                        ['action' => 'archive', $course->course_id],
+                                        [
+                                            'confirm' => __('Warning: This course has students currently enrolled. Are you sure you want to archive course: {0}?', $course->course_name),
+                                            'class' => 'btn btn-info delete-btn',
+                                        ]
+                                    );
+                                }
+                            ?>
                         </td>
                     </tr>
                 <?php endforeach; ?>
