@@ -63,12 +63,6 @@ class ServicesTable extends Table
             ->notEmptyString('service_name');
 
         $validator
-            ->scalar('service_category')
-            ->maxLength('service_category', 100)
-            ->requirePresence('service_category', 'create')
-            ->notEmptyString('service_category');
-
-        $validator
             ->decimal('service_price')
             ->requirePresence('service_price', 'create')
             ->notEmptyString('service_price');

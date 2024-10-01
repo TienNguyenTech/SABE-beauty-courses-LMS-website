@@ -2,6 +2,7 @@
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Service $service
+ * @var \Cake\Collection\CollectionInterface|string[] $serviceCategorys
  */
 ?>
 <h1 class="h3 mb-2 text-gray-800">Edit service</h1>
@@ -21,14 +22,9 @@
 </div>
 
 <div style="margin-bottom: 15px; display: flex; align-items: center;">
-    <?= h('Category') . ' <span style="color: red;">*</span>' ?>
-    <?= $this->Form->select('service_category', [
-        'Lash & Brow Treatments' => 'Lash & Brow Treatments',
-        'Hair Removal' => 'Hair Removal',
-        'Spray Tan' => 'Spray Tan',
-        'Skincare Treatments' => 'Skincare Treatments',
-        'Massage Treatments' => 'Massage Treatments',
-        'Foot Treatments' => 'Foot Treatments'
+    <?= $this->Form->control('category_id', [
+        'label' => 'Category',
+        'options' => $serviceCategorys
     ], [
         'style' => 'width: 400px; margin-left: 10px;',  // Select field width
     ]) ?>

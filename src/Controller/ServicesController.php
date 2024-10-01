@@ -79,7 +79,8 @@ class ServicesController extends AppController
             }
             $this->Flash->error(__('The service could not be saved. Please, try again.'));
         }
-        $this->set(compact('service'));
+        $serviceCategorys = $this->Services->ServiceCategorys->find('list', limit: 200)->all();
+        $this->set(compact('service', 'serviceCategorys'));
     }
 
     /**
@@ -102,7 +103,8 @@ class ServicesController extends AppController
             }
             $this->Flash->error(__('The service could not be saved. Please, try again.'));
         }
-        $this->set(compact('service'));
+        $serviceCategorys = $this->Services->ServiceCategorys->find('list', limit: 200)->all();
+        $this->set(compact('service', 'serviceCategorys'));
     }
 
     /**
