@@ -26,7 +26,9 @@ class ContentsController extends AppController
         $this->Courses = TableRegistry::getTableLocator()->get("Courses");
         $this->Users = TableRegistry::getTableLocator()->get("Users");
         $this->Progressions = TableRegistry::getTableLocator()->get("Progressions");
-
+        $this->response = $this->response->withHeader('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0')
+            ->withHeader('Cache-Control', 'post-check=0, pre-check=0', false)
+            ->withHeader('Pragma', 'no-cache');
     }
 
     protected function restrict()
