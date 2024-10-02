@@ -17,6 +17,9 @@ class ServiceCategorysController extends AppController
         $this->ServiceCategorys = $this->getTableLocator()->get("ServiceCategorys");
         $this->Services = TableRegistry::getTableLocator()->get(alias: 'Services');
         $this->loadComponent('Flash');
+        $this->response = $this->response->withHeader('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0')
+            ->withHeader('Cache-Control', 'post-check=0, pre-check=0', false)
+            ->withHeader('Pragma', 'no-cache');
     }
     /**
      * Index method

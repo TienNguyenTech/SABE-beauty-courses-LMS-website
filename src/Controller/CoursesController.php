@@ -36,6 +36,9 @@ class CoursesController extends AppController
         // Controller-level function/action whitelist for authentication
         $this->Authentication->allowUnauthenticated(['view', 'courses']);
         $this->Users = TableRegistry::getTableLocator()->get("Users");
+        $this->response = $this->response->withHeader('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0')
+            ->withHeader('Cache-Control', 'post-check=0, pre-check=0', false)
+            ->withHeader('Pragma', 'no-cache');
     }
 
     protected function restrict()
@@ -356,13 +359,13 @@ class CoursesController extends AppController
     public function archive($id = null)
     {
         $this->request->allowMethod(['post']);
-    
+
         // Fetch the course by its ID
         $course = $this->Courses->get($id);
-    
+
         // Check if there are any payments associated with this course
         $hasPayments = $this->Courses->Payments->exists(['course_id' => $id]);
-    
+
         if ($course->archived == 1) {
             // Unarchive the course
             $course->archived = 0;
@@ -371,7 +374,7 @@ class CoursesController extends AppController
             // Confirm archiving the course
             if ($hasPayments) {
                 return $this->Flash->warning(__('This course has students enrolled in it. Are you sure you want to archive it?'));
-            } 
+            }
 
             // Archive the course
             $course->archived = 1;
@@ -380,11 +383,11 @@ class CoursesController extends AppController
 
         // Save the course's new archive status
         $this->Courses->save($course);
-    
+
         return $this->redirect(['action' => 'index']);
     }
-    
-    
+
+
     /**
      * Gets all archived courses
      *

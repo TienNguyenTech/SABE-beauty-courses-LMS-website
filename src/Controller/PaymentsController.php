@@ -28,6 +28,9 @@ class PaymentsController extends AppController
         //$this->Authentication->allowUnauthenticated(['checkout','success', 'fail']);
         $this->Courses= TableRegistry::getTableLocator()->get('Courses');
         $this->Users = TableRegistry::getTableLocator()->get('Users');
+        $this->response = $this->response->withHeader('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0')
+            ->withHeader('Cache-Control', 'post-check=0, pre-check=0', false)
+            ->withHeader('Pragma', 'no-cache');
 
     }
 
@@ -62,7 +65,7 @@ class PaymentsController extends AppController
         $this->restrict();
         $query = $this->Payments->find()->where(['Payments.archived IS' => 0])->contain(['Courses', 'Users']);
         $payments = $this->paginate($query);
-        
+
         $this->set(compact('payments'));
     }
 
@@ -171,7 +174,7 @@ class PaymentsController extends AppController
         if($checkPayments) {
             // Student already owns this course -> redirect to course page
             return $this->redirect(['controller' => 'Courses', 'action' => 'accesscourse', $course_id]);
-        } 
+        }
 
         $payment = $this->Payments->newEmptyEntity();
 
@@ -277,7 +280,7 @@ class PaymentsController extends AppController
     }
 
     public function fail() {
-        $this->viewBuilder()->disableAutoLayout();        
+        $this->viewBuilder()->disableAutoLayout();
     }
 
     public function toggle($id = null) {

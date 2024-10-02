@@ -31,6 +31,9 @@ class QuizzesController extends AppController
 
         $this->Authentication->allowUnauthenticated(['test', 'submit']);
         $this->Users = TableRegistry::getTableLocator()->get('Users');
+        $this->response = $this->response->withHeader('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0')
+            ->withHeader('Cache-Control', 'post-check=0, pre-check=0', false)
+            ->withHeader('Pragma', 'no-cache');
     }
 
     protected function restrict()
