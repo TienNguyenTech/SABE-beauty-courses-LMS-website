@@ -373,7 +373,8 @@ class CoursesController extends AppController
         } else {
             // Confirm archiving the course
             if ($hasPayments) {
-                return $this->Flash->warning(__('This course has students enrolled in it. Are you sure you want to archive it?'));
+                $this->Flash->warning(__('This course has students enrolled in it. Are you sure you want to archive it?'));
+                return $this->redirect(['action' => 'index']);
             }
 
             // Archive the course
