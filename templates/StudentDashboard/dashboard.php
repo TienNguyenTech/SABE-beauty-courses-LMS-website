@@ -9,33 +9,35 @@
     }
 
     .dashboard-card {
-        flex: 1 0 200px;
+        flex: 1 0 30%; /* Adjusted to fit 3 cards per row with some gap */
+        max-width: 30%; /* Ensures that the cards do not exceed 30% of the container width */
         background-color: #f8f9fa;
         border-radius: 10px;
         padding: 20px;
         box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+        box-sizing: border-box; /* Ensures padding and border are included in the width */
     }
 
     .dashboard-card h2 {
         margin: 0;
-        color: #1a4332;
+        color: black;
         font-size: 1.5em;
     }
 
     .dashboard-card p {
-        color: #858796;
+        color: black;
     }
 
     .dashboard-card a {
         display: inline-block;
         margin-top: 10px;
-        color: #1a4332;
+        color: #1cc88a;
         text-decoration: none;
     }
 
 </style>
 
-<h1 class="h3 mb-2 text-gray-800">Student Dashboard</h1>
+<h1 style="color:#1cc88a">Student Dashboard</h1>
 
 <div class="dashboard-container">
 
