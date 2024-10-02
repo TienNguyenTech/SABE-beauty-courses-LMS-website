@@ -654,6 +654,7 @@
         font-weight: 700;
         display: block;
         padding: 15px;
+        font-size: 18px;
     }
 
     nav.main-menu ul li a:hover {
@@ -1079,7 +1080,8 @@
                         <!-- logo -->
 
                         <!-- menu start -->
-                        <nav class="main-menu" style="position: relative; top: 50%; -webkit-transform: translateY(50%); -ms-transform: translateY(50%); transform: translateY(50%);">
+                        <nav class="main-menu"
+                             style="position: relative; top: 50%; -webkit-transform: translateY(50%); -ms-transform: translateY(50%); transform: translateY(50%);">
                             <ul>
                                 <li><?= $this->Html->link("Home", "/") ?></li>
 
@@ -1093,6 +1095,10 @@
 
                                 <li><?= $this->Html->link("Contact Us", ['controller' => 'Enquirys', 'action' => 'add']) ?>
                                 </li>
+
+                                <li><?= $this->Html->link("Murad", ['controller' => 'BeautyByLisa', 'action' => 'murad']) ?>
+                                </li>
+
 
                                 <li style="float: right">
                                     <?php
@@ -1109,8 +1115,9 @@
                                     echo $this->Html->link(
                                         'Log out',
                                         ['controller' => 'Auth', 'action' => 'logout'],
-                                        ['class' => 'button button-outline', 'onclick' => 'return confirm("Are you sure you want to leave?");']
-                                    );
+                                        ['class' => 'button button-outline',]
+                                    ); //'onclick' => 'return confirm("Are you sure you want to leave?");'
+
                                     } else {
                                         echo $this->Html->link(
                                             'Log in',
