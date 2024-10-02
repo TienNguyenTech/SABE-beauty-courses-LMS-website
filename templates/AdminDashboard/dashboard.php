@@ -9,11 +9,13 @@
     }
 
     .dashboard-card {
-        flex: 1 0 200px;
+        flex: 1 0 30%; /* Adjusted to fit 3 cards per row with some gap */
+        max-width: 30%; /* Ensures that the cards do not exceed 30% of the container width */
         background-color: #f8f9fa;
         border-radius: 10px;
         padding: 20px;
         box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+        box-sizing: border-box; /* Ensures padding and border are included in the width */
     }
 
     .dashboard-card h2 {
@@ -51,22 +53,32 @@
     <div class="dashboard-card">
         <h2>Courses</h2>
         <p>Manage all courses here</p>
-        <a href="<?= $this->Url->build(['controller'=>'Courses','action'=>'index']) ?>">Go to Courses</a>
+        <a href="<?= $this->Url->build(['plugin' => null,'controller'=>'Courses','action'=>'index']) ?>">Go to Courses</a>
+    </div>
+
+    <div class="dashboard-card">
+        <h2>Services</h2>
+        <p>Manage all Services here</p>
+        <a href="<?= $this->Url->build(['plugin' => null, 'controller' => 'Services', 'action' => 'index']) ?> ">Go to Services</a>
     </div>
 
     <div class="dashboard-card">
         <h2>Users</h2>
         <p>Manage all users here</p>
-        <a href="<?= $this->Url->build(['controller'=>'Users','action'=>'index']) ?>">Go to Users</a>
+        <a href="<?= $this->Url->build(['plugin' => null,'controller'=>'Users','action'=>'index']) ?>">Go to Users</a>
     </div>
 
     <div class="dashboard-card">
-        <h2>Payments</h2>
-        <p>Manage all payments here</p>
-        <a href="<?= $this->Url->build(['controller' => 'Payments', 'action' => 'index']) ?>">Go to Payments</a>
+        <h2>Enrollments</h2>
+        <p>Manage all enrollments here</p>
+        <a href="<?= $this->Url->build(['plugin' => null, 'controller' => 'Payments', 'action' => 'enrollments']) ?>">Go to Enrollments</a>
     </div>
 
-
+    <div class="dashboard-card">
+        <h2>Modify Website</h2>
+        <p>Modify your website here</p>
+        <a href="<?= $this->Url->build(['plugin' => null, 'plugin' => 'ContentBlocks', 'controller' => 'ContentBlocks', 'action' => 'index']) ?> ">Go to Modify Wbesite</a>
+    </div>
 
     <!-- Empty Card -->
 
