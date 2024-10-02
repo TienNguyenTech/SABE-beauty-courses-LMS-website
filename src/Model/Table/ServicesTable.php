@@ -65,7 +65,9 @@ class ServicesTable extends Table
         $validator
             ->decimal('service_price')
             ->requirePresence('service_price', 'create')
-            ->notEmptyString('service_price');
+            ->notEmptyString('service_price')
+            ->greaterThanOrEqual('service_price', 0, 'The service price cannot be negative.')
+            ->lessThanOrEqual('service_price', 1000000, 'The service price cannot exceed 1 million.');
 
         return $validator;
     }
