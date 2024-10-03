@@ -42,6 +42,7 @@ class UsersController extends AppController
         $query = $this->Users->find()->where(['archived IS' => 0]);
         $users = $this->paginate($query);
 
+        $this->set('title', 'Users');
         $this->set(compact('users'));
     }
 
@@ -88,6 +89,7 @@ class UsersController extends AppController
             $this->Flash->error(__('The user could not be saved. Please, try again.'));
         }
         $courses = $this->Users->Courses->find('list', limit: 200)->all();
+        $this->set('title', 'Create User Account');
         $this->set(compact('user', 'courses'));
     }
 
@@ -112,6 +114,7 @@ class UsersController extends AppController
             $this->Flash->error(__('The user could not be saved. Please, try again.'));
         }
         $courses = $this->Users->Courses->find('list', limit: 200)->all();
+        $this->set('title', 'Edit User Account');
         $this->set(compact('user', 'courses'));
     }
 
@@ -182,6 +185,7 @@ class UsersController extends AppController
         $query = $this->Users->find()->where(['archived IS' => 1]);
         $users = $this->paginate($query);
 
+        $this->set('title', 'Deactivated Users');
         $this->set(compact('users'));
     }
 }

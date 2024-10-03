@@ -84,6 +84,7 @@ class CoursesController extends AppController
             }
         }
 
+        $this->set('title', 'Courses');
         $this->set(compact('courses'));
     }
 
@@ -154,6 +155,7 @@ class CoursesController extends AppController
 
         $contents = $this->paginate($query);
         $this->viewBuilder()->setLayout('default');
+        $this->set('title', $course->course_name);
         $this->set(compact('course', 'contents', 'quiz'));
     }
 
@@ -238,6 +240,7 @@ class CoursesController extends AppController
 
         $response = $this->Responses->find()->where(['user_id IS' => $userID, 'quiz_id IS' => $quiz->quiz_id])->first();
 
+        $this->set('title', 'View Progress');
         $this->set(compact('course', 'contents', 'quiz', 'progression', 'user', 'response'));
     }
 
@@ -277,6 +280,7 @@ class CoursesController extends AppController
         }
 
         $users = $this->Courses->Users->find('list', ['limit' => 200])->all();
+        $this->set('title', 'Create Course');
         $this->set(compact('course', 'users'));
     }
 
@@ -328,6 +332,7 @@ class CoursesController extends AppController
             }
         }
 
+        $this->set('title', 'Edit ' . $course->course_name);
         $this->set(compact('course'));
     }
 
@@ -401,6 +406,7 @@ class CoursesController extends AppController
         $query = $this->Courses->find()->where(['archived IS' => 1]);
         $courses = $this->paginate($query);
 
+        $this->set('title', 'Archived Courses');
         $this->set(compact('courses'));
     }
 }

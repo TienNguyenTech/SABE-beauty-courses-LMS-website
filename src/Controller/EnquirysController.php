@@ -46,6 +46,8 @@ class EnquirysController extends AppController
             ->where(['archived' => false]);
         $enquirys = $this->paginate($query);
 
+        $this->set('title', 'Enquiries');
+
         $this->set(compact('enquirys'));
     }
 
@@ -133,7 +135,7 @@ class EnquirysController extends AppController
         $enquiry = $this->Enquirys->get($id, [
             'contain' => [],
         ]);
-
+        $this->set('title', $enquiry->enquiry_subject);
         $this->set(compact('enquiry'));
     }
 
@@ -172,7 +174,7 @@ class EnquirysController extends AppController
         $query = $this->Enquirys->find()
             ->where(['archived' => true]);
         $enquirys = $this->paginate($query);
-
+        $this->set('title', 'Archived Enquiries');
         $this->set(compact('enquirys'));
     }
 

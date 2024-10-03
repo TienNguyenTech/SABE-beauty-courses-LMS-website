@@ -173,6 +173,7 @@ class QuizzesController extends AppController
             $this->Flash->error(__('The quiz could not be saved. Please, try again.'));
         }
         $course = $this->Quizzes->Courses->get($courseID);
+        $this->set('title', 'Add Quiz');
         $this->set(compact('quiz', 'course'));
     }
 

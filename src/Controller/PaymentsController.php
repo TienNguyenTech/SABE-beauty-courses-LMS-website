@@ -66,6 +66,7 @@ class PaymentsController extends AppController
         $query = $this->Payments->find()->where(['Payments.archived IS' => 0])->contain(['Courses', 'Users']);
         $payments = $this->paginate($query);
 
+        $this->set('title', 'Course Enrollments');
         $this->set(compact('payments'));
     }
 
@@ -320,6 +321,7 @@ class PaymentsController extends AppController
         $query = $this->Payments->find()->where(['Payments.archived IS' => 1])->contain(['Courses', 'Users']);
         $payments = $this->paginate($query);
 
+        $this->set('title', 'Archived Enrollments');
         $this->set(compact('payments'));
     }
 

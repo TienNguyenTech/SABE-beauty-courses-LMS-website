@@ -177,6 +177,7 @@ class ContentsController extends AppController
             $this->Flash->error(__('The content could not be saved. Please, try again.'));
         }
         $courses = $this->Contents->Courses->find('list', limit: 200)->all();
+        $this->set('title', 'Add Content');
         $this->set(compact('content', 'courses', 'course'));
     }
 
@@ -228,6 +229,7 @@ class ContentsController extends AppController
             $this->Flash->error(__('The content could not be saved. Please, try again.'));
         }
         $courses = $this->Contents->Courses->find('list', limit: 200)->all();
+        $this->set('title', 'Edit ' . $content->content_title);
         $this->set(compact('content', 'courses'));
     }
 

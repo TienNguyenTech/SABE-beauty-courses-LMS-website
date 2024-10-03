@@ -48,6 +48,7 @@ class ServicesController extends AppController
         $query = $this->Services->find()->contain('ServiceCategorys');
         $services = $this->paginate($query);
 
+        $this->set('title', 'Beauty Services');
         $this->set(compact('services'));
     }
 
@@ -83,6 +84,7 @@ class ServicesController extends AppController
             $this->Flash->error(__('The service could not be saved. Please, try again.'));
         }
         $serviceCategorys = $this->Services->ServiceCategorys->find('list', limit: 200)->all();
+        $this->set('title', 'Add Service');
         $this->set(compact('service', 'serviceCategorys'));
     }
 
@@ -107,6 +109,7 @@ class ServicesController extends AppController
             $this->Flash->error(__('The service could not be saved. Please, try again.'));
         }
         $serviceCategorys = $this->Services->ServiceCategorys->find('list', limit: 200)->all();
+        $this->set('title', 'Edit ' . $service->service_name);
         $this->set(compact('service', 'serviceCategorys'));
     }
 
