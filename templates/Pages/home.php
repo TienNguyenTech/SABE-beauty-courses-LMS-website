@@ -386,6 +386,51 @@ if ($error = 404) {
         </div>
     </div>
     <!-- end features list section -->
+    <div class="product-section mt-100 mb-150">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 text-center">
+                    <div class="section-title">
+                        <h3><span class="orange-text">Featured</span> Courses</h3>
+                        <p>Explore our diverse range of programs designed to elevate your skills and prepare you for a
+                            successful career in the beauty industry.</p>
+                        <p><small>Note: All prices are in AUD (Australian Dollars).</small></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row d-flex justify-content-center">
+                <?php $counter = 0; ?>
+                <?php foreach ($courses as $course): ?>
+                    <?php if ($counter == 6)
+                        break; ?>
+                    <?php if ($course->course_featured): ?>
+                        <div class="col-lg-4 col-md-6 text-center">
+                            <div class="single-product-item card-equal-height">
+                                <div class="product-image">
+                                    <?= $this->Html->image('/' . $course->course_image) ?>
+                                </div>
+                                <h3><?= h($course->course_name); ?></h3>
+                                <p class="product-price">
+                                    <span><?= h(strlen($course->course_description) > 100 ? substr($course->course_description, 0, 100) . '...' : $course->course_description) ?></span>
+                                    $<?= h($course->course_price); ?>
+                                </p>
+                                <a href="<?= $this->Url->build(['controller' => 'Courses', 'action' => 'view', $course->course_id]) ?>"
+                                    class="whiteb-btn" style="margin-bottom: 10px"><i class="fas fa-info-circle"></i> View
+                                    More</a>
+                                <a href="<?= $this->Url->build(['controller' => 'Payments', 'action' => 'checkout', $course->course_id]) ?>"
+                                    class="bordered-btn"><i class="fas fa-user-graduate"></i> Enroll Now</a>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                    <?php $counter++; ?>
+                <?php endforeach; ?>
+            </div>
+
+
+        </div>
+    </div>
+
 
     <!--Welcome One Start-->
     <section class="welcome-one">
@@ -801,50 +846,7 @@ if ($error = 404) {
         }
     </style>
     <!-- product section -->
-    <div class="product-section mt-50 mb-150">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2 text-center">
-                    <div class="section-title">
-                        <h3><span class="orange-text">Featured</span> Courses</h3>
-                        <p>Explore our diverse range of programs designed to elevate your skills and prepare you for a
-                            successful career in the beauty industry.</p>
-                        <p><small>Note: All prices are in AUD (Australian Dollars).</small></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row d-flex justify-content-center">
-                <?php $counter = 0; ?>
-                <?php foreach ($courses as $course): ?>
-                    <?php if ($counter == 6)
-                        break; ?>
-                    <?php if ($course->course_featured): ?>
-                        <div class="col-lg-4 col-md-6 text-center">
-                            <div class="single-product-item card-equal-height">
-                                <div class="product-image">
-                                    <?= $this->Html->image('/' . $course->course_image) ?>
-                                </div>
-                                <h3><?= h($course->course_name); ?></h3>
-                                <p class="product-price">
-                                    <span><?= h(strlen($course->course_description) > 100 ? substr($course->course_description, 0, 100) . '...' : $course->course_description) ?></span>
-                                    $<?= h($course->course_price); ?>
-                                </p>
-                                <a href="<?= $this->Url->build(['controller' => 'Courses', 'action' => 'view', $course->course_id]) ?>"
-                                    class="whiteb-btn" style="margin-bottom: 10px"><i class="fas fa-info-circle"></i> View
-                                    More</a>
-                                <a href="<?= $this->Url->build(['controller' => 'Payments', 'action' => 'checkout', $course->course_id]) ?>"
-                                    class="bordered-btn"><i class="fas fa-user-graduate"></i> Enroll Now</a>
-                            </div>
-                        </div>
-                    <?php endif; ?>
-                    <?php $counter++; ?>
-                <?php endforeach; ?>
-            </div>
-
-
-        </div>
-    </div>
+    
     </div>
     <!-- end product section -->
     </div>
@@ -901,7 +903,7 @@ if ($error = 404) {
     </style>
 
 
-    <div class="abt-text text-center" style="margin-top:-60px;">
+    <div class="abt-text text-center">
         <h2 style="margin-bottom: 30px;">We Stock <span class="orange-text">Murad</span></h2>
         <div>
             <div class="image-gallery row">
