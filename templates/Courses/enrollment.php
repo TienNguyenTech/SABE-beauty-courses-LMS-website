@@ -75,8 +75,8 @@
         <div class="card-body">
             <?php if (!empty($quiz) && !empty($response)): ?>
                 <h5 class="card-title"><?= h($quiz->title) ?></h5>
-                <h5 class="card-title"><?= h('Score: ' . $response->response_score) ?></h5>
-            <?php elseif (empty($response)) : ?>
+                <h5 class="card-title"><?= h('Score: ' . $response->response_score * 100 . '%') ?></h5>
+            <?php elseif (!empty($quiz) && empty($response)) : ?>
                 <h5 class="card-title"><?= h($quiz->title . ': Student has not yet attempted the quiz') ?></h5>
             <?php else: ?>
                 <h5 class="card-text"><?= __('This course does not currently have a quiz available') ?></h5>
