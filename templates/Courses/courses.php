@@ -421,7 +421,7 @@
                     <div class="col-lg-4 col-md-6 text-center <?= $course->course_category ?>">
                         <div class="single-product-item">
                             <div class="product-image">
-                                <a href="single-product.html">
+                                <a href="<?= $this->Url->build(['controller' => 'Courses', 'action' => 'view', $course->course_id]) ?>">
                                     <img src="../<?= $course->course_image ?>" alt="<?= $course->course_name ?>"
                                         class="card-img-top">
                                 </a>
