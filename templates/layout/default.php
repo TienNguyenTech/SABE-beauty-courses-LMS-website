@@ -13,7 +13,7 @@
     <!-- Including the shortcut icon ensures that all browsers, regardless of their version, will correctly find and use this favicon.  -->
     <link href="<?= $this->Url->build('/img/favicon.png') ?>" type="image/x-icon" rel="shortcut icon">
 
-    <title><?= $this->fetch('title') ?></title>
+    <title><?= $title ?></title>
 
     <!-- Custom fonts for this template-->
     <?= $this->Html->css('/vendor/fontawesome-free/css/all.min.css') ?>

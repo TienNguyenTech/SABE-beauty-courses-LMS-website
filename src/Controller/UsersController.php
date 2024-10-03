@@ -57,6 +57,7 @@ class UsersController extends AppController
         $this->viewBuilder()->setLayout('student');
         $user = $this->Users->get($id, ['contain' => []]);
         $this->set(compact('user'));
+        $this->set('title', 'Profile');
         if ($this->request->is(['patch', 'post', 'put'])) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
             if ($this->Users->save($user)) {

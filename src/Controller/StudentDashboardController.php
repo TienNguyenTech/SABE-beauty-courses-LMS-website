@@ -12,7 +12,7 @@ class StudentDashboardController extends AppController
     }
 
     public function dashboard() {
-
+        $this->set('title', 'Student Dashboard');
     }
 
     

@@ -215,6 +215,7 @@ class AuthController extends AppController
      */
     public function changePassword()
     {
+        $this->set('title', 'Change Password');
         $userId = $this->request->getSession()->read('Auth.User.id');
         $user = $this->Users->get($userId, ['contain' => []]);
 

@@ -9,7 +9,7 @@
 <html lang="en">
 
 <head>
-    <title>Beauty by Lisa Follett</title>
+    <title><?= $course->course_name ?></title>
     <!-- Google Fonts -->
     <?= $this->Html->css('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700', ['block' => true]) ?>
     <?= $this->Html->css('https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap', ['block' => true]) ?>

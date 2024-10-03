@@ -76,9 +76,11 @@ class QuizzesController extends AppController
         $quizID = $quiz->quiz_id;
         $quizJSON = $quiz->quiz_json;
 
+        $this->set('title', json_decode(json_decode($quizJSON))->title);
+
         // Remove " from start and end so json.parse doesn't fail
         $quizJSON = substr($quizJSON, 1, -1);
-        $csrfToken = $this->request->getAttribute('csrfToken');
+        $csrfToken = $this->request->getAttribute('csrfToken');        
 
         $this->set(compact('quizID', 'quizJSON', 'csrfToken'));
     }

@@ -90,6 +90,7 @@ class CoursesController extends AppController
     public function enrolledcourses()
     {
         $this->viewBuilder()->setLayout('student');
+        $this->set('title', 'My Courses');
         $user = $this->Authentication->getIdentity()->getOriginalData();
         $userID = $user['User']['id'];
 
@@ -175,6 +176,8 @@ class CoursesController extends AppController
 
         $course = $this->Courses->get($id);
         $contents = $this->Contents->find()->where(['course_id IS' => $course->course_id])->toArray();
+
+        $this->set('title', $course->course_name);
 
         $progressions = [];
         $progression = 0;

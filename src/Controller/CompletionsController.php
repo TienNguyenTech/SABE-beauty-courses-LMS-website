@@ -43,12 +43,14 @@ class CompletionsController extends AppController
     public function view($id = null)
     {
         $this->viewBuilder()->setLayout('student');
+        $this->set('title', 'Success');
         $completion = $this->Completions->get($id, contain: ['Users', 'Courses']);
         $this->set(compact('completion'));
     }
 
     public function fail($quizID) {
         $this->viewBuilder()->setLayout('student');
+        $this->set('title', 'Quiz Failed');
 
         $quiz = $this->Quizzes->get($quizID);
         $courseID = $quiz->course_id;

@@ -79,6 +79,8 @@ class ContentsController extends AppController
         $content = $this->Contents->get($id, contain: ['Courses']);
         $courseContents = $this->Contents->find()->where(['course_id IS' => $content->course_id])->toArray();
 
+        $this->set('title', $content->content_title);
+
         $userID = $user['User']['id'];
 
         $progression = $this->Progressions->find()->where(['user_id IS' => $userID, 'content_id IS' => $content->content_id])->first();
