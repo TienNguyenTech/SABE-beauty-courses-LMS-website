@@ -60,6 +60,7 @@
             justify-content: center;
             min-height: 50vh;
             background-color: white;
+            margin:20px;
             /*padding: 40px;*/
         }
 
