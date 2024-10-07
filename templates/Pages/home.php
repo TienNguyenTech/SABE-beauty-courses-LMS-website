@@ -354,8 +354,8 @@ if ($error = 404) {
                             <i class="fas fa-shipping-fast"></i>
                         </div>
                         <div class="content">
-                            <h3>International Expert Instructors</h3>
-                            <p>Learn from seasoned professionals in the industry</p>
+                            <h3><?= $this->ContentBlock->text('feature-title-1'); ?></h3>
+                            <p><?= $this->ContentBlock->text('feature-description-1'); ?></p>
                         </div>
                     </div>
                 </div>
@@ -365,8 +365,8 @@ if ($error = 404) {
                             <i class="fas fa-phone-volume"></i>
                         </div>
                         <div class="content">
-                            <h3>Flexible Classes</h3>
-                            <p>Day, evening, and weekend classes available.</p>
+                            <h3><?= $this->ContentBlock->text('feature-title-2'); ?></h3>
+                            <p><?= $this->ContentBlock->text('feature-description-2'); ?></p>
                         </div>
                     </div>
                 </div>
@@ -376,8 +376,8 @@ if ($error = 404) {
                             <i class="fas fa-sync"></i>
                         </div>
                         <div class="content">
-                            <h3>Comprehensive Curriculum</h3>
-                            <p>Covering all aspects of cosmetology, from basics to advanced techniques.</p>
+                            <h3><?= $this->ContentBlock->text('feature-title-3'); ?></h3>
+                            <p><?= $this->ContentBlock->text('feature-description-3'); ?></p>
                         </div>
                     </div>
                 </div>
@@ -846,7 +846,7 @@ if ($error = 404) {
         }
     </style>
     <!-- product section -->
-    
+
     </div>
     <!-- end product section -->
     </div>
