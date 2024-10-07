@@ -35,7 +35,7 @@ $this->Html->css('ContentBlocks.content-blocks', ['block' => true]);
                             'type' => 'textarea',
                             'value' => html_entity_decode($contentBlock->value),
                             'label' => false,
-                            'style' => 'height: 100px !important; width: 800px;', // Adjust the height and width as needed
+                            'style' => 'height: 100px ;', // Adjust the height and width as needed
                             'class' => 'form-control'
                         ]);}
                     else if ($contentBlock->type === 'html') {
