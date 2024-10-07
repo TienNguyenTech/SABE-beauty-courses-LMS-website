@@ -217,7 +217,7 @@
             <div class="col-lg-3 col-md-6 col-12">
                 <div class="footer-box subscribe">
                     <h2 class="widget-title">Opening Hours</h2>
-                    <p style="font-size: 18px;">Monday to Friday: 9:30 - 20:00</p>
+                    <p style="font-size: 18px;"><?= $this->ContentBlock->text('opening-hours'); ?></p>
 
                 </div>
             </div>
