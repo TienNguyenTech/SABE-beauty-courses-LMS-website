@@ -55,7 +55,7 @@ class CoursesController extends AppController
     {
         $this->viewBuilder()->setLayout('customer');
 
-        $query = $this->Courses->find();
+        $query = $this->Courses->find()->where(['archived IS' => false]);
         $courses = $this->paginate($query);
 
         $this->set(compact('courses'));

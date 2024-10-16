@@ -97,7 +97,7 @@ class PagesController extends AppController
     public function home()
     {
         $coursesTable = $this->getTableLocator()->get('Courses'); // Load the Courses model
-        $courses = $coursesTable->find('all'); // Fetch all courses
+        $courses = $coursesTable->find('all')->where(['archived IS' => false]); // Fetch all courses
         $this->set('courses', $courses); // Pass courses data to the view
         $this->viewBuilder()->setTemplate('home'); // Render the home view
     }
