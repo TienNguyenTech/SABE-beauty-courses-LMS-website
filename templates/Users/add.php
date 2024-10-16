@@ -40,7 +40,7 @@
 <div style="margin-bottom: 15px; display: flex; align-items: center;">
     <?= $this->Form->control('user_type', [
         'label' => ['text' => 'User Type *', 'style' => 'width: 150px; text-align: left;'],
-        'options' => ['admin' => 'admin'],
+        'options' => ['admin' => 'admin', 'student' => 'student'],
         'style' => 'width: 200px; margin-left: 10px;'
     ]) ?>
 </div>
