@@ -368,8 +368,8 @@ if ($error = 404) {
                             <i class="fas fa-shipping-fast"></i>
                         </div>
                         <div class="content">
-                            <h3>International Expert Instructors</h3>
-                            <p>Learn from seasoned professionals in the industry</p>
+                            <h3><?= $this->ContentBlock->text('feature-title-1'); ?></h3>
+                            <p><?= $this->ContentBlock->text('feature-description-1'); ?></p>
                         </div>
                     </div>
                 </div>
@@ -379,8 +379,8 @@ if ($error = 404) {
                             <i class="fas fa-phone-volume"></i>
                         </div>
                         <div class="content">
-                            <h3>Flexible Classes</h3>
-                            <p>Day, evening, and weekend classes available.</p>
+                            <h3><?= $this->ContentBlock->text('feature-title-2'); ?></h3>
+                            <p><?= $this->ContentBlock->text('feature-description-2'); ?></p>
                         </div>
                     </div>
                 </div>
@@ -390,8 +390,8 @@ if ($error = 404) {
                             <i class="fas fa-sync"></i>
                         </div>
                         <div class="content">
-                            <h3>Comprehensive Curriculum</h3>
-                            <p>Covering all aspects of cosmetology, from basics to advanced techniques.</p>
+                            <h3><?= $this->ContentBlock->text('feature-title-3'); ?></h3>
+                            <p><?= $this->ContentBlock->text('feature-description-3'); ?></p>
                         </div>
                     </div>
                 </div>
@@ -472,18 +472,10 @@ if ($error = 404) {
                                 <br> The Founder
                             </h2>
                         </div>
-                        <p class="welcome-one__text">I'm Lisa, the CEO of South Adelaide Beauty and Education, I have
-                            over two decades of
-                            experience as a beauty therapist. I am armed with a current diploma in Beauty Therapy and
-                            a cert 4 in Training and Assessment with many years of teaching experience. I’m extremely
-                            passionate about delivering quality training that will enhance the overall standard of our
-                            beauty industry.
+                        <p class="welcome-one__text"><?= $this->ContentBlock->text('meet-lisa-paragraph-1'); ?>
                             <br>
                             <br>
-                            It might surprise you that the beauty industry remains largely unregulated, allowing
-                            individuals to claim the title of a beauty therapist after merely watching a YouTube video.
-                            At South Adelaide Beauty & Education, we're working to ensure that the therapists out
-                            there are of the highest quality.
+                            <?= $this->ContentBlock->text('meet-lisa-paragraph-2'); ?>
                         </p>
 
                         <!--                        <div class="welcome-one__btn-box">-->
@@ -860,7 +852,7 @@ if ($error = 404) {
         }
     </style>
     <!-- product section -->
-    
+
     </div>
     <!-- end product section -->
     </div>
@@ -923,17 +915,17 @@ if ($error = 404) {
             <div class="image-gallery row">
                 <div class="col-4">
                     <div class="image-wrapper">
-                        <img src="assets/img/murad-1.jpg" alt="Murad Product 1" class="img-fluid">
+                        <?= $this->ContentBlock->image('homepage-murad-image-1', ['alt' => 'Murad Product 1', 'class' => 'img-fluid']); ?>
                     </div>
                 </div>
                 <div class="col-4">
                     <div class="image-wrapper">
-                        <img src="assets/img/murad-2.jpg" alt="Murad Product 2" class="img-fluid">
+                        <?= $this->ContentBlock->image('homepage-murad-image-2', ['alt' => 'Murad Product 1', 'class' => 'img-fluid']); ?>
                     </div>
                 </div>
                 <div class="col-4">
                     <div class="image-wrapper">
-                        <img src="assets/img/murad-3.jpg" alt="Murad Product 3" class="img-fluid">
+                        <?= $this->ContentBlock->image('homepage-murad-image-3', ['alt' => 'Murad Product 1', 'class' => 'img-fluid']); ?>
                     </div>
                 </div>
             </div>
@@ -1704,7 +1696,7 @@ if ($error = 404) {
                         <div class="footer-box subscribe">
                             <h2 class="widget-title">Opening Hours</h2>
                             <!--                        <p>Monday to Friday: 9:30 - 20:00</p>-->
-                            <p style="font-size: 18px;">Monday to Friday: 9:30 - 20:00</p>
+                            <p style="font-size: 18px;"><?= $this->ContentBlock->text('opening-hours'); ?></p>
 
                         </div>
                     </div>
