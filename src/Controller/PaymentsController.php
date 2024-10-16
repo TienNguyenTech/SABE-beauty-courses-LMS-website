@@ -177,21 +177,21 @@ class PaymentsController extends AppController
             return $this->redirect(['controller' => 'Courses', 'action' => 'accesscourse', $course_id]);
         }
 
-        $payment = $this->Payments->newEmptyEntity();
+        // $payment = $this->Payments->newEmptyEntity();
 
-        $payment = $this->Payments->patchEntity($payment, [
-            'payment_amount' => $this->Courses->get($course_id)['course_price'],
-            'payment_datetime' => new \DateTime(),
-            'course_id' => $course_id,
-            'user_id' => $user->user_id,
-            'payment_email' => $email,
-            'checkout_id' => 'null'
-        ]);
+        // $payment = $this->Payments->patchEntity($payment, [
+        //     'payment_amount' => $this->Courses->get($course_id)['course_price'],
+        //     'payment_datetime' => new \DateTime(),
+        //     'course_id' => $course_id,
+        //     'user_id' => $user->user_id,
+        //     'payment_email' => $email,
+        //     'checkout_id' => 'null'
+        // ]);
 
-        $this->Payments->save($payment);
+        // $this->Payments->save($payment);
 
         $checkout_session = Session::create([
-            'success_url' => Router::url(['controller' => 'Payments', 'action' => 'success', $payment->payment_id], true),
+            'success_url' => Router::url(['controller' => 'Payments', 'action' => 'success', $user->user_id, $course_id], true),
             'cancel_url' => Router::fullBaseUrl(),
             'payment_method_types' => ['card'],
             'mode' => 'payment',
@@ -199,30 +199,39 @@ class PaymentsController extends AppController
             'customer_creation' => 'always'
         ]);
 
-        $payment = $this->Payments->patchEntity($payment, [
-            'payment_amount' => $this->Courses->get($course_id)['course_price'],
-            'payment_datetime' => new \DateTime(),
-            'course_id' => $course_id,
-            'user_id' => $userID,
-            'checkout_id' => $checkout_session['id']
-        ]);
+        // $payment = $this->Payments->patchEntity($payment, [
+        //     'payment_amount' => $this->Courses->get($course_id)['course_price'],
+        //     'payment_datetime' => new \DateTime(),
+        //     'course_id' => $course_id,
+        //     'user_id' => $userID,
+        //     'checkout_id' => $checkout_session['id']
+        // ]);
 
-        $this->Payments->save($payment);
+        // $this->Payments->save($payment);
 
         $this->set('sessionId', $checkout_session['id']);
     }
 
-    public function success($paymentID)
+    public function success($userID, $courseID)
     {
         $this->viewBuilder()->disableAutoLayout();
 
-        $payment = null;
+        $payment = $this->Payments->newEmptyEntity();
 
-        try {
-            $payment = $this->Payments->get($paymentID);
-        } catch (\Exception $e) {
-            return $this->redirect(['action' => 'fail']);
-        }
+        $payment = $this->Payments->patchEntity($payment, [
+            'payment_amount' => $this->Courses->get($courseID)['course_price'],
+            'payment_datetime' => new \DateTime(),
+            'course_id' => $courseID,
+            'user_id' => $userID,
+            'payment_email' => $this->Users->get($userID)['email'],
+            'checkout_id' => 'null'
+        ]);
+
+        // try {
+        //     $payment = $this->Payments->get($paymentID);
+        // } catch (\Exception $e) {
+        //     return $this->redirect(['action' => 'fail']);
+        // }
 
         $checkoutID = $payment->checkout_id;
 
