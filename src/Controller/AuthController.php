@@ -425,6 +425,6 @@ class AuthController extends AppController
         }
 
         // Otherwise just send them to the login page
-        return $this->redirect(['controller' => 'Auth', 'action' => 'login']);
+        return $this->redirect('/');
     }
 }
