@@ -78,15 +78,27 @@
                     <th><?= __('Question: ' . $question->elements->title) ?></th>
                     <td>
                         <?php
-                        $options = 'Options: ' . implode(', ', $question->elements->choices);
-                        // foreach($question->elements->choices as $option) {
-                        //     $options .= $option . ', ';
-                        // }
-                        echo __($options);
+                        // $options = 'Options: ' . implode(', ', $question->elements->choices);
+                        $options = $question->elements->choices;
                         ?>
-                        <span style="text-align: right">
-                            <?= __(' | Correct Option: ' . $question->elements->correctAnswer) ?>
-                        </span>
+                        <table>
+                            <tr>
+                                <th>Option Number</th>
+                                <th>Option</th>
+                                <th>Is Correct</th>
+                            </tr>
+                            <?php 
+                            $i = 1;
+                            foreach($options as $option): ?>
+                                <tr>
+                                    <td><?= $i . '.' ?></td>
+                                    <td><?= $option ?></td>
+                                    <td><?= $option == $question->elements->correctAnswer ? '✅' : '❌'?></td>
+                                </tr>
+                            <?php 
+                            $i++;
+                            endforeach; ?>
+                        </table>
                     </td>
                 </tr>
             <?php endforeach; ?>
