@@ -77,7 +77,7 @@
     <div class="dashboard-card">
         <h2>Modify Website</h2>
         <p>Modify your website here</p>
-        <a href="<?= $this->Url->build(['plugin' => null, 'plugin' => 'ContentBlocks', 'controller' => 'ContentBlocks', 'action' => 'index']) ?> ">Go to Modify Wbesite</a>
+        <a href="<?= $this->Url->build(['plugin' => null, 'controller' => 'ExtendedContentBlocks', 'action' => 'index']) ?> ">Go to Modify Wbesite</a>
     </div>
 
     <!-- Empty Card -->

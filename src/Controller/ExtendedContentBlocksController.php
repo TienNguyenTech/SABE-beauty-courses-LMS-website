@@ -21,6 +21,24 @@ class ExtendedContentBlocksController extends ContentBlocksController
         //$this->loadModel('ContentBlocks.ContentBlocks'); // Ensure the model is loaded
     }
 
+    public function index() {
+        parent::index();
+
+        $this->set(['title' => 'Content Management System']);
+    }
+
+    public function edit(string $id = null) {
+        parent::edit($id);
+
+        $this->set(['title' => 'Edit Content']);
+    }
+
+    public function restore($id = null) {
+        parent::restore($id);
+
+        return $this->redirect(['action' => 'index']);
+    }
+
     public function view($parentSlug)
     {
         $parent = str_replace('-', ' ', $parentSlug);
@@ -28,6 +46,7 @@ class ExtendedContentBlocksController extends ContentBlocksController
             'conditions' => ['parent' => $parent]
         ]);
 
+        $this->set(['title' => $parent . ' Content Blocks']);
         $this->set(compact('contentBlocks', 'parent'));
     }
 }

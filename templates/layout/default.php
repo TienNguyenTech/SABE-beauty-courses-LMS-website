@@ -126,7 +126,7 @@
                     <i class="fas fa-fw fa-users"></i>
                     <span>Enrollments</span></a>
                 <a class="nav-link"
-                    href="<?= $this->Url->build(['plugin' => null, 'plugin' => 'ContentBlocks', 'controller' => 'ContentBlocks', 'action' => 'index']) ?>">
+                    href="<?= $this->Url->build(['plugin' => null, 'controller' => 'ExtendedContentBlocks', 'action' => 'index']) ?>">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Modify Website</span></a>
             </li>
