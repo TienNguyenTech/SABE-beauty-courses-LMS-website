@@ -269,6 +269,20 @@ if ($error = 404) {
         window.onload = showPopup;
     </script>
 
+    <style>
+        .homepage-bg-1 {
+            background-image: url(<?= substr($this->ContentBlock->image('home-slider-image-1'), 10, -9) ?>)
+        }
+
+        .homepage-bg-2 {
+            background-image: url(<?= substr($this->ContentBlock->image('home-slider-image-2'), 10, -9) ?>)
+        }
+
+        .homepage-bg-3 {
+            background-image: url(<?= substr($this->ContentBlock->image('home-slider-image-3'), 10, -9) ?>)
+        }
+    </style>
+
     <!-- home page slider -->
     <div class="homepage-slider">
         <!-- single home slider -->
