@@ -164,7 +164,8 @@ class CoursesController extends AppController
     {
         // Retrieve the user type
         $user = $this->Authentication->getIdentity()->getOriginalData();
-        $userType = $user['user_type'];
+        $user = $this->Users->get($user['User']['id']);
+        $userType = $user->user_type;
 
         // Set the layout based on the user type
         if ($userType === 'admin') {
@@ -175,6 +176,16 @@ class CoursesController extends AppController
 
         $user = $this->Authentication->getIdentity()->getOriginalData();
         $userID = $user['User']['id'];
+
+        // Check if user is enrolled in the course
+        $payments = $this->Payments->find()->where([
+            'user_id IS' => $userID,
+            'course_id IS' => $id
+        ])->toArray();
+
+        if(empty($payments)) {
+            return $this->redirect(['action' => 'courses']);
+        }
 
         $course = $this->Courses->get($id);
         $contents = $this->Contents->find()->where(['course_id IS' => $course->course_id])->toArray();
