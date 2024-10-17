@@ -20,7 +20,40 @@
     ]) ?>
 </div>
 
-<div style="margin-bottom: 15px; display: flex; align-items: center;">
+<div style="margin-bottom: 15px; ">
+    <?= h('Content Upload') . ' <span style="color: red;">*</span>' ?><br>
+
+    <?php
+    if($content->content_url) {
+        echo h('Current Content') . '<br>';
+        if($content->content_type == 'pdf') {
+            ?>
+            <object class="pdf" data="/<?= $content->content_url ?>" width="600px" height="300px"></object><br>
+            <?php
+        } else if($content->content_type == 'image') {
+            echo '<img width="200px" style="margin-bottom: 10px" src="/' . $content->content_url . '"><br>';
+        } else if($content->content_type == 'video') {
+            ?>
+            <video controls width="600px">
+                <source src="/<?= $content->content_url ?>" type="video/mp4">
+            </video>
+            <br>
+            <?php
+        }
+        echo h('Upload new content');
+    }
+    ?>
+
+    <?= $this->Form->file('content_image', [
+        'id' => 'fileUpload',
+        'label' => 'Image',
+        'type' => 'file',
+        'style' => 'margin-left: 10px; margin-bottom: 10px;',
+        'accept' => '.pdf,.mp4,.mov,.png,.jpg,.jpeg,image/png'
+    ]) ?>
+</div>
+
+<div style="margin-bottom: 15px; align-items: center; display: none">
     <?= h('Content Type') . ' <span style="color: red;">*</span>' ?>
     <?= $this->Form->select('content_type', [
         'pdf' => 'PDF',
@@ -28,7 +61,7 @@
         'image' => 'Image'
     ], [
         'id' => 'fileType',
-        'style' => 'width: 200px; margin-left: 10px;'
+        'style' => 'width: 200px; margin-left: 10px;',
     ]) ?>
 </div>
 
@@ -44,16 +77,6 @@
     ]) ?>
 </div>
 
-<div style="margin-bottom: 15px; display: flex; align-items: center;">
-    <?= h('Content Upload') . ' <span style="color: red;">*</span>' ?>
-    <?= $this->Form->file('content_image', [
-        'id' => 'fileUpload',
-        'label' => 'Image',
-        'type' => 'file',
-        'style' => 'margin-left: 10px; margin-bottom: 10px;'
-    ]) ?>
-</div>
-
 <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary', 'style' => 'margin-top: 10px;']) ?>
 <?= $this->Form->end() ?>
 
@@ -61,16 +84,18 @@
     const fileType = document.getElementById('fileType');
     const fileUpload = document.getElementById('fileUpload');
 
-    fileType.addEventListener('change', updateFiletype);
-    document.addEventListener('DOMContentLoaded', updateFiletype);
+    fileUpload.addEventListener('change', () => {
+        filePath = fileUpload.value;
+        extension = filePath.split('.').at(-1).toLowerCase();
 
-    function updateFiletype() {
-        if(fileType.value == 'pdf') {
-            fileUpload.setAttribute('accept', '.pdf');
-        } else if(fileType.value == 'video') {
-            fileUpload.setAttribute('accept', '.mp4,.mov');
-        } else if(fileType.value == 'image') {
-            fileUpload.setAttribute('accept', '.png,.jpg,.jpeg,image/png');
+        if(extension == 'pdf') {
+            fileType.value = 'pdf';
+        } else if(extension == 'mp4' || extension == 'mov') {
+            fileType.value = 'video';
+        } else if(extension == 'png' || extension == 'jpg' || extension == 'jpeg') {
+            fileType.value = 'image';
         }
-    }
+
+        console.log(fileType.value);
+    });
 </script>

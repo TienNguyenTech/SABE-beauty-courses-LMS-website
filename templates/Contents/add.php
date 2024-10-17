@@ -21,14 +21,25 @@
 </div>
 
 <div style="margin-bottom: 15px; display: flex; align-items: center;">
+    <?= h('Content Upload') . ' <span style="color: red;">*</span>' ?>
+    <?= $this->Form->file('content_image', [
+        'id' => 'fileUpload',
+        'style' => 'margin-left: 10px; margin-bottom: 10px;',
+        'accept' => '.pdf,.mp4,.mov,.png,.jpg,.jpeg,image/png'
+    ]) ?>
+</div>
+
+<div style="margin-bottom: 15px; display: none; align-items: center;">
     <?= h('Content Type') . ' <span style="color: red;">*</span>' ?>
     <?= $this->Form->select('content_type', [
+        'none' => 'None',
         'pdf' => 'PDF',
         'video' => 'Video',
         'image' => 'Image'
     ], [
         'id' => 'fileType',
-        'style' => 'width: 200px; margin-left: 10px;'
+        'style' => 'width: 200px; margin-left: 10px;',
+        'display' => 'none',
     ]) ?>
 </div>
 
@@ -44,13 +55,7 @@
     ]) ?>
 </div>
 
-<div style="margin-bottom: 15px; display: flex; align-items: center;">
-    <?= h('Content Upload') . ' <span style="color: red;">*</span>' ?>
-    <?= $this->Form->file('content_image', [
-        'id' => 'fileUpload',
-        'style' => 'margin-left: 10px; margin-bottom: 10px;'
-    ]) ?>
-</div>
+
 
 <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary', 'style' => 'margin-top: 10px;']) ?>
 <?= $this->Form->end() ?>
@@ -59,13 +64,28 @@
     const fileType = document.getElementById('fileType');
     const fileUpload = document.getElementById('fileUpload');
 
-    fileType.addEventListener('change', () => {
-        if (fileType.value == 'pdf') {
-            fileUpload.setAttribute('accept', '.pdf');
-        } else if (fileType.value == 'video') {
-            fileUpload.setAttribute('accept', '.mp4,.mov');
-        } else if (fileType.value == 'image') {
-            fileUpload.setAttribute('accept', '.png,.jpg,.jpeg,image/png');
+    fileUpload.addEventListener('change', () => {
+        filePath = fileUpload.value;
+        extension = filePath.split('.').at(-1).toLowerCase();
+
+        if(extension == 'pdf') {
+            fileType.value = 'pdf';
+        } else if(extension == 'mp4' || extension == 'mov') {
+            fileType.value = 'video';
+        } else if(extension == 'png' || extension == 'jpg' || extension == 'jpeg') {
+            fileType.value = 'image';
         }
+
+        console.log(fileType.value);
     });
+
+    // fileType.addEventListener('change', () => {
+    //     if (fileType.value == 'pdf') {
+    //         fileUpload.setAttribute('accept', '.pdf');
+    //     } else if (fileType.value == 'video') {
+    //         fileUpload.setAttribute('accept', '.mp4,.mov');
+    //     } else if (fileType.value == 'image') {
+    //         fileUpload.setAttribute('accept', '.png,.jpg,.jpeg,image/png');
+    //     }
+    // });
 </script>
