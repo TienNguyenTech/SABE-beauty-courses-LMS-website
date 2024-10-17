@@ -15,8 +15,17 @@
     ]) ?>
 </div>
 
-<div style="margin-bottom: 15px; display: flex; align-items: center;">
-    <?= h('Cover Image') ?>
+<div style="margin-bottom: 15px; ">
+    <?= h('Cover Image') ?><br>
+
+    <?php
+    if($course->course_image) {
+        echo h('Current Image') . '<br>';
+        echo '<img width="200px" style="margin-bottom: 10px" src="/' . $course->course_image . '"><br>';
+        echo h('Upload new image');
+    }
+    ?>
+
     <?= $this->Form->file('course_image', [
         'label' => 'Image',
         'style' => 'margin-left: 10px;'
