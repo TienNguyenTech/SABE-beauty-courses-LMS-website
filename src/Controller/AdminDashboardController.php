@@ -21,6 +21,7 @@ class AdminDashboardController extends AppController
         if($userType == 'student') {
             return $this->redirect(['controller' => 'studentDashboard', 'action' => 'dashboard']);
         }
+        $this->set('title', 'Admin Dashboard');
     }
 
     public function display(string ...$path): ?Response
