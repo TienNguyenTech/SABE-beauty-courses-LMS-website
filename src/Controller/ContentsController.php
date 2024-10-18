@@ -230,7 +230,7 @@ class ContentsController extends AppController
         }
         $courses = $this->Contents->Courses->find('list', limit: 200)->all();
         $this->set('title', 'Edit ' . $content->content_title);
-        $this->set(compact('content', 'courses'));
+        $this->set(compact('content', 'courses', 'course'));
     }
 
     /**

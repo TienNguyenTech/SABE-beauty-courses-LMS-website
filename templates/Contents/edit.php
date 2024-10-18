@@ -77,6 +77,7 @@
     ]) ?>
 </div>
 
+<?= $this->Html->link('Cancel', ['controller' => 'Courses', 'action' => 'course', $course->course_id], ['class' => 'btn btn-secondary', 'style' => 'margin-top: 10px; margin-right: 10px']) ?>
 <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary', 'style' => 'margin-top: 10px;']) ?>
 <?= $this->Form->end() ?>
 

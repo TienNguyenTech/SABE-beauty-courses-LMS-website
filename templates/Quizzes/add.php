@@ -47,6 +47,7 @@ echo $this->Form->control('quiz_title', [
     <?php endif; ?>
 </div>
 
+<?= $this->Html->link('Cancel', ['controller' => 'Courses', 'action' => 'course', $course->course_id], ['class' => 'btn btn-secondary', 'style' => 'margin-top: 10px; margin-right: 10px']) ?>
 <?= $this->Form->button(__('Create quiz'), ['id' => 'submitButton', 'class' => 'btn btn-primary', 'style' => 'margin-top: 10px', 'disabled' => true]) ?>
 <?= $this->Form->end() ?>
 

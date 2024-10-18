@@ -83,6 +83,7 @@
 
 <div class="form-group row">
     <div class="col-sm-10 offset-sm-2">
+        <?= $this->Html->link('Cancel', ['controller' => 'Courses', 'action' => 'index'], ['class' => 'btn btn-secondary']) ?>
         <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
     </div>
 </div>
