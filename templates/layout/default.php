@@ -166,6 +166,7 @@
                     $isCoursesCoursePage = $this->getRequest()->getParam('controller') === 'Courses' && $this->getRequest()->getParam('action') === 'course';
                     $isContentBlockEditPage = $this->getRequest()->getParam('controller') === 'ContentBlocks' && $this->getRequest()->getParam('action') === 'edit';
                     $isCoursesEditPage = $this->getRequest()->getParam('controller') === 'Courses' && $this->getRequest()->getParam('action') === 'edit';
+                    $isServiceCategoriesPage = $this->getRequest()->getParam('controller') === 'ServiceCategorys' && $this->getRequest()->getParam('action') === 'index';
 
                     // Define the URL for the admin dashboard page and courses index page
                     $adminDashboardUrl = $this->Url->build(['plugin' => null, 'controller' => 'adminDashboard', 'action' => 'dashboard']);
@@ -173,7 +174,13 @@
 
                     // Render the back button based on the page type
                     if (!$isAdminDashboardPage) {
-                        if ($isQuizAddPage) {
+                        if($isServiceCategoriesPage) {
+                            echo $this->Html->tag(
+                                'a',
+                                $this->Html->tag('i', '', ['class' => 'fas fa-arrow-left']) . ' Return',
+                                ['href' => $this->Url->build(['controller' => 'Services', 'action' => 'index']), 'class' => 'btn btn-secondary']
+                            );
+                        } else if ($isQuizAddPage) {
                             // If it's the quiz add page, return to the courses index page
                             echo $this->Html->tag(
                                 'button',
