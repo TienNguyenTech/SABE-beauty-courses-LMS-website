@@ -46,6 +46,7 @@
     ]) ?>
 </div>
 
+<?= $this->Html->link('Cancel', ['action' => 'index'], ['class' => 'btn btn-secondary', 'style' => 'margin-right: 10px']) ?>
 <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
 <?= $this->Form->end() ?>
 
