@@ -40,7 +40,7 @@ class UsersTable extends Table
         parent::initialize($config);
 
         $this->setTable('users');
-        $this->setDisplayField('user_firstname');
+        $this->setDisplayField(['user_firstname', 'user_surname', 'email']);
         $this->setPrimaryKey('user_id');
 
 //        // Adding the authenticate behaviour to check for missing columns in users table
@@ -55,6 +55,11 @@ class UsersTable extends Table
             'joinTable' => 'courses_users',
         ]);
     }
+
+    public function getDisplayField(): string {
+        return 'custom_display';
+    }
+
     public function validationResetPassword(Validator $validator): Validator
     {
         $validator

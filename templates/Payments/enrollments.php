@@ -14,6 +14,7 @@ $ausTimezone = new \DateTimeZone('Australia/Sydney');
 <div class="payments index content">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800"><?= __('Enrollments') ?></h1>
+        <?= $this->Html->link('+ New enrollment', ['action' => 'add'], ['class' => 'btn btn-primary']) ?>
     </div>
     <?= $this->Html->link('View Archive', ['action' => 'archived'], ['class' => 'btn btn-secondary', 'style' => 'margin-bottom: 10px']) ?>
     <div class="table-responsive">

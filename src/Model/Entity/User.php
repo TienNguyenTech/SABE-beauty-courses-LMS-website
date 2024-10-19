@@ -32,6 +32,12 @@ class User extends Entity
      *
      * @var array<string, bool>
      */
+    protected array $_virtual = ['custom_display'];
+
+    protected function _getCustomDisplay(){
+        return $this->user_firstname . ' ' . $this->user_surname . ' (' . $this->email . ')';
+    }
+
     protected array $_accessible = [
         'user_firstname' => true,
         'user_surname' => true,

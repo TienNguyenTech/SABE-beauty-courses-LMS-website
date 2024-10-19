@@ -90,17 +90,38 @@ class PaymentsController extends AppController
      */
     public function add()
     {
+        $this->set('title', 'Create enrollment');
+
+        $courses = $this->Courses->find('list')->where(['archived IS' => false])->all();
+        $users = $this->Users->find('list')->where(['archived IS' => false])->all();
+
         $payment = $this->Payments->newEmptyEntity();
+
         if ($this->request->is('post')) {
-            $payment = $this->Payments->patchEntity($payment, $this->request->getData());
+            $data = $this->request->getData();
+            $data['payment_datetime'] = new \DateTime();
+            $data['payment_amount'] = 0;
+
+            $user = $this->Users->get($data['user_id']);
+            $data['payment_email'] = $user->email;
+
+            $existingEnrollments = $this->Payments->find()->where(['course_id IS' => $data['course_id'], 'user_id IS' => $data['user_id']])->first();
+            
+            if(!empty($existingEnrollments)) {
+                $this->Flash->error(__('This user is already enrolled in the course'));
+
+                return $this->redirect(['action' => 'add']);
+            }
+
+            $payment = $this->Payments->patchEntity($payment, $data);
             if ($this->Payments->save($payment)) {
                 $this->Flash->success(__('The payment has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['action' => 'enrollments']);
             }
             $this->Flash->error(__('The payment could not be saved. Please, try again.'));
         }
-        $this->set(compact('payment'));
+        $this->set(compact('payment', 'courses', 'users'));
     }
 
     /**

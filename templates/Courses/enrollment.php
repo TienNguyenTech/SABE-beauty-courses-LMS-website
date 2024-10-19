@@ -11,7 +11,7 @@
     <!-- Course Information Card -->
     <div class="card mb-4">
         <div class="card-header">
-            <h3><?= h($course->course_name) ?></h3>
+            <h3><?= $this->Html->link($course->course_name, ['action' => 'course', $course->course_id]) ?></h3>
             <br>
             <h3><?= h('Student - ' . $user->user_firstname . ' ' . $user->user_surname) ?></h3>
         </div>
