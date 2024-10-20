@@ -412,9 +412,28 @@
                             <li data-filter=".Online">Online</li>
                             <p> All prices are in AUD (Australian Dollars).</p>
                         </ul>
+                        <div id="no-courses-message" style="display: none; text-align: center; font-size: 24px; margin-top: 20px;">There are no courses in this category</div>
                     </div>
                 </div>
             </div>
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const filters = document.querySelectorAll('[data-filter]');
+                    const noCoursesMessage = document.getElementById('no-courses-message');
+
+                    filters.forEach(filter => {
+                        filter.addEventListener('click', function() {
+                            const category = this.getAttribute('data-filter');
+                            const courses = document.querySelectorAll(category);
+                            if (courses.length === 0) {
+                                noCoursesMessage.style.display = 'block';
+                            } else {
+                                noCoursesMessage.style.display = 'none';
+                            }
+                        });
+                    });
+                });
+            </script>
 
             <div class="row product-lists">
                 <?php foreach ($courses as $course): ?>
