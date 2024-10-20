@@ -94,13 +94,14 @@ class EnquirysController extends AppController
 
                 if($email_result) {
                     $this->Flash->success('Email sent!');
-                    return $this->redirect(['action' => 'view', $enquiry->enquiry_id]);
                 } else {
                     return $this->Flash->error('An error occurred while sending the email.');
                 }
             } catch (\Throwable $th) {
                 return $this->Flash->error('An error occurred while sending the email.');
             }
+
+            return $this->redirect(['action' => 'view', $enquiry->enquiry_id]);
         }
     }
 
