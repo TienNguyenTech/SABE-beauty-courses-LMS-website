@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use Cake\ORM\TableRegistry;
+use Cake\Mailer\Mailer;
 
 /**
  * Enquirys Controller
@@ -60,8 +61,48 @@ class EnquirysController extends AppController
      */
     public function view($id = null)
     {
-        $enquiry = $this->Enquirys->get($id, contain: ['Enquirys']);
+        $enquiry = $this->Enquirys->get($id);
         $this->set(compact('enquiry'));
+        $this->set('title', 'View enquiry: ' . $enquiry->enquiry_subject);
+    }
+
+    public function reply($id = null) {
+        $enquiry = $this->Enquirys->get($id);
+        $this->set(compact('enquiry'));
+        $this->set('title', 'Reply to ' . $enquiry->enquiry_subject);
+
+        if($this->request->is('post')){
+            $reply = $this->request->getData();            
+            
+            $mailer = new Mailer('default');
+
+            $mailer
+                ->setEmailFormat('html')
+                ->setTo(strval($reply['reply_email']))
+                ->setFrom('admin@sabe.u24s1009.iedev.org')
+                ->setSubject($reply['reply_subject'])
+                ->setViewVars([
+                    'message' => $reply['reply_message'],
+                    'enquiry' => $enquiry
+                ])
+                ->viewBuilder()
+                ->disableAutoLayout()
+                ->setTemplate('enquiry_reply');
+            
+            try {
+                $email_result = $mailer->deliver();
+
+                if($email_result) {
+                    $this->Flash->success('Email sent!');
+                } else {
+                    return $this->Flash->error('An error occurred while sending the email.');
+                }
+            } catch (\Throwable $th) {
+                return $this->Flash->error('An error occurred while sending the email.');
+            }
+
+            return $this->redirect(['action' => 'view', $enquiry->enquiry_id]);
+        }
     }
 
     /**
