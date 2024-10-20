@@ -1276,7 +1276,152 @@ if ($error = 404) {
             .footer-box.pages ul li a:hover {
                 color: #4a9b38;
             }
-        </style>
+       
+            /* Center the text */
+            .text-center {
+                text-align: center;
+            }
+
+            /* Image gallery styling */
+            .image-gallery {
+                margin: 0 auto;
+                max-width: 1350px;
+                margin-bottom: 30px;
+                /* Adjust the maximum width as needed */
+            }
+
+            .col-4 {
+                padding: 0 5px;
+                /* Add some spacing between columns */
+
+            }
+
+            .image-wrapper {
+                position: relative;
+                overflow: hidden;
+                height: 500px;
+                /* Set a fixed height */
+            }
+
+            .img-fluid {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                max-width: 100%;
+                max-height: 100%;
+                width: auto;
+                height: 500px;
+                object-fit: contain;
+                /* Ensure the entire image is visible */
+                object-fit: cover;
+
+            }
+
+            /* Button styling */
+            .link-container {
+                display: flex;
+                justify-content: center;
+                margin-top: 1rem;
+                margin-bottom: 2rem;
+                /* Adjust spacing as needed */
+            }
+
+            .borderedx-btn {
+                display: inline-block;
+                padding: 12px 30px;
+                border: 2px solid #4a9b38;
+                /* Màu viền nút */
+                color: #4a9b38;
+                /* Màu chữ */
+                text-decoration: none;
+                font-weight: bold;
+                border-radius: 30px;
+                /* Bo góc nút */
+                transition: all 0.3s ease;
+                font-size: 1rem;
+
+
+            }
+
+            .borderedx-btn:hover {
+                background-color: #4a9b38;
+                /* Màu nền khi hover */
+                color: #fff;
+                /* Màu chữ khi hover */
+            }
+
+            a.borderedx-btn {
+                font-family: 'Poppins', sans-serif;
+                display: inline-block;
+                justify-content: center;
+                color: #fff;
+                background-color: #4a9b38;
+                border: 2px solid #4a9b38;
+                padding: 7px 20px;
+                box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+                /* Add shadow */
+                transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+
+            }
+
+            a.borderedx-btn:hover {
+                background-color: #fff;
+                color: #4a9b38;
+                box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+                /* Larger shadow on hover */
+            }
+        
+        .abt-section .abt-text {
+            padding: 50px;
+            padding-left: 30px;
+            text-align: center;
+            /* Center-align text and elements inside .abt-text */
+        }
+
+        .abt-text h2 {
+            margin-bottom: 20px;
+            /* Add some space below the title */
+        }
+
+        .abt-text .image-container {
+            display: flex;
+            justify-content: center;
+            /* Center-align images */
+            gap: 10px;
+            /* Optional: Add some space between images */
+            margin-bottom: 20px;
+            /* Add space below images */
+        }
+
+        .abt-text .image-container img {
+            max-width: 100%;
+            /* Ensure images are responsive */
+            height: auto;
+            /* Maintain aspect ratio */
+        }
+
+        .abt-text .link-container {
+            text-align: center;
+            /* Center-align the button */
+        }
+
+        .abt-text p {
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .abt-text p.top-sub {
+            opacity: 0.8;
+            margin-bottom: 10px;
+        }
+
+        .abt-text p:last-child {
+            margin-bottom: 0;
+        }
+    </style>
+
 
 <body>
 
@@ -1628,57 +1773,6 @@ if ($error = 404) {
     <!-- end product section -->
     </div>
     <!-- End of Product Setion -->
-    <style>
-        .abt-section .abt-text {
-            padding: 50px;
-            padding-left: 30px;
-            text-align: center;
-            /* Center-align text and elements inside .abt-text */
-        }
-
-        .abt-text h2 {
-            margin-bottom: 20px;
-            /* Add some space below the title */
-        }
-
-        .abt-text .image-container {
-            display: flex;
-            justify-content: center;
-            /* Center-align images */
-            gap: 10px;
-            /* Optional: Add some space between images */
-            margin-bottom: 20px;
-            /* Add space below images */
-        }
-
-        .abt-text .image-container img {
-            max-width: 100%;
-            /* Ensure images are responsive */
-            height: auto;
-            /* Maintain aspect ratio */
-        }
-
-        .abt-text .link-container {
-            text-align: center;
-            /* Center-align the button */
-        }
-
-        .abt-text p {
-            font-size: 15px;
-            line-height: 1.6;
-            margin-bottom: 10px;
-        }
-
-        .abt-text p.top-sub {
-            opacity: 0.8;
-            margin-bottom: 10px;
-        }
-
-        .abt-text p:last-child {
-            margin-bottom: 0;
-        }
-    </style>
-
 
     <div class="abt-text text-center">
         <h2 style="margin-bottom: 30px;">We Stock <span class="orange-text">Murad</span></h2>
@@ -1705,105 +1799,6 @@ if ($error = 404) {
                 <?= $this->Html->link("Learn More", ['controller' => 'BeautyByLisa', 'action' => 'murad'], ['class' => 'borderedx-btn']) ?>
             </div>
         </div>
-
-        <style>
-            /* Center the text */
-            .text-center {
-                text-align: center;
-            }
-
-            /* Image gallery styling */
-            .image-gallery {
-                margin: 0 auto;
-                max-width: 1350px;
-                margin-bottom: 30px;
-                /* Adjust the maximum width as needed */
-            }
-
-            .col-4 {
-                padding: 0 5px;
-                /* Add some spacing between columns */
-
-            }
-
-            .image-wrapper {
-                position: relative;
-                overflow: hidden;
-                height: 500px;
-                /* Set a fixed height */
-            }
-
-            .img-fluid {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                max-width: 100%;
-                max-height: 100%;
-                width: auto;
-                height: 500px;
-                object-fit: contain;
-                /* Ensure the entire image is visible */
-                object-fit: cover;
-
-            }
-
-            /* Button styling */
-            .link-container {
-                display: flex;
-                justify-content: center;
-                margin-top: 1rem;
-                margin-bottom: 2rem;
-                /* Adjust spacing as needed */
-            }
-
-            .borderedx-btn {
-                display: inline-block;
-                padding: 12px 30px;
-                border: 2px solid #4a9b38;
-                /* Màu viền nút */
-                color: #4a9b38;
-                /* Màu chữ */
-                text-decoration: none;
-                font-weight: bold;
-                border-radius: 30px;
-                /* Bo góc nút */
-                transition: all 0.3s ease;
-                font-size: 1rem;
-
-
-            }
-
-            .borderedx-btn:hover {
-                background-color: #4a9b38;
-                /* Màu nền khi hover */
-                color: #fff;
-                /* Màu chữ khi hover */
-            }
-
-            a.borderedx-btn {
-                font-family: 'Poppins', sans-serif;
-                display: inline-block;
-                justify-content: center;
-                color: #fff;
-                background-color: #4a9b38;
-                border: 2px solid #4a9b38;
-                padding: 7px 20px;
-                box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-                /* Add shadow */
-                transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
-
-            }
-
-            a.borderedx-btn:hover {
-                background-color: #fff;
-                color: #4a9b38;
-                box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
-                /* Larger shadow on hover */
-            }
-        </style>
-
-
 
         <section id="instagram-section">
             <div class="section-title" style="margin-bottom: 25px">
