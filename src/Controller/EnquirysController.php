@@ -62,11 +62,13 @@ class EnquirysController extends AppController
     {
         $enquiry = $this->Enquirys->get($id);
         $this->set(compact('enquiry'));
+        $this->set('title', 'View enquiry: ' . $enquiry->enquiry_subject);
     }
 
     public function reply($id = null) {
         $enquiry = $this->Enquirys->get($id);
         $this->set(compact('enquiry'));
+        $this->set('title', 'Reply to ' . $enquiry->enquiry_subject);
     }
 
     /**
