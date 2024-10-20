@@ -69,7 +69,8 @@ $ausTimezone = new \DateTimeZone('Australia/Adelaide');
                         <td class="actions">
                             <!--                        --><?php //= $this->Html->link(__('View'), ['action' => 'view', $enquiry->enquiry_id]) ?>
                             <!--                        --><?php //= $this->Html->link(__('Edit'), ['action' => 'edit', $enquiry->enquiry_id]) ?>
-                            <?= $this->Html->link('View Message', ['action' => 'viewMessage', $enquiry->enquiry_id], ['class' => 'btn btn-info view-btn']) ?>
+                            <?= $this->Html->link('View Message', ['action' => 'view', $enquiry->enquiry_id], ['class' => 'btn btn-info view-btn']) ?>
+                            <?= $this->Html->link('Reply', ['action' => 'reply', $enquiry->enquiry_id], ['class' => 'btn btn-info view-btn']) ?>
                             <?= $this->Html->link($enquiry->enquiry_seen ? 'Mark as Unread' : 'Mark as Read', ['action' => 'toggle', $enquiry->enquiry_id], ['class' => 'btn btn-primary mark-read-btn']) ?>
                             <?= $this->Form->postLink('Archive', ['action' => 'archive', $enquiry->enquiry_id], ['class' => 'btn btn-warning archive-btn', 'confirm' => 'Are you sure you want to archive this enquiry?']) ?>
                         </td>
