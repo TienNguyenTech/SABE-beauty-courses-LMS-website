@@ -92,8 +92,7 @@ if ($error = 404) {
             margin: 0;
         }
     }
-</style>
-<style>
+
     .hero-btns {
         display: flex;
         justify-content: center;
@@ -130,8 +129,7 @@ if ($error = 404) {
     .boxed-btn:active {
         background-color: #4a9b38;
     }
-</style>
-<style>
+
     .hero-text-tablecell h1 {
         text-align: center;
     }
