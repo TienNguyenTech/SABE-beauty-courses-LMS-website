@@ -82,11 +82,12 @@ class EnquirysController extends AppController
                 ->setFrom('admin@sabe.u24s1009.iedev.org')
                 ->setSubject($reply['reply_subject'])
                 ->setViewVars([
-                    'message' => $reply['reply_message']
+                    'message' => $reply['reply_message'],
+                    'enquiry' => $enquiry
                 ])
                 ->viewBuilder()
                 ->disableAutoLayout()
-                ->setTemplate('');
+                ->setTemplate('enquiry_reply');
             
             try {
                 $email_result = $mailer->deliver();
