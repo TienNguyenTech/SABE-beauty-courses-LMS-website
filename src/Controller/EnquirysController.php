@@ -60,7 +60,12 @@ class EnquirysController extends AppController
      */
     public function view($id = null)
     {
-        $enquiry = $this->Enquirys->get($id, contain: ['Enquirys']);
+        $enquiry = $this->Enquirys->get($id);
+        $this->set(compact('enquiry'));
+    }
+
+    public function reply($id = null) {
+        $enquiry = $this->Enquirys->get($id);
         $this->set(compact('enquiry'));
     }
 
