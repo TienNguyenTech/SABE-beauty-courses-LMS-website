@@ -161,7 +161,7 @@
                     $isIndexPage = $this->getRequest()->getParam('action') === 'index';
                     $isEditPage = $this->getRequest()->getParam('action') === 'edit';
                     $isAdminDashboardPage = $this->getRequest()->getParam('controller') === 'Pages' && $this->getRequest()->getParam('action') === 'display';
-                    $isQuizAddPage = $this->getRequest()->getParam('controller') === 'Quizzes' && $this->getRequest()->getParam('action') === 'add';
+                    $isQuizAddPage = $this->getRequest()->getParam('controller') === 'Quizzes' && ($this->getRequest()->getParam('action') === 'add' || $this->getRequest()->getParam('action') === 'edit');
                     $isContentEditPage = $this->getRequest()->getParam('controller') === 'Contents' && $this->getRequest()->getParam('action') === 'edit';
                     $isCoursesCoursePage = $this->getRequest()->getParam('controller') === 'Courses' && $this->getRequest()->getParam('action') === 'course';
                     $isContentBlockEditPage = $this->getRequest()->getParam('controller') === 'ContentBlocks' && $this->getRequest()->getParam('action') === 'edit';
