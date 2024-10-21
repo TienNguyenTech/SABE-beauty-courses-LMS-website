@@ -48,7 +48,7 @@ if ($error = 404) {
     <!-- responsive -->
     <link rel="stylesheet" href="assets/css/responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
+
     <?= $this->Html->css('homepage') ?>
 </head>
 
@@ -123,7 +123,7 @@ if ($error = 404) {
                                             ['controller' => 'Auth', 'action' => 'logout'],
                                             ['class' => 'button button-outline',]
                                         ); //'onclick' => 'return confirm("Are you sure you want to leave?");'
-
+                                    
                                     } else {
                                         echo $this->Html->link(
                                             'Log in',
@@ -397,7 +397,7 @@ if ($error = 404) {
     </section>
     <!--Welcome One End-->
 
-    
+
     <!-- product section -->
 
     </div>
@@ -727,7 +727,21 @@ if ($error = 404) {
                     <div class="col-lg-3 col-md-6 col-12">
                         <div class="footer-box get-in-touch">
                             <h2 class="widget-title">Get in Touch</h2>
-                            <ul>
+                            <button class="footer-dropdown-btn" aria-expanded="false" aria-controls="dropdown-content"
+                                type="button">
+                                <div class="footer-dropdown-heading">
+                                    <span>Get in Touch</span>
+                                    <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="24"
+                                        height="24" viewBox="0 0 24 24">
+                                        <g fill="none" fill-rule="evenodd">
+                                            <polyline stroke="currentColor" stroke-linecap="round"
+                                                stroke-linejoin="round" stroke-width="2"
+                                                vector-effect="non-scaling-stroke" points="18 10 12 16 6 10"></polyline>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </button>
+                            <ul id="dropdown-content">
                                 <li style="font-size: 18px;">
                                     <?= $this->ContentBlock->text('location-address') ?>,
                                     <?= $this->ContentBlock->text('location-suburb') ?>,
@@ -751,7 +765,21 @@ if ($error = 404) {
                     <div class="col-lg-2 col-md-6 col-12">
                         <div class="footer-box pages">
                             <h2 class="widget-title">Pages</h2>
-                            <ul>
+                            <button class="footer-dropdown-btn" aria-expanded="false" aria-controls="dropdown-content"
+                                type="button">
+                                <div class="footer-dropdown-heading">
+                                    <span>Pages</span>
+                                    <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="24"
+                                        height="24" viewBox="0 0 24 24">
+                                        <g fill="none" fill-rule="evenodd">
+                                            <polyline stroke="currentColor" stroke-linecap="round"
+                                                stroke-linejoin="round" stroke-width="2"
+                                                vector-effect="non-scaling-stroke" points="18 10 12 16 6 10"></polyline>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </button>
+                            <ul id="dropdown-content">
                                 <li><?= $this->Html->link("Home", "/", ['style' => 'font-size: 18px;']) ?></li>
                                 <li><?= $this->Html->link("Beauty By Lisa", ['controller' => 'BeautyByLisa', 'action' => 'services'], ['style' => 'font-size: 18px;']) ?>
                                 </li>
@@ -766,9 +794,24 @@ if ($error = 404) {
                     <div class="col-lg-3 col-md-6 col-12">
                         <div class="footer-box subscribe">
                             <h2 class="widget-title">Opening Hours</h2>
+                            <button class="footer-dropdown-btn" aria-expanded="false" aria-controls="dropdown-content"
+                                type="button">
+                                <div class="footer-dropdown-heading">
+                                    <span>Opening Hours</span>
+                                    <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="24"
+                                        height="24" viewBox="0 0 24 24">
+                                        <g fill="none" fill-rule="evenodd">
+                                            <polyline stroke="currentColor" stroke-linecap="round"
+                                                stroke-linejoin="round" stroke-width="2"
+                                                vector-effect="non-scaling-stroke" points="18 10 12 16 6 10"></polyline>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </button>
                             <!--                        <p>Monday to Friday: 9:30 - 20:00</p>-->
-                            <p style="font-size: 18px;"><?= $this->ContentBlock->text('opening-hours'); ?></p>
-
+                            <ul id="dropdown-content">
+                                <p style="font-size: 18px;"><?= $this->ContentBlock->text('opening-hours'); ?></p>
+                            </ul>
                         </div>
                     </div>
                     <div class="col-lg-1 col-md-6 col-12">
@@ -815,7 +858,22 @@ if ($error = 404) {
                 </div>
             </div>
         </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                var dropdownButtons = document.querySelectorAll(".footer-dropdown-btn");
+                dropdownButtons.forEach(function (button) {
+                    button.addEventListener("click", function () {
+                        var content = this.nextElementSibling; // Phần tử sau nút là nội dung
+                        if (content.style.display === "block") {
+                            content.style.display = "none";
+                        } else {
+                            content.style.display = "block";
+                        }
+                    });
+                });
+            });
 
+        </script>
         <!-- jquery -->
         <script src="assets/js/jquery-1.11.3.min.js"></script>
         <!-- bootstrap -->
