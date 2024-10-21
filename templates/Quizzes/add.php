@@ -56,6 +56,10 @@ echo $this->Form->control('quiz_title', [
     let questionCount = 0;
 
     function deleteQuestion(index) {
+        const confirmation = confirm(`Are you sure you want to delete question ${index}? This cannot be undone!`);
+
+        if(!confirmation) return;
+
         document.querySelectorAll('[id]').forEach((element) => {
             if(element.id.includes(`question${index}`)) {
                 const parentDiv = element.closest('div.mb-3.input.text');
