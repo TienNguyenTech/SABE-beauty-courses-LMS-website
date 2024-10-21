@@ -42,6 +42,10 @@
     .social-icons.footer-box.subscribe {
         margin: 0;
     }
+    .image-gallery .col-4 {
+        flex: 0 0 100%; 
+        max-width: 100%; 
+    }
 }
 
 .footer-dropdown-btn {
@@ -678,7 +682,6 @@
 .footer-area {
     background-color: #4a9b38;
     color: #fff;
-    padding: 150px 0;
 }
 
 h2.widget-title {
@@ -1271,6 +1274,7 @@ a.whiteb-btn:hover {
     margin: 0 auto;
     max-width: 1350px;
     margin-bottom: 30px;
+    padding: 0;
     /* Adjust the maximum width as needed */
 }
 
@@ -1285,6 +1289,9 @@ a.whiteb-btn:hover {
     overflow: hidden;
     height: 500px;
     /* Set a fixed height */
+}
+.image-wrapper img{
+    width: 100%;
 }
 
 .img-fluid {
