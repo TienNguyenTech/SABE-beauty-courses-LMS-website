@@ -106,6 +106,10 @@
         });
 
         questionCount--;
+
+        if(questionCount == 0) {
+            submitButton.setAttribute('disabled', 'true');
+        }
     }
 
     addButton.addEventListener('click', () => {
@@ -114,7 +118,7 @@
 
         questionCount++;
         let questionHTML = `
-        <h5 id="question${questionCount}title">Question ${questionCount} <span id="question${questionCount}button" class="btn btn-danger btn-sm" onclick="deleteQuestion(<?= $questionIndex + 1 ?>)">Remove question</span></h5>
+        <h5 id="question${questionCount}title">Question ${questionCount} <span id="question${questionCount}button" class="btn btn-danger btn-sm" onclick="deleteQuestion(${questionCount})">Remove question</span></h5>
         <label id="question${questionCount}label" class="form-label" for="question${questionCount}_title">Question ${questionCount} Title</label>
         <input id="question${questionCount}-title" class="form-control" type="text" name="question${questionCount}_title">
     `;
