@@ -16,7 +16,7 @@
         }
 
         .site-logo {
-            display: none;
+            display: block;
         }
     }
 
@@ -24,22 +24,31 @@
     @media only screen and (max-width: 767.96px) {
         .top-header-area {
             width: 100%;
-            padding: 0px 0;
+            padding: 0;
+            display: flex; /* Use flexbox for layout */
+            justify-content: space-between; /* Space between logo and burger menu */
+            align-items: center; /* Center vertically */
         }
-
+    
         .site-logo {
-            display: none;
-            /* Hide the logo in mobile mode */
+            display: block; /* Keep the logo visible in mobile mode */
         }
-
+    
+        .burger-menu {
+            display: block; 
+            cursor: pointer; 
+            
+        }
+    
         div.footer-area {
             max-height: 750px;
         }
-
+    
         .social-icons.footer-box.subscribe {
             margin: 0;
         }
     }
+    
 
     .hero-btns {
         display: flex;
