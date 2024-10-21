@@ -329,7 +329,7 @@ if ($error = 404) {
                         break; ?>
                     <?php if ($course->course_featured): ?>
                         <div class="col-lg-4 col-md-6 text-center">
-                            <div class="single-product-item card-equal-height">
+                            <div class="course-card single-product-item card-equal-height">
                                 <div class="product-image">
                                     <?= $this->Html->image('/' . $course->course_image) ?>
                                 </div>
