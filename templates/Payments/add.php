@@ -43,7 +43,7 @@ $(document).ready(function() {
 
 <div class="form-group row">
     <div class="col-sm-10 offset-sm-2">
-        <?= $this->Html->link('Cancel', ['action' => 'index'], ['class' => 'btn btn-secondary']) ?>
+        <?= $this->Html->link('Cancel', ['action' => 'enrollments'], ['class' => 'btn btn-secondary']) ?>
         <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
     </div>
 </div>
