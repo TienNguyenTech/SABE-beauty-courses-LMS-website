@@ -95,8 +95,7 @@ class QuizzesController extends AppController
         $this->restrict();
         $quiz = $this->Quizzes->newEmptyEntity();
         if ($this->request->is('post')) {
-            $data = $this->request->getData();
-//            Log::debug('Request Data: ' . print_r($data, true));
+            $data = $this->request->getData();;
 
             $transformedData = [
                 'quiz_title' => $data['quiz_title'],
@@ -129,8 +128,6 @@ class QuizzesController extends AppController
                 $questionIndex++;
             }
 
-//            Log::debug('Transformed Data: ' . print_r($transformedData, true));
-
             $questions = [];
 
             foreach ($transformedData['questions'] as $question) {
@@ -161,15 +158,12 @@ class QuizzesController extends AppController
                 'quiz_json' => $quizJSON
             ]);
 
-//            Log::debug('Quiz Entity: ' . print_r($quiz, true));
-
             if ($this->Quizzes->save($quiz)) {
                 $this->Flash->success(__('The quiz has been saved.'));
 
                 return $this->redirect(['controller' => 'Courses', 'action' => 'index']);
             }
 
-//            Log::debug('Validation Errors: ' . print_r($quiz->getErrors(), true));
             $this->Flash->error(__('The quiz could not be saved. Please, try again.'));
         }
         $course = $this->Quizzes->Courses->get($courseID);
@@ -254,8 +248,82 @@ class QuizzesController extends AppController
     {
         $this->restrict();
         $quiz = $this->Quizzes->get($id, contain: []);
+
+        $course = $this->Quizzes->Courses->get($quiz->course_id);
+
+        $quizJSON = json_decode(json_decode($quiz->quiz_json));
+        $quiz->quiz_title = $quizJSON->title;
+
+        $questions = [];
+        foreach ($quizJSON->pages as $question) {
+            array_push($questions, $question->elements);
+        }
+
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $quiz = $this->Quizzes->patchEntity($quiz, $this->request->getData());
+            $data = $this->request->getData();
+
+            $transformedData = [
+                'quiz_title' => $data['quiz_title'],
+                'questions' => []
+            ];
+
+            $questionIndex = 1;
+
+            while (isset($data['question' . $questionIndex . '_title'])) {
+                if (isset($data['question' . $questionIndex . '_correctoption'])) {
+                    $question = [
+                        'title' => $data['question' . $questionIndex . '_title'],
+                        'options' => [],
+                        'correct_option' => $data['question' . $questionIndex . '_correctoption']
+                    ];
+                } else {
+                    $question = [
+                        'title' => $data['question' . $questionIndex . '_title'],
+                        'options' => [],
+                        'correct_option' => null // or handle the missing key appropriately
+                    ];
+                }
+
+                $optionIndex = 1;
+                while (isset($data['question' . $questionIndex . '_option' . $optionIndex])) {
+                    $question['options'][] = $data['question' . $questionIndex . '_option' . $optionIndex];
+                    $optionIndex++;
+                }
+
+                $transformedData['questions'][] = $question;
+                $questionIndex++;
+            }
+
+            $questions = [];
+
+            foreach ($transformedData['questions'] as $question) {
+                array_push($questions, new QuizQuestion(
+                    'radiogroup',
+                    $question['title'],
+                    $question['title'],
+                    $question['options'],
+                    $question['options'][intval($question['correct_option'])]
+                ));
+            }
+
+            for($i = 0; $i < count($questions); $i++) {
+                $questions[$i] = $questions[$i]->generate();
+            }
+
+            $quizJSON = new QuizGenerator(
+                $transformedData['quiz_title'],
+                $questions
+            );
+
+            $quizJSON = json_encode($quizJSON->generate());
+
+            $quiz = $this->Quizzes->patchEntity($quiz, [
+                'quiz_title' => $transformedData['quiz_title'],
+                'questions' => $transformedData['questions'],
+                'course_id' => $course->course_id,
+                'quiz_json' => $quizJSON
+            ]);
+
             if ($this->Quizzes->save($quiz)) {
                 $this->Flash->success(__('The quiz has been saved.'));
 
@@ -264,7 +332,8 @@ class QuizzesController extends AppController
             $this->Flash->error(__('The quiz could not be saved. Please, try again.'));
         }
         $courses = $this->Quizzes->Courses->find('list', limit: 200)->all();
-        $this->set(compact('quiz', 'courses'));
+        $this->set('title', 'Edit Quiz');
+        $this->set(compact('quiz', 'course', 'questions'));
     }
 
     /**
