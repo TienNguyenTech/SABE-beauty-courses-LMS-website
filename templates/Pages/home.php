@@ -396,15 +396,8 @@ if ($error = 404) {
         </div>
     </section>
     <!--Welcome One End-->
-
-
-    <!-- product section -->
-
     </div>
-    <!-- end product section -->
     </div>
-    <!-- End of Product Setion -->
-
     <div class="abt-text text-center">
         <h2 style="margin-bottom: 30px;">We Stock <span class="orange-text">Murad</span></h2>
         <div>
