@@ -135,7 +135,7 @@ body {
 
 .users.form.content input[type="password"] {
 
-    width: 100%;
+    width: 20%;
 
     padding: 10px;
 
@@ -190,7 +190,7 @@ body {
 .cardhidden {
     background-color: white;
 
-    padding-top: 100px;
+    padding-top: 200px;
     padding-bottom: 100px;
 
     margin-right: -105px;
@@ -215,7 +215,6 @@ body {
 
 .centered-button {
     display: block;
-    width: 350px;
     margin: auto;
     align-items: center;
     border-radius: 10px;
@@ -364,4 +363,116 @@ body {
     margin: 0 auto;
     text-align: center; /* Optional: Center the text */
     padding-bottom: 10px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh; /* Đặt chiều cao của body bằng chiều cao viewport */
+    display: flex;
+    justify-content: center; /* Căn giữa nội dung */
+    align-items: center; /* Căn giữa theo chiều dọc */
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Đặt các phần tử theo chiều dọc */
+    width: 100%; /* Đặt chiều rộng của container */
+    padding: 20px; /* Padding xung quanh */
+    box-sizing: border-box; /* Bao gồm padding và border vào kích thước */
+}
+
+.right-side {
+    width: 100%; /* Đặt chiều rộng đầy đủ */
+    max-width: 400px; /* Đặt chiều rộng tối đa cho thiết bị lớn hơn */
+    padding: 20px; /* Padding xung quanh */
+    background: #fff; /* Màu nền trắng cho phần đăng nhập */
+    border-radius: 10px; /* Bo tròn các góc */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Đổ bóng */
+}
+
+.logo-image {
+    display: block;
+    margin: 0 auto 20px; /* Căn giữa logo */
+}
+
+fieldset {
+    border: none; /* Xóa viền cho fieldset */
+}
+
+.login-title {
+    text-align: center; /* Căn giữa tiêu đề */
+    font-size: 1.5em; /* Kích thước font tiêu đề */
+}
+
+.users.form.content {
+    display: flex;
+    flex-direction: column; /* Đặt các input theo chiều dọc */
+}
+
+input {
+    width: 100%; /* Đặt chiều rộng input */
+    margin: 10px 0; /* Khoảng cách giữa các input */
+    padding: 10px; /* Padding bên trong input */
+    border-radius: 10px; /* Bo tròn các góc input */
+    border: 1px solid #ccc; /* Đường viền */
+}
+
+.centered-button {
+    display: block;
+    width:20%;
+    margin: 20px auto; /* Căn giữa nút */
+    padding: 10px; /* Padding cho nút */
+}
+
+/* Media Queries */
+@media only screen and (max-width: 768px) {
+    .right-side {
+        padding: 10px; /* Giảm padding cho màn hình nhỏ */
+    }
+    .login-title {
+        font-size: 1.2em; /* Kích thước font tiêu đề nhỏ hơn */
+    }
+
+    .users.form.content {
+        max-width: 430px;
+        max-height: 932px;
+    }
+}
+
+.form-label {
+    margin-left: 450px; /* Default margin for desktop view */
+    margin-right:70px;
+}
+
+.hello {
+    margin-right:100px;
+}
+.form-control {
+    color: black; 
+    width: 150px; 
+    border-radius: 10px;
+}   
+
+/* Mobile view adjustments */
+@media (max-width: 768px) {
+    .form-label {
+        margin-left: 0; /* Remove margin on mobile */
+        display: block; /* Ensure the label appears above the input */
+        margin-bottom: 5px; /* Add some space between the label and input */
+    }
+
+    .form-control {
+        width: 100%; /* Make input fields full width */
+        margin-left: 0; /* Remove left margin on mobile */
+    }
+
+    .users.form.content input[type="email"],
+
+.users.form.content input[type="password"] {
+
+    width: 100%;}
 }

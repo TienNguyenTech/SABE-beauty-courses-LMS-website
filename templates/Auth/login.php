@@ -23,58 +23,66 @@ $this->assign('title', 'Login');
 
     <?= $this->Html->css('login-new') ?>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 
 </head>
 
 <body>
-    <div class="container">
+ 
 
         <!--<div class="left-side">
             <img src="//$this->Url->image('../webroot/img/lisa-logo.png') ?>" alt="Lisa Logo" class="background-image">
         </div>-->
-        <div class="right-side">
-            <div class="users form content cardhidden">
-                <?= $this->ContentBlock->image('logo-dark', ['class' => 'logo-image','width' => '200px', 'height' => '200px']) ?>
+        <div class="users form content cardhidden">
+            <?= $this->ContentBlock->image('logo-dark', ['class' => 'logo-image', 'width' => '100px', 'height' => '100px']) ?>
 
-                <?= $this->Form->create() ?>
-                <fieldset>
-                    <legend class="login-title">Login</legend>
-                    <?= $this->Flash->render() ?>
-                    <?php
-                    echo $this->Form->control('email', [
-                        'type' => 'email',
-                        'required' => true,
-                        'autofocus' => true,
-                        'label' => 'Email', // Custom label text
-                        'style' => 'color: black; width: 350px; border-radius: 10px; margin-left: 75px;',
-                    ]);
+            <?= $this->Form->create() ?>
+            <fieldset>
+                <legend class="login-title">Login</legend>
+                <?= $this->Flash->render() ?>
+                <?php
+                echo $this->Form->control('email', [
+                    'type' => 'email',
+                    'required' => true,
+                    'autofocus' => true,
+                    'label' => [
+                        'text' => 'Email', // Custom label text
+                        'class' => 'form-label hello', // Add a class for styling
+                    ],
+                    'class' => 'form-control', // Add a class for styling
+                ]);
+                
+                echo $this->Form->control('password', [
+                    'type' => 'password',
+                    'required' => true,
+                    'label' => [
+                        'text' => 'Password', // Custom label text
+                        'class' => 'form-label', // Add a class for styling
+                    ],
+                    'class' => 'form-control', // Add a class for styling
+                ]);
+                
+                ?>
 
-                    echo $this->Form->control('password', [
-                        'type' => 'password',
-                        'required' => true,
-                        'label' => 'Password', // Custom label text
-                        'style' => 'color: black; width: 350px; border-radius: 10px; margin-left: 45px;',
-                    ]);
-                    ?>
+                <div class="g-recaptcha" data-sitekey="6Lc7pCgqAAAAAJkUyRxxVhuFmd9v-5Pk-vtPtsUf"
+                    data-callback="onRecaptchaSuccess"></div>
 
-                    <div class="g-recaptcha" data-sitekey="6Lc7pCgqAAAAAJkUyRxxVhuFmd9v-5Pk-vtPtsUf"
-                        data-callback="onRecaptchaSuccess"></div>
+            </fieldset>
 
-                </fieldset>
-
-                <?= $this->Html->link('Forgot Password?', ['action' => 'forgetPassword'], ['class' => 'button-clear', 'style' => 'font-size: 15px;']) ?>
+            <?= $this->Html->link('Forgot Password?', ['action' => 'forgetPassword'], ['class' => 'button-clear', 'style' => 'font-size: 15px;']) ?>
+            <br>
+            <?= $this->Form->button('Login', ['class' => 'centered-button']) ?>
+            <?= $this->Form->end() ?>
+            <div class="back-home-link">
+                <?= $this->Html->link('Back To Home', '/', ['class' => 'back-to-home', 'style' => 'font-size: 18px; font-weight: bold;']) ?>
+                <!--                    --><?php //= $this->Html->link('Back to Login', ['controller' => 'Auth', 'action' => 'login'], ['class' => 'back-to-home', 'style' => 'font-size: 24px; font-weight: bold;']) ?>
                 <br>
-                <?= $this->Form->button('Login', ['class' => 'centered-button']) ?>
-                <?= $this->Form->end() ?>
-                <div class="back-home-link">
-                    <?= $this->Html->link('Back To Home', '/', ['class' => 'back-to-home', 'style' => 'font-size: 18px; font-weight: bold;']) ?>
-<!--                    --><?php //= $this->Html->link('Back to Login', ['controller' => 'Auth', 'action' => 'login'], ['class' => 'back-to-home', 'style' => 'font-size: 24px; font-weight: bold;']) ?>
-                    <br>
-                    <?= $this->Html->link('Don\'t have an account? Register', ['controller' => 'Auth', 'action' => 'register'], ['class' => 'back-to-home','style' => 'font-size: 18px; font-weight: bold;']) ?>
-                </div>
+                <?= $this->Html->link('Don\'t have an account? Register', ['controller' => 'Auth', 'action' => 'register'], ['class' => 'back-to-home', 'style' => 'font-size: 18px; font-weight: bold;']) ?>
+            </div>
 
 
-                <!--<p class="other-login">Or Login With</p>
+            <!--<p class="other-login">Or Login With</p>
                 <div class="button-container">
                     <a href="#" class="social-button google">
                         <img src="../img/google-logo.png" alt="Google Logo"> Google
@@ -83,10 +91,10 @@ $this->assign('title', 'Login');
                         <img src="../img/facebook-logo.jpg" alt="Facebook Logo"> Facebook
                     </a>
                 </div>-->
-            </div>
         </div>
     </div>
-    </div>
+   
+
 
     <script>
         // Variable to track captcha status
