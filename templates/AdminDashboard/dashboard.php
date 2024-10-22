@@ -9,13 +9,16 @@
     }
 
     .dashboard-card {
-        flex: 1 0 30%; /* Adjusted to fit 3 cards per row with some gap */
-        max-width: 30%; /* Ensures that the cards do not exceed 30% of the container width */
+        flex: 1 0 30%;
+        /* Adjusted to fit 3 cards per row with some gap */
+        max-width: 30%;
+        /* Ensures that the cards do not exceed 30% of the container width */
         background-color: #f8f9fa;
         border-radius: 10px;
         padding: 20px;
         box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
-        box-sizing: border-box; /* Ensures padding and border are included in the width */
+        box-sizing: border-box;
+        /* Ensures padding and border are included in the width */
     }
 
     .dashboard-card h2 {
@@ -35,6 +38,45 @@
         text-decoration: none;
     }
 
+    @media only screen and (max-width: 768px) {
+        .topbar .nav-item .nav-link {
+            right:10px;
+        }
+
+        .dashboard-card {
+            flex-direction: column;
+        }
+
+        .navbar-nav {
+            max-width: 17%;
+        }
+
+        .sidebar .nav-item .nav-link {
+            width: auto;
+            padding: .75rem 0;
+        }
+
+        .sidebar .sidebar-heading {
+            padding: 0;
+        }
+
+        .dashboard-container {
+            flex-direction: column;
+        }
+
+        .dashboard-card {
+            max-width: 100%;
+        }
+
+        .h1,
+        h1 {
+            font-size: 2rem;
+        }
+
+        #des{
+            display: none;
+        }
+    }
 </style>
 
 <h1 style="color:#1cc88a">Admin Dashboard</h1>
@@ -42,47 +84,43 @@
 <div class="dashboard-container">
     <!-- Functional Card 1 -->
 
-    <div class="dashboard-card">
+    <a href="<?= $this->Url->build(['plugin' => null, 'controller' => 'Enquirys', 'action' => 'index']) ?>"
+        class="dashboard-card">
         <h2>Enquiries</h2>
-        <p>View all enquiries here</p>
-        <!-- Link to feature -->
-        <a href="<?= $this->Url->build(['controller'=>'Enquirys','action'=>'index']) ?>">Go to Enquiries</a>
-    </div>
+        <p id="des">View all enquiries here</p>
+    </a>
 
-    <!-- Functional Card 2 -->
-    <div class="dashboard-card">
+    <a href="<?= $this->Url->build(['plugin' => null, 'controller' => 'Courses', 'action' => 'index']) ?>"
+        class="dashboard-card">
         <h2>Courses</h2>
-        <p>Manage all courses here</p>
-        <a href="<?= $this->Url->build(['plugin' => null,'controller'=>'Courses','action'=>'index']) ?>">Go to Courses</a>
-    </div>
+        <p id="des">Manage all courses here</p>
+    </a>
 
-    <div class="dashboard-card">
+    <a href="<?= $this->Url->build(['plugin' => null, 'controller' => 'Services', 'action' => 'index']) ?>"
+        class="dashboard-card">
         <h2>Services</h2>
-        <p>Manage all Services here</p>
-        <a href="<?= $this->Url->build(['plugin' => null, 'controller' => 'Services', 'action' => 'index']) ?> ">Go to Services</a>
-    </div>
+        <p id="des">Manage all services here</p>
+    </a>
 
-    <div class="dashboard-card">
+    <a href="<?= $this->Url->build(['plugin' => null, 'controller' => 'Users', 'action' => 'index']) ?>"
+        class="dashboard-card">
         <h2>Users</h2>
-        <p>Manage all users here</p>
-        <a href="<?= $this->Url->build(['plugin' => null,'controller'=>'Users','action'=>'index']) ?>">Go to Users</a>
-    </div>
+        <p id="des">Manage all users here</p>
+    </a>
 
-    <div class="dashboard-card">
+    <a href="<?= $this->Url->build(['plugin' => null, 'controller' => 'Payments', 'action' => 'enrollments']) ?>"
+        class="dashboard-card">
         <h2>Enrollments</h2>
-        <p>Manage all enrollments here</p>
-        <a href="<?= $this->Url->build(['plugin' => null, 'controller' => 'Payments', 'action' => 'enrollments']) ?>">Go to Enrollments</a>
-    </div>
+        <p id="des">Manage all enrollments here</p>
+    </a>
 
-    <div class="dashboard-card">
+    <a href="<?= $this->Url->build(['plugin' => null, 'controller' => 'ExtendedContentBlocks', 'action' => 'index']) ?>"
+        class="dashboard-card">
         <h2>Modify Website</h2>
-        <p>Modify your website here</p>
-        <a href="<?= $this->Url->build(['plugin' => null, 'controller' => 'ExtendedContentBlocks', 'action' => 'index']) ?> ">Go to Modify Wbesite</a>
-    </div>
+        <p id="des">Modify your website here</p>
+    </a>
 
     <!-- Empty Card -->
 
 
 </div>
-
-

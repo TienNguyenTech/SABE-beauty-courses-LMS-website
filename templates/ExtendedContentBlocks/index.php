@@ -47,8 +47,45 @@ $slugify = function($text) {
     .dashboard-card a {
         display: inline-block;
         margin-top: 10px;
-        color: #1cc88a;
+        color: black;
         text-decoration: none;
+    }
+
+    @media only screen and (max-width: 768px) {
+        .dashboard-card {
+            flex-direction: column;
+        }
+
+        .navbar-nav {
+            max-width: 17%;
+        }
+
+        .sidebar .nav-item .nav-link {
+            width: auto;
+            padding: .75rem 0;
+        }
+
+        .sidebar .sidebar-heading {
+            padding: 0;
+        }
+
+        .dashboard-container{
+            flex-direction: column;
+        }
+
+        .dashboard-card{
+            max-width:100%;
+        }
+
+        .h1,h1 {
+            font-size: 2rem;
+        }
+
+        .dashboard-card a {
+            font-size: 1.4rem;
+            color: black;
+        }
+        
     }
 </style>
 

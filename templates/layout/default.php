@@ -88,18 +88,18 @@
                 <a class="nav-link"
                     href="<?= $this->Url->build(['plugin' => null, 'controller' => 'Pages', 'action' => 'display', 'home']) ?>">
                     <i class="fas fa-fw fa-home"></i>
-                    <span>Customer Homepage</span></a>
+                    <span id="textspan">Customer Homepage</span></a>
                 <a class="nav-link"
                     href="<?= $this->Url->build(['plugin' => null, 'controller' => 'AdminDashboard', 'action' => 'dashboard']) ?>">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Admin Dashboard</span></a>
+                    <span id="textspan">Admin Dashboard</span></a>
             </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider">
 
             <!-- Heading -->
-            <div class="sidebar-heading">
+            <div class="sidebar-heading" id="textspan">
                 Functions
             </div>
 
@@ -108,27 +108,27 @@
                 <a class="nav-link"
                     href="<?= $this->Url->build(['plugin' => null, 'controller' => 'Enquirys', 'action' => 'index']) ?>">
                     <i class="fas fa-fw fa-pen"></i>
-                    <span>Enquiries</span></a>
+                    <span id="textspan">Enquiries</span></a>
                 <a class="nav-link"
                     href="<?= $this->Url->build(['plugin' => null, 'controller' => 'Courses', 'action' => 'index']) ?>">
                     <i class="fas fa-fw fa-book-open"></i>
-                    <span>Courses</span></a>
+                    <span id="textspan">Courses</span></a>
                 <a class="nav-link"
                     href="<?= $this->Url->build(['plugin' => null, 'controller' => 'Services', 'action' => 'index']) ?>">
                     <i class="fas fa-fw fa-shopping-bag"></i>
-                    <span>Services</span></a>
+                    <span id="textspan">Services</span></a>
                 <a class="nav-link"
                     href="<?= $this->Url->build(['plugin' => null, 'controller' => 'Users', 'action' => 'index']) ?>">
                     <i class="fas fa-fw fa-user"></i>
-                    <span>Users</span></a>
+                    <span id="textspan">Users</span></a>
                 <a class="nav-link"
                     href="<?= $this->Url->build(['plugin' => null, 'controller' => 'Payments', 'action' => 'enrollments']) ?>">
                     <i class="fas fa-fw fa-users"></i>
-                    <span>Enrollments</span></a>
+                    <span id="textspan">Enrollments</span></a>
                 <a class="nav-link"
                     href="<?= $this->Url->build(['plugin' => null, 'controller' => 'ExtendedContentBlocks', 'action' => 'index']) ?>">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Modify Website</span></a>
+                    <span id="textspan">Modify Website</span></a>
             </li>
 
             <!-- Divider -->
