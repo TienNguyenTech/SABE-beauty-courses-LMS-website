@@ -68,6 +68,12 @@
         max-height: 400px;
     }
 
+    .footer-area {
+    background-color: #1a4332;
+    padding: 100px 0;
+    
+}
+
     @media only screen and (min-width: 768px) and (max-width: 991px) {
         body .top-header-area {
             width: 100%;
@@ -110,6 +116,9 @@
         .mean-bar a.meanmenu-reveal {
             background-color:#2D6A4F !important;
         }
+        .footer-area {
+        max-height:850px !important;
+    }
     }
 </style>
 
