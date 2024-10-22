@@ -441,6 +441,10 @@ input {
         max-width: 430px;
         max-height: 932px;
     }
+
+    body{
+        max-width: 390px;
+    }
 }
 
 .form-label {
