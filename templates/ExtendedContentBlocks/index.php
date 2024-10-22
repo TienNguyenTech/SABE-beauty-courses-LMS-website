@@ -85,7 +85,9 @@ $slugify = function($text) {
             font-size: 1.4rem;
             color: black;
         }
-        
+        .topbar .nav-item .nav-link {
+            right:10px;
+        }
     }
 </style>
 
@@ -100,7 +102,7 @@ $slugify = function($text) {
     <div class="dashboard-container">
     <?php foreach($contentBlocksGrouped as $parent => $contentBlocks) { ?>
         <div class="dashboard-card">
-            <h2><a href="<?= $this->Url->build(['controller' => '../ExtendedContentBlocks', 'action' => 'view', $slugify($parent)]) ?>" id="<?= $slugify($parent) ?>">
+            <h2><a href="<?= $this->Url->build(['controller' => '/ExtendedContentBlocks', 'action' => 'view', $slugify($parent)]) ?>" id="<?= $slugify($parent) ?>">
                     <?= $parent ?>
                 </a></h2>
         </div>

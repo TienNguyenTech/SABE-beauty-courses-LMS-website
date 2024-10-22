@@ -9,6 +9,53 @@ $this->assign('title', $parent . ' Content Blocks');
 $this->Html->css('ContentBlocks.content-blocks', ['block' => true]);
 ?>
 
+<style>
+     @media only screen and (max-width: 768px) {
+        .topbar .nav-item .nav-link {
+            right:10px;
+        }
+
+        .dashboard-card {
+            flex-direction: column;
+        }
+
+        .navbar-nav {
+            max-width: 17%;
+        }
+
+        .sidebar .nav-item .nav-link {
+            width: auto;
+            padding: .75rem 0;
+        }
+
+        .sidebar .sidebar-heading {
+            padding: 0;
+        }
+
+        .dashboard-container {
+            flex-direction: column;
+        }
+
+        .dashboard-card {
+            max-width: 100%;
+        }
+
+        .h1,
+        h1 {
+            font-size: 2rem;
+        }
+
+        #des{
+            display: none;
+        }
+
+        .content-blocks--list-group-item {
+            max-width:400px;
+            margin-left:-50px;
+            margin-right:-10px;
+        }
+    }
+</style>
 <h3><?= h($parent) ?> Content Blocks</h3>
 
 <ul class="content-blocks--list-group">
