@@ -72,6 +72,48 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
         background-color: #c82333;
         /* Darker shade of red */
     }
+    @media only screen and (max-width: 768px) {
+            .topbar .nav-item .nav-link {
+                right: 10px;
+            }
+
+            .dashboard-card {
+                flex-direction: column;
+            }
+
+            .navbar-nav {
+                max-width: 17%;
+            }
+
+            .sidebar .nav-item .nav-link {
+                width: auto;
+                padding: .75rem 0;
+            }
+
+            .sidebar .sidebar-heading {
+                padding: 0;
+            }
+
+            .dashboard-container {
+                flex-direction: column;
+            }
+
+            .dashboard-card {
+                max-width: 100%;
+            }
+
+            .h1,
+            h1 {
+                font-size: 2rem;
+            }
+
+            #des {
+                display: none;
+            }
+            .users h1 {
+                font-size: 2rem;
+            }
+        }
 </style>
 <div class="users index content">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">

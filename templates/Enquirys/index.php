@@ -39,7 +39,7 @@ $ausTimezone = new \DateTimeZone('Australia/Adelaide');
 </style>
 <div class="enquirys index content">
     <!--    --><?php //= $this->Html->link(__('New Enquiry'), ['action' => 'add'], ['class' => 'button float-right']) ?>
-    <h3><?= __('Enquiries') ?></h3>
+    <h1><?= __('Enquiries') ?></h1>
     <?= $this->Html->link('View Archive', ['action' => 'archived'], ['class' => 'btn btn-secondary', 'style' => 'margin-bottom: 10px']) ?>
     <div class="table-responsive">
         <table class="table table-bordered" id="dataTable">
@@ -91,6 +91,7 @@ $ausTimezone = new \DateTimeZone('Australia/Adelaide');
             color: white;
             border: none;
         }
+
         .add-btn {
             background-color: #28a745;
             color: white;
@@ -110,11 +111,58 @@ $ausTimezone = new \DateTimeZone('Australia/Adelaide');
         }
 
         .mark-read-btn {
-    background-color: #b794f4;
-    color: black; /* Set text color to black */
-    border: none;
-}
+            background-color: #b794f4;
+            color: black;
+            /* Set text color to black */
+            border: none;
+        }
 
+        .enquirys h1 {
+            color:#1cc88a;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .topbar .nav-item .nav-link {
+                right: 10px;
+            }
+
+            .dashboard-card {
+                flex-direction: column;
+            }
+
+            .navbar-nav {
+                max-width: 17%;
+            }
+
+            .sidebar .nav-item .nav-link {
+                width: auto;
+                padding: .75rem 0;
+            }
+
+            .sidebar .sidebar-heading {
+                padding: 0;
+            }
+
+            .dashboard-container {
+                flex-direction: column;
+            }
+
+            .dashboard-card {
+                max-width: 100%;
+            }
+
+            .h1,
+            h1 {
+                font-size: 2rem;
+            }
+
+            #des {
+                display: none;
+            }
+            .enquirys h3 {
+                font-size: 2rem;
+            }
+        }
     </style>
     <script>
         $(document).ready(function () {
