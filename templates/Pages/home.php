@@ -75,7 +75,7 @@ if ($error = 404) {
                         <!-- logo -->
                         <div class="site-logo">
                             <?= $this->Html->link(
-                                $this->ContentBlock->image('logo', ['style' => 'width: 100px; height: 100px;']),
+                                $this->ContentBlock->image('logo', ['style' => 'width: 50px; height: 50px;']),
                                 '/',
                                 ['escape' => false]
                             ) ?>

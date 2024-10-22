@@ -36,7 +36,6 @@
     .burger-menu {
         display: block;
         cursor: pointer;
-
     }
 
     .social-icons.footer-box.subscribe {
@@ -45,6 +44,10 @@
     .image-gallery .col-4 {
         flex: 0 0 100%; 
         max-width: 100%; 
+    }
+
+    .site-logo{
+        margin-top: 10px;
     }
 }
 
@@ -64,12 +67,12 @@
 
 @media only screen and (max-width: 767.96px) {
     .footer-dropdown-btn {
-        display: block; /* Hiển thị nút dropdown trên mobile */
+        display: block; 
     }
 
-    #dropdown-content {
-        display: none; /* Ẩn nội dung trên mobile */
-    }
+    /* #dropdown-content {
+        display: none; 
+    } */
 
     .widget-title {
         display: none;
