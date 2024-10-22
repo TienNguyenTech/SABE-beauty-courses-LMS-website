@@ -13,7 +13,7 @@ $ausTimezone = new \DateTimeZone('Australia/Sydney');
 ?>
 <div class="payments index content">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800"><?= __('Enrollments') ?></h1>
+    <h1 style="color:#1cc88a;"><?= __('Enrollments') ?></h1>
         <?= $this->Html->link('+ New enrollment', ['action' => 'add'], ['class' => 'btn btn-primary']) ?>
     </div>
     <?= $this->Html->link('View Archive', ['action' => 'archived'], ['class' => 'btn btn-secondary', 'style' => 'margin-bottom: 10px']) ?>
@@ -45,6 +45,9 @@ $ausTimezone = new \DateTimeZone('Australia/Sydney');
         </table>
     </div>
     <style>
+        #enrolltext {
+            color:#1cc88a;
+        }
          @media only screen and (max-width: 768px) {
             .topbar .nav-item .nav-link {
                 right: 10px;
