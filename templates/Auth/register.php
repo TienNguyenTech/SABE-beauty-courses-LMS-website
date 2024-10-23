@@ -96,12 +96,11 @@ $this->assign('title', 'Create account');
 
 <body>
 <div class="container">
-    <div class="right-side">
         <div class="users form content cardhidden form-container">
             <?= $this->ContentBlock->image('logo-dark', ['class' => 'logo-image', 'width' => '200px', 'height' => '200px']) ?>
 
             <?= $this->Form->create() ?>
-            <fieldset>
+            <fieldset class="register-fieldset">
                 <legend class="login-title">Create account</legend>
                 <div style="text-align: center;">
                     <?= $this->Html->link('Already have an account?', [
@@ -127,7 +126,10 @@ $this->assign('title', 'Create account');
                         'placeholder' => 'name@example.com',
                         'required' => true,
                         'autofocus' => true,
-                        'label' => 'Email',
+                        'label' => [
+                            'text' => 'Email',
+                            'class' => 'register-label'
+                        ]
                     ]); ?>
                 </div>
 
@@ -135,7 +137,7 @@ $this->assign('title', 'Create account');
                     <?= $this->Form->control('user_firstname', [
                         'placeholder' => 'John',
                         'required' => true,
-                        'label' => 'Firstname',
+                        'label' => ['text' => 'Firstname', 'class' => 'register-label']
                     ]); ?>
                 </div>
 
@@ -143,7 +145,7 @@ $this->assign('title', 'Create account');
                     <?= $this->Form->control('user_surname', [
                         'placeholder' => 'Smith',
                         'required' => true,
-                        'label' => 'Surname',
+                        'label' => ['text' => 'Surname', 'class' => 'register-label']
                     ]); ?>
                 </div>
 
@@ -153,7 +155,7 @@ $this->assign('title', 'Create account');
                         'pattern' => '[0-9]{10}',
                         'placeholder' => '0412345678',
                         'required' => true,
-                        'label' => 'Phone Number',
+                        'label' => ['text' => 'Phone Number', 'class' => 'register-label']
                     ]); ?>
                 </div>
 
@@ -161,7 +163,7 @@ $this->assign('title', 'Create account');
                     <?= $this->Form->control('password', [
                         'type' => 'password',
                         'required' => true,
-                        'label' => 'Password',
+                        'label' => ['text' => 'Password', 'class' => 'register-label'],
                         'pattern' => "^(?=.*[A-Z])(?=(.*\d){2,})(?=.*[!@#$%^&*()_+\-=\[\]{};':&quot;\\|,.&lt;&gt;\/?]).{8,}$"
                     ]); ?>
                 </div>
@@ -170,7 +172,7 @@ $this->assign('title', 'Create account');
                     <?= $this->Form->control('password_confirm', [
                         'type' => 'password',
                         'required' => true,
-                        'label' => 'Retype Password',
+                        'label' => ['text' => 'Retype password', 'class' => 'register-label'],
                         'pattern' => "^(?=.*[A-Z])(?=(.*\d){2,})(?=.*[!@#$%^&*()_+\-=\[\]{};':&quot;\\|,.&lt;&gt;\/?]).{8,}$"
                     ]); ?>
                 </div>
@@ -197,7 +199,6 @@ $this->assign('title', 'Create account');
 
             </div>
         </div>
-    </div>
 </div>
 </body>
 

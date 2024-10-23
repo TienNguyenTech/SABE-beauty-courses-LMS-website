@@ -131,7 +131,7 @@ body {
 
 
 
-.users.form.content input[type="email"],
+/* .users.form.content input[type="email"],
 
 .users.form.content input[type="password"] {
 
@@ -147,7 +147,7 @@ body {
 
     font-size: 16px;
 
-}
+} */
 
 
 .logo-image {
@@ -429,6 +429,17 @@ input {
 .hello {
     margin-right:100px;
 }
+
+.register-fieldset {
+    width: 400px;
+}
+
+.email-input-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px; /* Optional, adds space below the input */
+}
+
 
 /* Tablet Media Query */
 @media only screen and (max-width: 1200px) {

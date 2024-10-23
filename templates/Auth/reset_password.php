@@ -19,19 +19,18 @@ $this->assign('title', 'Reset Password');
 </head>
 <body>
     <div class="container">
-        <div class="right-side">
-            <div class="users form content cardhidden">
+        <div class="users form content cardhidden" style="text-align: center;"> <!-- Center the form content -->
 
+            <?= $this->ContentBlock->image('logo-dark', ['class' => 'logo-image','width' => '200px', 'height' => '200px']) ?>
+            <?= $this->Form->create() ?>
 
-                <?= $this->ContentBlock->image('logo-dark', ['class' => 'logo-image','width' => '200px', 'height' => '200px']) ?>
-                <?= $this->Form->create() ?>
+            <fieldset>
+                <legend class="login-title">Reset Password</legend>
 
-                <fieldset>
+                <?= $this->Flash->render() ?>
 
-                    <legend class="login-title">Reset Password</legend>
-
-                    <?= $this->Flash->render() ?>
-
+                <!-- Wrap the inputs in a div with inline styles for centering -->
+                <div style="margin: 0 auto; width: 100%; max-width: 400px;">
                     <?php
                     echo $this->Form->control('password', [
                         'type' => 'password',
@@ -39,33 +38,38 @@ $this->assign('title', 'Reset Password');
                         'autofocus' => true,
                         'label' => 'New password',
                         'value' => '',
-                        'style' => 'color: black; width: 350px; border-radius: 10px; font-size: 16px; cursor: pointer; margin-left: 115px;',
+                        'style' => 'color: black; width: 100%; border-radius: 10px; font-size: 16px; cursor: pointer;',
                     ]);
+                    ?>
+                </div>
+
+                <div style="margin: 0 auto; width: 100%; max-width: 400px; margin-top: 15px;">
+                    <?php
                     echo $this->Form->control('password_confirm', [
                         'type' => 'password',
                         'required' => true,
                         'label' => 'Confirm new password',
                         'value' => '',
-                        'style' => 'color: black; width: 350px; border-radius: 10px; font-size: 16px; cursor: pointer; margin-left: 115px;',
+                        'style' => 'color: black; width: 100%; border-radius: 10px; font-size: 16px; cursor: pointer;',
                     ]);
                     ?>
-
-                    <div class="g-recaptcha" data-sitekey="6Lc7pCgqAAAAAJkUyRxxVhuFmd9v-5Pk-vtPtsUf"
-                                                                data-callback="onRecaptchaSuccess"></div>
-
-                </fieldset>
-
-                <?= $this->Form->button('Reset password', ['class' => 'centered-button']) ?>
-                <?= $this->Form->end() ?>
-
-
-                <div class="back-home-link">
-                    <?= $this->Html->link('Back to login', ['controller' => 'Auth', 'action' => 'login'], ['class' => 'back-to-home']) ?>
                 </div>
 
+                <div class="g-recaptcha" data-sitekey="6Lc7pCgqAAAAAJkUyRxxVhuFmd9v-5Pk-vtPtsUf"
+                    data-callback="onRecaptchaSuccess"></div>
+
+            </fieldset>
+
+            <div style="margin-top: 20px;">
+                <?= $this->Form->button('Reset password', ['class' => 'centered-button']) ?>
             </div>
+            <?= $this->Form->end() ?>
+
+            <div class="back-home-link" style="margin-top: 15px;">
+                <?= $this->Html->link('Back to login', ['controller' => 'Auth', 'action' => 'login'], ['class' => 'back-to-home']) ?>
+            </div>
+
         </div>
-    </div>
     </div>
 
     <script>

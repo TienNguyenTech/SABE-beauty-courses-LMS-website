@@ -22,7 +22,6 @@ $this->layout = 'empty';
 
 <body>
     <div class="container">
-        <div class="right-side">
             <div class="users form content cardhidden">
 
 
@@ -37,15 +36,17 @@ $this->layout = 'empty';
 
                     <p class="email-instruction">Enter your email address registered with our system below to reset your password:</p>
 
-                    <?php
-                    echo $this->Form->control('email', [
-                        'type' => 'email',
-                        'required' => true,
-                        'autofocus' => true,
-                        'label' => false,
-                        'style' => 'color: black; width: 350px; border-radius: 10px; font-size: 16px; cursor: pointer; margin-left: 115px;',
-                    ]);
-                    ?>
+                    <div class="email-input-container">
+                        <?php
+                        echo $this->Form->control('email', [
+                            'type' => 'email',
+                            'required' => true,
+                            'autofocus' => true,
+                            'label' => false,
+                            'style' => 'color: black; width: 350px; border-radius: 10px; font-size: 16px; cursor: pointer;',
+                        ]);
+                        ?>
+                    </div>
 
                     <div class="g-recaptcha" data-sitekey="6Lc7pCgqAAAAAJkUyRxxVhuFmd9v-5Pk-vtPtsUf"
                                             data-callback="onRecaptchaSuccess"></div>
@@ -62,7 +63,6 @@ $this->layout = 'empty';
 
             </div>
         </div>
-    </div>
     </div>
 
     <script>
