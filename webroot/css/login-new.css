@@ -422,12 +422,13 @@ input {
 }
 
 .form-label {
-    margin-left: 30%;
+    margin-left: 17%;
     margin-right:70px;
 }
 
 .hello {
     margin-right:100px;
+    
 }
 
 .register-fieldset {
@@ -464,6 +465,7 @@ input {
 
     body{
         max-width: 390px;
+        max-height: 850px;
     }
 
     .content {
@@ -478,19 +480,19 @@ input {
 
 .form-control {
     color: black; 
-    width: 200px; 
+    width: 300px; 
     border-radius: 10px;
 }   
 
 /* Mobile view adjustments */
 @media (max-width: 768px) {
     .form-label {
-        margin-left: 0; /* Remove margin on mobile */
+        margin-left: 20px; /* Remove margin on mobile */
         display: block; /* Ensure the label appears above the input */
         margin-bottom: 5px; /* Add some space between the label and input */
     }
 
     .form-control {
-        margin-left: 0; /* Remove left margin on mobile */
+        margin-left: 20px; /* Remove left margin on mobile */
     }
 }
