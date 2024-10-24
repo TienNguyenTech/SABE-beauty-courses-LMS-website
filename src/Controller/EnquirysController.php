@@ -79,7 +79,7 @@ class EnquirysController extends AppController
             $mailer
                 ->setEmailFormat('html')
                 ->setTo(strval($reply['reply_email']))
-                ->setFrom('admin@sabe.u24s1009.iedev.org')
+                ->setFrom('admin@southadelaidebeautyandeducation.com.au')
                 ->setSubject($reply['reply_subject'])
                 ->setViewVars([
                     'message' => $reply['reply_message'],

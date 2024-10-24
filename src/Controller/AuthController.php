@@ -109,7 +109,7 @@ class AuthController extends AppController
                     $mailer
                         ->setEmailFormat('both')
                         ->setTo($user->email)
-                        ->setFrom('noreply@sabe.u24s1009.iedev.org')
+                        ->setFrom('noreply@southadelaidebeautyandeducation.com.au')
                         ->setSubject('Reset your account password');
 
                     // select email template
