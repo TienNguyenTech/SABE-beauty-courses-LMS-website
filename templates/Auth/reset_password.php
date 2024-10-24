@@ -16,10 +16,30 @@ $this->assign('title', 'Reset Password');
 
     <?= $this->Html->css('login-new') ?>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    @media only screen and (max-width: 768px) {
+        .users.form.content {
+            margin-bottom:-80px;
+        }
+        .centered-button {
+            width:auto;
+        }
+        .form-control {
+            margin-left: -1px;
+            max-width: 350px;
+        }
+
+        .form-label{
+            margin-right: 10px;
+        }
+       
+    }
+</style>
 </head>
 <body>
-    <div class="container">
-        <div class="users form content cardhidden" style="text-align: center;"> <!-- Center the form content -->
+
+        <div class="users form content cardhidden" style="text-align: center;" > <!-- Center the form content -->
 
             <?= $this->ContentBlock->image('logo-dark', ['class' => 'logo-image','width' => '200px', 'height' => '200px']) ?>
             <?= $this->Form->create() ?>
@@ -28,6 +48,7 @@ $this->assign('title', 'Reset Password');
                 <legend class="login-title">Reset Password</legend>
 
                 <?= $this->Flash->render() ?>
+                <br>
 
                 <!-- Wrap the inputs in a div with inline styles for centering -->
                 <div style="margin: 0 auto; width: 100%; max-width: 400px;">
@@ -70,8 +91,7 @@ $this->assign('title', 'Reset Password');
             </div>
 
         </div>
-    </div>
-
+   
     <script>
         // Variable to track captcha status
         var captchaValidated = false; // false means not validated, true means validated
