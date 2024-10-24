@@ -188,7 +188,7 @@ $this->assign('title', 'Create account');
                         'controller' => 'Auth',
                         'action' => 'login',
                         '?' => ['courseId' => $this->request->getSession()->read('SelectedCourse.id')]
-                    ], ['class' => 'back-to-home', 'style' => 'font-size: 20px;']) ?>
+                    ], ['class' => 'back-to-home', 'style' => 'font-size: 17px;']) ?>
 
                 </div>
 
