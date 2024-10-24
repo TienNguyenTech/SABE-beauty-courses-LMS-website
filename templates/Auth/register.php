@@ -116,9 +116,21 @@ $this->assign('title', 'Create account');
             #cardhidden {
                 min-width: 430px !important;
                 min-height: 932px !important;
+                margin-left:35px;
             }
 
-        
+            .form-field label {
+                margin-left:30px;
+            }
+
+            .form-field input {
+                max-width: 340px;
+                margin-left:30px;;
+            }
+
+            .centered-button {
+                max-width: 340px;
+            }
 
             body {
                 max-width: 390px;
@@ -142,6 +154,15 @@ $this->assign('title', 'Create account');
                 /* Đặt kích thước tối đa cho form */
                 margin: 0 auto;
                 /* Canh giữa container */
+            }
+
+            .cardhidden{
+                padding-top: 700px;
+               
+            }
+
+            .form-container{
+                padding-bottom: 200px;
             }
 
         }
