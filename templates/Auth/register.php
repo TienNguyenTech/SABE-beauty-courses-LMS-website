@@ -52,7 +52,8 @@ $this->assign('title', 'Create account');
             max-width: 400px;
             padding: 10px;
             border-radius: 10px;
-            background-color: #28a745; /* Green color */
+            background-color: #28a745;
+            /* Green color */
             color: white;
             font-size: 20px;
             cursor: pointer;
@@ -62,10 +63,13 @@ $this->assign('title', 'Create account');
         }
 
         .centered-button:hover {
-            background-color: #218838; /* Darker green on hover */
+            background-color: #218838;
+        }
+
+        /* Darker green on hover */
 
 
-            .captcha-container {
+        .captcha-container {
             display: flex;
             justify-content: flex-start;
             max-width: 400px;
@@ -91,11 +95,25 @@ $this->assign('title', 'Create account');
             font-size: 34px;
             margin-bottom: 20px;
         }
+
+        .cardhidden {
+            background-color: white;
+
+            padding-top: 800px;
+            padding-bottom: 100px;
+
+            margin-right: -105px;
+            margin-left: -70px;
+        }
+
+        .container {
+            height: 300vh;
+        }
     </style>
 </head>
 
 <body>
-<div class="container">
+    <div class="container">
         <div class="users form content cardhidden form-container">
             <?= $this->ContentBlock->image('logo-dark', ['class' => 'logo-image', 'width' => '200px', 'height' => '200px']) ?>
 
@@ -111,7 +129,7 @@ $this->assign('title', 'Create account');
 
                 </div>
 
-<!--                --><?php //= $this->Html->link('Already have an account?', [
+                <!--                --><?php //= $this->Html->link('Already have an account?', [
 //                    'controller' => 'Auth',
 //                    'action' => 'login',
 //                    '?' => ['courseId' => $this->request->getSession()->read('SelectedCourse.id')]
@@ -179,7 +197,7 @@ $this->assign('title', 'Create account');
 
                 <div class="captcha-container">
                     <div class="g-recaptcha" data-sitekey="6Lc7pCgqAAAAAJkUyRxxVhuFmd9v-5Pk-vtPtsUf"
-                         data-callback="onRecaptchaSuccess"></div>
+                        data-callback="onRecaptchaSuccess"></div>
                 </div>
             </fieldset>
 
@@ -187,18 +205,17 @@ $this->assign('title', 'Create account');
 
             <?= $this->Form->end() ?>
 
-<!--            <div class="back-home-link">-->
-<!--                --><?php //= $this->Html->link('Back to login', ['controller' => 'Auth', 'action' => 'login'], ['class' => 'back-to-home']) ?>
-<!--                <br>-->
-<!--                --><?php //= $this->Html->link('Back to home', '/', ['class' => 'back-to-home']) ?>
-                <div class="back-home-link">
-                    <?= $this->Html->link('Back to Login', ['controller' => 'Auth', 'action' => 'login'], ['class' => 'back-to-home', 'style' => 'font-size: 20px; font-weight: bold;']) ?>
-                    <br>
-                    <?= $this->Html->link('Back to Home', '/', ['class' => 'back-to-home', 'style' => 'font-size: 20px; font-weight: bold;']) ?>
-                </div>
-
+            <!--            <div class="back-home-link">-->
+            <!--                --><?php //= $this->Html->link('Back to login', ['controller' => 'Auth', 'action' => 'login'], ['class' => 'back-to-home']) ?>
+            <!--                <br>-->
+            <!--                --><?php //= $this->Html->link('Back to home', '/', ['class' => 'back-to-home']) ?>
+            <div class="back-home-link">
+                <?= $this->Html->link('Back to Login', ['controller' => 'Auth', 'action' => 'login'], ['class' => 'back-to-home', 'style' => 'font-size: 20px; font-weight: bold;']) ?>
+                <br>
+                <?= $this->Html->link('Back to Home', '/', ['class' => 'back-to-home', 'style' => 'font-size: 20px; font-weight: bold;']) ?>
             </div>
-        </div>
-</div>
-</body>
 
+        </div>
+    </div>
+    </div>
+</body>
