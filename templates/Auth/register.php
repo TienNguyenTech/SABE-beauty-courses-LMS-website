@@ -17,6 +17,8 @@ $this->assign('title', 'Create account');
     <?= $this->Html->css('login-new') ?>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <style>
         .form-container {
             display: flex;
@@ -109,12 +111,46 @@ $this->assign('title', 'Create account');
         .container {
             height: 300vh;
         }
+
+        @media only screen and (max-width: 768px) {
+            #cardhidden {
+                min-width: 430px !important;
+                min-height: 932px !important;
+            }
+
+        
+
+            body {
+                max-width: 390px;
+                max-height: 850px;
+            }
+
+            .content {
+                width: 100% !important;
+            }
+
+            body {
+                margin: 0;
+                padding: 0;
+                overflow-x: hidden;
+            }
+
+            .form-container {
+                width: 100%;
+                height:100%;
+                max-width: 400px;
+                /* Đặt kích thước tối đa cho form */
+                margin: 0 auto;
+                /* Canh giữa container */
+            }
+
+        }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <div class="users form content cardhidden form-container">
+    
+        <div class="users form content cardhidden form-container" id="cardhidden">
             <?= $this->ContentBlock->image('logo-dark', ['class' => 'logo-image', 'width' => '200px', 'height' => '200px']) ?>
 
             <?= $this->Form->create() ?>
@@ -217,5 +253,5 @@ $this->assign('title', 'Create account');
 
         </div>
     </div>
-    </div>
+   
 </body>
