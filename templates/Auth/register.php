@@ -112,6 +112,14 @@ $this->assign('title', 'Create account');
             height: 300vh;
         }
 
+        .centered-button{
+            background-color: #4A9B38 !important;
+        }
+
+        .back-to-home{
+            color: #4A9B38 !important;
+        }
+
         @media only screen and (max-width: 768px) {
             #cardhidden {
                 min-width: 430px !important;
@@ -151,9 +159,7 @@ $this->assign('title', 'Create account');
                 width: 100%;
                 height:100%;
                 max-width: 400px;
-                /* Đặt kích thước tối đa cho form */
                 margin: 0 auto;
-                /* Canh giữa container */
             }
 
             .cardhidden{
@@ -182,7 +188,7 @@ $this->assign('title', 'Create account');
                         'controller' => 'Auth',
                         'action' => 'login',
                         '?' => ['courseId' => $this->request->getSession()->read('SelectedCourse.id')]
-                    ], ['class' => 'back-to-home', 'style' => 'font-size: 15px;']) ?>
+                    ], ['class' => 'back-to-home', 'style' => 'font-size: 20px;']) ?>
 
                 </div>
 

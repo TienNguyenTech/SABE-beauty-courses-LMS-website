@@ -17,14 +17,25 @@ $this->layout = 'empty';
 
     <?= $this->Html->css('login-new') ?>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <style>
-        
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+   
 </head>
 
+<style>
+    @media only screen and (max-width: 768px) {
+        .users.form.content {
+            margin-bottom:-80px;
+        }
+        .centered-button {
+            width:auto;
+        }
+       
+    }
+</style>
 <body>
-    <div class="container">
-            <div class="users form content cardhidden">
+
+            <div class="users form content cardhidden" id="cardhidden">
 
 
                 <?= $this->ContentBlock->image('logo-dark', ['class' => 'logo-image','width' => '200px', 'height' => '200px']) ?>
@@ -65,7 +76,6 @@ $this->layout = 'empty';
 
             </div>
         </div>
-    </div>
 
     <script>
             // Variable to track captcha status
