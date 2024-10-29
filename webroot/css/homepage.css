@@ -1367,6 +1367,7 @@ a.borderedx-btn:hover {
     .site-logo {
         display: block;
         /* Keep the logo visible in mobile mode */
+        background-color: #375948;
     }
 
     .burger-menu {
@@ -1384,7 +1385,9 @@ a.borderedx-btn:hover {
     }
 
     .site-logo{
-        margin-top: 10px;
+        margin-top: 15px;
+        padding: 0 !important;
+        border-radius: 25px;;
     }
 
     .footer-area {
