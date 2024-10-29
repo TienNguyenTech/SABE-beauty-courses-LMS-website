@@ -360,9 +360,9 @@
         a.whiteb-btn {
             font-family: 'Poppins', sans-serif;
             display: inline-block;
-            color: #4a9b38;
+            color: #375948;
             background-color: #fff;
-            border: 2px solid #4a9b38;
+            border: 2px solid #375948;
             padding: 7px 20px;
             box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
             /* Add shadow */
@@ -372,7 +372,7 @@
         }
 
         a.whiteb-btn:hover {
-            background-color: #4a9b38;
+            background-color: #375948;
             color: #fff;
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
             /* Larger shadow on hover */

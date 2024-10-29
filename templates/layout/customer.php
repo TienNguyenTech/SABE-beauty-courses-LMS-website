@@ -805,8 +805,8 @@
             font-family: 'Poppins', sans-serif;
             display: inline-block;
             color: #fff;
-            background-color: #4a9b38;
-            border: 2px solid #4a9b38;
+            background-color: #375948;
+            border: 2px solid #375948;
             padding: 7px 20px;
             box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
             /* Add shadow */
@@ -815,7 +815,7 @@
 
         a.bordered-btn:hover {
             background-color: #fff;
-            color: #4a9b38;
+            color: #375948;
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
             /* Larger shadow on hover */
         }
