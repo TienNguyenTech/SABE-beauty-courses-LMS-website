@@ -327,9 +327,10 @@ class QuizzesController extends AppController
             if ($this->Quizzes->save($quiz)) {
                 $this->Flash->success(__('The quiz has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller' => 'Courses', 'action' => 'course', $quiz->course_id]);
             }
             $this->Flash->error(__('The quiz could not be saved. Please, try again.'));
+            return $this->redirect(['action' => 'edit', $quiz->quiz_id]);
         }
         $courses = $this->Quizzes->Courses->find('list', limit: 200)->all();
         $this->set('title', 'Edit Quiz');
