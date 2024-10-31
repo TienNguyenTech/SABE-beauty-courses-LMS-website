@@ -19,7 +19,7 @@ $slugify = function($text) {
 </style>
 <style>
     .dashboard-container {
-        display: flex;
+        display: relative;
         gap: 20px;
         flex-wrap: wrap;
     }
@@ -32,6 +32,7 @@ $slugify = function($text) {
         padding: 20px;
         box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
         box-sizing: border-box;
+        margin:20px 0;
     }
 
     .dashboard-card h2 {

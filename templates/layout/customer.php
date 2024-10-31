@@ -69,10 +69,10 @@
     }
 
     .footer-area {
-    background-color: #1a4332;
-    padding: 100px 0;
-    
-}
+        background-color: #1a4332;
+        padding: 100px 0;
+
+    }
 
     @media only screen and (min-width: 768px) and (max-width: 991px) {
         body .top-header-area {
@@ -94,6 +94,7 @@
 
         .site-logo {
             display: block;
+            background-color: #375948;
         }
 
         div.footer-area {
@@ -105,7 +106,10 @@
         }
 
         .site-logo {
-            margin-top: 10px;
+            margin-top: 15px;
+            padding: 0 !important;
+            border-radius: 25px;
+
         }
 
         .site-logo img {
@@ -114,11 +118,12 @@
         }
 
         .mean-bar a.meanmenu-reveal {
-            background-color:#2D6A4F !important;
+            background-color: #2D6A4F !important;
         }
+
         .footer-area {
-        max-height:850px !important;
-    }
+            max-height: 850px !important;
+        }
     }
 </style>
 
