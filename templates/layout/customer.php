@@ -124,6 +124,18 @@
         .footer-area {
             max-height: 850px !important;
         }
+
+        .fa-facebook-f:before {
+            margin-left:-340px !important;
+            padding:0;
+            margin:0;
+        }
+
+        .fa-instagram:before {
+            margin-left:-310px !important;
+            padding: 0;
+            margin:0;
+        }
     }
 </style>
 
@@ -266,9 +278,9 @@
                     <div class="social-icons footer-box subscribe">
                         <ul>
                             <li><a href="https://www.facebook.com/adelaidebeautyandeducation" target="_blank"><i
-                                        class="fab fa-facebook-f"></i></a></li>
+                                        class="fab fa-facebook-f" class="social-icons"></i></a></li>
                             <li><a href="https://www.instagram.com/adelaidebeautyandeducation" target="_blank"><i
-                                        class="fab fa-instagram"></i></a></li>
+                                        class="fab fa-instagram" ></i></a></li>
                             <!--<li><a href="https://www.tiktok.com/@beautybylisafollett" target="_blank"><i
                                     class="fab fa-tiktok"></i></a></li>
                         <div class="site-logo">-->
