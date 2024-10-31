@@ -8,7 +8,7 @@
 <html lang="en">
 
 <head>
-<!--    <title>--><?php //= $this->ContentBlock->text('website-title'); ?><!-- | Contact Us</title>-->
+    <!--    <title>--><?php //= $this->ContentBlock->text('website-title'); ?><!-- | Contact Us</title>-->
     <title>Contact Us</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -84,10 +84,24 @@
         .breadcrumb-text {
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
+        
+        input[type="submit"] {
+            font-family: 'Poppins', sans-serif;
+            display: inline-block;
+            justify-content: center;
+            color: #fff;
+            background-color: #375948;
+            border: 2px solid #375948;
+            padding: 7px 20px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            /* Add shadow */
+            transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+        }
 
         input[type="submit"]:hover {
-            background-color: #1a4332;
-            color: #4a9b38;
+            background-color: #fff;
+            color: #375948;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
         }
     </style>
 </head>
@@ -95,7 +109,8 @@
 <body>
 
     <!-- breadcrumb-section -->
-    <div class="breadcrumb-section" style="background-image: url(<?= substr($this->ContentBlock->image('home-slider-image-1'), 10, -9) ?>)">
+    <div class="breadcrumb-section"
+        style="background-image: url(<?= substr($this->ContentBlock->image('home-slider-image-1'), 10, -9) ?>)">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2 text-center">
@@ -196,6 +211,7 @@
             return true;
         }
     </script>
+
 </body>
 
 </html>

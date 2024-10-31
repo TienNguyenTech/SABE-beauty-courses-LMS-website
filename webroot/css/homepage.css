@@ -568,13 +568,10 @@
     display: inline-block;
     padding: 12px 30px;
     border: 2px solid #4a9b38;
-    /* Màu viền nút */
     color: #4a9b38;
-    /* Màu chữ */
     text-decoration: none;
     font-weight: bold;
     border-radius: 30px;
-    /* Bo góc nút */
     transition: all 0.3s ease;
     font-size: 1rem;
     width: 150px;
@@ -583,9 +580,7 @@
 
 .bordered-btn:hover {
     background-color: #4a9b38;
-    /* Màu nền khi hover */
     color: #fff;
-    /* Màu chữ khi hover */
 }
 
 .course-card {
