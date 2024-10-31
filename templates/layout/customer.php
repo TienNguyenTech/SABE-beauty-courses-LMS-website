@@ -74,6 +74,27 @@
 
     }
 
+    /* Scroll to Top button */
+    #myBtn {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 30px;
+        z-index: 99;
+        font-size: 18px;
+        border: none;
+        outline: none;
+        background-color: #375948;
+        color: white;
+        cursor: pointer;
+        padding: 15px;
+        border-radius: 4px;
+    }
+
+    #myBtn:hover {
+        background-color: #555;
+    }
+
     @media only screen and (min-width: 768px) and (max-width: 991px) {
         body .top-header-area {
             width: 100%;
@@ -126,15 +147,15 @@
         }
 
         .fa-facebook-f:before {
-            margin-left:-340px !important;
-            padding:0;
-            margin:0;
+            margin-left: -340px !important;
+            padding: 0;
+            margin: 0;
         }
 
         .fa-instagram:before {
-            margin-left:-310px !important;
+            margin-left: -310px !important;
             padding: 0;
-            margin:0;
+            margin: 0;
         }
     }
 </style>
@@ -150,6 +171,9 @@
         </div>
     </div>
     <!--PreLoader Ends-->
+
+    <!-- Scroll to Top button -->
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 
     <!-- header -->
     <div class="top-header-area" id="sticker" style="background-color: #1a4332; opacity: 0.85;">
@@ -280,7 +304,7 @@
                             <li><a href="https://www.facebook.com/adelaidebeautyandeducation" target="_blank"><i
                                         class="fab fa-facebook-f" class="social-icons"></i></a></li>
                             <li><a href="https://www.instagram.com/adelaidebeautyandeducation" target="_blank"><i
-                                        class="fab fa-instagram" ></i></a></li>
+                                        class="fab fa-instagram"></i></a></li>
                             <!--<li><a href="https://www.tiktok.com/@beautybylisafollett" target="_blank"><i
                                     class="fab fa-tiktok"></i></a></li>
                         <div class="site-logo">-->
@@ -1187,6 +1211,29 @@
             opacity: 0.8;
         }
     </style>
+
+    <!-- Scroll to Top button -->
+    <script>
+        // Get the button
+        let mybutton = document.getElementById("myBtn");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () { scrollFunction() };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
 
     <script src="../assets/js/jquery.min.js"></script>
     <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
