@@ -217,7 +217,8 @@ class PaymentsController extends AppController
             'payment_method_types' => ['card'],
             'mode' => 'payment',
             'line_items' => $line_items,
-            'customer_creation' => 'always'
+            'customer_creation' => 'always',
+            'allow_promotion_codes' => true
         ]);
 
         $payment = $this->Payments->patchEntity($payment, [
