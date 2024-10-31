@@ -103,6 +103,12 @@
             color: #375948;
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
         }
+
+        @media only screen and (max-width: 767.96px) {
+            .contact-title{
+                font-size: 28px !important;
+            }
+        }
     </style>
 </head>
 
@@ -134,7 +140,7 @@
                         <?= $this->Flash->render() ?>
                         <?= $this->Flash->render('positive') ?>
 
-                        <h2>Contact us</h2>
+                        <h2 class="contact-title">Contact us</h2>
                         <p>Any questions regarding our courses or available services? Feel free to contact us for more
                             information.</p>
 
