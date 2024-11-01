@@ -66,6 +66,9 @@ if ($error = 404) {
     </div>
     <!--PreLoader Ends-->
 
+    <!-- Scroll to Top button -->
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
     <!-- header -->
     <div class="top-header-area" id="sticker" style="background-color: #1a4332; opacity: 0.85;">
         <div class="container">
@@ -713,8 +716,8 @@ if ($error = 404) {
             </div>
         </section>
 
-       <!-- footer -->
-       <div class="footer-area">
+        <!-- footer -->
+        <div class="footer-area">
             <div class="container" style="text-align: left;">
                 <div class="row" style="gap: 10px;">
                     <div class="col-lg-3 col-md-6 col-12">
@@ -824,6 +827,29 @@ if ($error = 404) {
                 });
             });
 
+        </script>
+        
+        <!-- Scroll to Top button -->
+        <script>
+            // Get the button
+            let mybutton = document.getElementById("myBtn");
+
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function () { scrollFunction() };
+
+            function scrollFunction() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    mybutton.style.display = "block";
+                } else {
+                    mybutton.style.display = "none";
+                }
+            }
+
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }
         </script>
         <!-- jquery -->
         <script src="assets/js/jquery-1.11.3.min.js"></script>
