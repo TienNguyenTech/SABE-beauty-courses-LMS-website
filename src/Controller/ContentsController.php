@@ -160,8 +160,8 @@ class ContentsController extends AppController
             // Validate file
             $file = $this->request->getUploadedFiles()['content_image'];
 
-            if ($file->getSize() > 100 * 1024 * 1024) {
-                return $this->Flash->error(__('Image file size must be 100MB or less.'));
+            if ($file->getSize() > 256 * 1024 * 1024) {
+                return $this->Flash->error(__('Image file size must be 256MB or less.'));
             } else if ($file->getClientMediaType() != 'image/jpeg' && $file->getClientMediaType() != 'image/png' && $file->getClientMediaType() != 'video/mp4' && $file->getClientMediaType() != 'video/mov' && $file->getClientMediaType() != 'application/pdf') {
                 return $this->Flash->error(__('Invalid filetype'));
             }
@@ -212,8 +212,8 @@ class ContentsController extends AppController
                 }
 
                 $this->Flash->error(__('The content could not be saved. Please try again.'));
-            } else if ($file->getSize() > 100 * 1024 * 1024) {
-                return $this->Flash->error(__('Image file size must be 100MB or less.'));
+            } else if ($file->getSize() > 256 * 1024 * 1024) {
+                return $this->Flash->error(__('Image file size must be 256MB or less.'));
             } else if ($file->getClientMediaType() != 'image/jpeg' && $file->getClientMediaType() != 'image/png' && $file->getClientMediaType() != 'video/mp4' && $file->getClientMediaType() != 'video/mov' && $file->getClientMediaType() != 'application/pdf') {
                 return $this->Flash->error(__('Invalid filetype'));
             }
