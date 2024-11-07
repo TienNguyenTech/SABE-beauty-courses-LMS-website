@@ -19,20 +19,22 @@ $slugify = function($text) {
 </style>
 <style>
     .dashboard-container {
-        display: relative;
+        display: flex;
         gap: 20px;
         flex-wrap: wrap;
     }
 
     .dashboard-card {
         flex: 1 0 30%;
+        /* Adjusted to fit 3 cards per row with some gap */
         max-width: 30%;
+        /* Ensures that the cards do not exceed 30% of the container width */
         background-color: #f8f9fa;
         border-radius: 10px;
         padding: 20px;
         box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
         box-sizing: border-box;
-        margin:20px 0;
+        /* Ensures padding and border are included in the width */
     }
 
     .dashboard-card h2 {
@@ -55,6 +57,7 @@ $slugify = function($text) {
     @media only screen and (max-width: 768px) {
         .dashboard-card {
             flex-direction: column;
+            max-width:100%;
         }
 
         .navbar-nav {
@@ -72,10 +75,7 @@ $slugify = function($text) {
 
         .dashboard-container{
             flex-direction: column;
-        }
-
-        .dashboard-card{
-            max-width:100%;
+            margin-bottom: 30px;
         }
 
         .h1,h1 {
