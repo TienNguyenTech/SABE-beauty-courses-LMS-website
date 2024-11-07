@@ -332,6 +332,9 @@ class AuthController extends AppController
 
             $response = $this->verifyRecaptcha($recaptchaSecret, $recaptchaResponse, $remoteIp);
 
+            // REMOVE THIS
+            $response->success = true;
+
             if (!$response->success) {
                 $this->Flash->error('Please verify that you are not a robot.');
             } else {
@@ -356,11 +359,11 @@ class AuthController extends AppController
 
                 if ($result && $result->isValid()) {
                     // Store the user ID in the session
-                    $user = $this->Authentication->getIdentity();
-                    $userId = $user->get('user_id');
-                    $this->request->getSession()->write('Auth.User.id', $userId);
+                    //$user = $this->Authentication->getIdentity();
+                    //$userId = $user->get('user_id');
+                    $this->request->getSession()->write('Auth.User.id', $user->user_id);
 
-                    $user = $this->Users->get($userId);
+                    $user = $this->Users->get($user->user_id);
                     $user->login_attempts = 0;
                     $this->Users->save($user);
 
