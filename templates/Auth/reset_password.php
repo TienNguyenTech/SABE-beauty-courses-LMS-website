@@ -126,7 +126,7 @@ $this->assign('title', 'Reset Password');
         document.addEventListener('DOMContentLoaded', function () {
             grecaptcha.ready(function () {
                 grecaptcha.render('g-recaptcha', {
-                    'sitekey': '6Lc7pCgqAAAAAJkUyRxxVhuFmd9v-5Pk-vtPtsUf',
+                    'sitekey': '6LdQtngqAAAAAMdI-mAqNUSor0BJwkYDYH_MDR37',
                     'callback': onRecaptchaSuccess,
                     'expired-callback': onRecaptchaError
                 });

@@ -326,14 +326,14 @@ class AuthController extends AppController
 
         if ($this->request->is('post')) {
             // reCAPTCHA verification
-            $recaptchaSecret = '6Lc7pCgqAAAAAJkUyRxxVhuFmd9v-5Pk-vtPtsUf'; // Replace with your reCAPTCHA secret key
+            $recaptchaSecret = '6LdQtngqAAAAAPcPYSOmwn1isGK0uxAT6bhvfzPF'; // Replace with your reCAPTCHA secret key
             $recaptchaResponse = $this->request->getData('g-recaptcha-response');
             $remoteIp = $this->request->clientIp();
 
             $response = $this->verifyRecaptcha($recaptchaSecret, $recaptchaResponse, $remoteIp);
 
             // REMOVE THIS
-            $response->success = true;
+            //$response->success = true;
 
             if (!$response->success) {
                 $this->Flash->error('Please verify that you are not a robot.');

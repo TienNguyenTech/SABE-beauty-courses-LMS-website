@@ -259,7 +259,7 @@ $this->assign('title', 'Create account');
                 </div>
 
                 <div class="captcha-container">
-                    <div class="g-recaptcha" data-sitekey="6Lc7pCgqAAAAAJkUyRxxVhuFmd9v-5Pk-vtPtsUf"
+                    <div class="g-recaptcha" data-sitekey="6LdQtngqAAAAAMdI-mAqNUSor0BJwkYDYH_MDR37"
                         data-callback="onRecaptchaSuccess"></div>
                 </div>
             </fieldset>
