@@ -84,11 +84,12 @@ class AuthController extends AppController
     public function forgetPassword()
     {
         if ($this->request->is('post')) {
-            $recaptchaSecret = '6Lc7pCgqAAAAAJkUyRxxVhuFmd9v-5Pk-vtPtsUf'; // Replace with your reCAPTCHA secret key
+            $recaptchaSecret = '6LdQtngqAAAAAPcPYSOmwn1isGK0uxAT6bhvfzPF'; // Replace with your reCAPTCHA secret key
             $recaptchaResponse = $this->request->getData('g-recaptcha-response');
             $remoteIp = $this->request->clientIp();
 
             $response = $this->verifyRecaptcha($recaptchaSecret, $recaptchaResponse, $remoteIp);
+
 
             // Return if user doesn't complete captcha
             if(!$response->success) {
@@ -161,7 +162,7 @@ class AuthController extends AppController
      */
     public function resetPassword(?string $nonce = null)
     {
-        $recaptchaSecret = '6Lc7pCgqAAAAAJkUyRxxVhuFmd9v-5Pk-vtPtsUf'; // Replace with your reCAPTCHA secret key
+        $recaptchaSecret = '6LdQtngqAAAAAPcPYSOmwn1isGK0uxAT6bhvfzPF'; // Replace with your reCAPTCHA secret key
         $recaptchaResponse = $this->request->getData('g-recaptcha-response');
         $remoteIp = $this->request->clientIp();
 
