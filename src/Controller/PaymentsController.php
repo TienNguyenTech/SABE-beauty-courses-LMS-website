@@ -168,7 +168,7 @@ class PaymentsController extends AppController
 
     public function checkout($course_id) {
         $this->viewBuilder()->disableAutoLayout();
-        Stripe::setApiKey('sk_test_51PnfYBHtFQ126a2JACHCRvlLDksG752hMQYdxCkoHDtqavhxcA5WHMmXqX7iVa0PgrrieQS0w5uGch0n0jLsD0ST00PMNE3Zwp');
+        Stripe::setApiKey('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');
 
         $course = $this->Courses->get($course_id);
 

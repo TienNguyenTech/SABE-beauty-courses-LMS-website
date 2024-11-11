@@ -5,7 +5,7 @@
 <body>
 <script type="text/javascript">
     // Need to update this publishable key everytime the payment page doesn't load
-    var stripe = Stripe('pk_test_51PnfYBHtFQ126a2JuPBJY2K7NbvEg3WCFqmsBl70wVBgvrL5IzWsnTTiHJnvQL0pP8fi5aeVm9E35kt609AjUkNV00RbT1fgLY');
+    var stripe = Stripe('pk_live_51PBo5YCXtgpHnAtiOBAnkqy3IZ070EKz220PYXiPFE7nw90uMNc6xkQ8RRj7y6bCx3kFgSGoImHigFgxDMU3ojVw00BolGtku9');
     var session = "<?php echo h($sessionId); ?>";
     stripe.redirectToCheckout({ sessionId: session })
         .then(function (result) {
