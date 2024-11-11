@@ -462,7 +462,7 @@
                                     </a>
                                 <?php else: ?>
                                     <!-- If the user is not logged in, redirect to the login page with the courseId -->
-                                    <a href="<?= $this->Url->build(['controller' => 'Auth', 'action' => 'login', '?' => ['courseId' => $course->course_id]]) ?>"
+                                    <a href="<?= $this->Url->build(['controller' => 'Auth', 'action' => 'register', '?' => ['courseId' => $course->course_id]]) ?>"
                                         class="bordered-btn">
                                         <i class="fas fa-user-graduate"></i> Enroll Now
                                     </a>

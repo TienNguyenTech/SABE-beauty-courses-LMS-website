@@ -164,7 +164,7 @@ $this->assign('title', 'Create account');
 
             .cardhidden{
                 padding-top: 700px;
-               
+
             }
 
             .form-container{
@@ -176,7 +176,7 @@ $this->assign('title', 'Create account');
 </head>
 
 <body>
-    
+
         <div class="users form content cardhidden form-container" id="cardhidden">
             <?= $this->ContentBlock->image('logo-dark', ['class' => 'logo-image', 'width' => '200px', 'height' => '200px']) ?>
 
@@ -235,7 +235,7 @@ $this->assign('title', 'Create account');
                         'type' => 'tel',
                         'pattern' => '[0-9]{10}',
                         'placeholder' => '0412345678',
-                        'required' => true,
+//                        'required' => true,
                         'label' => ['text' => 'Phone Number', 'class' => 'register-label']
                     ]); ?>
                 </div>
@@ -280,5 +280,5 @@ $this->assign('title', 'Create account');
 
         </div>
     </div>
-   
+
 </body>

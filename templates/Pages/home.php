@@ -126,7 +126,7 @@ if ($error = 404) {
                                             ['controller' => 'Auth', 'action' => 'logout'],
                                             ['class' => 'button button-outline',]
                                         ); //'onclick' => 'return confirm("Are you sure you want to leave?");'
-                                    
+
                                     } else {
                                         echo $this->Html->link(
                                             'Log in',
@@ -344,8 +344,15 @@ if ($error = 404) {
                                 <a href="<?= $this->Url->build(['controller' => 'Courses', 'action' => 'view', $course->course_id]) ?>"
                                     class="whiteb-btn" style="margin-bottom: 10px"><i class="fas fa-info-circle"></i> View
                                     More</a>
-                                <a href="<?= $this->Url->build(['controller' => 'Payments', 'action' => 'checkout', $course->course_id]) ?>"
-                                    class="bordered-btn"><i class="fas fa-user-graduate"></i> Enroll Now</a>
+<!--                                <a href="--><?php //= $this->Url->build(['controller' => 'Payments', 'action' => 'checkout', $course->course_id]) ?><!--"-->
+<!--                                    class="bordered-btn"><i class="fas fa-user-graduate"></i> Enroll Now</a>-->
+                                <a href="<?= $this->Url->build($this->Identity->isLoggedIn()
+                                    ? ['controller' => 'Payments', 'action' => 'checkout', $course->course_id]
+                                    : ['controller' => 'Auth', 'action' => 'register', '?' => ['courseId' => $course->course_id]]
+                                ) ?>" class="bordered-btn">
+                                    <i class="fas fa-user-graduate"></i> Enroll Now
+                                </a>
+
                             </div>
                         </div>
                     <?php endif; ?>
@@ -828,7 +835,7 @@ if ($error = 404) {
             });
 
         </script>
-        
+
         <!-- Scroll to Top button -->
         <script>
             // Get the button
