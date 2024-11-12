@@ -39,6 +39,54 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
     .card-action {
         margin-top: 10px;
     }
+
+    @media only screen and (max-width: 768px) {
+        .topbar .nav-item .nav-link {
+            right: 10px;
+        }
+
+        .dashboard-card {
+            flex-direction: column;
+        }
+
+        .navbar-nav {
+            max-width: 17%;
+        }
+
+        .sidebar .nav-item .nav-link {
+            width: auto;
+            padding: .75rem 0;
+        }
+
+        .sidebar .sidebar-heading {
+            padding: 0;
+        }
+
+        .dashboard-container {
+            flex-direction: column;
+        }
+
+        .dashboard-card {
+            max-width: 100%;
+        }
+
+        .h1,
+        h1 {
+            font-size: 2rem;
+        }
+
+        #des {
+            display: none;
+        }
+
+        .courses h1 {
+            font-size: 2rem;
+        }
+
+        .card-body {
+            background-color: white;
+        }
+    }
 </style>
 <div class="courses index content">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -46,12 +94,12 @@ echo $this->Html->script('/vendor/datatables/dataTables.bootstrap4.min.js', ['bl
     </div>
 
     <?php
-        if(empty($courses)) {
+    if (empty($courses)) {
         ?>
-        <h4>You are not currently enrolled in any courses  </h4>
+        <h4>You are not currently enrolled in any courses </h4>
         <?= $this->Html->link('View available courses', ['action' => 'courses'], ['class' => 'btn btn-primary', 'style' => 'margin-left: 10px']) ?>
         <?php
-        }
+    }
     ?>
 
     <div class="row">

@@ -33,6 +33,48 @@
     .error {
         width: 100%;
     }
+    @media only screen and (max-width: 768px) {
+            .topbar .nav-item .nav-link {
+                right: 10px;
+            }
+
+            .dashboard-card {
+                flex-direction: column;
+            }
+
+            .navbar-nav {
+                max-width: 17%;
+            }
+
+            .sidebar .nav-item .nav-link {
+                width: auto;
+                padding: .75rem 0;
+            }
+
+            .sidebar .sidebar-heading {
+                padding: 0;
+            }
+
+            .dashboard-container {
+                flex-direction: column;
+            }
+
+            .dashboard-card {
+                max-width: 100%;
+            }
+
+            .h1,
+            h1 {
+                font-size: 2rem;
+            }
+
+            #des {
+                display: none;
+            }
+            .courses h1 {
+                font-size: 2rem;
+            }
+        }
 </style>
 <div class="row page-titles">
     <div class="col-md-5 align-self-center">
