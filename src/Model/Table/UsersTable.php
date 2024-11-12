@@ -48,7 +48,7 @@ class UsersTable extends Table
 
 
 
-        
+
         $this->belongsToMany('Courses', [
             'foreignKey' => 'user_id',
             'targetForeignKey' => 'course_id',
@@ -130,7 +130,7 @@ class UsersTable extends Table
         $validator
             ->scalar('user_phone')
             ->maxLength('user_phone', 15)
-            ->notEmptyString('user_phone')
+            ->allowEmptyString('user_phone')
             ->add('user_phone', 'numeric', [
                 'rule' => 'numeric',
                 'message' => 'The phone number can only contain digits.',

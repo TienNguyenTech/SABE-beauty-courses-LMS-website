@@ -61,7 +61,7 @@ $this->layout = 'empty';
                         ?>
                     </div>
 
-                    <div class="g-recaptcha" data-sitekey="6Lc7pCgqAAAAAJkUyRxxVhuFmd9v-5Pk-vtPtsUf"
+                    <div class="g-recaptcha" data-sitekey="6LdQtngqAAAAAMdI-mAqNUSor0BJwkYDYH_MDR37"
                                             data-callback="onRecaptchaSuccess"></div>
 
                 </fieldset>
