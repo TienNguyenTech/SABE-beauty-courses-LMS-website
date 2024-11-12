@@ -82,7 +82,7 @@
                     }
                     ?>
                 </h3>
-                
+<!--                 
                 <h5><?= __('Description') ?></h5>
                 <p><?= h($content->content_description) ?></p>
 
@@ -126,7 +126,7 @@
                             height: 60vh;
                         }
                     }
-                </style>
+                </style> -->
 
                 <table class="table">
                     <tr>
