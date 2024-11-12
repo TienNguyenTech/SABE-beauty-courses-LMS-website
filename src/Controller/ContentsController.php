@@ -13,11 +13,13 @@ use Cake\Http\Exception\NotFoundException;
  * @property \App\Model\Table\ContentsTable $Contents
  * @property \App\Model\Table\CoursesTable $Courses
  * @property \App\Model\Table\ProgressionsTable $Progressions
+ * @property \App\Model\Table\UsersTable $Users
  */
 class ContentsController extends AppController
 {
     private \Cake\ORM\Table $Courses;
     private \Cake\ORM\Table $Progressions;
+    private \Cake\ORM\Table $Users;
 
     public function initialize(): void
     {
@@ -67,7 +69,8 @@ class ContentsController extends AppController
     {
         // Retrieve the user type
         $user = $this->Authentication->getIdentity()->getOriginalData();
-        $userType = $user['user_type'];
+        $userID = $user['User']['id'];
+        $userType = $this->Users->get($userID)->user_type;
 
         // Set the layout based on the user type
         if ($userType === 'admin') {
@@ -80,8 +83,6 @@ class ContentsController extends AppController
         $courseContents = $this->Contents->find()->where(['course_id IS' => $content->course_id])->toArray();
 
         $this->set('title', $content->content_title);
-
-        $userID = $user['User']['id'];
 
         $progression = $this->Progressions->find()->where(['user_id IS' => $userID, 'content_id IS' => $content->content_id])->first();
         $isCompleted = false;
