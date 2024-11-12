@@ -24,6 +24,9 @@
             height: 100%;
         }
 
+        /* .content-container{
+            margin-left: 50px;
+        } */
         /* Mobile Styles */
         @media only screen and (max-width: 768px) {
             .topbar .nav-item .nav-link {
@@ -69,6 +72,10 @@
                 width: 85vw;
                 height: 60vh;
             }
+
+            .container{
+                margin-left: -25px;
+            }
         }
     </style>
 </head>
@@ -93,6 +100,7 @@
         </aside>
         <br>
         <div class="column column-80">
+        <div class="container">
             <div class="contents view content">
                 <h3>
                     <?= h($content->content_position . '. ' . $content->content_title) ?>
@@ -151,6 +159,7 @@
                 </table>
             </div>
         </div>
+    </div>
     </div>
 </body>
 
