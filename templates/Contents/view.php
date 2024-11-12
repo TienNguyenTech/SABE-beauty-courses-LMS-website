@@ -114,7 +114,7 @@
                 <?php if ($content->content_type === 'image'): ?>
                     <img width="80%" src="/<?= h($content->content_url) ?>" alt="<?= h($content->content_title) ?> Image">
                 <?php elseif ($content->content_type === 'pdf'): ?>
-                    <?= $this->Html->link('Download PDF', '/' . $content->content_url, ['target' => '_blank', 'class' => 'btn btn-primary', 'style' => 'margin-bottom: 10px;']) ?>
+                    <?= $this->Html->link('Open PDF', '/' . $content->content_url, ['target' => '_blank', 'class' => 'btn btn-primary', 'style' => 'margin-bottom: 10px;']) ?>
                     <div class="pdf-container">
                         <object class="pdf" type="application/pdf" data="/<?= h($content->content_url) ?>" width="100%"
                             height="600px"></object>
