@@ -34,6 +34,52 @@
                         }
                     ?>
                 </h3>
+                
+                <h5><?= __('Description') ?></h5>
+                <p><?= h($content->content_description) ?></p>
+
+                <h5><?= __('Content') ?></h5>
+                <?php
+                    if($content->content_type == 'image') {
+                        ?>
+                        <img width="80%" src="/<?= $content->content_url ?>" alt="<?= $content->content_title ?> Image">
+                        <?php
+                    } else if($content->content_type == 'pdf') {
+                        ?>
+                        <div class="pdf-container">
+                            <object class="pdf" type="application/pdf" data="/<?= $content->content_url ?>" width="100%" height="600px"></object>
+                        </div>
+                        <?php
+                    } else if($content->content_type == 'video') {
+                        ?>
+                        <video controls width="800px">
+                            <source src="/<?= $content->content_url ?>" type="video/mp4">
+                        </video>
+                        <?php
+                    }
+                ?>
+
+                <style>
+                    .pdf-container {
+                        position: relative;
+                        width: 100%;
+                        max-height: 600px;
+                        overflow: hidden;
+                    }
+
+                    .pdf-container .pdf {
+                        width: 100%;
+                        height: 100%;
+                    }
+
+                    @media only screen and (max-width: 768px) {
+                        .pdf-container {
+                            width: 85vw;
+                            height: 60vh;
+                        }
+                    }
+                </style>
+
                 <table class="table">
                     <tr>
                         <th><?= __('Description') ?></th>
