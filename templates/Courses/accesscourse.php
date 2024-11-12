@@ -6,6 +6,52 @@
  * @var \App\Model\Entity\Content[] $contents
  */
 ?>
+<html>
+<style>
+    @media only screen and (max-width: 768px) {
+        .topbar .nav-item .nav-link {
+            right: 10px;
+        }
+
+        .dashboard-card {
+            flex-direction: column;
+        }
+
+        .navbar-nav {
+            max-width: 17%;
+        }
+
+        .sidebar .nav-item .nav-link {
+            width: auto;
+            padding: .75rem 0;
+        }
+
+        .sidebar .sidebar-heading {
+            padding: 0;
+        }
+
+        .dashboard-container {
+            flex-direction: column;
+        }
+
+        .dashboard-card {
+            max-width: 100%;
+        }
+
+        .h1,
+        h1 {
+            font-size: 2rem;
+        }
+
+        #des {
+            display: none;
+        }
+
+        .courses h1 {
+            font-size: 2rem;
+        }
+    }
+</style>
 
 <div class="course-view">
     <!-- Course Information Card -->
@@ -40,25 +86,25 @@
         <div class="card-body">
             <div class="d-flex flex-wrap justify-content-start">
                 <?php
-                if(empty($contents)) {
+                if (empty($contents)) {
                     echo '<h5>This course does not have any content currently.</h5>';
                 } else {
-                ?>
-                <?php foreach ($contents as $content): ?>
-                    <div class="col-md-4 d-flex mb-4">
-                        <div class="card flex-grow-1">
-                            <div class="card-body d-flex flex-column">
-                                <h5 class="card-title"><?= h($content->content_title) ?></h5>
-                                <p class="card-text"><strong>Type:</strong> <?= h($content->content_type) ?></p>
-                                <p class="card-text flex-grow-1"><strong>Description:</strong>
-                                    <?= h($content->content_description) ?></p>
+                    ?>
+                    <?php foreach ($contents as $content): ?>
+                        <div class="col-md-4 d-flex mb-4">
+                            <div class="card flex-grow-1">
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title"><?= h($content->content_title) ?></h5>
+                                    <p class="card-text"><strong>Type:</strong> <?= h($content->content_type) ?></p>
+                                    <p class="card-text flex-grow-1"><strong>Description:</strong>
+                                        <?= h($content->content_description) ?></p>
 
-                                <!-- Go To Content -->
-                                <?= $this->Html->link('Go To Content', ['controller' => 'Contents', 'action' => 'view', $content->content_id], ['class' => 'btn btn-info mt-auto read-btn']) ?>
+                                    <!-- Go To Content -->
+                                    <?= $this->Html->link('Go To Content', ['controller' => 'Contents', 'action' => 'view', $content->content_id], ['class' => 'btn btn-info mt-auto read-btn']) ?>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                <?php endforeach; 
+                    <?php endforeach;
                 }
                 ?>
             </div>
@@ -105,124 +151,126 @@
 
 <script>
     // JavaScript to track progress, handle button clicks, and reset progress
-//     document.addEventListener('DOMContentLoaded', function () {
-//     let totalContent = <?= count($contents) ?>;
-//     let completedContent = localStorage.getItem('completedContent') ? parseInt(localStorage.getItem('completedContent')) : 0;
-// //     let quizProgress = localStorage.getItem('quizProgress') ? parseInt(localStorage.getItem('quizProgress')) : 0;
+    //     document.addEventListener('DOMContentLoaded', function () {
+    //     let totalContent = <?= count($contents) ?>;
+    //     let completedContent = localStorage.getItem('completedContent') ? parseInt(localStorage.getItem('completedContent')) : 0;
+    // //     let quizProgress = localStorage.getItem('quizProgress') ? parseInt(localStorage.getItem('quizProgress')) : 0;
 
-//     const contentProgressBar = document.getElementById('content-progress-bar');
-// //     const quizProgressBar = document.getElementById('quiz-progress-bar');
-// //     const finalScoreBar = document.getElementById('final-score-bar');
-// //     const startQuizBtn = document.getElementById('start-quiz-btn');
-// //     const resetProgressBtn = document.getElementById('reset-progress-btn');
-// //     const completeQuizBtn = document.getElementById('complete-quiz-btn');
+    //     const contentProgressBar = document.getElementById('content-progress-bar');
+    // //     const quizProgressBar = document.getElementById('quiz-progress-bar');
+    // //     const finalScoreBar = document.getElementById('final-score-bar');
+    // //     const startQuizBtn = document.getElementById('start-quiz-btn');
+    // //     const resetProgressBtn = document.getElementById('reset-progress-btn');
+    // //     const completeQuizBtn = document.getElementById('complete-quiz-btn');
 
-//     // Function to update content progress
-//     function updateContentProgress() {
-//         let progress = (completedContent / totalContent) * 100;
-//         progress = Math.min(progress, 100); // Cap progress at 100%
-//         contentProgressBar.style.width = progress + '%';
-//         contentProgressBar.innerText = Math.round(progress) + '%';
+    //     // Function to update content progress
+    //     function updateContentProgress() {
+    //         let progress = (completedContent / totalContent) * 100;
+    //         progress = Math.min(progress, 100); // Cap progress at 100%
+    //         contentProgressBar.style.width = progress + '%';
+    //         contentProgressBar.innerText = Math.round(progress) + '%';
 
-//         // Save progress to localStorage
-//         localStorage.setItem('completedContent', completedContent);
+    //         // Save progress to localStorage
+    //         localStorage.setItem('completedContent', completedContent);
 
-//         // Enable quiz button only when progress is 100%
-//         if (progress >= 100) {
-//             startQuizBtn.disabled = false;
-//         }
+    //         // Enable quiz button only when progress is 100%
+    //         if (progress >= 100) {
+    //             startQuizBtn.disabled = false;
+    //         }
 
-//         // Update final score bar
-//         updateFinalScore();
-//     }
+    //         // Update final score bar
+    //         updateFinalScore();
+    //     }
 
-//     // Function to update quiz progress
-//     function updateQuizProgress() {
-//         let progress = quizProgress;
-//         quizProgressBar.style.width = progress + '%';
-//         quizProgressBar.innerText = Math.round(progress) + '%';
+    //     // Function to update quiz progress
+    //     function updateQuizProgress() {
+    //         let progress = quizProgress;
+    //         quizProgressBar.style.width = progress + '%';
+    //         quizProgressBar.innerText = Math.round(progress) + '%';
 
-//         // Save quiz progress to localStorage
-//         localStorage.setItem('quizProgress', quizProgress);
+    //         // Save quiz progress to localStorage
+    //         localStorage.setItem('quizProgress', quizProgress);
 
-//         // Update final score bar
-//         updateFinalScore();
-//     }
+    //         // Update final score bar
+    //         updateFinalScore();
+    //     }
 
-//     // Function to update final score bar
-//     function updateFinalScore() {
-//         let contentScore = (completedContent / totalContent) * 50; // Content progress contributes 50%
-//         let finalScore = contentScore + quizProgress * 0.5; // Quiz progress contributes 50%
+    //     // Function to update final score bar
+    //     function updateFinalScore() {
+    //         let contentScore = (completedContent / totalContent) * 50; // Content progress contributes 50%
+    //         let finalScore = contentScore + quizProgress * 0.5; // Quiz progress contributes 50%
 
-//         finalScore = Math.min(finalScore, 100); // Cap final score at 100%
-//         finalScoreBar.style.width = finalScore + '%';
-//         finalScoreBar.innerText = Math.round(finalScore) + '%';
-//     }
+    //         finalScore = Math.min(finalScore, 100); // Cap final score at 100%
+    //         finalScoreBar.style.width = finalScore + '%';
+    //         finalScoreBar.innerText = Math.round(finalScore) + '%';
+    //     }
 
-//     // Function to reset content progress
-//     function resetContentProgress() {
-//         completedContent = 0;
-//         updateContentProgress();
-//         localStorage.removeItem('completedContent');
-//         startQuizBtn.disabled = true;
-//     }
+    //     // Function to reset content progress
+    //     function resetContentProgress() {
+    //         completedContent = 0;
+    //         updateContentProgress();
+    //         localStorage.removeItem('completedContent');
+    //         startQuizBtn.disabled = true;
+    //     }
 
-//     // Load the saved progress when the page loads
-//     updateContentProgress();
-//     updateQuizProgress();
+    //     // Load the saved progress when the page loads
+    //     updateContentProgress();
+    //     updateQuizProgress();
 
-//     // Read Now Button Click
-//     document.querySelectorAll('.read-btn').forEach(function (button) {
-//         button.addEventListener('click', function () {
-//             // Allow link to proceed only if not already clicked
-//             if (!button.classList.contains('clicked')) {
-//                 button.classList.add('clicked');
-//                 completedContent++;
-//                 updateContentProgress();
-//             }
+    //     // Read Now Button Click
+    //     document.querySelectorAll('.read-btn').forEach(function (button) {
+    //         button.addEventListener('click', function () {
+    //             // Allow link to proceed only if not already clicked
+    //             if (!button.classList.contains('clicked')) {
+    //                 button.classList.add('clicked');
+    //                 completedContent++;
+    //                 updateContentProgress();
+    //             }
 
-//             // Allow link to proceed
-//             const contentId = button.getAttribute('data-id');
-//             window.location.href = `/contents/read/${contentId}`; // Example URL for reading content
-//         });
-//     });
+    //             // Allow link to proceed
+    //             const contentId = button.getAttribute('data-id');
+    //             window.location.href = `/contents/read/${contentId}`; // Example URL for reading content
+    //         });
+    //     });
 
-//     // Download Button Click
-//     document.querySelectorAll('.download-btn').forEach(function (button) {
-//         button.addEventListener('click', function () {
-//             // Allow download to proceed only if not already clicked
-//             if (!button.classList.contains('clicked')) {
-//                 button.classList.add('clicked');
-//                 completedContent++;
-//                 updateContentProgress();
-//             }
+    //     // Download Button Click
+    //     document.querySelectorAll('.download-btn').forEach(function (button) {
+    //         button.addEventListener('click', function () {
+    //             // Allow download to proceed only if not already clicked
+    //             if (!button.classList.contains('clicked')) {
+    //                 button.classList.add('clicked');
+    //                 completedContent++;
+    //                 updateContentProgress();
+    //             }
 
-//             // Allow download to proceed
-//             const contentId = button.getAttribute('data-id');
-//             window.location.href = `/contents/download/${contentId}`; // Example URL for downloading content
-//         });
-//     });
+    //             // Allow download to proceed
+    //             const contentId = button.getAttribute('data-id');
+    //             window.location.href = `/contents/download/${contentId}`; // Example URL for downloading content
+    //         });
+    //     });
 
-//     // Reset Progress Button Click
-//     resetProgressBtn.addEventListener('click', function () {
-//         resetContentProgress();
-//     });
+    //     // Reset Progress Button Click
+    //     resetProgressBtn.addEventListener('click', function () {
+    //         resetContentProgress();
+    //     });
 
-//     // Start Quiz Button Click
-//     startQuizBtn.addEventListener('click', function () {
-//         // Set quiz progress to 50% when starting
-//         quizProgress = 50;
-//         updateQuizProgress();
-//         completeQuizBtn.disabled = false; // Enable complete quiz button
-//     });
+    //     // Start Quiz Button Click
+    //     startQuizBtn.addEventListener('click', function () {
+    //         // Set quiz progress to 50% when starting
+    //         quizProgress = 50;
+    //         updateQuizProgress();
+    //         completeQuizBtn.disabled = false; // Enable complete quiz button
+    //     });
 
-//     // Complete Quiz Button Click
-//     completeQuizBtn.addEventListener('click', function () {
-//         // Set quiz progress to 100% when completed
-//         quizProgress = 100;
-//         updateQuizProgress();
-//         completeQuizBtn.disabled = true; // Disable the complete quiz button
-//     });
-// });
+    //     // Complete Quiz Button Click
+    //     completeQuizBtn.addEventListener('click', function () {
+    //         // Set quiz progress to 100% when completed
+    //         quizProgress = 100;
+    //         updateQuizProgress();
+    //         completeQuizBtn.disabled = true; // Disable the complete quiz button
+    //     });
+    // });
 
 </script>
+
+</html>
