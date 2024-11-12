@@ -87,8 +87,8 @@
             ?>
         </div>
     </aside>
+    <br>
     <div class="column column-80">
-        <div class="container">
             <div class="contents view content">
                 <h3>
                     <?= h($content->content_position . '. ' . $content->content_title) ?>
@@ -147,6 +147,5 @@
             </div>
         </div>
     </div>
-</div>
 </body>
 </html>
