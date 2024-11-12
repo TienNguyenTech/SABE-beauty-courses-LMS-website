@@ -94,7 +94,13 @@
                         <div class="col-md-4 d-flex mb-4">
                             <div class="card flex-grow-1">
                                 <div class="card-body d-flex flex-column">
-                                    <h5 class="card-title"><?= h($content->content_title) ?></h5>
+                                    <?php
+                                            if($content->completed) {
+                                                ?><h5 class="card-title"><?= h($content->content_title) ?> - Completed</h5><?php
+                                            } else {
+                                                ?><h5 class="card-title"><?= h($content->content_title) ?></h5><?php
+                                            }
+                                    ?>
                                     <p class="card-text"><strong>Type:</strong> <?= h($content->content_type) ?></p>
                                     <p class="card-text flex-grow-1"><strong>Description:</strong>
                                         <?= h($content->content_description) ?></p>

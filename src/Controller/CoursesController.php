@@ -206,6 +206,19 @@ class CoursesController extends AppController
             $progression = count($progressions) / count($contents);
         }
 
+        $completedContent = [];
+        if(!empty($progression)) {
+            foreach ($progressions as $progress) {
+                array_push($completedContent, $progress->content_id);
+            }
+        }
+
+        if(!empty($contents)) {
+            for($i = 0; $i < sizeof($contents); $i++) {
+                $contents[$i]['completed'] = in_array($contents[$i]->content_id, $completedContent);
+            }
+        }
+
         $quiz = $this->Quizzes->find()->where(['course_id IS' => $course->course_id])->first();
         if (!empty($quiz)) {
             $quizID = $quiz->quiz_id;
@@ -215,7 +228,6 @@ class CoursesController extends AppController
         }
 
         $query = $this->Contents->find()->where(['course_id IS' => $course->course_id]);
-        $contents = $this->paginate($query);
         $this->set(compact('course', 'contents', 'quiz', 'progression'));
     }
 
