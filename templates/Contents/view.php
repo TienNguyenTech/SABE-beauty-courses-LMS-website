@@ -14,7 +14,7 @@
         .pdf-container {
             position: relative;
             width: 100%;
-            max-height: 600px;
+            height: 600px;
             overflow: hidden;
         }
 
