@@ -18,7 +18,7 @@
                 <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                     <tr>
                         <td>
-                            <h3>South Adelaide Beauty and Education | Password Resetd</h3>
+                            <h3>South Adelaide Beauty and Education | Password Reset</h3>
                             <p>Hi <?= h($first_name) ?>, </p>
                             <p>Thank you for your request to reset the password of your account for <b>South Adelaide Beauty and Education</b>. </p>
                             <p></p>
