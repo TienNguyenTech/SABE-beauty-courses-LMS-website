@@ -4,63 +4,81 @@
  * @var \App\Model\Entity\Content $content
  */
 ?>
+<!DOCTYPE html>
 <html>
-<style>
-    @media only screen and (max-width: 768px) {
-        .topbar .nav-item .nav-link {
-            right: 10px;
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Default Styles */
+        .pdf-container {
+            position: relative;
+            width: 100%;
+            max-height: 600px;
+            overflow: hidden;
         }
 
-        .dashboard-card {
-            flex-direction: column;
+        .pdf-container .pdf {
+            width: 100%;
+            height: 100%;
         }
 
-        .navbar-nav {
-            max-width: 17%;
-        }
+        /* Mobile Styles */
+        @media only screen and (max-width: 768px) {
+            .topbar .nav-item .nav-link {
+                right: 10px;
+            }
 
-        .sidebar .nav-item .nav-link {
-            width: auto;
-            padding: .75rem 0;
-        }
+            .dashboard-card,
+            .dashboard-container {
+                flex-direction: column;
+            }
 
-        .sidebar .sidebar-heading {
-            padding: 0;
-        }
+            .navbar-nav {
+                max-width: 17%;
+            }
 
-        .dashboard-container {
-            flex-direction: column;
-        }
+            .sidebar .nav-item .nav-link {
+                width: auto;
+                padding: .75rem 0;
+            }
 
-        .dashboard-card {
-            max-width: 100%;
-        }
+            .sidebar .sidebar-heading {
+                padding: 0;
+            }
 
-        .h1,
-        h1 {
-            font-size: 2rem;
-        }
+            .dashboard-card {
+                max-width: 100%;
+            }
 
-        #des {
-            display: none;
-        }
+            .h1, h1 {
+                font-size: 2rem;
+            }
 
-        .courses h1 {
-            font-size: 2rem;
-        }
-    }
-</style>
+            #des {
+                display: none;
+            }
 
+            .courses h1 {
+                font-size: 2rem;
+            }
+
+            .pdf-container {
+                width: 85vw;
+                height: 60vh;
+            }
+        }
+    </style>
+</head>
+<body>
 <div class="row">
-    <h3><?= $this->Html->link($content->course->course_name, ['controller' => 'Courses', 'action' => 'accesscourse', $content->course->course_id]) ?>
-    </h3>
+    <h3><?= $this->Html->link($content->course->course_name, ['controller' => 'Courses', 'action' => 'accesscourse', $content->course->course_id]) ?></h3>
     <br>
 </div>
 <div class="row">
     <aside class="column">
         <div class="side-nav">
             <h3 class="heading"><?= __('Course Content') ?></h3>
-
             <?php
             foreach ($courseContents as $courseContent) {
                 echo $this->Html->link(__($courseContent->content_position . '. ' . $courseContent->content_title), ['action' => 'view', $courseContent->content_id], ['class' => 'side-nav-item']);
@@ -74,88 +92,29 @@
             <div class="contents view content">
                 <h3>
                     <?= h($content->content_position . '. ' . $content->content_title) ?>
-                    <?php
-                    if ($isCompleted) {
-                        echo h(' - Completed');
-                    } else {
-                        echo h(' - Incomplete');
-                    }
-                    ?>
+                    <?= h($isCompleted ? ' - Completed' : ' - Incomplete') ?>
                 </h3>
                 
                 <h5><?= __('Description') ?></h5>
                 <p><?= h($content->content_description) ?></p>
 
                 <h5><?= __('Content') ?></h5>
-                <?php
-                    if($content->content_type == 'image') {
-                        ?>
-                        <img width="80%" src="/<?= $content->content_url ?>" alt="<?= $content->content_title ?> Image">
-                        <?php
-                    } else if($content->content_type == 'pdf') {
-                        ?>
-                        <div class="pdf-container">
-                            <object class="pdf" type="application/pdf" data="/<?= $content->content_url ?>" width="100%" height="600px"></object>
-                        </div>
-                        <?php
-                    } else if($content->content_type == 'video') {
-                        ?>
-                        <video controls width="800px">
-                            <source src="/<?= $content->content_url ?>" type="video/mp4">
-                        </video>
-                        <?php
-                    }
-                ?>
-
-                <style>
-                    .pdf-container {
-                        position: relative;
-                        width: 100%;
-                        max-height: 600px;
-                        overflow: hidden;
-                    }
-
-                    .pdf-container .pdf {
-                        width: 100%;
-                        height: 100%;
-                    }
-
-                    @media only screen and (max-width: 768px) {
-                        .pdf-container {
-                            width: 85vw;
-                            height: 60vh;
-                        }
-                    }
-                </style>
+                <?php if ($content->content_type === 'image'): ?>
+                    <img width="80%" src="/<?= h($content->content_url) ?>" alt="<?= h($content->content_title) ?> Image">
+                <?php elseif ($content->content_type === 'pdf'): ?>
+                    <div class="pdf-container">
+                        <object class="pdf" type="application/pdf" data="/<?= h($content->content_url) ?>" width="100%" height="600px"></object>
+                    </div>
+                <?php elseif ($content->content_type === 'video'): ?>
+                    <video controls width="100%">
+                        <source src="/<?= h($content->content_url) ?>" type="video/mp4">
+                    </video>
+                <?php endif; ?>
 
                 <table class="table">
                     <tr>
                         <th><?= __('Description') ?></th>
                         <td><?= h($content->content_description) ?></td>
-                    </tr>
-                    <tr>
-                        <th><?= __('Content') ?></th>
-                        <td>
-                            <?php
-                            if ($content->content_type == 'image') {
-                                ?>
-                                <img width="80%" src="/<?= $content->content_url ?>"
-                                    alt="<?= $content->content_title ?> Image">
-                                <?php
-                            } else if ($content->content_type == 'pdf') {
-                                ?>
-                                    <object class="pdf" data="/<?= $content->content_url ?>" width="1000px"
-                                        height="600px"></object>
-                                <?php
-                            } else if ($content->content_type == 'video') {
-                                ?>
-                                        <video controls width="800px">
-                                            <source src="/<?= $content->content_url ?>" type="video/mp4">
-                                        </video>
-                                <?php
-                            }
-                            ?>
-                        </td>
                     </tr>
                     <tr>
                         <th>Actions</th>
@@ -165,14 +124,19 @@
                                 return $a->content_position - $b->content_position;
                             });
 
+                            // Render Previous button if there's a previous content
                             if ($content->content_position > 1) {
                                 $previousContent = $courseContents[$content->content_position - 2];
                                 echo $this->Html->link('Previous', ['action' => 'view', $previousContent->content_id], ['class' => 'btn btn-primary', 'style' => 'margin-right: 5px']);
                             }
+                            
+                            // Render Next button if there's a next content
                             if ($content->content_position < end($courseContents)->content_position) {
                                 $nextContent = $courseContents[$content->content_position];
                                 echo $this->Html->link('Next', ['action' => 'view', $nextContent->content_id], ['class' => 'btn btn-primary', 'style' => 'margin-right: 5px']);
                             }
+                            
+                            // Mark as Complete button if content is not completed
                             if (!$isCompleted) {
                                 echo $this->Html->link('Mark as complete', ['controller' => 'Progressions', 'action' => 'complete', $userID, $content->content_id], ['class' => 'btn btn-primary']);
                             }
@@ -184,5 +148,5 @@
         </div>
     </div>
 </div>
-
+</body>
 </html>
