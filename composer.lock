@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "94dcba3b1757e9f5cb68e480838f82f4",
+    "content-hash": "a2054a9e519957e7a1c3b05c47f33a5e",
     "packages": [
         {
             "name": "cakephp/authentication",
@@ -1360,16 +1360,16 @@
         },
         {
             "name": "stripe/stripe-php",
-            "version": "v15.9.0",
+            "version": "v16.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stripe/stripe-php.git",
-                "reference": "dc9726ac0cfbba7b3c97e2cf6042f2c090551cdb"
+                "reference": "3fb22256317344e049fce02ff289af3b776b0464"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/dc9726ac0cfbba7b3c97e2cf6042f2c090551cdb",
-                "reference": "dc9726ac0cfbba7b3c97e2cf6042f2c090551cdb",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/3fb22256317344e049fce02ff289af3b776b0464",
+                "reference": "3fb22256317344e049fce02ff289af3b776b0464",
                 "shasum": ""
             },
             "require": {
@@ -1413,9 +1413,9 @@
             ],
             "support": {
                 "issues": "https://github.com/stripe/stripe-php/issues",
-                "source": "https://github.com/stripe/stripe-php/tree/v15.9.0"
+                "source": "https://github.com/stripe/stripe-php/tree/v16.5.0"
             },
-            "time": "2024-09-12T22:05:50+00:00"
+            "time": "2025-01-27T20:20:33+00:00"
         },
         {
             "name": "symfony/config",
@@ -6055,5 +6055,5 @@
         "php": ">=8.1"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.3.0"
 }
