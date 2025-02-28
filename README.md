@@ -54,7 +54,7 @@ This project will transform the academy's online presence by creating a visually
   - Expiration Date: `12/34`
   - CVC: `123`
 
-### Installation Guide
+## Installation Guide
 
 ### 1. Cloning the Repository
 
