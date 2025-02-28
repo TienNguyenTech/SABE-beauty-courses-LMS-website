@@ -20,11 +20,11 @@ This project will transform the academy's online presence by creating a visually
 
 ## Features
 
-✅ Browse courses  
-✅ Add courses to cart & pay online 
-✅ Sign up & complete courses in LMS system to receive certificate
-✅ Secure payment processing with Stripe  
-✅ Admin dashboard for managing courses, course content & students' progress 
+✅ Browse courses<br>
+✅ Add courses to cart & pay online<br>
+✅ Sign up & complete courses in LMS system to receive certificate<br>
+✅ Secure payment processing with Stripe<br>
+✅ Admin dashboard for managing courses, course content & students' progress<br>
 ✅ Dynamic content management with ContentBlocks  
 
 ### Technologies Used
