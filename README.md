@@ -1,53 +1,165 @@
-# CakePHP Application Skeleton 123
+# South Adelaide Beauty & Education - Course Purchasing & Learning Online
 
-![Build Status](https://github.com/cakephp/app/actions/workflows/ci.yml/badge.svg?branch=master)
-[![Total Downloads](https://img.shields.io/packagist/dt/cakephp/app.svg?style=flat-square)](https://packagist.org/packages/cakephp/app)
-[![PHPStan](https://img.shields.io/badge/PHPStan-level%207-brightgreen.svg?style=flat-square)](https://github.com/phpstan/phpstan)
+## Monash University - FIT3048 - S2 2024 - Team009 - Arasaka
 
-A skeleton for creating applications with [CakePHP](https://cakephp.org) 5.x.
+### Run Sheet/Access Instructions
 
-The framework source code can be found here: [cakephp/cakephp](https://github.com/cakephp/cakephp).
+- **Website**: [SouthAdelaideBeautyAndEducation](https://www.southadelaidebeautyandeducation.com.au/)
 
-## Installation
+### Cloning the Repository
 
-1. Download [Composer](https://getcomposer.org/doc/00-intro.md) or update `composer self-update`.
-2. Run `php composer.phar create-project --prefer-dist cakephp/app [app_name]`.
+To clone this repository to your local machine, follow these steps:
 
-If Composer is installed globally, run
+1. Open your terminal or command prompt.
+2. Navigate to the directory where you want to clone the repository.
+3. Run the following command:
+   ```bash
+   git clone https://github.com/TienNguyenTech/SABE-beauty-courses-LMS-website.git
+   ```
+4. Navigate into the cloned directory:
+   ```bash
+   cd SABE-beauty-courses-LMS-website
+   ```
+5. You now have a local copy of the repository.
+
+### Admin & Staff Login Credentials (For Testing)
+
+- **Admin Login**
+  - Email: `admin@sabe.u24s1009.iedev.org`
+  - Password: `Sabe1234`
+
+- **Staff Login**
+  - Email: `emmalight@sabe.u24s1009.iedev.org`
+  - Password: `Student1234`
+
+- **Test Email for Forms**: `admin@sabe.u24s1009.iedev.org`
+
+- **Test Credit Card (Stripe Sandbox Mode)**:
+  - Card Number: `4242 4242 4242 4242`
+  - Expiration Date: `12/34`
+  - CVC: `123`
+
+### Technologies Used
+
+- **Framework**: [CakePHP 5.0.1](https://book.cakephp.org/5/en/installation.html)
+- **Dependency Manager**: [Composer 2.7.2](https://getcomposer.org/download/)
+- **Hosting**: cPanel
+- **Database**: MySQL (Managed via PHPMyAdmin)
+- **Version Control**: Git & GitHub Desktop
+- **Project Management**: Trello
+- **Development Tools**: PHPStorm & Visual Studio Code
+
+## About the Project
+
+Tasty Bites Kitchen is a Nepalese food ordering web application built using CakePHP, HTML, CSS, JavaScript, and PHP. Users can browse the menu, place orders, and make payments online. The project integrates:
+
+- **Stripe** for secure payment processing.
+- **SB Admin 2 Template** for the admin dashboard UI.
+- **ContentBlocks Plugin** for managing dynamic content.
+
+## Features
+
+✅ Browse menu items  
+✅ Add items to cart & place orders online  
+✅ Secure payment processing with Stripe  
+✅ Admin dashboard for managing orders  
+✅ Dynamic content management with ContentBlocks  
+
+## Installation Guide
+
+### 1. Clone the Repository
 
 ```bash
-composer create-project --prefer-dist cakephp/app
+git clone https://git.infotech.monash.edu/UGIE/ugie-2024/team009/team009-app_fit3047.git
+cd team009-app_fit3047
 ```
 
-In case you want to use a custom app dir name (e.g. `/myapp/`):
+### 2. Install Dependencies
 
 ```bash
-composer create-project --prefer-dist cakephp/app myapp
+composer install
 ```
 
-You can now either use your machine's webserver to view the default home page, or start
-up the built-in webserver with:
+### 3. Database Setup
+
+- Create a MySQL database.
+- Copy `config/app.default.php` to `config/app.php` and update the database credentials.
+- Run migrations to create the database schema:
+  ```bash
+  bin/cake migrations migrate
+  ```
+
+### 4. Configure Stripe
+
+- Sign up for a [Stripe account](https://stripe.com).
+- Retrieve your API keys from the **Developers** section.
+- Set the Stripe API keys in `config/app.php`.
+
+### 5. Start the Development Server
 
 ```bash
-bin/cake server -p 8765
+bin/cake server
 ```
 
-Then visit `http://localhost:8765` to see the welcome page.
+### 6. Access the Application
 
-## Update
+Open your web browser and go to:
 
-Since this skeleton is a starting point for your application and various files
-would have been modified as per your needs, there isn't a way to provide
-automated upgrades, so you have to do any updates manually.
+🔗 [http://localhost:8765](http://localhost:8765)
 
-## Configuration
+## Usage Guide
 
-Read and edit the environment specific `config/app_local.php` and set up the
-`'Datasources'` and any other configuration relevant for your application.
-Other environment agnostic settings can be changed in `config/app.php`.
+### As a User:
+- Browse the menu and add items to the cart.
+- Checkout and securely pay using Stripe.
 
-## Layout
+### As an Admin:
+- Manage orders through the admin dashboard.
 
-The app skeleton uses [Milligram](https://milligram.io/) (v1.3) minimalist CSS
-framework by default. You can, however, replace it with any other library or
-custom styles.
+## Contributing
+
+### How to Contribute
+
+#### Using Command Line:
+
+1. Fork the repository.
+2. Create a new branch:
+   ```bash
+   git checkout -b feature-name
+   ```
+3. Commit your changes:
+   ```bash
+   git commit -m 'Add new feature'
+   ```
+4. Push to the branch:
+   ```bash
+   git push origin feature-name
+   ```
+5. Open a pull request.
+
+#### Using GitHub Desktop:
+
+1. Add the repository.
+2. Fetch the latest changes from `main`.
+3. Edit in PHPStorm or VS Code.
+4. Add a commit message like `'Add new feature'`.
+5. Click the **Commit** button.
+6. Push to `main`.
+
+## License
+
+This project is licensed under the [MIT License](https://en.wikipedia.org/wiki/MIT_License).
+
+## Acknowledgements
+
+- [SB Admin 2 Template](https://startbootstrap.com/theme/sb-admin-2)
+- [Stripe](https://stripe.com)
+- [CakePHP](https://cakephp.org)
+
+## Contact
+
+For any inquiries, please contact the **Developer Team**.
+
+## Copyright
+
+© 2024 Tasty Bites Kitchen. All rights reserved.
