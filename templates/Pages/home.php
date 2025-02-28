@@ -1,12 +1,13 @@
 <?php
-$error = $_SERVER["REDIRECT_STATUS"];
+$error = isset($_SERVER["REDIRECT_STATUS"]) ? $_SERVER["REDIRECT_STATUS"] : null;
 $error_title = '';
 $error_message = '';
-if ($error = 404) {
-    $error_title = '404 Page Not Found';
-    $error_message = ' The requested page could not be found.';
 
+if ($error == 404) {
+    $error_title = '404 Page Not Found';
+    $error_message = 'The requested page could not be found.';
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
